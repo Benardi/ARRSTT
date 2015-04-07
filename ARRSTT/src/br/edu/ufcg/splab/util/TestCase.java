@@ -17,6 +17,10 @@ public class TestCase implements List{
 		this.tCase = tCase;
 	}
 	
+	public TestCase(TestCase tCaseCopy){
+		this.tCase = tCaseCopy.getCopy();
+	}
+	
 	public TestCase(){
 		this(new ArrayList<InterfaceEdge>());
 	}
