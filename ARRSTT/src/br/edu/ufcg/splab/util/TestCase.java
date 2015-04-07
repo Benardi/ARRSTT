@@ -1,5 +1,6 @@
 package br.edu.ufcg.splab.util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -16,8 +17,21 @@ public class TestCase implements List{
 		this.tCase = tCase;
 	}
 	
+	public TestCase(TestCase tCaseCopy){
+		this.tCase = tCaseCopy.getCopy();
+	}
+	
+	public TestCase(){
+		this(new ArrayList<InterfaceEdge>());
+	}
+	
 	public List<InterfaceEdge> getTestCase(){
 		return tCase;
+	}
+	
+	public TestCase getCopy(){
+		List<InterfaceEdge> copyList = new ArrayList<InterfaceEdge>(tCase);
+		return new TestCase(copyList);
 	}
 
 	
@@ -85,7 +99,7 @@ public class TestCase implements List{
 
 	@Override
 	public boolean retainAll(Collection c) {		 
-		return tCase.removeAll(c);
+		return tCase.retainAll(c);
 	}
 
 	@Override
