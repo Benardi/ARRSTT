@@ -14,7 +14,7 @@ public class DepthFirstSearch {
 	List<List<InterfaceEdge>> paths = new ArrayList<List<InterfaceEdge>>();
 	
 	public List<List<InterfaceEdge>> search(InterfaceVertex vertex) {
-		if(vertex.isLeaf()) {  
+		if(vertex.isLeaf() && !paths.contains(testCase) && testCase.get(testCase.size() - 1).getTo().isLeaf()) {  
 			paths.add(testCase);
 		}
 		
@@ -26,24 +26,23 @@ public class DepthFirstSearch {
 				testCase.remove(testCase.size() - 1);
 			}
 		}
-
+		System.out.println(paths.toString());
 		return paths;
 	}
 	
 	public static void main(String[] args) { // Just for testing.
 		ReadTGF tgfReader = new ReadTGF();
 		try {
-			InterfaceGraph graph = tgfReader.getGraph("input_examples/simple_example.tgf");
+			InterfaceGraph graph = tgfReader.getGraph("input_examples/littlelittletoy.tgf");
 			DepthFirstSearch searchObject = new DepthFirstSearch();
 			List<List<InterfaceEdge>> paths = searchObject.search(graph.getRoot());
-			/*
 			for (List<InterfaceEdge> path: paths) {
 				for(InterfaceEdge e : path) {
 					System.out.print(e + "  ");
 				}
 				System.out.println();
 				System.out.println("=====================");
-			}*/
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
