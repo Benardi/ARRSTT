@@ -86,16 +86,7 @@ public class BreadthFirstSearch {
 	}
 
 	private List<InterfaceEdge> getNeighbors(InterfaceEdge edge) {
-		List<InterfaceEdge> returnEdges = new ArrayList<InterfaceEdge>();
-		
-		if (edge != null) {
-			InterfaceVertex to = edge.getTo();
-		    
-	    	for(InterfaceEdge e : to.getOutTransitions()) {
-	    		returnEdges.add(e);
-	    	}
-		}
-	    
-	    return returnEdges;
+        if (edge == null) return new ArrayList<InterfaceEdge>();
+        return new ArrayList<InterfaceEdge>(edge.getTo().getOutTransitions());
 	}
 }
