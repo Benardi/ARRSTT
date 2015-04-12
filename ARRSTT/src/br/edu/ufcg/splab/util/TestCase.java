@@ -8,9 +8,9 @@ import java.util.ListIterator;
 
 import br.edu.ufcg.splab.core.InterfaceEdge;
 
-public class TestCase implements List{
+public class TestCase implements List<InterfaceEdge>{
 	
-	List<InterfaceEdge> tCase;
+	private List<InterfaceEdge> tCase;
 	
 	
 	public TestCase(List<InterfaceEdge> tCase){
@@ -18,7 +18,7 @@ public class TestCase implements List{
 	}
 	
 	public TestCase(TestCase tCaseCopy){
-		this.tCase = tCaseCopy.getCopy();
+		this.tCase = tCaseCopy.getTestCaseCopy();
 	}
 	
 	public TestCase(){
@@ -29,129 +29,136 @@ public class TestCase implements List{
 		return tCase;
 	}
 	
+	public List<InterfaceEdge> getTestCaseCopy(){
+		return new ArrayList<InterfaceEdge>(tCase);
+	}
+	
 	public TestCase getCopy(){
 		List<InterfaceEdge> copyList = new ArrayList<InterfaceEdge>(tCase);
 		return new TestCase(copyList);
 	}
 
 	
+	// Forwarding part
 	
-	// The Forwarding part
 	@Override
 	public int size() {
 		return tCase.size();
 	}
 
 	@Override
-	public boolean isEmpty() {
+	public boolean isEmpty() {	 
 		return tCase.isEmpty();
 	}
 
 	@Override
-	public boolean contains(Object o) { 
+	public boolean contains(Object o) {	 
 		return tCase.contains(o);
 	}
 
 	@Override
-	public Iterator iterator() {
+	public Iterator<InterfaceEdge> iterator() {	 
 		return tCase.iterator();
 	}
 
 	@Override
-	public Object[] toArray() { 
+	public Object[] toArray() {	 
 		return tCase.toArray();
 	}
 
 	@Override
-	public Object[] toArray(Object[] a) {	 
+	public <T> T[] toArray(T[] a) {	 
 		return tCase.toArray(a);
 	}
 
 	@Override
-	public boolean add(Object e) {
-		return tCase.add((InterfaceEdge) e);
+	public boolean add(InterfaceEdge e) {	 
+		return tCase.add(e);
 	}
 
 	@Override
-	public boolean remove(Object o) {	 
+	public boolean remove(Object o) {
+		 
 		return tCase.remove(o);
 	}
 
 	@Override
-	public boolean containsAll(Collection c) {	 
+	public boolean containsAll(Collection<?> c) {	 
 		return tCase.containsAll(c);
 	}
 
 	@Override
-	public boolean addAll(Collection c) {	 
+	public boolean addAll(Collection<? extends InterfaceEdge> c) {	 
 		return tCase.addAll(c);
 	}
 
 	@Override
-	public boolean addAll(int index, Collection c) {		 
-		return tCase.addAll(index, c);
+	public boolean addAll(int index, Collection<? extends InterfaceEdge> c) {	 
+		return tCase.addAll(c);
 	}
 
 	@Override
-	public boolean removeAll(Collection c) {		 
+	public boolean removeAll(Collection<?> c) {	 
 		return tCase.removeAll(c);
 	}
 
 	@Override
-	public boolean retainAll(Collection c) {		 
+	public boolean retainAll(Collection<?> c) {	 
 		return tCase.retainAll(c);
 	}
 
 	@Override
-	public void clear() {		 
+	public void clear() {	 
 		tCase.clear();
 	}
 
 	@Override
-	public Object get(int index) {		 
+	public InterfaceEdge get(int index) {	 
 		return tCase.get(index);
 	}
 
 	@Override
-	public Object set(int index, Object element) {		 
-		return tCase.set(index, (InterfaceEdge) element);
+	public InterfaceEdge set(int index, InterfaceEdge element) {	 
+		return tCase.set(index, element);
 	}
 
 	@Override
-	public void add(int index, Object element) {
-		tCase.add(index, (InterfaceEdge) element);
-		
+	public void add(int index, InterfaceEdge element) {	 
+		tCase.add(index, element);
 	}
 
 	@Override
-	public Object remove(int index) {		 
+	public InterfaceEdge remove(int index) {	 
 		return tCase.remove(index);
 	}
 
 	@Override
-	public int indexOf(Object o) {		 
+	public int indexOf(Object o) {	 
 		return tCase.indexOf(o);
 	}
 
 	@Override
-	public int lastIndexOf(Object o) {		 
+	public int lastIndexOf(Object o) {	 
 		return tCase.lastIndexOf(o);
 	}
 
 	@Override
-	public ListIterator listIterator() {		 
+	public ListIterator<InterfaceEdge> listIterator() {	 
 		return tCase.listIterator();
 	}
 
 	@Override
-	public ListIterator listIterator(int index) {		 
+	public ListIterator<InterfaceEdge> listIterator(int index) {	 
 		return tCase.listIterator(index);
 	}
 
 	@Override
-	public List subList(int fromIndex, int toIndex) {
-		 
+	public List<InterfaceEdge> subList(int fromIndex, int toIndex) {
 		return tCase.subList(fromIndex, toIndex);
 	}
+
+	
+	
+
 
 }
