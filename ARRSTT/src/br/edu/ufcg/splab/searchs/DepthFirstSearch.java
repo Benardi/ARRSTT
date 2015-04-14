@@ -7,23 +7,24 @@ import br.edu.ufcg.splab.core.InterfaceEdge;
 import br.edu.ufcg.splab.core.InterfaceGraph;
 import br.edu.ufcg.splab.core.InterfaceVertex;
 import br.edu.ufcg.splab.parser.ReadTGF;
+import br.edu.ufcg.splab.util.TestCase;
 
 public class DepthFirstSearch {
 	List<InterfaceEdge> visited = new ArrayList<InterfaceEdge>();
-	List<InterfaceEdge> testCase = new ArrayList<InterfaceEdge>();
-	List<List<InterfaceEdge>> paths = new ArrayList<List<InterfaceEdge>>();
+	TestCase tCase = new TestCase();
+	List<TestCase> paths = new ArrayList<TestCase>();
 	
-	public List<List<InterfaceEdge>> search(InterfaceVertex vertex) {
-		if(vertex.isLeaf() && !paths.contains(testCase) && testCase.get(testCase.size() - 1).getTo().isLeaf()) {  
-			paths.add(testCase);
+	public List<TestCase> search(InterfaceVertex vertex) {
+		if(vertex.isLeaf() && !paths.contains(tCase) && tCase.get(tCase.size() - 1).getTo().isLeaf()) {  
+			paths.add(tCase);
 		}
 		
 		for (InterfaceEdge edge : vertex.getOutTransitions()) {
 			if(!visited.contains(edge)) {
 				visited.add(edge);
-				testCase.add(edge);
+				tCase.add(edge);
 				search(edge.getTo());
-				testCase.remove(testCase.size() - 1);
+				tCase.remove(tCase.size() - 1);
 			}
 		}
 		System.out.println(paths.toString());
@@ -35,7 +36,7 @@ public class DepthFirstSearch {
 		try {
 			InterfaceGraph graph = tgfReader.getGraph("input_examples/littlelittletoy.tgf");
 			DepthFirstSearch searchObject = new DepthFirstSearch();
-			List<List<InterfaceEdge>> paths = searchObject.search(graph.getRoot());
+			List<TestCase> paths = searchObject.search(graph.getRoot());
 			for (List<InterfaceEdge> path: paths) {
 				for(InterfaceEdge e : path) {
 					System.out.print(e + "  ");
