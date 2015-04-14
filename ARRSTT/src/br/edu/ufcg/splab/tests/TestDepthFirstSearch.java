@@ -73,11 +73,11 @@ public class TestDepthFirstSearch {
 		
 		graph = tgfReader.getGraph("/ARRSTT/input_examples/iaron_difficulttoy3.tgf");
 		cases = searchObject.search(graph.getRoot());
-		Assert.assertEquals(11, cases.size());
+		Assert.assertEquals(10, cases.size());
 		
 		graph = tgfReader.getGraph("/ARRSTT/input_examples/iaron_difficulttoy4.tgf");
 		cases = searchObject.search(graph.getRoot());
-		Assert.assertEquals(13, cases.size());
+		Assert.assertEquals(12, cases.size());
 		
 		// Real graphs
 		
@@ -87,7 +87,7 @@ public class TestDepthFirstSearch {
 		
 		graph = tgfReader.getGraph("/ARRSTT/input_examples/Dark_Souls_2_Chest.tgf");
 		cases = searchObject.search(graph.getRoot());
-		Assert.assertEquals(6, cases.size());
+		Assert.assertEquals(7, cases.size());
 	}
 
 }
