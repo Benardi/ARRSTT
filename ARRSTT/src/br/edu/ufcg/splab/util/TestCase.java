@@ -156,6 +156,22 @@ public class TestCase implements List<InterfaceEdge>{
 	public List<InterfaceEdge> subList(int fromIndex, int toIndex) {
 		return tCase.subList(fromIndex, toIndex);
 	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if(!(obj instanceof TestCase)) return false;
+		TestCase other = (TestCase) obj;
+		if(tCase.equals(other.getTestCase())){
+			return true;
+		} else{
+			return false;
+		}
+	}
+	
+	@Override
+	public String toString(){
+		return tCase.toString();
+	}
 
 	
 	
