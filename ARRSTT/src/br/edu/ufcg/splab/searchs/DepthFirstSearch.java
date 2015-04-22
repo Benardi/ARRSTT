@@ -30,6 +30,7 @@ public class DepthFirstSearch {
 		
 		for (InterfaceEdge edge : vertex.getOutTransitions()) {
 			
+			// Fill harshmap with zeros
 			if(!(vertexCoverage.containsKey(edge))){
 				vertexCoverage.put(edge, 0);
 			}
@@ -39,12 +40,14 @@ public class DepthFirstSearch {
 			tCase.push(edge);
 				
 			if (vertexCoverage.get(edge) != loopCoverage){
-				vertexCoverage.put(edge, value + 1);
+				value = value.intValue() +1;
+				vertexCoverage.put(edge, value);
 				search(edge.getTo(), tCase, testSuite, loopCoverage);
 			}
 			
 			tCase.pop();
-			vertexCoverage.put(edge, value - 1);
+			value = value.intValue() - 1;
+			vertexCoverage.put(edge, value);
 		}
 		
 		return testSuite;
@@ -53,7 +56,7 @@ public class DepthFirstSearch {
 	public static void main(String[] args) { // Just for testing.
 		ReadTGF tgfReader = new ReadTGF();
 		try {
-			InterfaceGraph graph = tgfReader.getGraph("C:\\Users\\Iaron\\git\\Application-of-Reproducibility-Research-with-Software-Testing-Techniques\\ARRSTT\\input_examples\\littlelittletoy.tgf");
+			InterfaceGraph graph = tgfReader.getGraph("/home/iaronca/Área de Trabalho/Application-of-Reproducibility-Research-with-Software-Testing-Techniques-master/ARRSTT/input_examples/loopy3.tgf");
 			DepthFirstSearch searchObject = new DepthFirstSearch();
 			long time = System.currentTimeMillis();
 			List<TestCase> paths = searchObject.getTestSuite(graph.getRoot(), 2);
