@@ -1,8 +1,8 @@
 package br.edu.ufcg.splab.searchs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -10,7 +10,6 @@ import java.util.Queue;
 import br.edu.ufcg.splab.core.InterfaceEdge;
 import br.edu.ufcg.splab.core.InterfaceGraph;
 import br.edu.ufcg.splab.core.InterfaceVertex;
-import br.edu.ufcg.splab.core.edges.Edge;
 import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
 
@@ -18,13 +17,14 @@ public class BreadthFirstSearch {
 	public static void main(String[] args) {
 		try {
 			ReadTGF tgfReader = new ReadTGF();
-			InterfaceGraph graph = tgfReader.getGraph("put_path_here.tgf");
+			InterfaceGraph graph = tgfReader.getGraph("input_examples/outroLoop.tgf");
 			BreadthFirstSearch searchObject = new BreadthFirstSearch();
 			
 			long time = System.currentTimeMillis();
 			searchObject.getTestSuite(graph.getRoot(), 1);
 			System.out.println(System.currentTimeMillis() - time);
-			for (List<InterfaceEdge> testCase: searchObject.getTestSuite(graph.getRoot(), 1)) {
+			List<TestCase> testSuite = searchObject.getTestSuite(graph.getRoot(), 1);
+			for (List<InterfaceEdge> testCase: testSuite) {
 				for(InterfaceEdge e : testCase) {
 					System.out.print(e + "  ");
 				}
@@ -92,7 +92,11 @@ public class BreadthFirstSearch {
 	private void takeOut(TestCase testCase, List<TestCase> testSuite) {
 		HashMap<InterfaceEdge, Integer> coverageMap = new HashMap<InterfaceEdge, Integer>();
 		
-		for (InterfaceEdge edge : testCase) {
+		Iterator<InterfaceEdge> iterator = testCase.iterator();
+		
+		while(iterator.hasNext()){
+		//for (InterfaceEdge edge : testCase) {
+			InterfaceEdge edge = iterator.next();
 			if (!coverageMap.containsKey(edge)) {
 				coverageMap.put(edge, 0);
 			} else {
