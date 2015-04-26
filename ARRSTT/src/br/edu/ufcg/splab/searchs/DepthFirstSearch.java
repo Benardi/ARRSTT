@@ -2,6 +2,7 @@ package br.edu.ufcg.splab.searchs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
 
@@ -12,13 +13,18 @@ import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
 
 public class DepthFirstSearch {
-	private static HashMap<InterfaceEdge, Integer> vertexCoverage;  // TIRAR STATIC
+	private HashMap<InterfaceEdge, Integer> vertexCoverage;  // TIRAR STATIC AGORA!!!!!!!!!!
 	
+	public HashMap<InterfaceEdge, Integer> getVertexCoverage() {
+		return vertexCoverage;
+	}
+
 	public DepthFirstSearch() {
 		vertexCoverage = new HashMap<InterfaceEdge, Integer>();
 	}
 	
 	public List<TestCase> getTestSuite(InterfaceVertex root, Integer loopCoverage) {
+		
 		return search(root, new Stack<InterfaceEdge>(), new ArrayList<TestCase>(), loopCoverage);
 		// Lembrar de limpar o Mapa
 	}
@@ -27,7 +33,7 @@ public class DepthFirstSearch {
 		if (vertex.isLeaf() && !testSuite.contains(tCase)) {  
 			testSuite.add(new TestCase(new ArrayList<InterfaceEdge>(tCase)));
 		}
-		
+				
 		for (InterfaceEdge edge : vertex.getOutTransitions()) {
 			
 			// Fill harshmap with zeros
@@ -41,6 +47,7 @@ public class DepthFirstSearch {
 				
 			if (vertexCoverage.get(edge) != loopCoverage){
 				value = value.intValue() +1;
+				
 				vertexCoverage.put(edge, value);
 				search(edge.getTo(), tCase, testSuite, loopCoverage);
 			}
@@ -48,15 +55,14 @@ public class DepthFirstSearch {
 			tCase.pop();
 			value = value.intValue() - 1;
 			vertexCoverage.put(edge, value);
-		}
-		
+		}		
 		return testSuite;
 	}
 	
 	public static void main(String[] args) { // Just for testing.
 		ReadTGF tgfReader = new ReadTGF();
 		try {
-			InterfaceGraph graph = tgfReader.getGraph("/home/iaronca/Área de Trabalho/Application-of-Reproducibility-Research-with-Software-Testing-Techniques-master/ARRSTT/input_examples/loopy3.tgf");
+			InterfaceGraph graph = tgfReader.getGraph("input_examples/outroLoop.tgf");
 			DepthFirstSearch searchObject = new DepthFirstSearch();
 			long time = System.currentTimeMillis();
 			List<TestCase> paths = searchObject.getTestSuite(graph.getRoot(), 2);
@@ -69,7 +75,7 @@ public class DepthFirstSearch {
 				System.out.println("=====================");
 			}
 			
-			System.out.println(vertexCoverage);
+			System.out.println(searchObject.getVertexCoverage());
 			
 		} catch(Exception e) {
 			e.printStackTrace();
