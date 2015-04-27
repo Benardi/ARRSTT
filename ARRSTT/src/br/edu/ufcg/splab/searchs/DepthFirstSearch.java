@@ -13,23 +13,25 @@ import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
 
 public class DepthFirstSearch {
-	private HashMap<InterfaceEdge, Integer> vertexCoverage;  // TIRAR STATIC AGORA!!!!!!!!!!
+	private HashMap<InterfaceEdge, Integer> vertexCoverage;
+	private Stack<InterfaceEdge> tCase;
 	
 	public HashMap<InterfaceEdge, Integer> getVertexCoverage() {
 		return vertexCoverage;
 	}
 
 	public DepthFirstSearch() {
+		tCase = new Stack<InterfaceEdge>();
 		vertexCoverage = new HashMap<InterfaceEdge, Integer>();
 	}
 	
 	public List<TestCase> getTestSuite(InterfaceVertex root, Integer loopCoverage) {
 		
-		return search(root, new Stack<InterfaceEdge>(), new ArrayList<TestCase>(), loopCoverage);
+		return search(root, new ArrayList<TestCase>(), loopCoverage);
 		// Lembrar de limpar o Mapa
 	}
 	
-	private List<TestCase> search(InterfaceVertex vertex, Stack<InterfaceEdge> tCase, List<TestCase> testSuite, Integer loopCoverage) {
+	private List<TestCase> search(InterfaceVertex vertex, List<TestCase> testSuite, Integer loopCoverage) {
 		if (vertex.isLeaf() && !testSuite.contains(tCase)) {  
 			testSuite.add(new TestCase(new ArrayList<InterfaceEdge>(tCase)));
 		}
@@ -49,7 +51,7 @@ public class DepthFirstSearch {
 				value = value.intValue() +1;
 				
 				vertexCoverage.put(edge, value);
-				search(edge.getTo(), tCase, testSuite, loopCoverage);
+				search(edge.getTo(), testSuite, loopCoverage);
 			}
 			
 			tCase.pop();
