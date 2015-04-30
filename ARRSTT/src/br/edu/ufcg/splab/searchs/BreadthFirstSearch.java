@@ -17,66 +17,81 @@ public class BreadthFirstSearch {
 	public static void main(String[] args) {
 		try {
 			ReadTGF tgfReader = new ReadTGF();
-			InterfaceGraph graph = tgfReader.getGraph("input_examples/outroLoop.tgf");
+			InterfaceGraph graph = tgfReader
+					.getGraph("input_examples/outroLoop.tgf");
 			BreadthFirstSearch searchObject = new BreadthFirstSearch();
-			
+
 			long time = System.currentTimeMillis();
 			searchObject.getTestSuite(graph.getRoot(), 1);
 			System.out.println(System.currentTimeMillis() - time);
-			List<TestCase> testSuite = searchObject.getTestSuite(graph.getRoot(), 1);
-			for (List<InterfaceEdge> testCase: testSuite) {
-				for(InterfaceEdge e : testCase) {
+			List<TestCase> testSuite = searchObject.getTestSuite(
+					graph.getRoot(), 1);
+			for (List<InterfaceEdge> testCase : testSuite) {
+				for (InterfaceEdge e : testCase) {
 					System.out.print(e + "  ");
 				}
 				System.out.println();
 				System.out.println("=====================");
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			
-	}	
-	
+
+	}
+
 	private int nLoopCoverage;
 	private List<InterfaceEdge> notToVisitEdges;
-	
-	public List<TestCase> getTestSuite(InterfaceVertex root, Integer nLoopCoverage) {
-	   return search(root, nLoopCoverage);
+
+	public List<TestCase> getTestSuite(InterfaceVertex root,
+			Integer nLoopCoverage) {
+		return search(root, nLoopCoverage);
 	}
-	    
+
 	private List<TestCase> search(InterfaceVertex root, Integer nLoopCoverage) {
 		this.notToVisitEdges = new ArrayList<InterfaceEdge>();
 		this.nLoopCoverage = nLoopCoverage;
-		
+
 		List<TestCase> testSuite = initializeTestSuite(root);
+		Queue<InterfaceEdge> queue = initializeQueue(root);
+		manageTestSuite(queue, testSuite);
+		return testSuite;
+	}
+
+	private Queue<InterfaceEdge> initializeQueue(InterfaceVertex root) {
 		Queue<InterfaceEdge> queue = new LinkedList<InterfaceEdge>();
 		queue.addAll(root.getOutTransitions());
-	        
-		while (!queue.isEmpty()) { 
-			divideTestSuite(dequeue(queue), testSuite);
-		}
-	    
-		cleanTestSuite(testSuite);
-	    return testSuite;
+		return queue;
 	}
-	    
+
 	private InterfaceEdge dequeue(Queue<InterfaceEdge> queue) {
 		InterfaceEdge actualEdge = queue.poll();
-	            
-		if (!actualEdge.getTo().isLeaf() && !notToVisitEdges.contains(actualEdge)) {
+
+		if (!actualEdge.getTo().isLeaf()
+				&& !notToVisitEdges.contains(actualEdge)) {
 			queue.addAll(actualEdge.getTo().getOutTransitions());
 		}
-	        
+
 		return actualEdge;
 	}
-	    
-	private void divideTestSuite(InterfaceEdge actualEdge, List<TestCase> testSuite) {
+
+	private void manageTestSuite(Queue<InterfaceEdge> queue,
+			List<TestCase> testSuite) {
+		while (!queue.isEmpty()) {
+			splitTestSuite(dequeue(queue), testSuite);
+		}
+		cleanTestSuite(testSuite);
+	}
+
+	private void splitTestSuite(InterfaceEdge actualEdge,
+			List<TestCase> testSuite) {
 		int loopEnd = testSuite.size();
-		List<TestCase> uselessTestCases = new ArrayList<TestCase>(); 
-		
+		List<TestCase> uselessTestCases = new ArrayList<TestCase>();
+
 		for (InterfaceEdge e : actualEdge.getTo().getOutTransitions()) {
 			for (int i = 0; i < loopEnd; i++) {
-				if (testSuite.get(i).get(testSuite.get(i).size() - 1).equals(actualEdge) && !notToVisitEdges.contains(e)) {
+				if (testSuite.get(i).get(testSuite.get(i).size() - 1)
+						.equals(actualEdge)
+						&& !notToVisitEdges.contains(e)) {
 					TestCase newTestCase = new TestCase(testSuite.get(i));
 					newTestCase.add(e);
 					testSuite.add(newTestCase);
@@ -85,62 +100,65 @@ public class BreadthFirstSearch {
 				}
 			}
 		}
-			
+
 		testSuite.removeAll(uselessTestCases);
 	}
-	
+
 	private void takeOut(TestCase testCase, List<TestCase> testSuite) {
 		HashMap<InterfaceEdge, Integer> coverageMap = new HashMap<InterfaceEdge, Integer>();
-		
+
 		Iterator<InterfaceEdge> iterator = testCase.iterator();
-		
-		while(iterator.hasNext()){
-		//for (InterfaceEdge edge : testCase) {
+
+		while (iterator.hasNext()) {
+			// for (InterfaceEdge edge : testCase) {
 			InterfaceEdge edge = iterator.next();
 			if (!coverageMap.containsKey(edge)) {
 				coverageMap.put(edge, 0);
 			} else {
 				coverageMap.put(edge, coverageMap.get(edge) + 1);
 			}
-			
-			if (coverageMap.get(edge) >= nLoopCoverage && elementFrequency(testCase, testCase.get(testCase.size() - 2)) == 1 && testCase.size() > 1) {
+
+			if (coverageMap.get(edge) >= nLoopCoverage
+					&& elementFrequency(testCase,
+							testCase.get(testCase.size() - 2)) == 1
+					&& testCase.size() > 1) {
 				notToVisitEdges.add(testCase.get(testCase.size() - 2));
 				break;
 			}
- 		}
+		}
 	}
-	
+
 	private int elementFrequency(TestCase testCase, InterfaceEdge edge) {
 		int frequency = 0;
-		
+
 		for (InterfaceEdge e : testCase) {
 			if (edge.equals(e)) {
 				frequency++;
 			}
 		}
-		
+
 		return frequency;
 	}
-	
+
 	private void cleanTestSuite(List<TestCase> testSuite) {
 		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite);
-		
+
 		for (TestCase e : testSuiteCopy) {
 			if (!e.get(e.size() - 1).getTo().isLeaf()) {
 				testSuite.remove(e);
 			}
 		}
 	}
-	
+
 	private List<TestCase> initializeTestSuite(InterfaceVertex root) {
 		List<TestCase> testSuite = new ArrayList<TestCase>();
-	    	
+
 		for (InterfaceEdge i : root.getOutTransitions()) {
 			TestCase tempTestCase = new TestCase();
 			tempTestCase.add(i);
 			testSuite.add(tempTestCase);
 		}
-			
+
 		return testSuite;
 	}
 }
