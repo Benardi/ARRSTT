@@ -105,7 +105,7 @@ public class Graph extends AbstractGraph{
 	public static void main(String[] args) {
 		Graph g = new Graph();
 		System.out.println(g.getRoot());
-		Vertex v = new Vertex("a");
+		//Vertex v = new Vertex("a");
 		g.addVertex("a");
 		g.addVertex("a");
 		//g.setRoot(v);
