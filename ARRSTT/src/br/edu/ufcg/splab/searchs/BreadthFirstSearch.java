@@ -13,19 +13,18 @@ import br.edu.ufcg.splab.core.InterfaceVertex;
 import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
 
-public class BreadthFirstSearch {
+public class BreadthFirstSearch implements InterfaceSearch {
 	public static void main(String[] args) {
 		try {
 			ReadTGF tgfReader = new ReadTGF();
-			InterfaceGraph graph = tgfReader
-					.getGraph("input_examples/outroLoop.tgf");
+			InterfaceGraph graph = tgfReader.getGraph("input_examples/sonic_hedgehog.tgf");
 			BreadthFirstSearch searchObject = new BreadthFirstSearch();
 
 			long time = System.currentTimeMillis();
-			searchObject.getTestSuite(graph.getRoot(), 1);
+			searchObject.getTestSuite(graph.getRoot(), 0);
 			System.out.println(System.currentTimeMillis() - time);
 			List<TestCase> testSuite = searchObject.getTestSuite(
-					graph.getRoot(), 1);
+					graph.getRoot(), 0);
 			for (List<InterfaceEdge> testCase : testSuite) {
 				for (InterfaceEdge e : testCase) {
 					System.out.print(e + "  ");
@@ -33,6 +32,8 @@ public class BreadthFirstSearch {
 				System.out.println();
 				System.out.println("=====================");
 			}
+			
+			System.out.println(testSuite.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -43,7 +44,7 @@ public class BreadthFirstSearch {
 	private List<InterfaceEdge> notToVisitEdges;
 
 	public List<TestCase> getTestSuite(InterfaceVertex root,
-			Integer nLoopCoverage) {
+			int nLoopCoverage) {
 		return search(root, nLoopCoverage);
 	}
 
@@ -118,28 +119,15 @@ public class BreadthFirstSearch {
 				coverageMap.put(edge, coverageMap.get(edge) + 1);
 			}
 
-			if (coverageMap.get(edge) >= nLoopCoverage
-					&& elementFrequency(testCase,
-							testCase.get(testCase.size() - 2)) == 1
+			if (coverageMap.get(edge) > nLoopCoverage
 					&& testCase.size() > 1) {
-				notToVisitEdges.add(testCase.get(testCase.size() - 2));
+				notToVisitEdges.add(testCase.get(testCase.size() - 1));
+				testSuite.remove(testCase);
 				break;
 			}
 		}
 	}
-
-	private int elementFrequency(TestCase testCase, InterfaceEdge edge) {
-		int frequency = 0;
-
-		for (InterfaceEdge e : testCase) {
-			if (edge.equals(e)) {
-				frequency++;
-			}
-		}
-
-		return frequency;
-	}
-
+	
 	private void cleanTestSuite(List<TestCase> testSuite) {
 		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite);
 
