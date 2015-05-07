@@ -11,7 +11,7 @@ import br.edu.ufcg.splab.core.InterfaceVertex;
 import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
 
-public class DepthFirstSearch {
+public class DepthFirstSearch implements InterfaceSearch {
 	private HashMap<InterfaceEdge, Integer> vertexCoverage;
 	private Stack<InterfaceEdge> tCase;
 	private List<TestCase> testSuite;
@@ -26,7 +26,7 @@ public class DepthFirstSearch {
 		testSuite = new ArrayList<TestCase>(); // verificar redundancia com linha 31
 	}
 	
-	public List<TestCase> getTestSuite(InterfaceVertex root, Integer loopCoverage) {
+	public List<TestCase> getTestSuite(InterfaceVertex root, int loopCoverage) {
 		testSuite = new ArrayList<TestCase>(); // verificar redundancia com linha 27
 		search(root, loopCoverage);
 		return testSuite;
