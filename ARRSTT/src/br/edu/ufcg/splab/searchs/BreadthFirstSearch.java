@@ -13,11 +13,15 @@ import br.edu.ufcg.splab.core.InterfaceVertex;
 import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
 
+/**
+ * Class that represents the breadth first search algorithm.
+ */
 public class BreadthFirstSearch implements InterfaceSearch {
 	public static void main(String[] args) {
 		try {
 			ReadTGF tgfReader = new ReadTGF();
-			InterfaceGraph graph = tgfReader.getGraph("input_examples/sonic_hedgehog.tgf");
+			InterfaceGraph graph = tgfReader
+					.getGraph("input_examples/sonic_hedgehog.tgf");
 			BreadthFirstSearch searchObject = new BreadthFirstSearch();
 
 			long time = System.currentTimeMillis();
@@ -32,7 +36,7 @@ public class BreadthFirstSearch implements InterfaceSearch {
 				System.out.println();
 				System.out.println("=====================");
 			}
-			
+
 			System.out.println(testSuite.size());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,8 +47,14 @@ public class BreadthFirstSearch implements InterfaceSearch {
 	private int nLoopCoverage;
 	private List<InterfaceEdge> notToVisitEdges;
 
-	public List<TestCase> getTestSuite(InterfaceVertex root,
-			int nLoopCoverage) {
+	/**
+	 * 
+	 * @param root
+	 *            The graph's root
+	 * 
+	 * @return testSuite The group of paths within the graph.
+	 */
+	public List<TestCase> getTestSuite(InterfaceVertex root, int nLoopCoverage) {
 		return search(root, nLoopCoverage);
 	}
 
@@ -119,15 +129,14 @@ public class BreadthFirstSearch implements InterfaceSearch {
 				coverageMap.put(edge, coverageMap.get(edge) + 1);
 			}
 
-			if (coverageMap.get(edge) > nLoopCoverage
-					&& testCase.size() > 1) {
+			if (coverageMap.get(edge) > nLoopCoverage && testCase.size() > 1) {
 				notToVisitEdges.add(testCase.get(testCase.size() - 1));
 				testSuite.remove(testCase);
 				break;
 			}
 		}
 	}
-	
+
 	private void cleanTestSuite(List<TestCase> testSuite) {
 		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite);
 
