@@ -37,5 +37,4 @@ private InterfaceSearch search;
 		this.search = search;
 	}
 
-
 }
