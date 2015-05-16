@@ -2,19 +2,17 @@ package br.edu.ufcg.splab.searchs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Stack;
 
 import br.edu.ufcg.splab.core.InterfaceEdge;
-import br.edu.ufcg.splab.core.InterfaceGraph;
 import br.edu.ufcg.splab.core.InterfaceVertex;
-import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
+import br.edu.ufcg.splab.util.TestSuite;
 
 public class DepthFirstSearch implements InterfaceSearch {
 	private HashMap<InterfaceEdge, Integer> vertexCoverage;
 	private Stack<InterfaceEdge> tCase;
-	private List<TestCase> testSuite;
+	private TestSuite testSuite;
 	
 	public HashMap<InterfaceEdge, Integer> getVertexCoverage() {
 		return vertexCoverage;
@@ -23,11 +21,11 @@ public class DepthFirstSearch implements InterfaceSearch {
 	public DepthFirstSearch() {
 		tCase = new Stack<InterfaceEdge>();
 		vertexCoverage = new HashMap<InterfaceEdge, Integer>();
-		testSuite = new ArrayList<TestCase>(); // verificar redundancia com linha 31
+		testSuite = new TestSuite(); // verificar redundancia com linha 31
 	}
 	
-	public List<TestCase> getTestSuite(InterfaceVertex root, int loopCoverage) {
-		testSuite = new ArrayList<TestCase>(); // verificar redundancia com linha 27
+	public TestSuite getTestSuite(InterfaceVertex root, int loopCoverage) {
+		testSuite = new TestSuite(); // verificar redundancia com linha 27
 		search(root, loopCoverage);
 		return testSuite;
 	}
@@ -58,28 +56,5 @@ public class DepthFirstSearch implements InterfaceSearch {
 			value = value.intValue() - 1;
 			vertexCoverage.put(edge, value);
 		}		
-	}
-	
-	public static void main(String[] args) { // Just for testing.
-		ReadTGF tgfReader = new ReadTGF();
-		try {
-			InterfaceGraph graph = tgfReader.getGraph("input_examples/loopytoy8.tgf");
-			DepthFirstSearch searchObject = new DepthFirstSearch();
-			long time = System.currentTimeMillis();
-			List<TestCase> paths = searchObject.getTestSuite(graph.getRoot(), 0);
-			System.out.println(System.currentTimeMillis() - time);
-			for (List<InterfaceEdge> path: paths) {
-				for(InterfaceEdge e : path) {
-					System.out.print(e + "  ");
-				}
-				System.out.println();
-				System.out.println("=====================");
-			}
-			
-			System.out.println(searchObject.getVertexCoverage());
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 	}
 }

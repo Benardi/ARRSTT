@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment;
+package br.edu.ufcg.splab.experiment.useless;
 
 import java.io.BufferedWriter;
 import java.io.File;
