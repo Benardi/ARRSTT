@@ -8,147 +8,72 @@ import java.util.List;
 import java.util.Queue;
 
 import br.edu.ufcg.splab.core.InterfaceEdge;
-import br.edu.ufcg.splab.core.InterfaceGraph;
 import br.edu.ufcg.splab.core.InterfaceVertex;
-import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.util.TestCase;
+import br.edu.ufcg.splab.util.TestSuite;
 
 /**
- * Class that represents the breadth first search algorithm.
+ * Class to search root to leaf paths on a graph
+ * based on the BFS algorithm. 
+ * 
+ * @author Wesley
+ *
  */
 public class BreadthFirstSearch implements InterfaceSearch {
-	public static void main(String[] args) {
-		try {
-			ReadTGF tgfReader = new ReadTGF();
-			InterfaceGraph graph = tgfReader
-					.getGraph("input_examples/sonic_hedgehog.tgf");
-			BreadthFirstSearch searchObject = new BreadthFirstSearch();
-
-			long time = System.currentTimeMillis();
-			searchObject.getTestSuite(graph.getRoot(), 0);
-			System.out.println(System.currentTimeMillis() - time);
-			List<TestCase> testSuite = searchObject.getTestSuite(
-					graph.getRoot(), 0);
-			for (List<InterfaceEdge> testCase : testSuite) {
-				for (InterfaceEdge e : testCase) {
-					System.out.print(e + "  ");
-				}
-				System.out.println();
-				System.out.println("=====================");
-			}
-
-			System.out.println(testSuite.size());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	private int nLoopCoverage;
-	private List<InterfaceEdge> notToVisitEdges;
-
 	/**
-	 * 
-	 * @param root
-	 *            The graph's root
-	 * 
-	 * @return testSuite The group of paths within the graph.
+	 * The list of edges that the search cannot visit anymore.
 	 */
-	public List<TestCase> getTestSuite(InterfaceVertex root, int nLoopCoverage) {
+	private List<InterfaceEdge> notToVisitEdges;
+	/**
+	 * A queue that tells the algorithm the order and edges to search.
+	 */
+	private Queue<InterfaceEdge> queue;
+	/**
+	 * The test suite that will be generated.
+	 */
+	private TestSuite testSuite;
+	/**
+	 * An integer representing the loop coverage of the algorithm.
+	 */
+	private int nLoopCoverage;
+
+	public TestSuite getTestSuite(InterfaceVertex root, int nLoopCoverage) {
 		return search(root, nLoopCoverage);
 	}
 
-	private List<TestCase> search(InterfaceVertex root, Integer nLoopCoverage) {
+	/**
+	 * Initialize attributes and call for manageTestSuite() that
+	 * will put the testCases inside the testSuite.
+	 * 
+	 * @param root
+	 * 			The root of the searching graph.
+	 * @param nLoopCoverage
+	 * 			A number representing the loop coverage of the search.
+	 * @return
+	 * 			The test suite.
+	 */
+	private TestSuite search(InterfaceVertex root, Integer nLoopCoverage) {
 		this.notToVisitEdges = new ArrayList<InterfaceEdge>();
+		this.testSuite = initializeTestSuite(root);
+		this.queue = initializeQueue(root);
 		this.nLoopCoverage = nLoopCoverage;
-
-		List<TestCase> testSuite = initializeTestSuite(root);
-		Queue<InterfaceEdge> queue = initializeQueue(root);
-		manageTestSuite(queue, testSuite);
+		
+		manageTestSuite();
 		return testSuite;
 	}
-
-	private Queue<InterfaceEdge> initializeQueue(InterfaceVertex root) {
-		Queue<InterfaceEdge> queue = new LinkedList<InterfaceEdge>();
-		queue.addAll(root.getOutTransitions());
-		return queue;
-	}
-
-	private InterfaceEdge dequeue(Queue<InterfaceEdge> queue) {
-		InterfaceEdge actualEdge = queue.poll();
-
-		if (!actualEdge.getTo().isLeaf()
-				&& !notToVisitEdges.contains(actualEdge)) {
-			queue.addAll(actualEdge.getTo().getOutTransitions());
-		}
-
-		return actualEdge;
-	}
-
-	private void manageTestSuite(Queue<InterfaceEdge> queue,
-			List<TestCase> testSuite) {
-		while (!queue.isEmpty()) {
-			splitTestSuite(dequeue(queue), testSuite);
-		}
-		cleanTestSuite(testSuite);
-	}
-
-	private void splitTestSuite(InterfaceEdge actualEdge,
-			List<TestCase> testSuite) {
-		int loopEnd = testSuite.size();
-		List<TestCase> uselessTestCases = new ArrayList<TestCase>();
-
-		for (InterfaceEdge e : actualEdge.getTo().getOutTransitions()) {
-			for (int i = 0; i < loopEnd; i++) {
-				if (testSuite.get(i).get(testSuite.get(i).size() - 1)
-						.equals(actualEdge)
-						&& !notToVisitEdges.contains(e)) {
-					TestCase newTestCase = new TestCase(testSuite.get(i));
-					newTestCase.add(e);
-					testSuite.add(newTestCase);
-					takeOut(newTestCase, testSuite);
-					uselessTestCases.add(testSuite.get(i));
-				}
-			}
-		}
-
-		testSuite.removeAll(uselessTestCases);
-	}
-
-	private void takeOut(TestCase testCase, List<TestCase> testSuite) {
-		HashMap<InterfaceEdge, Integer> coverageMap = new HashMap<InterfaceEdge, Integer>();
-
-		Iterator<InterfaceEdge> iterator = testCase.iterator();
-
-		while (iterator.hasNext()) {
-			// for (InterfaceEdge edge : testCase) {
-			InterfaceEdge edge = iterator.next();
-			if (!coverageMap.containsKey(edge)) {
-				coverageMap.put(edge, 0);
-			} else {
-				coverageMap.put(edge, coverageMap.get(edge) + 1);
-			}
-
-			if (coverageMap.get(edge) > nLoopCoverage && testCase.size() > 1) {
-				notToVisitEdges.add(testCase.get(testCase.size() - 1));
-				testSuite.remove(testCase);
-				break;
-			}
-		}
-	}
-
-	private void cleanTestSuite(List<TestCase> testSuite) {
-		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite);
-
-		for (TestCase e : testSuiteCopy) {
-			if (!e.get(e.size() - 1).getTo().isLeaf()) {
-				testSuite.remove(e);
-			}
-		}
-	}
-
-	private List<TestCase> initializeTestSuite(InterfaceVertex root) {
-		List<TestCase> testSuite = new ArrayList<TestCase>();
+	
+	/**
+	 * Initialize a new test suite variable with test cases
+	 * containing all the root's out transition edges. Each
+	 * edge goes a different test case.
+	 * 
+	 * @param root
+	 * 			The root of the searching graph.
+	 * @return
+	 * 			The created test suite.
+	 */
+	private TestSuite initializeTestSuite(InterfaceVertex root) {
+		TestSuite testSuite = new TestSuite();
 
 		for (InterfaceEdge i : root.getOutTransitions()) {
 			TestCase tempTestCase = new TestCase();
@@ -157,5 +82,123 @@ public class BreadthFirstSearch implements InterfaceSearch {
 		}
 
 		return testSuite;
+	}
+
+	/**
+	 * Initialize a new queue with all the root's out
+	 * transitions in it.
+	 * 
+	 * @param root
+	 * 			The root of the searching graph.
+	 * @return
+	 * 			The created queue.
+	 */
+	private Queue<InterfaceEdge> initializeQueue(InterfaceVertex root) {
+		Queue<InterfaceEdge> queue = new LinkedList<InterfaceEdge>();
+		queue.addAll(root.getOutTransitions());
+		return queue;
+	}
+
+	/**
+	 * Remove from the queue the head and add to tail the
+	 * neighbors of actualEdge. This last step will only be
+	 * done if the actualEdge's getTo() is not a leaf and it
+	 * is not on the notToVisitEdges list.
+	 * 
+	 * @return
+	 * 			The edge that was removed from the queue.
+	 */
+	private InterfaceEdge dequeue() {
+		InterfaceEdge actualEdge = queue.poll();
+
+		if (!actualEdge.getTo().isLeaf() && !notToVisitEdges.contains(actualEdge)) {
+			queue.addAll(actualEdge.getTo().getOutTransitions());
+		}
+
+		return actualEdge;
+	}
+
+	/**
+	 * This method call dequeue() and then splitTestSuite()
+	 * until the queue is empty. At last, it calls for
+	 * cleanTetSuite().
+	 */
+	private void manageTestSuite() {
+		while (!queue.isEmpty()) {
+			splitTestSuite(dequeue());
+		}
+		
+		cleanTestSuite();
+	}
+
+	/**
+	 * Split a test case into many test cases, as needed,
+	 * while doing this it call for takeOut() and then
+	 * remove from the test suite the useless test cases.
+	 * 
+	 * @param actualEdge
+	 * 			The edge the BFS is now working with.
+	 */
+	private void splitTestSuite(InterfaceEdge actualEdge) {
+		int loopEnd = testSuite.size();
+		List<TestCase> uselessTestCases = new ArrayList<TestCase>();
+
+		for (InterfaceEdge e : actualEdge.getTo().getOutTransitions()) {
+			for (int i = 0; i < loopEnd; i++) {
+				if (testSuite.get(i).get(testSuite.get(i).size() - 1).equals(actualEdge) 
+						&& !notToVisitEdges.contains(e)) {
+					TestCase newTestCase = new TestCase(testSuite.get(i));
+					newTestCase.add(e);
+					testSuite.add(newTestCase);
+					takeOut(newTestCase);
+					uselessTestCases.add(testSuite.get(i));
+				}
+			}
+		}
+
+		testSuite.removeAll(uselessTestCases);
+	}
+
+	/**
+	 * Check on each list the number of each edge
+	 * that is and then decide if it is needed
+	 * to add this edge to the notToVisitEdge list.
+	 * 
+	 * @param testCase
+	 * 			The testCase it will check.
+	 */
+	private void takeOut(TestCase testCase) {
+		HashMap<InterfaceEdge, Integer> coverageMap = new HashMap<InterfaceEdge, Integer>();
+
+		Iterator<InterfaceEdge> iterator = testCase.iterator();
+
+		while (iterator.hasNext()) {
+			InterfaceEdge edge = iterator.next();
+			if (!coverageMap.containsKey(edge)) {
+				coverageMap.put(edge, 1);
+			} else {
+				coverageMap.put(edge, coverageMap.get(edge) + 1);
+			}
+
+			if (coverageMap.get(edge) > nLoopCoverage + 1) {
+				notToVisitEdges.add(testCase.get(testCase.size() - 2));
+				testSuite.remove(testCase);
+				break;
+			}
+		}
+	}
+	
+	/**
+	 * Removes from the test suite all test cases that does not 
+	 * end with a leaf.
+	 */
+	private void cleanTestSuite() {
+		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite);
+
+		for (TestCase e : testSuiteCopy) {
+			if (!e.get(e.size() - 1).getTo().isLeaf()) {
+				testSuite.remove(e);
+			}
+		}
 	}
 }

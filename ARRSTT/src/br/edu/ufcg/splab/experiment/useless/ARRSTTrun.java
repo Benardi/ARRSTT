@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment;
+package br.edu.ufcg.splab.experiment.useless;
 
 import java.util.List;
 
