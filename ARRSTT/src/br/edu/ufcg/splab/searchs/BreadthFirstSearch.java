@@ -201,4 +201,8 @@ public class BreadthFirstSearch implements InterfaceSearch {
 			}
 		}
 	}
+	
+	public String getName(){
+		return "BFS";
+	}
 }
