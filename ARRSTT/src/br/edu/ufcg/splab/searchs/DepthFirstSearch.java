@@ -57,4 +57,8 @@ public class DepthFirstSearch implements InterfaceSearch {
 			vertexCoverage.put(edge, value);
 		}		
 	}
+	
+	public String getName(){
+		return "DFS";
+	}
 }

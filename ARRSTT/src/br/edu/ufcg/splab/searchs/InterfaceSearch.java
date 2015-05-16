@@ -5,4 +5,5 @@ import br.edu.ufcg.splab.util.TestSuite;
 
 public interface InterfaceSearch {
 	public TestSuite getTestSuite(InterfaceVertex root, int loopCoverage);
+	public String getName();
 }
