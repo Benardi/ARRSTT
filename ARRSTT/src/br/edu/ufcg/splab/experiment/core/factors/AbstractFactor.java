@@ -25,4 +25,11 @@ public abstract class AbstractFactor<T> implements InterfaceFactor<T> {
 	public T getTreatment(int i) {
 		return treatments.get(i);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public T[] getTreatments() {
+		return (T[]) treatments.toArray();
+	}
+	
 }
