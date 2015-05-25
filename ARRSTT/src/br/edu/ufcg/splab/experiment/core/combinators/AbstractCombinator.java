@@ -6,6 +6,7 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment.core.Combinable;
 import br.edu.ufcg.splab.experiment.core.InterfaceFactor;
 
+// Why the Wildcards instead of T? - Iaron
 public abstract class AbstractCombinator implements Combinable {
 	private List<InterfaceFactor<?>> factors;
 	
