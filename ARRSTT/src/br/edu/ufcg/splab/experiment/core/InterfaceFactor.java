@@ -11,4 +11,5 @@ public interface InterfaceFactor<T> {
 	public boolean addTreatment(T treatment);
 	public boolean removeTreatment(T treatment);
 	public T getTreatment(int i);
+	public T[] getTreatments();
 }
