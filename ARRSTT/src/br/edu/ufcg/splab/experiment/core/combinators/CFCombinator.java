@@ -17,8 +17,8 @@ public class CFCombinator extends AbstractCombinator {
 		super(new ArrayList<InterfaceFactor<?>>());
 	}
 	
-	/* There are two thigns here that we may look... first, this works just for our experiment, because
-	 * it is explicit what each treatment is, and it combinates exactly 3 factors, I think we can make
+	/* There are two things here that we may look... first, this works just for our experiment, because
+	 * it is explicit what each treatment is, and it combines exactly 3 factors, I think we can make
 	 * this work for any amount of factors. The other thing is that since I've made some changes to Factor
 	 * itself and that now we have a Treatment class, I think this method should return a List<List<Treatment>>
 	 * because this will make it more flexible and keep the Expert. So, what do you think? - Iaron
