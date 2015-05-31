@@ -23,7 +23,7 @@ import br.edu.ufcg.splab.core.InterfaceVertex;
  * This vertex is used in the graph built to generate a test case with purpose.
  *
  * RESPONSIBILITIES:
- * 	-> It has the behaviour of a common vertex, in a graph. 
+ * 	-> It has the behavior of a common vertex, in a graph. 
  *
  * COLABORATORS: 
  *	-> This vertex is used as an element of a Graph.

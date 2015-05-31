@@ -30,7 +30,7 @@ import br.edu.ufcg.splab.core.InterfaceVertex;
  * This graph is used to generate test cases with purpose.
  *
  * RESPONSIBILITIES:
- * 	-> It has the behaviour of a common graph. 
+ * 	-> It has the behavior of a common graph. 
  * 	-> It contains collections of vertexes and edges, to establish its structure. 
  *
  * COLABORATORS: 
