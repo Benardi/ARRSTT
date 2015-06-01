@@ -3,14 +3,14 @@ package br.edu.ufcg.splab.experiment;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment.core.Combinable;
-import br.edu.ufcg.splab.experiment.core.InterfaceExperiment;
-import br.edu.ufcg.splab.experiment.core.InterfaceFactor;
 import br.edu.ufcg.splab.experiment.core.combinators.CFCombinator;
+import br.edu.ufcg.splab.experiment.core.combinators.Combinable;
+import br.edu.ufcg.splab.experiment.core.experiments.InterfaceExperiment;
 import br.edu.ufcg.splab.experiment.core.experiments.TeamExperiment;
 import br.edu.ufcg.splab.experiment.core.factors.FactorBranch;
 import br.edu.ufcg.splab.experiment.core.factors.FactorLoopCoverage;
 import br.edu.ufcg.splab.experiment.core.factors.FactorSearch;
+import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
 import br.edu.ufcg.splab.searchs.BreadthFirstSearch;
 import br.edu.ufcg.splab.searchs.DepthFirstSearch;
 import br.edu.ufcg.splab.searchs.InterfaceSearch;

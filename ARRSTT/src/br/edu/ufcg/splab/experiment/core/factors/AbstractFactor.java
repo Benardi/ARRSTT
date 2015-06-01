@@ -2,37 +2,50 @@ package br.edu.ufcg.splab.experiment.core.factors;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment.core.InterfaceFactor;
-import br.edu.ufcg.splab.experiment.useless.Treatment;
+import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
 
+/**
+ * Abstract implementation of a factor. Uses a List to store
+ * treatments. 
+ *
+ * @param <T>
+ * 		Data type that treatments of this factor receives.
+ */
 public abstract class AbstractFactor<T> implements InterfaceFactor<T> {
-	private List<Treatment<T>> treatments;
+	/**
+	 * Store the treatments.
+	 */
+	private List<InterfaceTreatment<T>> treatments;
 	
-	public AbstractFactor(List<Treatment<T>> treatments) {
+	/**
+	 * Build a new factor.
+	 * 
+	 * @param treatments
+	 * 		A list of treatments that the factor initially has.
+	 */
+	public AbstractFactor(List<InterfaceTreatment<T>> treatments) {
 		this.treatments = treatments;
 	}
 	
 	@Override
-	public boolean addTreatment(Treatment<T> treatment) {
+	public boolean addTreatment(InterfaceTreatment<T> treatment) {
 		return treatments.add(treatment);
 	}
 
 	@Override
-	public boolean removeTreatment(Treatment<T> treatment) {
+	public boolean removeTreatment(InterfaceTreatment<T> treatment) {
 		return treatments.remove(treatment);
 	}
 	
 	@Override
-	public Treatment<T> getTreatment(int i) {
+	public InterfaceTreatment<T> getTreatment(int i) {
 		return treatments.get(i);
 	}
 	
-	
-	// Has to be checked - Iaron
 	@SuppressWarnings("unchecked")
 	@Override
-	public Treatment<T>[] getTreatments() {
-		return (Treatment<T>[]) treatments.toArray();
+	public InterfaceTreatment<T>[] getTreatments() {
+		return (InterfaceTreatment<T>[]) treatments.toArray();
 	}
 	
 }

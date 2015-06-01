@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.core.InterfaceGraph;
-import br.edu.ufcg.splab.experiment.core.Combinable;
-import br.edu.ufcg.splab.experiment.core.InterfaceFactor;
+import br.edu.ufcg.splab.experiment.core.combinators.Combinable;
+import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
 import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.searchs.InterfaceSearch;
 
@@ -36,7 +36,7 @@ public class TeamExperiment extends ReplicableExperiment {
 		List<InterfaceGraph> runGraphs = graphsToRun(0);
 		
 		for (int i = 1; i <= this.getRepNumber(); i++) {
-			List<List<?>> combinations = getCombinator().combinate();
+			List<List<?>> combinations = getCombinator().combine();
 			
 			//fill the outputs List
 			for (List<?> combination : combinations) {
