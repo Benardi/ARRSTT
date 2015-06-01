@@ -2,14 +2,26 @@ package br.edu.ufcg.splab.experiment.core.experiments;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment.core.Combinable;
-import br.edu.ufcg.splab.experiment.core.InterfaceExperiment;
-import br.edu.ufcg.splab.experiment.core.InterfaceFactor;
+import br.edu.ufcg.splab.experiment.core.combinators.Combinable;
+import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
 
+/**
+ * Abstract implementation of an experiment. Already
+ * defines some operations with the factors and the combinator.
+ * 
+ */
 public abstract class AbstractExperiment implements InterfaceExperiment {
 	private List<InterfaceFactor<?>> factors;
 	private Combinable combinator;
 	
+	/**
+	 * Build a new experiment, takes a list of factors and a combinator.
+	 * 
+	 * @param factors
+	 * 		The list of factors of the experiment.
+	 * @param combinator
+	 * 		The combinator the experiment will use.
+	 */
 	public AbstractExperiment(List<InterfaceFactor<?>> factors, Combinable combinator) {
 		this.factors = factors;
 		this.combinator = combinator;
