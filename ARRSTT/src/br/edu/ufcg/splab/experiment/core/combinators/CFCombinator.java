@@ -22,6 +22,10 @@ public class CFCombinator extends AbstractCombinator {
 	public CFCombinator(List<InterfaceFactor<?>> factors) {
 		super(factors);
 	}
+	
+	public CFCombinator() {
+		super(new ArrayList<InterfaceFactor<?>>());
+	}
 
     
 	/* There are two things here that we may look... first, this works just for our experiment, because
@@ -53,10 +57,5 @@ public class CFCombinator extends AbstractCombinator {
 		
 		return combinatedList;
 	}
-	
-	public CFCombinator() {
-		super(new ArrayList<InterfaceFactor<?>>());
-	}
-	
 	
 }
