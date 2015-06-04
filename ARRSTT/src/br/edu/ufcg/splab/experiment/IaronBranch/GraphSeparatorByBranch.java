@@ -42,6 +42,7 @@ public class GraphSeparatorByBranch {
 		}
 	}
 	
+	// This method separates graphs by checking if edges / vertexes is higher or lower than 2.
 	private void separateByBranch1(){
 		for(InterfaceGraph graph : allGraphs){
 			double vertexes = graph.getStates().size();
