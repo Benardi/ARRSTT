@@ -2,6 +2,8 @@ package br.edu.ufcg.splab.experiment.core.combinators;
 
 import java.util.List;
 
+import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
+
 /**
  * Represents a generic combinator.
  * 
@@ -17,5 +19,5 @@ public interface Combinable {
 	 * 		A list of list of objects, representing each a group of treatments.
 	 * 
 	 */
-	public List<List<?>> combine();
+	public List<List<InterfaceTreatment<?>>> combine();
 }
