@@ -78,7 +78,7 @@ public class CFCombinator extends AbstractCombinator {
 	}
 	
 	/**
-	 * After the list(the list inside the combinatedList) is expandend
+	 * After the list(the list inside the combinatedList) is expanded
 	 * delete the previous state of it.
 	 * 
 	 * @param factor
