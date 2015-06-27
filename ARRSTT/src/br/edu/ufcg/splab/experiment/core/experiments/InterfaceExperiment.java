@@ -25,7 +25,7 @@ public interface InterfaceExperiment {
 	 * @return
 	 * 		True if the add operation was successful, false otherwise.
 	 */
-	public boolean addFactor(InterfaceFactor<?> factor);
+	public boolean addFactor(InterfaceFactor factor);
 	
 	/**
 	 * Used to remove a factor from an experiment.
@@ -35,7 +35,7 @@ public interface InterfaceExperiment {
 	 * @return
 	 * 		True if the remove operation was successful, false otherwise.
 	 */
-	public boolean removeFactor(InterfaceFactor<?> factor);
+	public boolean removeFactor(InterfaceFactor factor);
 	
 	/**
 	 * Used to get a factor from the experiment.
@@ -45,7 +45,7 @@ public interface InterfaceExperiment {
 	 * @return
 	 * 		The retrieving factor.
 	 */
-	public InterfaceFactor<?> getFactor(int i);
+	public InterfaceFactor getFactor(int i);
 	
 	/**
 	 * Set the combinator that the experiment is currently using.

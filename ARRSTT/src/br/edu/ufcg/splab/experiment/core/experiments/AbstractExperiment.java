@@ -11,7 +11,7 @@ import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
  * 
  */
 public abstract class AbstractExperiment implements InterfaceExperiment {
-	private List<InterfaceFactor<?>> factors;
+	private List<InterfaceFactor> factors;
 	private Combinable combinator;
 	
 	/**
@@ -22,23 +22,23 @@ public abstract class AbstractExperiment implements InterfaceExperiment {
 	 * @param combinator
 	 * 		The combinator the experiment will use.
 	 */
-	public AbstractExperiment(List<InterfaceFactor<?>> factors, Combinable combinator) {
+	public AbstractExperiment(List<InterfaceFactor> factors, Combinable combinator) {
 		this.factors = factors;
 		this.combinator = combinator;
 	}
 
 	@Override
-	public boolean addFactor(InterfaceFactor<?> factor) {
+	public boolean addFactor(InterfaceFactor factor) {
 		return factors.add(factor);
 	}
 
 	@Override
-	public boolean removeFactor(InterfaceFactor<?> factor) {
+	public boolean removeFactor(InterfaceFactor factor) {
 		return factors.remove(factor);
 	}
 
 	@Override
-	public InterfaceFactor<?> getFactor(int i) {
+	public InterfaceFactor getFactor(int i) {
 		return factors.get(i);
 	}
 

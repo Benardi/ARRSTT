@@ -10,6 +10,8 @@ import java.util.List;
 import br.edu.ufcg.splab.core.InterfaceGraph;
 import br.edu.ufcg.splab.experiment.core.combinators.Combinable;
 import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
+import br.edu.ufcg.splab.experiment.core.treatments.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment.core.treatments.TreatmentSearch;
 import br.edu.ufcg.splab.parser.ReadTGF;
 import br.edu.ufcg.splab.searchs.InterfaceSearch;
 
@@ -23,10 +25,11 @@ public class TeamExperiment extends ReplicableExperiment {
 	private ReadTGF tgfReader;
 	private File[] graphFiles;
 	private List<String> outputs; // added by Iaron. This should contain all outputs.
+	private List<InterfaceGraph> runningGraphs; // For the branchs.
 	
 	/**
 	 * Build a new Experiment Executer, receiving the factors of the experiments
-	 * the combinator responsible to combine the treatments on a specefic way and the
+	 * the combinator responsible to combine the treatments on a specific way and the
 	 * number of times it will be re-executed.
 	 * @param factors
 	 * 			The list of factors of this Experiment
@@ -35,10 +38,10 @@ public class TeamExperiment extends ReplicableExperiment {
 	 * @param repNumber
 	 * 			The number of times the experiment will be re-executed
 	 * @throws Exception
-	 * 			An exception is throwed if the list of factors has more than 3 factors,
+	 * 			An exception is thrown if the list of factors has more than 3 factors,
 	 * 			since it should work just for our experiment.
 	 */
-	public TeamExperiment(List<InterfaceFactor<?>> factors,	Combinable combinator, int repNumber) throws Exception {
+	public TeamExperiment(List<InterfaceFactor> factors,	Combinable combinator, int repNumber) throws Exception {
 		super(factors, combinator, repNumber);
 		
 		// Added to ensure our experiment will work. - Iaron
@@ -58,28 +61,28 @@ public class TeamExperiment extends ReplicableExperiment {
 		
 		for (int i = 1; i <= this.getRepNumber(); i++) {
 			//The list of every treatment combination possible
-			List<List<?>> combinations = getCombinator().combine();
+			List<List<ExecutableTreatment>> combinations = getCombinator().combine();
 			
 			//fill the outputs List
 			//it writes what treatments are being used on every line
 			for (List<?> combination : combinations) {
-				InterfaceSearch search = (InterfaceSearch) combination.get(0);
-				Integer loopCoverage = (Integer) combination.get(1);
-				Integer branchType = (Integer) combination.get(2);
+				TreatmentSearch search = (TreatmentSearch) combination.get(0);
+				Integer loopCoverage = search.getLoopCoverage();
+				Integer branchType = 1;
 				
 				outputs.add(search.getName() + loopCoverage + ":"); // branchType to be added in the future
 			}
 			
 			//This for iterates on every combination
 			for(int j = 0; j < combinations.size(); j++){
-				InterfaceSearch search = (InterfaceSearch) combinations.get(j).get(0);
-				Integer loopCoverage = (Integer) combinations.get(j).get(1);
-				Integer branchType = (Integer) combinations.get(j).get(2);
+				TreatmentSearch search = (TreatmentSearch) combinations.get(j).get(0);
+				Integer loopCoverage = search.getLoopCoverage();
+				Integer branchType = 1;
 				
 				//This is the for that will run the experiment and save it's execution time.
 				for (InterfaceGraph graph : runGraphs) {
 					Long initTime = System.nanoTime();
-					search.getTestSuite(graph.getRoot(), loopCoverage);
+					search.getTestSuite();
 					Long endTime = System.nanoTime();
 					
 					//This block has to be heavily checked

@@ -11,7 +11,7 @@ import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
  *
  */
 public abstract class AbstractCombinator implements Combinable {
-	private List<InterfaceFactor<?>> factors;
+	private List<InterfaceFactor> factors;
 	
 	/**
 	 * Build a combinator with a list of factors.
@@ -19,7 +19,7 @@ public abstract class AbstractCombinator implements Combinable {
 	 * @param factors
 	 * 		The list of factors that the combinator will combine.
 	 */
-	public AbstractCombinator(List<InterfaceFactor<?>> factors) {
+	public AbstractCombinator(List<InterfaceFactor> factors) {
 		this.factors = factors;
 	}
 	
@@ -29,7 +29,7 @@ public abstract class AbstractCombinator implements Combinable {
 	 * @param factors
 	 * 		The new list of factors.
 	 */
-	public void setFactors(List<InterfaceFactor<?>> factors) {
+	public void setFactors(List<InterfaceFactor> factors) {
 		this.factors = factors;
 	}
 	
@@ -39,7 +39,7 @@ public abstract class AbstractCombinator implements Combinable {
 	 * @return
 	 * 		The list of factors the object is holding.
 	 */
-	public List<InterfaceFactor<?>> getFactors() {
-		return new ArrayList<InterfaceFactor<?>>(factors);
+	public List<InterfaceFactor> getFactors() {
+		return new ArrayList<InterfaceFactor>(factors);
 	}
 }
