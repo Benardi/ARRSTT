@@ -23,7 +23,7 @@ public abstract class ReplicableExperiment extends AbstractExperiment {
 	 * @param repNumber
 	 * 		The number of replications of the experiment.
 	 */
-	public ReplicableExperiment(List<InterfaceFactor<?>> factors,	Combinable combinator, int repNumber) {
+	public ReplicableExperiment(List<InterfaceFactor> factors,	Combinable combinator, int repNumber) {
 		super(factors, combinator);
 		
 		this.repNumber = repNumber;

@@ -1,6 +1,6 @@
 package br.edu.ufcg.splab.experiment.core.factors;
 
-import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
+import br.edu.ufcg.splab.experiment.core.treatments.ExecutableTreatment;
 
 /**
  * Represents a generic type of factor.
@@ -8,7 +8,7 @@ import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
  * @param <T>
  * 		Data type that treatments of this factor receives.
  */
-public interface InterfaceFactor<T> {
+public interface InterfaceFactor {
 	/**
 	 * Add a treatment to the factor.
 	 * 
@@ -17,7 +17,7 @@ public interface InterfaceFactor<T> {
 	 * @return
 	 * 		True if the treatment was successfully added, false otherwise.
 	 */
-	public boolean addTreatment(InterfaceTreatment<T> treatment);
+	public boolean addTreatment(ExecutableTreatment treatment);
 	
 	/**
 	 * Remove a treatment from the factor.
@@ -27,7 +27,7 @@ public interface InterfaceFactor<T> {
 	 * @return
 	 * 		True if the treatment was successfully removed, false otherwise.	
 	 */
-	public boolean removeTreatment(InterfaceTreatment<T> treatment);
+	public boolean removeTreatment(ExecutableTreatment treatment);
 	
 	/**
 	 * Retrieves a treatment from the factor.
@@ -37,7 +37,7 @@ public interface InterfaceFactor<T> {
 	 * @return
 	 * 		The retrieving treatment.
 	 */
-	public InterfaceTreatment<T> getTreatment(int i);
+	public ExecutableTreatment getTreatment(int i);
 	
 	/**
 	 * Converts all treatments to an array.
@@ -45,5 +45,5 @@ public interface InterfaceFactor<T> {
 	 * @return
 	 * 		An array with all treatments.
 	 */
-	public InterfaceTreatment<T>[] getTreatments();
+	public ExecutableTreatment[] getTreatments();
 }
