@@ -1,6 +1,7 @@
 package br.edu.ufcg.splab.experiment.core.combinators;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
@@ -69,10 +70,11 @@ public class CFCombinator extends AbstractCombinator {
 	 */
 	
 	public List<List<InterfaceTreatment<?>>> combine() {
+		Iterator<InterfaceFactor<?>> iterator = super.getFactors().iterator();
 	    combinatedList = initializeList();
 	    
-	    for (int i = 1; i < super.getFactors().size(); i++) 
-	    	combineFactor(super.getFactors().get(i));
+	    while (iterator.hasNext()) 
+	    	combineFactor(iterator.next());
 	    
 	    return combinatedList;
 	}
@@ -85,9 +87,11 @@ public class CFCombinator extends AbstractCombinator {
 	 */
 	
 	private void combineFactor(InterfaceFactor<?> factor) {
+		Iterator<List<InterfaceTreatment<?>>> iterator = combinatedList.iterator();
 		int loopEnd = combinatedList.size();
-		for (int j = 0; j < loopEnd; j++)
-			generateCombinations(combinatedList.get(j), factor);
+		
+		while (iterator.hasNext())
+			generateCombinations(iterator.next(), factor);
 		
 		combinatedList.removeAll(combinatedList.subList(0, loopEnd));
 	}
