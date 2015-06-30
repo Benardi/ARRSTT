@@ -8,118 +8,118 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.core.InterfaceGraph;
-import br.edu.ufcg.splab.experiment.core.combinators.Combinable;
-import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
-import br.edu.ufcg.splab.experiment.core.treatments.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment.IaronBranch.GraphSeparatorByBranch;
 import br.edu.ufcg.splab.experiment.core.treatments.TreatmentSearch;
-import br.edu.ufcg.splab.parser.ReadTGF;
+import br.edu.ufcg.splab.searchs.BreadthFirstSearch;
+import br.edu.ufcg.splab.searchs.DepthFirstSearch;
 import br.edu.ufcg.splab.searchs.InterfaceSearch;
 
 /**
  * This is the class that should execute the specific experiment made
  * on the ARRSTT project. 
  */
-public class TeamExperiment extends ReplicableExperiment {
+public class TeamExperiment {
 	public static final String LINE_END = System.getProperty("line.separator");
 	
-	private ReadTGF tgfReader;
-	private File[] graphFiles;
-	private List<String> outputs; // added by Iaron. This should contain all outputs.
-	private List<InterfaceGraph> runningGraphs; // For the branchs.
+	//private File[] graphFiles;
+	private List<String> outputsTime; 
+	private List<String> outputsTestSuiteSize;
+	private List<InterfaceGraph> graphs; 
+	private GraphSeparatorByBranch separator;
 	
-	/**
-	 * Build a new Experiment Executer, receiving the factors of the experiments
-	 * the combinator responsible to combine the treatments on a specific way and the
-	 * number of times it will be re-executed.
-	 * @param factors
-	 * 			The list of factors of this Experiment
-	 * @param combinator
-	 * 			The combinator responsible to combine the treatments.
-	 * @param repNumber
-	 * 			The number of times the experiment will be re-executed
-	 * @throws Exception
-	 * 			An exception is thrown if the list of factors has more than 3 factors,
-	 * 			since it should work just for our experiment.
-	 */
-	public TeamExperiment(List<InterfaceFactor> factors,	Combinable combinator, int repNumber) throws Exception {
-		super(factors, combinator, repNumber);
+	
+	public TeamExperiment() throws Exception {
+		outputsTime = new ArrayList<String>();
+		outputsTestSuiteSize = new ArrayList<String>();
+		separator = new GraphSeparatorByBranch();
+		graphs = new ArrayList<InterfaceGraph>();
+		getGraphsToRun(separator);
 		
-		// Added to ensure our experiment will work. - Iaron
-		if(factors.size() != 3) throw new Exception("This experiment must have exactly 3 factors");
-		
-		//later it should be added some instanceof() to assure the factors are searches,
-		//loop coverages and branch type
-		
-		this.tgfReader = new ReadTGF();
-		this.graphFiles = new File("input_examples/").listFiles();
-		this.outputs = new ArrayList<>();
 	}
 
-	@Override
+
+
 	public void runExperiment() throws Exception {
-		List<InterfaceGraph> runGraphs = graphsToRun(0);
+		List<TreatmentSearch> combinations = combine();
+		StringBuilder currentOutputTime;
+		StringBuilder currentOutputSize;
 		
-		for (int i = 1; i <= this.getRepNumber(); i++) {
-			//The list of every treatment combination possible
-			List<List<ExecutableTreatment>> combinations = getCombinator().combine();
+		
+		for(TreatmentSearch combination : combinations){
+			currentOutputTime = new StringBuilder();
+			currentOutputSize = new StringBuilder();
 			
-			//fill the outputs List
-			//it writes what treatments are being used on every line
-			for (List<?> combination : combinations) {
-				TreatmentSearch search = (TreatmentSearch) combination.get(0);
-				Integer loopCoverage = search.getLoopCoverage();
-				Integer branchType = 1;
+			for(InterfaceGraph graph : graphs){
+				combination.setGraph(graph);
 				
-				outputs.add(search.getName() + loopCoverage + ":"); // branchType to be added in the future
-			}
-			
-			//This for iterates on every combination
-			for(int j = 0; j < combinations.size(); j++){
-				TreatmentSearch search = (TreatmentSearch) combinations.get(j).get(0);
-				Integer loopCoverage = search.getLoopCoverage();
-				Integer branchType = 1;
+				Long initTime = System.nanoTime();
+				combination.execute();
+				Long endTime = System.nanoTime();
 				
-				//This is the for that will run the experiment and save it's execution time.
-				for (InterfaceGraph graph : runGraphs) {
-					Long initTime = System.nanoTime();
-					search.getTestSuite();
-					Long endTime = System.nanoTime();
-					
-					//This block has to be heavily checked
-					Long timeDif = (endTime - initTime);
-					String output = timeDif.toString();
-					String currentOutput = outputs.get(j);
-					currentOutput += output;
-					outputs.set(j, currentOutput);
-					
-				}
+				Long timeDif = (endTime - initTime);
+				currentOutputTime.append(timeDif + " ");
+				currentOutputSize.append(combination.getTestSuite().size());
 			}
+			outputsTime.add(currentOutputTime.toString());
+			outputsTestSuiteSize.add(currentOutputSize.toString());
 		}
 		
-		putToFile(outputs);
+		putToFile(outputsTime, "Times");
+		putToFile(outputsTestSuiteSize, "Test Suite Size");
+		
+	}
+	
+	private List<TreatmentSearch> combine(){
+		List<TreatmentSearch> combinations = new ArrayList<TreatmentSearch>();
+		List<InterfaceSearch> searches = new ArrayList<InterfaceSearch>();
+		searches.add(new DepthFirstSearch());
+		searches.add(new BreadthFirstSearch());
+		for(InterfaceSearch search: searches){
+			for(int loopCoverage = 1; loopCoverage <= 7; loopCoverage += 3){
+				// It is null because I will be setting the graph.
+				combinations.add(new TreatmentSearch(search, null, loopCoverage, ""));
+			}
+		}
+		return combinations;
 	}
 	
 	
-	//This Branch type will be used once we have de measurement, right? - Iaron
-	//Right now it just goes to the folder and create a list of graphs
-	private List<InterfaceGraph> graphsToRun(Integer branchType) throws Exception {
-		List<InterfaceGraph> graphs = new ArrayList<InterfaceGraph>();
-		
- 		for (File file : graphFiles) { 
-			graphs.add(tgfReader.getGraph(file.getAbsolutePath()));
-		}
- 		
- 		return graphs;
-	}
 	
 	//Writes the results, saved in a String, in a txt.
-	private void putToFile(List<String> outputs) throws IOException{
-		BufferedWriter writer = new BufferedWriter(new FileWriter(new File( "Experiment.txt")));
+	private void putToFile(List<String> outputs, String fileName) throws IOException{
+		BufferedWriter writer = new BufferedWriter(new FileWriter(new File( fileName + ".txt")));
 		
 		for(String output : outputs){
 			writer.write(output + LINE_END);
 		}
 		
 		writer.close();
+	}
+	
+	
+	private void getGraphsToRun(GraphSeparatorByBranch separator) throws Exception {
+		List<InterfaceGraph> lows, highs;
+		separator.separate();
+		lows = separator.getLows();
+		highs = separator.getHighs();
+		merge(lows, highs);
+	}
+	
+	private void merge(List<InterfaceGraph> lows, List<InterfaceGraph> highs){
+		int limit = minSize(lows, highs);
+		for(int i = 0; i < limit; i++){
+			graphs.add(lows.get(i));
+		}
+		for(int i = 0; i < limit; i++){
+			graphs.add(highs.get(i));
+		}
+	}
+	
+	private int minSize(List<InterfaceGraph> l1, List<InterfaceGraph> l2){
+		if(l1.size() <= l2.size()){
+			return l1.size();
+		} else {
+			return l2.size();
+		}
 	}
 }
