@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
 import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
+import br.edu.ufcg.splab.util.Tuple;
 
 /**
  * This is a complete factorial combinator. This means that
@@ -13,7 +14,7 @@ import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
  *
  */
 public class CFCombinator extends AbstractCombinator {
-    private List<List<InterfaceTreatment<?>>> combinatedList;
+    private List<Tuple<InterfaceTreatment<?>>> combinatedList;
 	
 	/**
 	 * Build a new combinator with a list of super.getFactors(). 
@@ -35,7 +36,7 @@ public class CFCombinator extends AbstractCombinator {
 	 * @return A list with n-tuples, each one a combination 
 	 */
 	
-	public List<List<InterfaceTreatment<?>>> combine() {
+	public List<Tuple<InterfaceTreatment<?>>> combine() {
 		Iterator<InterfaceFactor<?>> iterator = super.getFactors().iterator();
 	    combinatedList = initializeList();
 	    
@@ -53,7 +54,7 @@ public class CFCombinator extends AbstractCombinator {
 	 */
 	
 	private void combineFactor(InterfaceFactor<?> factor) {
-		Iterator<List<InterfaceTreatment<?>>> iterator = combinatedList.iterator();
+		Iterator<Tuple<InterfaceTreatment<?>>> iterator = combinatedList.iterator();
 		int loopEnd = combinatedList.size();
 		
 		while (iterator.hasNext())
@@ -71,7 +72,7 @@ public class CFCombinator extends AbstractCombinator {
 	 * @param factor
 	 */
 	
-	private void generateCombinations(List<InterfaceTreatment<?>> combination, InterfaceFactor<?> factor) {
+	private void generateCombinations(Tuple<InterfaceTreatment<?>> combination, InterfaceFactor<?> factor) {
 
 		for (InterfaceTreatment<?> treatment : factor.getTreatments()) {
 			List<InterfaceTreatment<?>> miniList = new ArrayList<InterfaceTreatment<?>>(combination);
@@ -87,11 +88,11 @@ public class CFCombinator extends AbstractCombinator {
 	 * @return The list initialized
 	 */
 	
-	private List<List<InterfaceTreatment<?>>> initializeList() {
-		List<List<InterfaceTreatment<?>>> combinatedList = new ArrayList<List<InterfaceTreatment<?>>>();
+	private List<Tuple<InterfaceTreatment<?>>> initializeList() {
+		List<Tuple<InterfaceTreatment<?>>> combinatedList = new ArrayList<Tuple<InterfaceTreatment<?>>>();
 		
 		for (InterfaceTreatment<?> treatment : super.getFactors().get(0).getTreatments()) {
-	    	List<InterfaceTreatment<?>> treatments = new ArrayList<InterfaceTreatment<?>>();
+	    	Tuple<InterfaceTreatment<?>> treatments = new Tuple<InterfaceTreatment<?>>();
 	    	
 	    	treatments.add(treatment);
 	    	combinatedList.add(treatments);

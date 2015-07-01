@@ -6,13 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
-
-public class Tuple<T> implements List<InterfaceTreatment<T>>{
-	private List<InterfaceTreatment<T>> tuple;
+public class Tuple<T> implements List<T>{
+	private List<T> tuple;
 	
 	public Tuple() {
-		this.tuple = new ArrayList<InterfaceTreatment<T>>();
+		this.tuple = new ArrayList<T>();
 	}
 	
 	@Override
@@ -31,7 +29,7 @@ public class Tuple<T> implements List<InterfaceTreatment<T>>{
 	}
 
 	@Override
-	public Iterator<InterfaceTreatment<T>> iterator() {
+	public Iterator<T> iterator() {
 		return tuple.iterator();
 	}
 
@@ -41,7 +39,7 @@ public class Tuple<T> implements List<InterfaceTreatment<T>>{
 	}
 
 	@Override
-	public boolean add(InterfaceTreatment<T> e) {
+	public boolean add(T e) {
 		return tuple.add(e);
 	}
 
@@ -56,12 +54,12 @@ public class Tuple<T> implements List<InterfaceTreatment<T>>{
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends InterfaceTreatment<T>> c) {
+	public boolean addAll(Collection<? extends T> c) {
 		return tuple.addAll(c);
 	}
 
 	@Override
-	public boolean addAll(int index, Collection<? extends InterfaceTreatment<T>> c) {
+	public boolean addAll(int index, Collection<? extends T> c) {
 		return tuple.addAll(index, c);
 	}
 
@@ -81,22 +79,22 @@ public class Tuple<T> implements List<InterfaceTreatment<T>>{
 	}
 
 	@Override
-	public InterfaceTreatment<T> get(int index) {
+	public T get(int index) {
 		return tuple.get(index);
 	}
 
 	@Override
-	public InterfaceTreatment<T> set(int index, InterfaceTreatment<T> element) {
+	public T set(int index, T element) {
 		return tuple.set(index, element);
 	}
 
 	@Override
-	public void add(int index, InterfaceTreatment<T> element) {
+	public void add(int index, T element) {
 		tuple.add(index, element);
 	}
 
 	@Override
-	public InterfaceTreatment<T> remove(int index) {
+	public T remove(int index) {
 		return tuple.remove(index);
 	}
 
@@ -111,17 +109,17 @@ public class Tuple<T> implements List<InterfaceTreatment<T>>{
 	}
 
 	@Override
-	public ListIterator<InterfaceTreatment<T>> listIterator() {
+	public ListIterator<T> listIterator() {
 		return tuple.listIterator();
 	}
 
 	@Override
-	public ListIterator<InterfaceTreatment<T>> listIterator(int index) {
+	public ListIterator<T> listIterator(int index) {
 		return tuple.listIterator(index);
 	}
 
 	@Override
-	public List<InterfaceTreatment<T>> subList(int fromIndex, int toIndex) {
+	public List<T> subList(int fromIndex, int toIndex) {
 		return tuple.subList(fromIndex, toIndex);
 	}
 
