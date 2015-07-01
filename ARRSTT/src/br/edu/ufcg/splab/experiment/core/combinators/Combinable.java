@@ -3,6 +3,7 @@ package br.edu.ufcg.splab.experiment.core.combinators;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment.core.treatments.InterfaceTreatment;
+import br.edu.ufcg.splab.util.Tuple;
 
 /**
  * Represents a generic combinator.
@@ -19,5 +20,5 @@ public interface Combinable {
 	 * 		A list of list of objects, representing each a group of treatments.
 	 * 
 	 */
-	public List<List<InterfaceTreatment<?>>> combine();
+	public List<Tuple<InterfaceTreatment<?>>> combine();
 }
