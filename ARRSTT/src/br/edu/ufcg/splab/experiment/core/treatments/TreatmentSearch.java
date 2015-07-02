@@ -1,41 +1,31 @@
 package br.edu.ufcg.splab.experiment.core.treatments;
 
-import br.edu.ufcg.splab.core.InterfaceGraph;
+import br.edu.ufcg.splab.core.InterfaceVertex;
 import br.edu.ufcg.splab.searchs.InterfaceSearch;
 import br.edu.ufcg.splab.util.TestSuite;
 
-
 public class TreatmentSearch implements ExecutableTreatment {
 	private InterfaceSearch searchObject;
-	private InterfaceGraph graph;
+	private InterfaceVertex root;
 	private TestSuite testSuite;
 	private int loopCoverage;
-	private String name;
+	private String title;
 	
-	public TreatmentSearch(InterfaceSearch searchObject, InterfaceGraph graph, int loopCoverage, String name) {
+	public TreatmentSearch(InterfaceSearch searchObject, InterfaceVertex root, int loopCoverage, String title) {
 		this.searchObject = searchObject;
 		this.loopCoverage = loopCoverage;
-		this.graph = graph;
-		this.name = name;
+		this.title = title;
+		this.root = root;
 		
 		testSuite = new TestSuite();
 	}
 	
-	public TreatmentSearch(InterfaceSearch searchObject, int loopCoverage, String name) {
-		this(searchObject, null, loopCoverage, name);
+	public TreatmentSearch(InterfaceSearch searchObject, int loopCoverage, String title) {
+		this(searchObject, null, loopCoverage, title);
 	}
 	
-	public TreatmentSearch(String name) {
-		this(null, null, 0, name);
-	}
-	
-	public void execute() {
-		testSuite = searchObject.getTestSuite(graph.getRoot(), loopCoverage);
-	}
-	
-	/* Note: The name of the method in incoherent. */
-	public boolean isEmpty() {
-		return (testSuite.isEmpty()) ? (true) : (false);
+	public TreatmentSearch(String title) {
+		this(null, null, 0, title);
 	}
 
 	public int getLoopCoverage() {
@@ -46,12 +36,12 @@ public class TreatmentSearch implements ExecutableTreatment {
 		this.loopCoverage = loopCoverage;
 	}
 
-	public InterfaceGraph getGraph() {
-		return graph;
+	public InterfaceVertex getRoot() {
+		return root;
 	}
 
-	public void setGraph(InterfaceGraph graph) {
-		this.graph = graph;
+	public void setRoot(InterfaceVertex root) {
+		this.root = root;
 	}
 
 	public TestSuite getTestSuite() {
@@ -59,11 +49,17 @@ public class TreatmentSearch implements ExecutableTreatment {
 	}
 
 	@Override
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	@Override
+	public TestSuite execute() {
+		testSuite = searchObject.getTestSuite(root, loopCoverage);
+		return testSuite;
 	}
 }

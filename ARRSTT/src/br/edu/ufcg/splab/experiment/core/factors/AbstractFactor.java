@@ -42,7 +42,6 @@ public abstract class AbstractFactor implements InterfaceFactor {
 		return treatments.get(i);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public ExecutableTreatment[] getTreatments() {
 		return (ExecutableTreatment[]) treatments.toArray();
