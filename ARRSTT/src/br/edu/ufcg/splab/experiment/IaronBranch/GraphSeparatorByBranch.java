@@ -10,13 +10,15 @@ import br.edu.ufcg.splab.parser.ReadTGF;
 // This class and package should be deleted later after we decide where exactly this code should go.
 // Was not tested yet
 public class GraphSeparatorByBranch {
-	private List<InterfaceGraph> allGraphs, lowGraphs, highGraphs;
+	private List<InterfaceGraph> highGraphs;
+	private List<InterfaceGraph> allGraphs;
+	private List<InterfaceGraph> lowGraphs;
 	
 	
 	public GraphSeparatorByBranch(){
+		highGraphs = new ArrayList<>();
 		allGraphs = new ArrayList<>();
 		lowGraphs = new ArrayList<>();
-		highGraphs = new ArrayList<>();
 	}
 	
 	public void separate() throws Exception{
@@ -43,15 +45,16 @@ public class GraphSeparatorByBranch {
 	}
 	
 	// This method separates graphs by checking if edges / vertexes is higher or lower than 2.
-	private void separateByBranch1(){
-		for(InterfaceGraph graph : allGraphs){
-			double vertexes = graph.getStates().size();
-			double edges = graph.getEdges().size();
-			if(edges/vertexes > 2){
+	private void separateByBranch1() {
+		Measurement measureObject = new BranchMeasurementOne();
+		
+		for(InterfaceGraph graph : allGraphs) {
+			measureObject.setGraph(graph);
+			
+			if(measureObject.measure() > 2)
 				highGraphs.add(graph);
-			} else {
+			else
 				lowGraphs.add(graph);
-			}
 		}
 	}
 

@@ -1,7 +1,8 @@
 package br.edu.ufcg.splab.experiment.core.treatments;
 
+import br.edu.ufcg.splab.util.TestSuite;
+
 public interface ExecutableTreatment {
-	public void execute();
-	public boolean isEmpty();
-	public String getName();
+	public TestSuite execute();
+	public String getTitle();
 }

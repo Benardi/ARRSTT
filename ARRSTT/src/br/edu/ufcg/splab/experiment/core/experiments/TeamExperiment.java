@@ -50,7 +50,7 @@ public class TeamExperiment {
 			currentOutputSize = new StringBuilder();
 			
 			for(InterfaceGraph graph : graphs){
-				combination.setGraph(graph);
+				combination.setRoot(graph.getRoot());
 				
 				Long initTime = System.nanoTime();
 				combination.execute();
