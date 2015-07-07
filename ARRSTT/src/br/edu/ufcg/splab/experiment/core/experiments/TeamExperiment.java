@@ -21,16 +21,17 @@ import br.edu.ufcg.splab.searchs.InterfaceSearch;
 public class TeamExperiment {
 	public static final String LINE_END = System.getProperty("line.separator");
 	
-	//private File[] graphFiles;
-	private List<String> outputsTime; 
-	private List<String> outputsTestSuiteSize;
+	private StringBuilder outputsTime; 
+	private StringBuilder outputsTestSuiteSize;
 	private List<InterfaceGraph> graphs; 
 	private GraphSeparatorByBranch separator;
+	private List<Integer> loopCoverages;
 	
 	
-	public TeamExperiment() throws Exception {
-		outputsTime = new ArrayList<String>();
-		outputsTestSuiteSize = new ArrayList<String>();
+	public TeamExperiment(List<Integer> loopCoverages) throws Exception {
+		outputsTime = new StringBuilder();
+		this.loopCoverages = loopCoverages;
+		outputsTestSuiteSize = new StringBuilder();
 		separator = new GraphSeparatorByBranch();
 		graphs = new ArrayList<InterfaceGraph>();
 		getGraphsToRun(separator);
@@ -41,27 +42,24 @@ public class TeamExperiment {
 
 	public void runExperiment() throws Exception {
 		List<TreatmentSearch> combinations = combine();
-		StringBuilder currentOutputTime;
-		StringBuilder currentOutputSize;
-		
-		
-		for(TreatmentSearch combination : combinations){
-			currentOutputTime = new StringBuilder();
-			currentOutputSize = new StringBuilder();
-			
-			for(InterfaceGraph graph : graphs){
-				combination.setRoot(graph.getRoot());
-				
+		int count = 0;
+		for(TreatmentSearch combination : combinations){	
 				Long initTime = System.nanoTime();
 				combination.execute();
 				Long endTime = System.nanoTime();
 				
 				Long timeDif = (endTime - initTime);
-				currentOutputTime.append(timeDif + " ");
-				currentOutputSize.append(combination.getTestSuite().size());
-			}
-			outputsTime.add(currentOutputTime.toString());
-			outputsTestSuiteSize.add(currentOutputSize.toString());
+				outputsTime.append(timeDif + "	");
+				outputsTestSuiteSize.append(combination.getTestSuite().size() + "	");
+				
+				//Isso é melhor que o for com %?
+				count += 1;
+				if(count == 6){
+					outputsTime.append(LINE_END);
+					outputsTestSuiteSize.append(LINE_END);
+					count = 0;
+				}
+				
 		}
 		
 		putToFile(outputsTime, "Times");
@@ -74,25 +72,24 @@ public class TeamExperiment {
 		List<InterfaceSearch> searches = new ArrayList<InterfaceSearch>();
 		searches.add(new DepthFirstSearch());
 		searches.add(new BreadthFirstSearch());
-		for(InterfaceSearch search: searches){
-			for(int loopCoverage = 1; loopCoverage <= 7; loopCoverage += 3){
-				// It is null because I will be setting the graph.
-				combinations.add(new TreatmentSearch(search, null, loopCoverage, ""));
+		
+		for(InterfaceGraph graph : graphs){
+			for(InterfaceSearch search: searches){
+				for(Integer loopCoverage : loopCoverages){
+					// It is null because I will be setting the graph.
+					combinations.add(new TreatmentSearch(search, graph.getRoot(), loopCoverage, ""));
+				}
 			}
-		}
+		}	
 		return combinations;
 	}
 	
 	
 	
 	//Writes the results, saved in a String, in a txt.
-	private void putToFile(List<String> outputs, String fileName) throws IOException{
+	private void putToFile(StringBuilder output, String fileName) throws IOException{
 		BufferedWriter writer = new BufferedWriter(new FileWriter(new File( fileName + ".txt")));
-		
-		for(String output : outputs){
-			writer.write(output + LINE_END);
-		}
-		
+		writer.write(output.toString());
 		writer.close();
 	}
 	
@@ -106,20 +103,12 @@ public class TeamExperiment {
 	}
 	
 	private void merge(List<InterfaceGraph> lows, List<InterfaceGraph> highs){
-		int limit = minSize(lows, highs);
+		int limit = Math.min(lows.size(), highs.size());
 		for(int i = 0; i < limit; i++){
 			graphs.add(lows.get(i));
 		}
 		for(int i = 0; i < limit; i++){
 			graphs.add(highs.get(i));
-		}
-	}
-	
-	private int minSize(List<InterfaceGraph> l1, List<InterfaceGraph> l2){
-		if(l1.size() <= l2.size()){
-			return l1.size();
-		} else {
-			return l2.size();
 		}
 	}
 }

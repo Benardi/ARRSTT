@@ -9,10 +9,6 @@ public class BranchMeasurementOne implements Measurement {
 		this.graph = graph;
 	}
 	
-	public BranchMeasurementOne() {
-		this(null);
-	}
-	
 	public double measure() {
 		double numVertexes = graph.getStates().size();
 		double numEdges = graph.getEdges().size();

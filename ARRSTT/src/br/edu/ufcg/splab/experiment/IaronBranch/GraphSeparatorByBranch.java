@@ -46,12 +46,12 @@ public class GraphSeparatorByBranch {
 	
 	// This method separates graphs by checking if edges / vertexes is higher or lower than 2.
 	private void separateByBranch1() {
-		Measurement measureObject = new BranchMeasurementOne();
+		Measurement measureObject = new BranchMeasurementOne(null); // Isso tem que mudar?
 		
 		for(InterfaceGraph graph : allGraphs) {
 			measureObject.setGraph(graph);
 			
-			if(measureObject.measure() > 2)
+			if(measureObject.measure() > 1.3)
 				highGraphs.add(graph);
 			else
 				lowGraphs.add(graph);
