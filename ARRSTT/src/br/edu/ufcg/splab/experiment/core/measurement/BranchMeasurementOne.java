@@ -1,8 +1,8 @@
-package br.edu.ufcg.splab.experiment.IaronBranch;
+package br.edu.ufcg.splab.experiment.core.measurement;
 
 import br.edu.ufcg.splab.core.InterfaceGraph;
 
-public class BranchMeasurementOne implements Measurement {
+public class BranchMeasurementOne implements InterfaceMeasurement {
 	private InterfaceGraph graph;
 	
 	public BranchMeasurementOne(InterfaceGraph graph) {
@@ -10,10 +10,7 @@ public class BranchMeasurementOne implements Measurement {
 	}
 	
 	public double measure() {
-		double numVertexes = graph.getStates().size();
-		double numEdges = graph.getEdges().size();
-		
-		return numEdges / numVertexes;
+		return (double)graph.getEdges().size() / (double)graph.getStates().size();
 	}
 
 	public InterfaceGraph getGraph() {
