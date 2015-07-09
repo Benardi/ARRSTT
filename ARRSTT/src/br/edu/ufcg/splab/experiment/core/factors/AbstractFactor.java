@@ -8,8 +8,6 @@ import br.edu.ufcg.splab.experiment.core.treatments.ExecutableTreatment;
  * Abstract implementation of a factor. Uses a List to store
  * treatments. 
  *
- * @param <T>
- * 		Data type that treatments of this factor receives.
  */
 public abstract class AbstractFactor implements InterfaceFactor {
 	/**
