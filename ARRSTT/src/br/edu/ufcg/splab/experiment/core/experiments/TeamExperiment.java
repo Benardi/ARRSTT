@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.core.InterfaceGraph;
+import br.edu.ufcg.splab.experiment.core.combinators.ExperimentSetUp;
 import br.edu.ufcg.splab.experiment.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment.core.treatments.TreatmentSearch;
 import br.edu.ufcg.splab.experiment.core.util.BranchSelector;
@@ -48,6 +49,8 @@ public class TeamExperiment {
 	 */
 	private ExperimentFile timeFile;
 	
+	private ExperimentSetUp setter;
+	
 	/**
 	 * Build a new TeamExperiment passing all the loop coverages.
 	 * 
@@ -61,6 +64,7 @@ public class TeamExperiment {
 		this.timeFile = new ExperimentFile("Times");
 		this.graphs = separator.getGraphsToRun();		
 		this.loopCoverages = loopCoverages;
+		this.setter = new ExperimentSetUp(graphs, loopCoverages);
 	}
 
 	/**
@@ -70,7 +74,7 @@ public class TeamExperiment {
 	 * @throws Exception
 	 */
 	public void runExperiment() throws Exception {
-		List<ExecutableTreatment> combinations = combine();
+		List<ExecutableTreatment> combinations = setter.combine();
 		
 		int count = 0;
 		for(ExecutableTreatment combination : combinations) {

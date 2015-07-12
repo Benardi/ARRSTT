@@ -3,16 +3,23 @@ package br.edu.ufcg.splab.experiment.core.combinators;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.core.InterfaceGraph;
 import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
 import br.edu.ufcg.splab.experiment.core.treatments.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment.core.treatments.TreatmentSearch;
+import br.edu.ufcg.splab.searchs.BreadthFirstSearch;
+import br.edu.ufcg.splab.searchs.DepthFirstSearch;
+import br.edu.ufcg.splab.searchs.InterfaceSearch;
 
 /**
  * This is a complete factorial combinator. This means that
  * it will generate all possible combinations for the treatments. 
  *
  */
-public class ExperimentSetUp extends AbstractCombinator {
-    private List<List<ExecutableTreatment>> combinatedList;
+public class ExperimentSetUp implements Combinable {
+    private List<ExecutableTreatment> combinatedList;
+    private List<InterfaceGraph> graphs;
+    private int[] loopCoverages;
 	
 	/**
 	 * Build a new combinator with a list of super.getFactors(). 
@@ -20,73 +27,41 @@ public class ExperimentSetUp extends AbstractCombinator {
 	 * @param super.getFactors()
 	 * 		The list of super.getFactors() which the treatments are in.
 	 */
-	public ExperimentSetUp(List<InterfaceFactor> factors) {
-		super(factors);
-	}
-	
-	public ExperimentSetUp() {
-		super(new ArrayList<InterfaceFactor>());
+	public ExperimentSetUp(List<InterfaceGraph> graphs, int[] loopCoverages) {
+		this.graphs = graphs;
+		this.loopCoverages = loopCoverages;
 	}
 	
 	/**
-	 * Generate all the possible combinations for the treatments.
+	 * This method do what the combinator is supposed to do.
+	 * That is, for each graph it will vary the searches and
+	 * loop coverages, generating the combinations that will 
+	 * be executed by the runExperiment method.
 	 * 
-	 * @return A list with n-tuples, each one a combination 
+	 * @return
+	 * 		A list containing the combinations.
 	 */
-	public List<List<ExecutableTreatment>> combine() {
-	    combinatedList = initializeList();
-	    
-	    for (int i = 1; i < super.getFactors().size(); i++) 
-	    	combineFactor(super.getFactors().get(i));
-	    
-	    return combinatedList;
-	}
-	
-	/**
-	 * After the list(the list inside the combinatedList) is expanded
-	 * delete the previous state of it.
-	 * 
-	 * @param factor
-	 */
-	private void combineFactor(InterfaceFactor factor) {
-		int loopEnd = combinatedList.size();
-		for (int j = 0; j < loopEnd; j++)
-			generateCombinations(combinatedList.get(j), factor);
+	@Override
+	public List<ExecutableTreatment> combine() {
+		List<ExecutableTreatment> combinations = new ArrayList<ExecutableTreatment>();
+		List<InterfaceSearch> searches = new ArrayList<InterfaceSearch>();
+		searches.add(new DepthFirstSearch());
+		searches.add(new BreadthFirstSearch());
 		
-		combinatedList.removeAll(combinatedList.subList(0, loopEnd));
-	}
-	
-	/**
-	 * Receives the actual state of a list(list inside the combinatedList),
-	 * expands it and put it in the combinatedList to form the final n-tuple.
-	 * 
-	 * @param combination
-	 * 		The actual state of a n-tuple.
-	 * @param factor
-	 */
-	private void generateCombinations(List<ExecutableTreatment> combination, InterfaceFactor factor) {
-		for (ExecutableTreatment treatment : factor.getTreatments()) {
-			List<ExecutableTreatment> miniList = new ArrayList<ExecutableTreatment>(combination);
-			miniList.add(treatment);
+		for(InterfaceGraph graph : graphs) {
+			for(InterfaceSearch search: searches) {
+				for(Integer loopCoverage : loopCoverages) {
+					combinations.add(new TreatmentSearch(search, graph.getRoot(), loopCoverage, ""));
+				}
+			}
 		}
+		
+		combinatedList = combinations;
+		return combinations;
 	}
 	
-	/**
-	 * Initialize the combinatedList with a list for each treatment
-	 * of the first factor.
-	 * 
-	 * @return The list initialized
-	 */
-	private List<List<ExecutableTreatment>> initializeList() {
-		List<List<ExecutableTreatment>> combinatedList = new ArrayList<List<ExecutableTreatment>>();
-		
-		for (ExecutableTreatment treatment : super.getFactors().get(0).getTreatments()) {
-	    	List<ExecutableTreatment> treatments = new ArrayList<ExecutableTreatment>();
-	    	
-	    	treatments.add(treatment);
-	    	combinatedList.add(treatments);
-	    }
-	    
-	    return combinatedList;
+	public List<ExecutableTreatment> getCombinations() {
+		return this.combinatedList;
 	}
+
 }
