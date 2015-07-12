@@ -19,5 +19,5 @@ public interface Combinable {
 	 * 		A list of list of objects, representing each a group of treatments.
 	 * 
 	 */
-	public List<List<ExecutableTreatment>> combine();
+	public List<ExecutableTreatment> combine();
 }
