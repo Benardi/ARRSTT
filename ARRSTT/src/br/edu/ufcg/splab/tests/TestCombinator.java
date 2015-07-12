@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.edu.ufcg.splab.experiment.core.combinators.CFCombinator;
+import br.edu.ufcg.splab.experiment.core.combinators.ExperimentSetUp;
 import br.edu.ufcg.splab.experiment.core.combinators.Combinable;
 import br.edu.ufcg.splab.experiment.core.factors.FactorSearch;
 import br.edu.ufcg.splab.experiment.core.factors.InterfaceFactor;
@@ -82,7 +82,7 @@ public class TestCombinator {
 		factor5 = new FactorSearch(treatments5);
 		
 		factors = new ArrayList<>();
-		combinator = new CFCombinator(factors);
+		combinator = new ExperimentSetUp(factors);
 		
 	}
 	
