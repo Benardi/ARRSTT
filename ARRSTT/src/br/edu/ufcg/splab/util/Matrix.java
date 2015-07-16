@@ -1,21 +1,21 @@
 package br.edu.ufcg.splab.util;
 
 public class Matrix {
-	private Integer[][] innerMatrix;
+	private Double[][] innerMatrix;
 	private int colAmount;
 	private int rowAmount;
 	
 	public Matrix(int colAmount, int rowAmount) {
-		this.innerMatrix = new Integer[rowAmount][colAmount];
+		this.innerMatrix = new Double[rowAmount][colAmount];
 		this.colAmount = colAmount;
 		this.rowAmount = rowAmount;
 	}
 
-	public void setPos(int row, int col, Integer element) {
+	public void setPos(int row, int col, Double element) {
 		innerMatrix[row][col] = element;
 	}
 
-	public Integer get(int row, int col) {
+	public Double get(int row, int col) {
 		return innerMatrix[row][col];
 	}
 
@@ -24,7 +24,7 @@ public class Matrix {
 	}
 
 	public void remove(int row, int col) {
-		innerMatrix[row][col] = -1;
+		innerMatrix[row][col] = new Double(-1);
 	}
 
 	public int getRowAmount() {
