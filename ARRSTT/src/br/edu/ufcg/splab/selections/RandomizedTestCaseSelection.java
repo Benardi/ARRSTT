@@ -9,6 +9,7 @@ public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 	private int howMany;
 	private Random randomizer;
 
+	//Great Creator pattern. Good code organization. Well done.
 	public RandomizedTestCaseSelection(TestSuite ts, Double percentage) {
 		this.ts = ts;
 		this.howMany = getAmountOfTestCases(ts, percentage);
@@ -23,6 +24,12 @@ public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 	public TestSuite select() {
 
 		TestSuite chosen = new TestSuite();
+		//It may reach an infinite loop if it 
+		// simply draws the same TC over and over.
+		// It is highly unlikely, but not impossible. 
+		// Try to manage an updated removal by removing 
+		// the TC in each draw. Note that you may need
+		// an auxiliary TestSuite for that.
 		while (chosen.size() < howMany) {
 			int choice = randomizer.nextInt(ts.size());
 			if (!chosen.contains(ts.get(choice))) {
