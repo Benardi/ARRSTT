@@ -175,4 +175,8 @@ public class TestSuite implements List<TestCase>{
 		
 		return output;
 	}
+	
+	public TestCase nulify(int index) {
+		return tSuite.set(index, null);
+	}
 }
