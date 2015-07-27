@@ -11,6 +11,7 @@ import br.edu.ufcg.splab.experimentHierarchy.core.treatments.ExecutableTreatment
  * it will generate all possible combinations for the treatments. 
  *
  */
+
 public class CFCombinator extends AbstractCombinator {
     private List<List<ExecutableTreatment>> combinatedList;
 	
@@ -20,6 +21,7 @@ public class CFCombinator extends AbstractCombinator {
 	 * @param super.getFactors()
 	 * 		The list of super.getFactors() which the treatments are in.
 	 */
+ 
 	public CFCombinator(List<InterfaceFactor> factors) {
 		super(factors);
 	}
@@ -33,6 +35,7 @@ public class CFCombinator extends AbstractCombinator {
 	 * 
 	 * @return A list with n-tuples, each one a combination 
 	 */
+	/*
 	public List<List<ExecutableTreatment>> combine() {
 	    combinatedList = initializeList();
 	    
@@ -40,7 +43,7 @@ public class CFCombinator extends AbstractCombinator {
 	    	combineFactor(super.getFactors().get(i));
 	    
 	    return combinatedList;
-	}
+	}*/
 	
 	/**
 	 * After the list(the list inside the combinatedList) is expanded
