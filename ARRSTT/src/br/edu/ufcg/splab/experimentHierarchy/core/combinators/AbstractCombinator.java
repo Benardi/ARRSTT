@@ -10,7 +10,7 @@ import br.edu.ufcg.splab.experimentHierarchy.core.factors.InterfaceFactor;
  * of factors. 
  *
  */
-public abstract class AbstractCombinator implements Combinable {
+public abstract class AbstractCombinator {
 	private List<InterfaceFactor> factors;
 	
 	/**

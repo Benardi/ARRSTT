@@ -6,4 +6,7 @@ public interface Matrix {
 	public boolean isEmpty();
 	public int getRowAmount();
 	public int getColAmount();
+	public void removeRow(int row);
+	public void removeCol(int col);
+	public int[] findMaxPos();
 }

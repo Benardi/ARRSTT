@@ -35,7 +35,6 @@ public class CFCombinator extends AbstractCombinator {
 	 * 
 	 * @return A list with n-tuples, each one a combination 
 	 */
-	/*
 	public List<List<ExecutableTreatment>> combine() {
 	    combinatedList = initializeList();
 	    
@@ -43,7 +42,7 @@ public class CFCombinator extends AbstractCombinator {
 	    	combineFactor(super.getFactors().get(i));
 	    
 	    return combinatedList;
-	}*/
+	}
 	
 	/**
 	 * After the list(the list inside the combinatedList) is expanded
