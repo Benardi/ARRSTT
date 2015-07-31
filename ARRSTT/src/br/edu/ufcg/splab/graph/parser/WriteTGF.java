@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.UUID;
 
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
@@ -20,14 +22,21 @@ public class WriteTGF {
 	
 	public void putInTGF(InterfaceGraph graph, String fileName) throws IOException{
 		StringBuffer content = new StringBuffer();
-		// Will this work?
-		List<InterfaceVertex> states = (ArrayList<InterfaceVertex>) graph.getStates().values();
+		
+		// Gets the states
+		List<InterfaceVertex> states = new ArrayList<>();
+		for(Entry<UUID, InterfaceVertex> entry : graph.getStates().entrySet()){
+			states.add(entry.getValue());
+		}
+		
+		// This loop writes the states on the StringBuffer
 		for(int i = 0; i < states.size(); i++){
 			content.append(i + " " + states.get(i).getLabel() + LINE_END);
 		}
 		
 		content.append("#");
 		List<InterfaceEdge> transitions = graph.getEdges();
+		// This loop writes the transitions on the StringBuffer
 		for(InterfaceEdge edge: transitions){
 			content.append(LINE_END + edge.getFrom().getLabel() + " " + edge.getTo().getLabel() + " " + edge.getLabel());
 		}

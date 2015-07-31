@@ -16,23 +16,26 @@ public class RandomMaskarator implements GraphMaskaratorInterface{
 
 	@Override
 	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, int errorQuantity) {
-		List<Integer> positionOfMarks = new ArrayList<>();
-		Random positionGenerator = new Random();
-		int limit = toBeMasked.getEdges().size();
-		int position;
-		while(errorQuantity != 0){
-			position = positionGenerator.nextInt(limit);
-			if(!(positionOfMarks.contains(position))){
-				positionOfMarks.add(position);
-				errorQuantity--;
-			}
-		}
-		
+		List<Integer> positionOfMarks = getMarkPositions(toBeMasked.getEdges().size(), errorQuantity);
 		for(Integer i : positionOfMarks){
 			toBeMasked.getEdges().get(i).setLabel("ERROR");
 		}
 		
 		return toBeMasked;
+	}
+	
+	private List<Integer> getMarkPositions(int limit, int markQnt){
+		List<Integer> markPosition = new ArrayList<>();
+		Random positionGenerator = new Random();
+		int position;
+		while(markQnt != 0){
+			position = positionGenerator.nextInt(limit);
+			if(!(markPosition.contains(position))){
+				markPosition.add(position);
+				markQnt--;
+			}
+		}
+		return markPosition;
 	}
 
 }
