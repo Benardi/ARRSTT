@@ -19,15 +19,15 @@ public class MaskaratorTest {
 		g2random = reader.getGraph("C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\input_examples\\iaron_mediumtoy2.tgf");
 		g2iaron = reader.getGraph("C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\input_examples\\iaron_mediumtoy2.tgf");
 		
-		maskI.maskarate(g1iaron, 2);
-		maskI.maskarate(g2iaron, 3);
+		maskI.maskarate(g1iaron, 0.40);
+		maskI.maskarate(g2iaron, 0.40);
 		maskR.maskarate(g1random, 0.40);
 		maskR.maskarate(g2random, 0.40);
 		
-		writer.putInTGF(g1iaron, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\easytoy3_iaronmasked2");
-		writer.putInTGF(g1random, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\easytoy3_randommasked2");
-		writer.putInTGF(g2iaron, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\mediumtoy2_iaronmasked2");
-		writer.putInTGF(g2random, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\mediumtoy2_randommasked2");
+		writer.putInTGF(g1iaron, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\easytoy3_iaronmasked3");
+		writer.putInTGF(g1random, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\easytoy3_randommasked3");
+		writer.putInTGF(g2iaron, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\mediumtoy2_iaronmasked3");
+		writer.putInTGF(g2random, "C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\mediumtoy2_randommasked3");
 
 	}
 

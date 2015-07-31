@@ -34,6 +34,7 @@ public class IaronMaskarator implements GraphMaskaratorInterface{
 			if(count == errorPosition){
 				edge.setLabel("ERROR");
 				errorQuantity--;
+				count = 1;
 				if(errorQuantity == 0){
 					return toBeMasked;
 				}
