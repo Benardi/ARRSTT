@@ -7,6 +7,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 
+//TODO: Rename and refactor to address defects.
 public class FailureCounter {
 	private static String[] failures = {"ERROR"};
 	private List<String> failuresDetected;

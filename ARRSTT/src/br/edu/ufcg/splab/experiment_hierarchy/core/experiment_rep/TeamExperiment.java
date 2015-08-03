@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.ExperimentSetUp;
+import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.ExperimentSetUpSearches;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.TreatmentSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.BreadthFirstSearch;
@@ -50,7 +50,7 @@ public class TeamExperiment {
 	 */
 	private ExperimentFile timeFile;
 	
-	private ExperimentSetUp setter;
+	private ExperimentSetUpSearches setter;
 	
 	/**
 	 * Build a new TeamExperiment passing all the loop coverages.
@@ -65,7 +65,7 @@ public class TeamExperiment {
 		this.timeFile = new ExperimentFile("Times");
 		this.graphs = separator.getGraphsToRun();		
 		this.loopCoverages = loopCoverages;
-		this.setter = new ExperimentSetUp(graphs, loopCoverages);
+		this.setter = new ExperimentSetUpSearches(graphs, loopCoverages);
 	}
 
 	/**

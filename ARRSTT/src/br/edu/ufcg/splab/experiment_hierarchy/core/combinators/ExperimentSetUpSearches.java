@@ -16,8 +16,8 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  * it will generate all possible combinations for the treatments. 
  *
  */
-public class ExperimentSetUp implements Combinable {
-    private List<Tuple<ExecutableTreatment>> combinatedList;
+public class ExperimentSetUpSearches implements Combinable {
+    private List<Tuple<ExecutableTreatment>> combinedList;
     private List<InterfaceGraph> graphs;
     private int[] loopCoverages;
 	
@@ -27,7 +27,7 @@ public class ExperimentSetUp implements Combinable {
 	 * @param super.getFactors()
 	 * 		The list of super.getFactors() which the treatments are in.
 	 */
-	public ExperimentSetUp(List<InterfaceGraph> graphs, int[] loopCoverages) {
+	public ExperimentSetUpSearches(List<InterfaceGraph> graphs, int[] loopCoverages) {
 		this.graphs = graphs;
 		this.loopCoverages = loopCoverages;
 	}
@@ -43,7 +43,9 @@ public class ExperimentSetUp implements Combinable {
 	 */
 	@Override
 	public List<Tuple<ExecutableTreatment>> combine() {
-		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<Tuple<ExecutableTreatment>>();
+		List<Tuple<ExecutableTreatment>> allTrials = new ArrayList<Tuple<ExecutableTreatment>>();
+		
+		//add search factor
 		List<InterfaceSearch> searches = new ArrayList<InterfaceSearch>();
 		searches.add(new DepthFirstSearch());
 		searches.add(new BreadthFirstSearch());
@@ -51,19 +53,15 @@ public class ExperimentSetUp implements Combinable {
 		for(InterfaceGraph graph : graphs) {
 			for(InterfaceSearch search: searches) {
 				for(Integer loopCoverage : loopCoverages) {
-					Tuple<ExecutableTreatment> combination = new Tuple<ExecutableTreatment>();
-					combination.add(new TreatmentSearch(search, graph.getRoot(), loopCoverage, ""));
-					combinations.add(combination);
+					//creates a trial composed of a: search, graph and loop coverage.
+					Tuple<ExecutableTreatment> trial = new Tuple<ExecutableTreatment>();
+					trial.add(new TreatmentSearch(search, graph.getRoot(), loopCoverage, ""));
+					allTrials.add(trial);
 				}
 			}
 		}
 		
-		combinatedList = combinations;
-		return combinations;
+		combinedList = allTrials;
+		return allTrials;
 	}
-	
-	public List<Tuple<ExecutableTreatment>> getCombinations() {
-		return this.combinatedList;
-	}
-
 }
