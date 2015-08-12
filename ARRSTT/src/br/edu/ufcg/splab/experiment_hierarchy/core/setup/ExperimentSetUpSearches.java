@@ -1,8 +1,9 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.combinators;
+package br.edu.ufcg.splab.experiment_hierarchy.core.setup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.TreatmentSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.BreadthFirstSearch;
@@ -16,7 +17,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  * it will generate all possible combinations for the treatments. 
  *
  */
-public class ExperimentSetUpSearches implements Combinable {
+public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
     private List<Tuple<ExecutableTreatment>> combinedList;
     private List<InterfaceGraph> graphs;
     private int[] loopCoverages;
@@ -42,7 +43,7 @@ public class ExperimentSetUpSearches implements Combinable {
 	 * 		A list containing the combinations.
 	 */
 	@Override
-	public List<Tuple<ExecutableTreatment>> combine() {
+	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
 		List<Tuple<ExecutableTreatment>> allTrials = new ArrayList<Tuple<ExecutableTreatment>>();
 		
 		//add search factor

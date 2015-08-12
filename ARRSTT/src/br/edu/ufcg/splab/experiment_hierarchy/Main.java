@@ -2,8 +2,8 @@ package br.edu.ufcg.splab.experiment_hierarchy;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.ExperimentSetUpSearches;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep.TeamExperiment;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setup.ExperimentSetUpSearches;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 
