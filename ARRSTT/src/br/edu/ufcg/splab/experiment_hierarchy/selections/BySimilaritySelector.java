@@ -6,7 +6,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.matrix.Matrix;
 import br.edu.ufcg.splab.experiment_hierarchy.util.matrix.SimilarityStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class BySimilaritySelector {
+public class BySimilaritySelector implements InterfaceTestCaseSelector{
     private int selectingAmount;
     private TestSuite originalTS;
     private TestSuite selectedTS;

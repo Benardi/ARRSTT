@@ -6,11 +6,11 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment_hierarchy.util.comparators.SizeComparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class BigestTestCaseSelector implements InterfaceTestCaseSelector{
+public class BiggestTestCaseSelector implements InterfaceTestCaseSelector{
 	private TestSuite testSuite;
 	private int quantityOfCases;
 	
-	public BigestTestCaseSelector(TestSuite testSuite, double percentage) {
+	public BiggestTestCaseSelector(TestSuite testSuite, double percentage) {
 		this.testSuite = testSuite;
 		this.quantityOfCases = getQuantity(percentage);
 	}
