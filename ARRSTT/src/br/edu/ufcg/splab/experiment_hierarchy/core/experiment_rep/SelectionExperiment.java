@@ -3,37 +3,22 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep;
 import java.io.IOException;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.GenerationCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ErrorStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
 /**
  * This is the class that should execute the specific experiment made on the
  * ARRSTT project.
  */
-public class TeamExperiment {
+public class SelectionExperiment {
 	public static final String LINE_END = System.getProperty("line.separator");
 
-	/**
-	 * This object is used to produce a list of graphs with the same amount of
-	 * low on branch graphs and high on branch graphs.
-	 */
-	private BranchSeparator separator;
-	/**
-	 * The list of graphs to be evaluated by the experiment. This list is filled
-	 * with the output of the separator.
-	 */
-	private List<InterfaceGraph> graphs;
-
+    private ExperimentFile failureFile;
 	private ExperimentFile timeFile;
-	private ExperimentFile tsSizeFile;
-	
-	private DependentVariableCollector dvc;
+	private ExperimentFile defectFile;
 
 	/**
 	 * Build a new TeamExperiment passing all the loop coverages.
@@ -42,12 +27,11 @@ public class TeamExperiment {
 	 *            The loop coverages in which the searches will run.
 	 * @throws Exception
 	 */
-	public TeamExperiment() throws Exception {
-		this.dvc = new GenerationCollector();
-		this.separator = new BranchSeparator();
-		this.graphs = separator.getGraphsToRun();
-		this.timeFile = new ExperimentFile("Times");
-		this.tsSizeFile = new ExperimentFile("Sizes");
+	public SelectionExperiment() throws Exception {
+	    this.failureFile = new ExperimentFile("Failure");
+	    this.timeFile = new ExperimentFile("Time");
+	    this.defectFile = new ExperimentFile("Defect");
+	    
 	}
 
 	/**
@@ -62,13 +46,24 @@ public class TeamExperiment {
 		int count = 0;
 		for (Tuple<ExecutableTreatment> combination : combinations) {
 			for (ExecutableTreatment treatment : combination) {
-				dvc.collect(treatment);
+				Long initTime = System.nanoTime();
+		        TestSuite testSuite = treatment.execute();
+		        Long endTime = System.nanoTime();
+
+		        Long timeDif = (endTime - initTime);
+		
+		        ErrorStructure errorStructure = new ErrorStructure(testSuite);
+		    
+		        timeFile.appendContent(timeDif + "\t");
+		        failureFile.appendContent(errorStructure.countFails() + "\t");
+		        defectFile.appendContent(errorStructure.countDefects() + "\t");
 				
 				// Probably will go to formatter later.
 				count += 1;
-				if (count == 6) {
+				if (count == 31) {
 					timeFile.appendContent(LINE_END);
-					tsSizeFile.appendContent(LINE_END);
+					failureFile.appendContent(LINE_END);
+					defectFile.appendContent(LINE_END);
 					count = 0;
 				}
 			}
@@ -79,10 +74,8 @@ public class TeamExperiment {
 
 	private void saveFiles() throws IOException {
 		timeFile.save();
-		tsSizeFile.save();
-	}
-
-	public List<InterfaceGraph> getGraphs() {
-		return graphs;
+		failureFile.save();
+		defectFile.save();
 	}
 }
+

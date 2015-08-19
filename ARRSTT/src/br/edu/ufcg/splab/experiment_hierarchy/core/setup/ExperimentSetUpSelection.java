@@ -3,8 +3,8 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.setup;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.TreatmentSelection;
 import br.edu.ufcg.splab.experiment_hierarchy.graph_maskarator.GraphMaskaratorInterface;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
@@ -35,14 +35,37 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
 		List<InterfaceGraph> maskedGraphs = getMaskedGraphs();
 		List<TestSuite> maskedTestSuites = getMaskedTestSuites(maskedGraphs);
-		List<InterfaceTestCaseSelector> selections = generateSelections(maskedTestSuites.get(0));
+		return combine(maskedTestSuites, selectionPercentage);
+	}
+	
+	private List<Tuple<ExecutableTreatment>> combine(List<TestSuite> maskedTestSuites, double selectionPercentage){
+		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<>();
+		Tuple<ExecutableTreatment> t;
+		ExecutableTreatment e;
 		
-		//TODO apagar o comentario quando o combinator estiver funcionando
-		/*Combinable combinator = new SelectionCombinator(maskedTestSuites, selections);
-		return combinator.combine();*/
+		for(TestSuite ts : maskedTestSuites){
+			t = new Tuple<>();
+			e = new TreatmentSelection(new BySimilaritySelector(ts, selectionPercentage));
+			t.add(e);
+			combinations.add(t);
+		}
 		
-		//apagar esta linha quando tudo estiver pronto
-		return null;
+		/*for(TestSuite ts : maskedTestSuites){
+			t = new Tuple<>();
+			e = new TreatmentSelection(new BiggestTestCaseSelector(ts, selectionPercentage));
+			t.add(e);
+			combinations.add(t);
+		}*/
+		
+		for(TestSuite ts : maskedTestSuites){
+			t = new Tuple<>();
+			e = new TreatmentSelection(new RandomizedTestCaseSelection(ts, selectionPercentage));
+			t.add(e);
+			combinations.add(t);
+		}
+		
+		return combinations;
+		
 	}
 
 	private List<InterfaceGraph> getMaskedGraphs(){
