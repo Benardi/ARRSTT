@@ -56,6 +56,7 @@ public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
 				for(Integer loopCoverage : loopCoverages) {
 					//creates a trial composed of a: search, graph and loop coverage.
 					Tuple<ExecutableTreatment> trial = new Tuple<ExecutableTreatment>();
+					// Search está sendo usado várias vezes e não está sendo criado novamente.
 					trial.add(new TreatmentSearch(search, graph.getRoot(), loopCoverage, ""));
 					allTrials.add(trial);
 				}

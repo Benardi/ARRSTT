@@ -14,8 +14,8 @@ public class BySimilaritySelector implements InterfaceTestCaseSelector{
     
     public BySimilaritySelector(TestSuite ts, Double percentage) {
         matrix = new SimilarityStructure(ts);
-        selectingAmount = (int) Math.ceil(originalTS.size() * percentage);
         originalTS = ts;
+        selectingAmount = (int) Math.ceil(originalTS.size() * percentage);
     }
     
     public TestSuite select() {

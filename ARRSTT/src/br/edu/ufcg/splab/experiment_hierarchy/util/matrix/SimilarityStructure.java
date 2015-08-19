@@ -11,6 +11,7 @@ public class SimilarityStructure implements Matrix {
     private SimilarityCalculator similarityCalculator;
     
     public SimilarityStructure(TestSuite testSuite) {
+    	this.similarityCalculator = new SimilarityCalculator();
         initializeList(testSuite);
         fillStair(testSuite);
     }
