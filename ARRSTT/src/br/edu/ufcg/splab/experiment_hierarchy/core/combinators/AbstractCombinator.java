@@ -11,7 +11,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.factors.InterfaceFactor;
  *
  */
 public abstract class AbstractCombinator {
-	private List<InterfaceFactor> factors;
+private List<InterfaceFactor> factors;
 	
 	/**
 	 * Build a combinator with a list of factors.

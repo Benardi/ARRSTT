@@ -43,6 +43,8 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		Tuple<ExecutableTreatment> t;
 		ExecutableTreatment e;
 		
+		//REFACTOR: Fix this Jerry-Rig and "t" and "e" are definitively an awful name.
+		
 		for(TestSuite ts : maskedTestSuites){
 			t = new Tuple<>();
 			e = new TreatmentSelection(new BySimilaritySelector(ts, selectionPercentage));

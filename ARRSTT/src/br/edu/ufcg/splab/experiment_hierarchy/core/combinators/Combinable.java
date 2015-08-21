@@ -13,6 +13,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
  *  
  */
 public interface Combinable {
+	// REFACTOR: The name is not good since just combinators of some sort implements it.
 	/**
 	 * Combine the treatments.
 	 * 

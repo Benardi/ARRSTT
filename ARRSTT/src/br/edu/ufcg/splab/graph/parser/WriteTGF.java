@@ -34,7 +34,9 @@ public class WriteTGF {
 			content.append(i + " " + states.get(i).getLabel() + LINE_END);
 		}
 		
-		content.append("#");
+		// REFACTOR: Make this a constant
+		content.append("#"); // This symbol separates the vertexes from the edges on the TGF
+		
 		List<InterfaceEdge> transitions = graph.getEdges();
 		// This loop writes the transitions on the StringBuffer
 		for(InterfaceEdge edge: transitions){

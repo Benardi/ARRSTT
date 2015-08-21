@@ -18,6 +18,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  *
  */
 public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
+	// REFACTOR: Maybe combinedList is useless.
     private List<Tuple<ExecutableTreatment>> combinedList;
     private List<InterfaceGraph> graphs;
     private int[] loopCoverages;
@@ -63,7 +64,7 @@ public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
 			}
 		}
 		
-		combinedList = allTrials;
+		combinedList = allTrials; //REFACTOR: Why do we do this?
 		return allTrials;
 	}
 }
