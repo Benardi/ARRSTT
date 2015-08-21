@@ -52,6 +52,7 @@ public class BranchSeparator {
 		for(InterfaceGraph graph : allGraphs) {
 			InterfaceMeasurement measureObject = new BranchMeasurementOne(graph);
 			
+			//REFACTOR: Magic number
 			if(measureObject.measure() > 1.3)
 				highGraphs.add(graph);
 			else

@@ -9,7 +9,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatmen
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
 /**
@@ -29,7 +28,8 @@ public class TeamExperiment {
 	 * with the output of the separator.
 	 */
 	private List<InterfaceGraph> graphs;
-
+	
+	// REFACTOR: The next two attributes don't have JavaDoc
 	private ExperimentFile timeFile;
 	private ExperimentFile tsSizeFile;
 	

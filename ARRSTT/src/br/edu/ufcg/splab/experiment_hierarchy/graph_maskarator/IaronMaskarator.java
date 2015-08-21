@@ -4,10 +4,10 @@ import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
 /*
- * This class gets the list of trasitions and selects which trasitions are
+ * This class gets the list of trasitions and selects which ones are
  * going to be marked by fixing a distance between the marked trasitions.
  * eg: if a graph has 6 trasitions and it is going to have 2 errors, the 3rd
- * and 6th trasitions are going to be marked.
+ * and 6th ones are going to be marked.
  * eg: if a graph has 10 trasitions and it is going to have 3 errors, the 3rd,
  * 6th and the 9th is going to be marked.
  */
