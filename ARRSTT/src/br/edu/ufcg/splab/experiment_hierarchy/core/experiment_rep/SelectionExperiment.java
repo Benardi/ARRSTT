@@ -19,6 +19,7 @@ public class SelectionExperiment {
     private ExperimentFile failureFile;
 	private ExperimentFile timeFile;
 	private ExperimentFile defectFile;
+	private ExperimentFile tsSizeFile;
 
 	/**
 	 * Build a new TeamExperiment passing all the loop coverages.
@@ -31,7 +32,7 @@ public class SelectionExperiment {
 	    this.failureFile = new ExperimentFile("Failure");
 	    this.timeFile = new ExperimentFile("Time");
 	    this.defectFile = new ExperimentFile("Defect");
-	    
+	    this.tsSizeFile = new ExperimentFile("TSSizes");
 	}
 
 	/**
@@ -57,6 +58,7 @@ public class SelectionExperiment {
 		        timeFile.appendContent(timeDif + "\t");
 		        failureFile.appendContent(errorStructure.countFails() + "\t");
 		        defectFile.appendContent(errorStructure.countDefects() + "\t");
+		        tsSizeFile.appendContent(testSuite.size() + "\t");
 				
 				// Probably will go to formatter later.
 				count += 1;
@@ -64,6 +66,7 @@ public class SelectionExperiment {
 					timeFile.appendContent(LINE_END);
 					failureFile.appendContent(LINE_END);
 					defectFile.appendContent(LINE_END);
+					tsSizeFile.appendContent(LINE_END);
 					count = 0;
 				}
 			}
@@ -76,6 +79,7 @@ public class SelectionExperiment {
 		timeFile.save();
 		failureFile.save();
 		defectFile.save();
+		tsSizeFile.save();
 	}
 }
 

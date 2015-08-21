@@ -81,6 +81,7 @@ public class SimilarityStructure implements Matrix {
 	    		if (max <= stair.get(i).get(j)) {
 	    			maxPos[0] = i;
 	    			maxPos[1] = j;
+	    			max = stair.get(i).get(j);
 	    		}
 	    	}
 	    }
