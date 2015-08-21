@@ -18,7 +18,7 @@ import br.edu.ufcg.splab.graph.parser.ReadTGF;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		runGeneration();
+		runSelection();
 	}
 	
 	public static void runGeneration() {
@@ -37,7 +37,7 @@ public class Main {
 		try {
 			SelectionExperiment experiment = new SelectionExperiment();
 			// Receber test suites como parâmetros ao invés de grafos.
-			ExperimentSetUpInterface combinator = new ExperimentSetUpSelection(loadGraphs(), new RandomMaskarator(), 0.4, 0.4);
+			ExperimentSetUpInterface combinator = new ExperimentSetUpSelection(loadGraphs(), new RandomMaskarator(), 0.4, 0.9);
 			experiment.runExperiment(combinator.getIndependentVariables());
 			
 		} catch(Exception e) {

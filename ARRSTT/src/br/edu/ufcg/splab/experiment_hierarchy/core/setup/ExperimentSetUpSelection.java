@@ -64,6 +64,13 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 			combinations.add(t);
 		}
 		
+		for(TestSuite ts : maskedTestSuites){
+			t = new Tuple<>();
+			e = new TreatmentSelection(new RandomizedTestCaseSelection(ts, 1.0));
+			t.add(e);
+			combinations.add(t);
+		}
+		
 		return combinations;
 		
 	}
