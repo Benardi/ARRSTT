@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.graph_maskarator;
+package br.edu.ufcg.splab.experiment_hierarchy.graph_maskers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,16 +6,16 @@ import java.util.Random;
 
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
-public class RandomMaskarator implements GraphMaskaratorInterface{
+public class RandomMasker implements InterfaceGraphMaskarator{
 
 	@Override
-	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, double percentage) {
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size() * percentage);
-		return maskarate(toBeMasked, errorQuantity);
+		return mask(toBeMasked, errorQuantity);
 	}
 
 	@Override
-	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, int errorQuantity) {
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
 		List<Integer> positionOfMarks = getMarkPositions(toBeMasked.getEdges().size(), errorQuantity);
 		for(Integer i : positionOfMarks){
 			toBeMasked.getEdges().get(i).setLabel("ERROR");

@@ -1,8 +1,8 @@
-package br.edu.ufcg.splab.experiment_hierarchy.graph_maskarator;
+package br.edu.ufcg.splab.experiment_hierarchy.graph_maskers;
 
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
-public interface GraphMaskaratorInterface {
+public interface InterfaceGraphMaskarator {
 	//I think I should pick another name for the methods, but I can't think of a good one.
 	//Is error the right name? Should I change it by something else?
 	//Should the toBeMasked be a class attribute?
@@ -16,7 +16,7 @@ public interface GraphMaskaratorInterface {
 	 * @return A masked version of the graph
 	 */
 	
-	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, double percentage);
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage);
 	/**
 	 * This method receives a graph and return it's masked form, putting some "errors" in it.
 	 * Receives the graph to be masked and the amount of "errors" desired.
@@ -26,5 +26,5 @@ public interface GraphMaskaratorInterface {
 	 * 			The amount of "errors" desired
 	 * @return
 	 */
-	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, int errorQuantity);
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity);
 }

@@ -15,7 +15,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  * This is the class that should execute the specific experiment made on the
  * ARRSTT project.
  */
-public class TeamExperiment {
+public class GenerationExperiment {
 	public static final String LINE_END = System.getProperty("line.separator");
 
 	/**
@@ -29,8 +29,13 @@ public class TeamExperiment {
 	 */
 	private List<InterfaceGraph> graphs;
 	
-	// REFACTOR: The next two attributes don't have JavaDoc
+	/**
+	 * The file cointaining the time data of the executions
+	 */
 	private ExperimentFile timeFile;
+	/**
+	 * The file containing the sizes of the Test Suites generated
+	 */
 	private ExperimentFile tsSizeFile;
 	
 	private DependentVariableCollector dvc;
@@ -42,7 +47,7 @@ public class TeamExperiment {
 	 *            The loop coverages in which the searches will run.
 	 * @throws Exception
 	 */
-	public TeamExperiment() throws Exception {
+	public GenerationExperiment() throws Exception {
 		this.dvc = new GenerationCollector();
 		this.separator = new BranchSeparator();
 		this.graphs = separator.getGraphsToRun();

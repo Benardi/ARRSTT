@@ -7,28 +7,29 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.comparators.SizeComparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class BiggestTestCaseSelector implements InterfaceTestCaseSelector{
-	private TestSuite testSuite;
-	private int quantityOfCases;
 	
-	public BiggestTestCaseSelector(TestSuite testSuite, double percentage) {
-		this.testSuite = testSuite;
-		this.quantityOfCases = getQuantity(percentage);
+	public BiggestTestCaseSelector() {
+
 	}
 
-	private int getQuantity(double percentage) {
+	private int getQuantity(TestSuite testSuite, double percentage) {
 		return (int) Math.ceil(testSuite.size() * percentage);
 	}
 
 	@Override
-	public TestSuite select() {
+	public TestSuite select(TestSuite testSuite, Double percentage) {
+		int quantityOfTC;
+		quantityOfTC = getQuantity(testSuite ,percentage);
+		
 		TestSuite copy = new TestSuite(testSuite);
 		TestSuite selections = new TestSuite();
 		
 		Collections.sort((List)copy, new SizeComparator());
 		
-		for(int i = 0; i < quantityOfCases; i++)
+		for(int i = 0; i < quantityOfTC; i++)
 			selections.add(copy.get(copy.size() - 1 - i));
 		
 		return selections;
 	}
+
 }

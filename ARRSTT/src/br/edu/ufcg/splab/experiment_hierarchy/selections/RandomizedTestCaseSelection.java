@@ -5,23 +5,16 @@ import java.util.Random;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
-	private TestSuite ts;
-	private int howMany;
 	private Random randomizer;
 
-	//Great Creator pattern. Good code organization. Well done.
-	public RandomizedTestCaseSelection(TestSuite ts, Double percentage) {
-		this.ts = ts;
-		this.howMany = getAmountOfTestCases(ts, percentage);
+	public RandomizedTestCaseSelection() {
 		this.randomizer = new Random();
 	}
 
-	private int getAmountOfTestCases(TestSuite ts, Double percentage) {
-		return (int) Math.ceil(ts.size() * percentage);
-	}
 
 	@Override
-	public TestSuite select() {
+	public TestSuite select(TestSuite testSuite, Double percentage) {
+		int howMany = getAmountOfTestCases(testSuite, percentage);
 
 		TestSuite chosen = new TestSuite();
 		//It may reach an infinite loop if it 
@@ -31,11 +24,15 @@ public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 		// the TC in each draw. Note that you may need
 		// an auxiliary TestSuite for that.
 		while (chosen.size() < howMany) {
-			int choice = randomizer.nextInt(ts.size());
-			if (!chosen.contains(ts.get(choice))) {
-				chosen.add(ts.get(choice));
+			int choice = randomizer.nextInt(testSuite.size());
+			if (!chosen.contains(testSuite.get(choice))) {
+				chosen.add(testSuite.get(choice));
 			}
 		}
 		return chosen;
+	}
+	
+	private int getAmountOfTestCases(TestSuite ts, Double percentage) {
+		return (int) Math.ceil(ts.size() * percentage);
 	}
 }

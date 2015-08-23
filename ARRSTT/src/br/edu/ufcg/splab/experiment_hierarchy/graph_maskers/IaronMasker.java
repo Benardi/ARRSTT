@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.graph_maskarator;
+package br.edu.ufcg.splab.experiment_hierarchy.graph_maskers;
 
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
@@ -11,12 +11,12 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  * eg: if a graph has 10 trasitions and it is going to have 3 errors, the 3rd,
  * 6th and the 9th is going to be marked.
  */
-public class IaronMaskarator implements GraphMaskaratorInterface{
+public class IaronMasker implements InterfaceGraphMaskarator{
 
 	@Override
-	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, double percentage) {
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size() * percentage);
-		return maskarate(toBeMasked, errorQuantity);
+		return mask(toBeMasked, errorQuantity);
 	}
 	
 	
@@ -27,7 +27,7 @@ public class IaronMaskarator implements GraphMaskaratorInterface{
 	 */
 	//I think a while would fit this better, but I don't know how to do it.
 	@Override
-	public InterfaceGraph maskarate(InterfaceGraph toBeMasked, int errorQuantity) {
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
 		int errorPosition = toBeMasked.getEdges().size() / errorQuantity ;
 		int count = 1;
 		for(InterfaceEdge edge : toBeMasked.getEdges()){
