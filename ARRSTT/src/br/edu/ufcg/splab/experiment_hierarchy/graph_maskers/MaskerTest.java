@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.graph_maskarator;
+package br.edu.ufcg.splab.experiment_hierarchy.graph_maskers;
 
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
@@ -8,15 +8,15 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph.parser.ReadTGF;
 import br.edu.ufcg.splab.graph.parser.WriteTGF;
 
-public class MaskaratorTest {
+public class MaskerTest {
 
 	public static void main(String[] args) throws Exception {
-		GraphMaskaratorInterface maskR, maskI;
+		InterfaceGraphMaskarator maskR, maskI;
 		InterfaceGraph g1random, g1iaron, g2random, g2iaron;
 		ReadTGF reader = new ReadTGF();
 		WriteTGF writer = new WriteTGF();
-		maskI = new IaronMaskarator();
-		maskR = new RandomMaskarator();
+		maskI = new IaronMasker();
+		maskR = new RandomMasker();
 		
 		//g1random = reader.getGraph("C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\input_examples\\iaron_easytoy3.tgf");
 		//g1iaron = reader.getGraph("C:\\Users\\Iaron\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\input_examples\\iaron_easytoy3.tgf");

@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.TreatmentSelection;
-import br.edu.ufcg.splab.experiment_hierarchy.graph_maskarator.GraphMaskaratorInterface;
+import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.InterfaceGraphMaskarator;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
@@ -19,11 +19,11 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 	private static final int LOOP_COVERAGE = 0;
 	private List<InterfaceGraph> graphs;
-	private GraphMaskaratorInterface maskarator;
+	private InterfaceGraphMaskarator maskarator;
 	private InterfaceSearch search;
 	private double maskPercentage, selectionPercentage;
 	
-	public ExperimentSetUpSelection(List<InterfaceGraph> graphs, GraphMaskaratorInterface maskarator, double maskPercentage, double selectionPercentage){
+	public ExperimentSetUpSelection(List<InterfaceGraph> graphs, InterfaceGraphMaskarator maskarator, double maskPercentage, double selectionPercentage){
 		this.graphs = graphs;
 		this.maskarator = maskarator;
 		this.search = new DepthFirstSearch();
@@ -47,7 +47,7 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		
 		for(TestSuite ts : maskedTestSuites){
 			t = new Tuple<>();
-			e = new TreatmentSelection(new BySimilaritySelector(ts, selectionPercentage));
+			e = new TreatmentSelection(new BySimilaritySelector(), ts, selectionPercentage);
 			t.add(e);
 			combinations.add(t);
 		}
@@ -61,14 +61,14 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		
 		for(TestSuite ts : maskedTestSuites){
 			t = new Tuple<>();
-			e = new TreatmentSelection(new RandomizedTestCaseSelection(ts, selectionPercentage));
+			e = new TreatmentSelection(new RandomizedTestCaseSelection(), ts, selectionPercentage);
 			t.add(e);
 			combinations.add(t);
 		}
 		
 		for(TestSuite ts : maskedTestSuites){
 			t = new Tuple<>();
-			e = new TreatmentSelection(new RandomizedTestCaseSelection(ts, 1.0));
+			e = new TreatmentSelection(new RandomizedTestCaseSelection(), ts, 1.0);
 			t.add(e);
 			combinations.add(t);
 		}
@@ -80,7 +80,7 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 	private List<InterfaceGraph> getMaskedGraphs(){
 		List<InterfaceGraph> maskedGraphs = new ArrayList<>();
 		for(InterfaceGraph graph : graphs){
-			maskedGraphs.add(maskarator.maskarate(graph, maskPercentage));
+			maskedGraphs.add(maskarator.mask(graph, maskPercentage));
 		}
 		return maskedGraphs;
 	}
@@ -94,12 +94,13 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		
 	}
 	
-	private List<InterfaceTestCaseSelector> generateSelections(TestSuite defaultTS) {
+	// I don't think this method will be used anymore since the selections don't receive a TestSuite anymore
+	/*private List<InterfaceTestCaseSelector> generateSelections(TestSuite defaultTS) {
 		List<InterfaceTestCaseSelector> selections = new ArrayList<>();
-		selections.add(new BySimilaritySelector(defaultTS, selectionPercentage));
-		selections.add(new BiggestTestCaseSelector(defaultTS, selectionPercentage));
-		selections.add(new RandomizedTestCaseSelection(defaultTS, selectionPercentage));
+		selections.add(new BySimilaritySelector(), defaultTS, selectionPercentage);
+		selections.add(new BiggestTestCaseSelector(), defaultTS, selectionPercentage);
+		selections.add(new RandomizedTestCaseSelection(), defaultTS, selectionPercentage);
 		return selections;
-	}
+	}*/
 
 }
