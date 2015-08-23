@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.factors;
+package br.edu.ufcg.splab.trash;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 

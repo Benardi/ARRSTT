@@ -3,7 +3,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
-import br.edu.ufcg.splab.experiment_hierarchy.core.factors.InterfaceFactor;
+import br.edu.ufcg.splab.trash.InterfaceFactor;
 
 /**
  * Represents a replicable experiment.
