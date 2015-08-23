@@ -3,7 +3,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.combinators;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.factors.InterfaceFactor;
+import br.edu.ufcg.splab.trash.InterfaceFactor;
 
 /**
  * Abstract implementation of a combinator. Uses a list

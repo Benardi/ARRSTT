@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.factors;
+package br.edu.ufcg.splab.trash;
 
 import java.util.List;
 
