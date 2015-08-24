@@ -6,31 +6,62 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * This class represents a test suite. A list of TestCases.
+ *
+ */
 public class TestSuite implements List<TestCase>{
 	
+	/**
+	 * The list of TestCases.
+	 */
 	private List<TestCase> tSuite;
 	
-	
+	/**
+	 * Constructor that receives a list of TestCase.
+	 * @param tSuite
+	 * 			The list of TestCase.
+	 */
 	public TestSuite(List<TestCase> tSuite){
 		this.tSuite = tSuite;
 	}
 	
+	/**
+	 * Constructor that receives another TestSuite and makes a copy of it.
+	 * @param tSuiteCopy
+	 * 			The TestSuite to be copied.
+	 */
 	public TestSuite(TestSuite tSuiteCopy){
 		this.tSuite = tSuiteCopy.getTestSuiteCopy();
 	}
 	
+	/**
+	 * Creates an empty TestSuite.
+	 */
 	public TestSuite(){
 		this(new ArrayList<TestCase>());
 	}
 	
+	/**
+	 * 
+	 * @return the list of TestCase.
+	 */
 	public List<TestCase> getTestSuite(){
 		return tSuite;
 	}
 	
+	/**
+	 * 
+	 * @return A copy of the list of TestCase.
+	 */
 	public List<TestCase> getTestSuiteCopy(){
 		return new ArrayList<TestCase>(tSuite);
 	}
 	
+	/**
+	 * 
+	 * @return A copy of the TestSuite.
+	 */
 	public TestSuite getCopy(){
 		List<TestCase> copyList = new ArrayList<TestCase>(tSuite);
 		return new TestSuite(copyList);

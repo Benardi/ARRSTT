@@ -13,6 +13,11 @@ import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph.core.InterfaceVertex;
 
+/**
+ * Class that creates a TGF file to represent a graph.
+ * @author Iaron da Costa Araujo
+ *
+ */
 public class WriteTGF {
 	public static final String LINE_END = System.getProperty("line.separator");
 	
@@ -20,6 +25,14 @@ public class WriteTGF {
 		
 	}
 	
+	/**
+	 * Receives a graph and create a TGF file to represent it.
+	 * @param graph
+	 * 		The graph that will have a TGF file.
+	 * @param fileName
+	 * 		The name of the TGF file
+	 * @throws IOException BufferedWriter exception.
+	 */
 	public void putInTGF(InterfaceGraph graph, String fileName) throws IOException{
 		StringBuffer content = new StringBuffer();
 		

@@ -1,10 +1,30 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.matrix;
 
+/**
+ * This class matrix to represent the structure needed for 
+ * the testcase selection based on similarity technique.
+ */
 public class SelectionMatrix {
+	/**
+	 * The innew matrix.
+	 */
 	private double[][] innerMatrix;
+	/**
+	 * The amount of columns.
+	 */
 	private int colAmount;
+	/**
+	 * The amount of rows.
+	 */
 	private int rowAmount;
 	
+	/**
+	 * Constructor of the class.
+	 * @param colAmount
+	 * 			The amount of columns the matrix will have.
+	 * @param rowAmount
+	 * 			The amount of rows the matrix will have.
+	 */
 	public SelectionMatrix(int colAmount, int rowAmount) {
 		this.innerMatrix = new double[rowAmount][colAmount];
 		this.colAmount = colAmount;

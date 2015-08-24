@@ -6,10 +6,27 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment_hierarchy.util.SimilarityCalculator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
+/**
+ * This class represents the structure needed for the
+ * testcase selection based on similarity technique.
+ *
+ */
 public class SimilarityStructure implements Matrix {
+	/**
+	 * The list of lists that represents this structure.
+	 */
     private List<List<Double>> stair;
+    /**
+     * An object that calculates the similarity between two test cases.
+     */
     private SimilarityCalculator similarityCalculator;
     
+    /**
+     * The class constructor. It also fills the structure with -1
+     * in every position.
+     * @param testSuite 
+     * 			The test suite to have it's test cases' similarity analyzed.
+     */
     public SimilarityStructure(TestSuite testSuite) {
     	this.similarityCalculator = new SimilarityCalculator();
         initializeList(testSuite);

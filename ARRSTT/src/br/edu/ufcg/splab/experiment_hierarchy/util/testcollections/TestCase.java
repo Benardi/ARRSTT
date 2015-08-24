@@ -8,31 +8,62 @@ import java.util.ListIterator;
 
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 
+/**
+ * This class represents a testcase. It is a
+ * list of edges of a graph.
+ */
 public class TestCase implements List<InterfaceEdge>{
 	
+	/**
+	 * The list of edges
+	 */
 	private List<InterfaceEdge> tCase;
 	
-	
+	/**
+	 * A constructor that already receives a list of edges.
+	 * @param tCase
+	 * 			The list of edges.
+	 */
 	public TestCase(List<InterfaceEdge> tCase){
 		this.tCase = tCase;
 	}
 	
+	/**
+	 * A constructor that receives another testcase, making a copy of it.
+	 * @param tCaseCopy
+	 * 			The TesCase to be received.
+	 */
 	public TestCase(TestCase tCaseCopy){
 		this.tCase = tCaseCopy.getTestCaseCopy();
 	}
 	
+	/**
+	 * This constructor creates an empty TestCase.
+	 */
 	public TestCase(){
 		this(new ArrayList<InterfaceEdge>());
 	}
 	
+	/**
+	 * 
+	 * @return The list of deges.
+	 */
 	public List<InterfaceEdge> getTestCase(){
 		return tCase;
 	}
 	
+	/**
+	 * 
+	 * @return a copy of the edge's list.
+	 */
 	public List<InterfaceEdge> getTestCaseCopy(){
 		return new ArrayList<InterfaceEdge>(tCase);
 	}
 	
+	/**
+	 * 
+	 * @return a copy of the TestCase.
+	 */
 	public TestCase getCopy(){
 		List<InterfaceEdge> copyList = new ArrayList<InterfaceEdge>(tCase);
 		return new TestCase(copyList);
