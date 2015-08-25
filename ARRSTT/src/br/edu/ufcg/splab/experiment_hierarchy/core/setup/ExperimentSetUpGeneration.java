@@ -17,9 +17,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  * it will generate all possible combinations for the treatments. 
  *
  */
-public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
-	// REFACTOR: Maybe combinedList is useless.
-    private List<Tuple<ExecutableTreatment>> combinedList;
+public class ExperimentSetUpGeneration implements ExperimentSetUpInterface {
     private List<InterfaceGraph> graphs;
     private int[] loopCoverages;
 	
@@ -29,7 +27,7 @@ public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
 	 * @param super.getFactors()
 	 * 		The list of super.getFactors() which the treatments are in.
 	 */
-	public ExperimentSetUpSearches(List<InterfaceGraph> graphs, int[] loopCoverages) {
+	public ExperimentSetUpGeneration(List<InterfaceGraph> graphs, int[] loopCoverages) {
 		this.graphs = graphs;
 		this.loopCoverages = loopCoverages;
 	}
@@ -64,7 +62,6 @@ public class ExperimentSetUpSearches implements ExperimentSetUpInterface {
 			}
 		}
 		
-		combinedList = allTrials; //REFACTOR: Why do we do this?
 		return allTrials;
 	}
 }
