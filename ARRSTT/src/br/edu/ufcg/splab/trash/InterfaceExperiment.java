@@ -1,7 +1,6 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep;
+package br.edu.ufcg.splab.trash;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
-import br.edu.ufcg.splab.trash.InterfaceFactor;
 
 /**
  * Represents a generic type of experiment.

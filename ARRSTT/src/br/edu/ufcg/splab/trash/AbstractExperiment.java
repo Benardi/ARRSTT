@@ -1,9 +1,8 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep;
+package br.edu.ufcg.splab.trash;
 
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
-import br.edu.ufcg.splab.trash.InterfaceFactor;
 
 /**
  * Abstract implementation of an experiment. Already

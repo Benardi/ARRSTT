@@ -4,10 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep.SelectionExperiment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep.GenerationExperiment;
+import br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep.SelectionExperiment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setup.ExperimentSetUpInterface;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setup.ExperimentSetUpSearches;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setup.ExperimentSetUpGeneration;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setup.ExperimentSetUpSelection;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.RandomMasker;
@@ -25,7 +25,7 @@ public class Main {
 		try {
 			int[] loopCoverages = { 1, 4, 7 };
 			GenerationExperiment experiment = new GenerationExperiment();
-			ExperimentSetUpSearches combinator = new ExperimentSetUpSearches(experiment.getGraphs(), loopCoverages);
+			ExperimentSetUpGeneration combinator = new ExperimentSetUpGeneration(experiment.getGraphs(), loopCoverages);
 			List<Tuple<ExecutableTreatment>> combinations = combinator.getIndependentVariables();
 			experiment.runExperiment(combinations);
 		} catch(Exception e ) {

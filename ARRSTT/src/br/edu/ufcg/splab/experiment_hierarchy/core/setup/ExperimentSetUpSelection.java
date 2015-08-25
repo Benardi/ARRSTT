@@ -8,7 +8,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.TreatmentSelection
 import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.InterfaceGraphMaskarator;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
@@ -40,37 +39,17 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 	
 	private List<Tuple<ExecutableTreatment>> combine(List<TestSuite> maskedTestSuites, double selectionPercentage){
 		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<>();
-		Tuple<ExecutableTreatment> t;
-		ExecutableTreatment e;
 		
-		//REFACTOR: Fix this Jerry-Rig and "t" and "e" are definitively an awful name.
+		List<InterfaceTestCaseSelector> selectionAlgorithms = new ArrayList<InterfaceTestCaseSelector>();
+		selectionAlgorithms.add(new BySimilaritySelector());
+		selectionAlgorithms.add(new RandomizedTestCaseSelection());
 		
-		for(TestSuite ts : maskedTestSuites){
-			t = new Tuple<>();
-			e = new TreatmentSelection(new BySimilaritySelector(), ts, selectionPercentage);
-			t.add(e);
-			combinations.add(t);
-		}
-		
-		/*for(TestSuite ts : maskedTestSuites){
-			t = new Tuple<>();
-			e = new TreatmentSelection(new BiggestTestCaseSelector(ts, selectionPercentage));
-			t.add(e);
-			combinations.add(t);
-		}*/
-		
-		for(TestSuite ts : maskedTestSuites){
-			t = new Tuple<>();
-			e = new TreatmentSelection(new RandomizedTestCaseSelection(), ts, selectionPercentage);
-			t.add(e);
-			combinations.add(t);
-		}
-		
-		for(TestSuite ts : maskedTestSuites){
-			t = new Tuple<>();
-			e = new TreatmentSelection(new RandomizedTestCaseSelection(), ts, 1.0);
-			t.add(e);
-			combinations.add(t);
+		for (InterfaceTestCaseSelector selection : selectionAlgorithms) {
+			for (TestSuite ts : maskedTestSuites) {
+				Tuple<ExecutableTreatment> combination = new Tuple<ExecutableTreatment>();
+				combination.add(new TreatmentSelection(selection, ts, selectionPercentage));
+				combinations.add(combination);
+			}
 		}
 		
 		return combinations;
@@ -93,14 +72,4 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		return maskedTestSuites;
 		
 	}
-	
-	// I don't think this method will be used anymore since the selections don't receive a TestSuite anymore
-	/*private List<InterfaceTestCaseSelector> generateSelections(TestSuite defaultTS) {
-		List<InterfaceTestCaseSelector> selections = new ArrayList<>();
-		selections.add(new BySimilaritySelector(), defaultTS, selectionPercentage);
-		selections.add(new BiggestTestCaseSelector(), defaultTS, selectionPercentage);
-		selections.add(new RandomizedTestCaseSelection(), defaultTS, selectionPercentage);
-		return selections;
-	}*/
-
 }

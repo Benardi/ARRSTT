@@ -1,10 +1,9 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.combinators;
+package br.edu.ufcg.splab.trash;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.trash.InterfaceFactor;
 
 /**
  * This is a complete factorial combinator. This means that
