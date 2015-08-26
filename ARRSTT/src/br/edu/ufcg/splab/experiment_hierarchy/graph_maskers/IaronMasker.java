@@ -14,9 +14,9 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 public class IaronMasker implements InterfaceGraphMaskarator{
 
 	@Override
-	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
+	public void mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size() * percentage);
-		return mask(toBeMasked, errorQuantity);
+		mask(toBeMasked, errorQuantity);
 	}
 	
 	
@@ -27,7 +27,7 @@ public class IaronMasker implements InterfaceGraphMaskarator{
 	 */
 	//I think a while would fit this better, but I don't know how to do it.
 	@Override
-	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
+	public void mask(InterfaceGraph toBeMasked, int errorQuantity) {
 		int errorPosition = toBeMasked.getEdges().size() / errorQuantity ;
 		int count = 1;
 		for(InterfaceEdge edge : toBeMasked.getEdges()){
@@ -36,13 +36,12 @@ public class IaronMasker implements InterfaceGraphMaskarator{
 				errorQuantity--;
 				count = 1;
 				if(errorQuantity == 0){
-					return toBeMasked;
+					return;
 				}
 			} else {
 				count++;
 			}	
 		}
-		return null;
 	}
 
 }

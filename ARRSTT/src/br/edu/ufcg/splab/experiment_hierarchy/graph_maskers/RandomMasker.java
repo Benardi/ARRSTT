@@ -9,19 +9,17 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 public class RandomMasker implements InterfaceGraphMaskarator{
 
 	@Override
-	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
+	public void mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size() * percentage);
-		return mask(toBeMasked, errorQuantity);
+		mask(toBeMasked, errorQuantity);
 	}
 
 	@Override
-	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
+	public void mask(InterfaceGraph toBeMasked, int errorQuantity) {
 		List<Integer> positionOfMarks = getMarkPositions(toBeMasked.getEdges().size(), errorQuantity);
 		for(Integer i : positionOfMarks){
 			toBeMasked.getEdges().get(i).setLabel("ERROR");
 		}
-		
-		return toBeMasked;
 	}
 	
 	private List<Integer> getMarkPositions(int limit, int markQnt){

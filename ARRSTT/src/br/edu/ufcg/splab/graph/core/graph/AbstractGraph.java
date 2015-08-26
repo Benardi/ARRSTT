@@ -66,7 +66,7 @@ public abstract class AbstractGraph implements InterfaceGraph{
 	 * Create a graph.
 	 * 
 	 */
-	public AbstractGraph(){
+	public AbstractGraph() {
 		this.setStates(new HashMap<UUID,InterfaceVertex>());
 		this.setEdges(new ArrayList<InterfaceEdge>());
 	}

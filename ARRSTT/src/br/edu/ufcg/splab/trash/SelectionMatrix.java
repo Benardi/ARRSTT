@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.util.matrix;
+package br.edu.ufcg.splab.trash;
 
 /**
  * This class matrix to represent the structure needed for 

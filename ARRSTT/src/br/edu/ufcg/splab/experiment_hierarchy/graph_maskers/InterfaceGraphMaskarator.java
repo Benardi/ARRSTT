@@ -15,8 +15,7 @@ public interface InterfaceGraphMaskarator {
 	 * 			The percentage of "errors" desired
 	 * @return A masked version of the graph
 	 */
-	
-	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage);
+	public void mask(InterfaceGraph toBeMasked, double percentage);
 	/**
 	 * This method receives a graph and return it's masked form, putting some "errors" in it.
 	 * Receives the graph to be masked and the amount of "errors" desired.
@@ -26,5 +25,5 @@ public interface InterfaceGraphMaskarator {
 	 * 			The amount of "errors" desired
 	 * @return
 	 */
-	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity);
+	public void mask(InterfaceGraph toBeMasked, int errorQuantity);
 }

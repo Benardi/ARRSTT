@@ -15,7 +15,7 @@ public class SimilarityStructure implements Matrix {
 	/**
 	 * The list of lists that represents this structure.
 	 */
-    private List<List<Double>> stair;
+    private List<List<Double>> stairStructure;
     /**
      * An object that calculates the similarity between two test cases.
      */
@@ -34,9 +34,9 @@ public class SimilarityStructure implements Matrix {
     }
     
     private void initializeList(TestSuite testSuite) {
-        stair = new ArrayList<List<Double>>();
+        stairStructure = new ArrayList<List<Double>>();
         for(int i = 0; i < testSuite.size(); i++){
-            stair.add(new ArrayList<Double>());
+            stairStructure.add(new ArrayList<Double>());
         }
     }
     
@@ -44,25 +44,25 @@ public class SimilarityStructure implements Matrix {
        for(int i = 0; i < ts.size(); i++){
            for(int j = 0; j <= i; j++){
                if(i == j){
-                   stair.get(i).add(-1.0);
+                   stairStructure.get(i).add(-1.0);
                } else {
                    Double similarity = new Double(similarityCalculator.getSimilarity(ts.get(i), ts.get(j)));
-                   stair.get(i).add(similarity);
+                   stairStructure.get(i).add(similarity);
                }
            }
        }
     }
     
     public void setPos(int i, int j, double element){
-        stair.get(i).set(j, element);
+        stairStructure.get(i).set(j, element);
     }
     
     public double get(int row, int col) {
-        return stair.get(row).get(col);
+        return stairStructure.get(row).get(col);
     }
     
 	public boolean isEmpty() {
-	    for (List<Double> list : stair) {
+	    for (List<Double> list : stairStructure) {
 	        if (!list.isEmpty()) return false;
 	    }
 	    
@@ -70,22 +70,22 @@ public class SimilarityStructure implements Matrix {
 	}
 	
 	public int getRowAmount() {
-	    return stair.size();
+	    return stairStructure.size();
 	}
 	
 	public int getColAmount() {
-	    return stair.size();
+	    return stairStructure.size();
 	}
 	
 	public void removeRow(int row) {
-	    for(int i = 0; i < stair.get(row).size(); i++){
-	        stair.get(row).set(i, -1.0);
+	    for(int i = 0; i < stairStructure.get(row).size(); i++){
+	        stairStructure.get(row).set(i, -1.0);
 	    }
 	}
 	
 	public void removeCol(int col) {
 	    for(int i = col + 1; i < getColAmount(); i++){
-	        stair.get(i).set(col, -1.0);
+	        stairStructure.get(i).set(col, -1.0);
 	    }
 	}
 	
@@ -93,12 +93,12 @@ public class SimilarityStructure implements Matrix {
 		Double max = -1.0;
 		int[] maxPos = new int[2];
 		
-	    for (int i = 0; i < stair.size(); i++) {
+	    for (int i = 0; i < stairStructure.size(); i++) {
 	    	for (int j = 0; j <= i; j++) {
-	    		if (max <= stair.get(i).get(j)) {
+	    		if (max <= stairStructure.get(i).get(j)) {
 	    			maxPos[0] = i;
 	    			maxPos[1] = j;
-	    			max = stair.get(i).get(j);
+	    			max = stairStructure.get(i).get(j);
 	    		}
 	    	}
 	    }
