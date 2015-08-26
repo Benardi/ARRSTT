@@ -48,6 +48,26 @@ public class ErrorStructure {
 	    return defects.size();
 	}
 	
+	public int countDefectiveEdges() {
+		Set<TestCase> keys = testCaseErrorData.keySet();
+	    Iterator<TestCase> keysIt = keys.iterator();
+	    Set<InterfaceEdge> defectiveEdges = new HashSet<InterfaceEdge>();
+	    
+	    while (keysIt.hasNext()) {
+	    	TestCase iteratingTestCase = keysIt.next();
+	    	
+	    	for (String fail : failures) {
+	    		for (InterfaceEdge edge : iteratingTestCase) {
+	    			if (edge.getLabel().equals(fail)) {
+	    				defectiveEdges.add(edge);
+	    			}
+	    		}
+	    	}
+	    }
+	    
+	    return defectiveEdges.size();
+	}
+	
 	public int countFails() {
 	    return testCaseErrorData.size();
 	}

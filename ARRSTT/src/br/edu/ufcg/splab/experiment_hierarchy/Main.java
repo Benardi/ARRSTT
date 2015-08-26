@@ -37,7 +37,7 @@ public class Main {
 		try {
 			SelectionExperiment experiment = new SelectionExperiment();
 			// Receber test suites como parâmetros ao invés de grafos.
-			ExperimentSetUpInterface combinator = new ExperimentSetUpSelection(loadGraphs(), new RandomMasker(), 0.4, 0.9);
+			ExperimentSetUpInterface combinator = new ExperimentSetUpSelection(loadGraphs(), new RandomMasker(), 0.4, 0.4);
 			experiment.runExperiment(combinator.getIndependentVariables());
 			
 		} catch(Exception e) {

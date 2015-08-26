@@ -110,8 +110,5 @@ public class ReadTGF {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
-		
-	
 	}
 }

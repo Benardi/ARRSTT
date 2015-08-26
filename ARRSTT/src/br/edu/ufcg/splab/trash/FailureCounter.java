@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.util;
+package br.edu.ufcg.splab.trash;
 
 import java.util.ArrayList;
 import java.util.List;

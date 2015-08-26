@@ -32,8 +32,8 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 
 	@Override
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
-		List<InterfaceGraph> maskedGraphs = getMaskedGraphs();
-		List<TestSuite> maskedTestSuites = getMaskedTestSuites(maskedGraphs);
+		maskGraphs();
+		List<TestSuite> maskedTestSuites = getMaskedTestSuites();
 		return combine(maskedTestSuites, selectionPercentage);
 	}
 	
@@ -56,19 +56,18 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		
 	}
 
-	private List<InterfaceGraph> getMaskedGraphs(){
-		List<InterfaceGraph> maskedGraphs = new ArrayList<>();
+	private void maskGraphs(){
 		for(InterfaceGraph graph : graphs){
-			maskedGraphs.add(maskarator.mask(graph, maskPercentage));
+			maskarator.mask(graph, maskPercentage);
 		}
-		return maskedGraphs;
 	}
 	
-	private List<TestSuite> getMaskedTestSuites(List<InterfaceGraph> maskedGraphs) {
+	private List<TestSuite> getMaskedTestSuites() {
 		List<TestSuite> maskedTestSuites = new ArrayList<>();
-		for(InterfaceGraph graph : maskedGraphs){
+		for(InterfaceGraph graph : graphs){
 			maskedTestSuites.add(search.getTestSuite(graph.getRoot(), LOOP_COVERAGE));
 		}
+		
 		return maskedTestSuites;
 		
 	}
