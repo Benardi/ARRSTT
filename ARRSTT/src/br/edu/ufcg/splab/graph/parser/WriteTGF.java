@@ -20,6 +20,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceVertex;
  */
 public class WriteTGF {
 	public static final String LINE_END = System.getProperty("line.separator");
+	public static final String BETWEEN_DIFFERENT_TYPES = "#";
 	
 	public WriteTGF(){
 		
@@ -47,8 +48,7 @@ public class WriteTGF {
 			content.append(i + " " + states.get(i).getLabel() + LINE_END);
 		}
 		
-		// REFACTOR: Make this a constant
-		content.append("#"); // This symbol separates the vertexes from the edges on the TGF
+		content.append(BETWEEN_DIFFERENT_TYPES); // This symbol separates the vertexes from the edges on the TGF
 		
 		List<InterfaceEdge> transitions = graph.getEdges();
 		// This loop writes the transitions on the StringBuffer
