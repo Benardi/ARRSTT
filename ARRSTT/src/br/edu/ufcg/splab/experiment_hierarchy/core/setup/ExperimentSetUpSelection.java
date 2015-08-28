@@ -8,6 +8,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.TreatmentSelection
 import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.InterfaceGraphMaskarator;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
@@ -43,6 +44,7 @@ public class ExperimentSetUpSelection implements ExperimentSetUpInterface{
 		List<InterfaceTestCaseSelector> selectionAlgorithms = new ArrayList<InterfaceTestCaseSelector>();
 		selectionAlgorithms.add(new BySimilaritySelector());
 		selectionAlgorithms.add(new RandomizedTestCaseSelection());
+		selectionAlgorithms.add(new BiggestTestCaseSelector());
 		
 		for (InterfaceTestCaseSelector selection : selectionAlgorithms) {
 			for (TestSuite ts : maskedTestSuites) {

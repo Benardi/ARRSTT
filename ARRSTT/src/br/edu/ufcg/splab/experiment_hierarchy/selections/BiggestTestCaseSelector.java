@@ -1,10 +1,8 @@
 package br.edu.ufcg.splab.experiment_hierarchy.selections;
 
-import java.util.Collections;
-import java.util.List;
-
-import br.edu.ufcg.splab.experiment_hierarchy.util.comparators.SizeComparator;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
+
 
 public class BiggestTestCaseSelector implements InterfaceTestCaseSelector{
 	
@@ -18,18 +16,29 @@ public class BiggestTestCaseSelector implements InterfaceTestCaseSelector{
 
 	@Override
 	public TestSuite select(TestSuite testSuite, Double percentage) {
-		int quantityOfTC;
-		quantityOfTC = getQuantity(testSuite ,percentage);
-		
-		TestSuite copy = new TestSuite(testSuite);
-		TestSuite selections = new TestSuite();
-		
-		Collections.sort((List)copy, new SizeComparator());
-		
-		for(int i = 0; i < quantityOfTC; i++)
-			selections.add(copy.get(copy.size() - 1 - i));
-		
-		return selections;
+		TestSuite result = new TestSuite();
+		int quantity = getQuantity(testSuite, percentage);		
+		for(int i = 0; i < quantity; i++){
+			addBiggestTestCase(result, testSuite);
+		}
+		return result;
 	}
+
+	private void addBiggestTestCase(TestSuite result, TestSuite testSuite) {
+		int maxSize = 0;
+		int maxIndex = -1;
+		for(int i = 0; i < testSuite.size(); i++){
+			if(!result.contains(testSuite.get(i))){
+				if(testSuite.get(i).size() > maxSize){
+					maxSize = testSuite.get(i).size();
+					maxIndex = i;
+				}
+			}
+		}
+		
+		result.add(new TestCase(testSuite.get(maxIndex)));
+		
+	}
+
 
 }
