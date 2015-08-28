@@ -3,16 +3,34 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
+/**
+ * Class that represents the use of a selection technique to choose a percentage
+ * of a test suite.
+ * 
+ * @author JoséBenardi
+ *
+ */
 public class TreatmentSelection implements ExecutableTreatment {
-    private InterfaceTestCaseSelector selectionObject;
-    private TestSuite testSuite;
-    private Double percentage;
-    
-    public TreatmentSelection(InterfaceTestCaseSelector selectionObject, TestSuite testSuite, Double percentage) {
-        this.selectionObject = selectionObject;
-        this.testSuite = testSuite;
-        this.percentage = percentage;
-    }
+	private InterfaceTestCaseSelector selectionObject;
+	private TestSuite testSuite;
+	private Double percentage;
+
+	/**
+	 * 
+	 * @param selectionObject
+	 *            The selection technique.
+	 * @param testSuite
+	 *            The original test suite from whom the percentage shall be
+	 *            chosen.
+	 * @param percentage
+	 *            The section of the test suite chosen.
+	 */
+	public TreatmentSelection(InterfaceTestCaseSelector selectionObject,
+			TestSuite testSuite, Double percentage) {
+		this.selectionObject = selectionObject;
+		this.testSuite = testSuite;
+		this.percentage = percentage;
+	}
 
 	@Override
 	public TestSuite execute() {
@@ -23,8 +41,12 @@ public class TreatmentSelection implements ExecutableTreatment {
 	public String getTitle() {
 		return "Selection";
 	}
-    
-    public InterfaceTestCaseSelector getSelector() {
-    	return selectionObject;
-    }
+
+	/**
+	 * 
+	 * @return The selection technique bound to the class.
+	 */
+	public InterfaceTestCaseSelector getSelector() {
+		return selectionObject;
+	}
 }

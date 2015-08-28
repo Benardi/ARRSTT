@@ -5,6 +5,12 @@ import java.util.Random;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
+/**
+ * this class represents a selector guided by a random pattern.
+ * 
+ * @author JoséBenardi
+ *
+ */
 public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 	private Random randomizer;
 
@@ -31,6 +37,14 @@ public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 		return chosen;
 	}
 
+	/**
+	 * 
+	 * @param ts
+	 *            the original test suite
+	 * @param percentage
+	 *            the desired percentage of test case.
+	 * @return how many shall be selected.
+	 */
 	private int getAmountOfTestCases(TestSuite ts, Double percentage) {
 		return (int) Math.ceil(ts.size() * percentage);
 	}
