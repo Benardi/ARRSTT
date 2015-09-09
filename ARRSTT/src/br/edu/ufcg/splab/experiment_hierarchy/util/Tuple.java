@@ -6,6 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * This class works exactly like a list.
+ * We should review this.
+ *
+ * @param <T>
+ */
 public class Tuple<T> implements List<T>{
 	private List<T> tuple;
 	
