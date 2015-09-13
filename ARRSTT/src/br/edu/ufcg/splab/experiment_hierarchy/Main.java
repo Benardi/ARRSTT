@@ -18,7 +18,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		ExperimentFactory factory = new ExperimentFactory();
 		try {
-			Experiment experiment = factory.buildArrsttGeneration();
+			Experiment experiment = factory.buildArrsttSelection();
 			experiment.execute();
 		} catch(Exception e) {
 			e.printStackTrace();
