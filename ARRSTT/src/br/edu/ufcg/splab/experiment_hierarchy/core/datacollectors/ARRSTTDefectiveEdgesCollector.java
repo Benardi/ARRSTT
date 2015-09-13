@@ -13,7 +13,7 @@ public class ARRSTTDefectiveEdgesCollector implements DependentVariableCollector
 		TestSuite testSuite = treatment.get(0).execute();
 		
 		ErrorStructure errorStructure = new ErrorStructure(testSuite);
-		content.append(errorStructure.countDefectiveEdges() + "/t");
+		content.append(errorStructure.countDefectiveEdges() + "\t");
 	}
 
 }

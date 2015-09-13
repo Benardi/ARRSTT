@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import br.edu.ufcg.splab.experiment_hierarchy.util.GraphFactory;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
 /**
@@ -14,21 +15,36 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  *
  */
 public class RandomMasker implements InterfaceGraphMaskarator {
-
+	private GraphFactory factory;
+	
+	public RandomMasker() {
+		this.factory = new GraphFactory();
+	}
+	
 	@Override
-	public void mask(InterfaceGraph toBeMasked, double percentage) {
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size()
 				* percentage);
-		mask(toBeMasked, errorQuantity);
+		return mask(toBeMasked, errorQuantity);
 	}
 
 	@Override
-	public void mask(InterfaceGraph toBeMasked, int errorQuantity) {
-		List<Integer> positionOfMarks = getMarkPositions(toBeMasked.getEdges()
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
+		InterfaceGraph maskedGraph = null;
+		
+		try {
+			maskedGraph = factory.cloneGraph(toBeMasked);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Integer> positionOfMarks = getMarkPositions(maskedGraph.getEdges()
 				.size(), errorQuantity);
 		for (Integer i : positionOfMarks) {
-			toBeMasked.getEdges().get(i).setLabel("ERROR");
+			maskedGraph.getEdges().get(i).setLabel("ERROR");
 		}
+		
+		return maskedGraph;
 	}
 
 	private List<Integer> getMarkPositions(int limit, int markQnt) {

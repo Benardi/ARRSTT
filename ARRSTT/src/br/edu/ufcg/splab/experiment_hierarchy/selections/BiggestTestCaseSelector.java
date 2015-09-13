@@ -57,7 +57,6 @@ public class BiggestTestCaseSelector implements InterfaceTestCaseSelector {
 				}
 			}
 		}
-
 		result.add(new TestCase(testSuite.get(maxIndex)));
 
 	}

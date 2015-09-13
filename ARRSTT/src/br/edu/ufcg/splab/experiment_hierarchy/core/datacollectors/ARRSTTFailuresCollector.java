@@ -13,7 +13,7 @@ public class ARRSTTFailuresCollector implements DependentVariableCollector {
 		TestSuite testSuite = treatment.get(0).execute();
 		
 		ErrorStructure errorStructure = new ErrorStructure(testSuite);
-		content.append(errorStructure.countDefects() + "/t");
+		content.append(errorStructure.countDefects() + "\t");
 	}
 
 }

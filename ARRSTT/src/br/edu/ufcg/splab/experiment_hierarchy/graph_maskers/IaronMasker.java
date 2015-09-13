@@ -1,5 +1,6 @@
 package br.edu.ufcg.splab.experiment_hierarchy.graph_maskers;
 
+import br.edu.ufcg.splab.experiment_hierarchy.util.GraphFactory;
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
@@ -11,30 +12,45 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
  *
  */
 public class IaronMasker implements InterfaceGraphMaskarator {
-
+	private GraphFactory factory;
+	
+	public IaronMasker() {
+		this.factory = new GraphFactory();
+	}
+	
 	@Override
-	public void mask(InterfaceGraph toBeMasked, double percentage) {
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size()
 				* percentage);
-		mask(toBeMasked, errorQuantity);
+		return mask(toBeMasked, errorQuantity);
 	}
 
 	@Override
-	public void mask(InterfaceGraph toBeMasked, int errorQuantity) {
-		int errorPosition = toBeMasked.getEdges().size() / errorQuantity;
+	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
+		InterfaceGraph maskedGraph = null;
+		
+		try {
+			maskedGraph = factory.cloneGraph(toBeMasked);
+		} catch(Exception e ) {
+			e.printStackTrace();
+		}
+		
+		int errorPosition = maskedGraph.getEdges().size() / errorQuantity;
 		int count = 1;
-		for (InterfaceEdge edge : toBeMasked.getEdges()) {
+		for (InterfaceEdge edge : maskedGraph.getEdges()) {
 			if (count == errorPosition) {
 				edge.setLabel("ERROR");
 				errorQuantity--;
 				count = 1;
 				if (errorQuantity == 0) {
-					return;
+					return maskedGraph;
 				}
 			} else {
 				count++;
 			}
 		}
+		
+		return maskedGraph;
 	}
 
 }
