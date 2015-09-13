@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.setup;
+package br.edu.ufcg.splab.experiment_hierarchy.core.setups;
 
 import java.util.List;
 
