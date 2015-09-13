@@ -15,6 +15,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.runners.Runnable;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpGeneration;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpInterface;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpSelection;
+import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.InterfaceGraphMaskarator;
+import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.RandomMasker;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
@@ -23,6 +25,8 @@ import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph.parser.ReadTGF;
 
 public class ExperimentFactory {
+	public final static double MASK_PERCENTAGE = 0.4;
+	
 	public Experiment buildArrsttGeneration() throws Exception {
 		int[] loopCoverages = { 1, 4, 7 };
 		BranchSeparator separator = new BranchSeparator();
@@ -60,9 +64,16 @@ public class ExperimentFactory {
 			allGraphs.add(graph);
 		}
 		
-		List<TestSuite> testSuites = new ArrayList<TestSuite>();
+		List<InterfaceGraph> maskedGraphs = new ArrayList<>();
+		InterfaceGraphMaskarator masker = new RandomMasker();
 		
 		for (InterfaceGraph graph : allGraphs) {
+			maskedGraphs.add(masker.mask(graph, MASK_PERCENTAGE));
+		}
+		
+		List<TestSuite> testSuites = new ArrayList<TestSuite>();
+		
+		for (InterfaceGraph graph : maskedGraphs) {
 			InterfaceSearch search = new DepthFirstSearch();
 			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
 		}
