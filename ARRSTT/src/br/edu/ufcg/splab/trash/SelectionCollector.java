@@ -1,5 +1,6 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors;
+package br.edu.ufcg.splab.trash;
 
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ErrorStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;

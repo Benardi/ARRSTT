@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep;
+package br.edu.ufcg.splab.trash;
 
 import java.io.IOException;
 import java.util.List;

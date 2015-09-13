@@ -1,10 +1,9 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.experiment_rep;
+package br.edu.ufcg.splab.trash;
 
 import java.io.IOException;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.GenerationCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
