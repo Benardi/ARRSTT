@@ -48,7 +48,7 @@ public class ExperimentFactory {
 		collectors.add(new ARRSTTSizeCollector());
 		collectors.add(new ARRSTTTimeCollector());
 		
-		ExperimentSetUpInterface setup = new ExperimentSetUpSelection(loadGraphs(), 0.4);
+		ExperimentSetUpInterface setup = new ExperimentSetUpSelection(loadGraphs(), 0.5);
 		Runnable runner = new ExperimentRunner(collectors);
 		
 		return new Experiment(setup, runner);
@@ -75,8 +75,10 @@ public class ExperimentFactory {
 		
 		for (InterfaceGraph graph : maskedGraphs) {
 			InterfaceSearch search = new DepthFirstSearch();
+			System.out.println(search.getTestSuite(graph.getRoot(), 0).size());
 			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
 		}
+		System.out.println("---cabou---");
 		
 		return testSuites;
 	}

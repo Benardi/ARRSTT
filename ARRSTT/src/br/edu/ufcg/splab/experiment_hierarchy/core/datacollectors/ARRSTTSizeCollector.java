@@ -9,7 +9,8 @@ public class ARRSTTSizeCollector implements DependentVariableCollector {
 	@Override
 	public void collect(Tuple<ExecutableTreatment> treatment,
 			StringBuffer content) {
-		TestSuite testSuite = treatment.get(0).execute();	
+		TestSuite testSuite = treatment.get(0).execute();
+		System.out.println(testSuite.size());
 		content.append(testSuite.size() + "\t");
 	}
 

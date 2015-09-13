@@ -47,7 +47,7 @@ public class BiggestTestCaseSelector implements InterfaceTestCaseSelector {
 	 *            the test suite from where the biggest will be chosen.
 	 */
 	private void addBiggestTestCase(TestSuite result, TestSuite testSuite) {
-		int maxSize = 0;
+		int maxSize = -1;
 		int maxIndex = -1;
 		for (int i = 0; i < testSuite.size(); i++) {
 			if (!result.contains(testSuite.get(i))) {
