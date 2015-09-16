@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import br.edu.ufcg.splab.experiment_hierarchy.util.GraphFactory;
+import br.edu.ufcg.splab.experiment_hierarchy.util.factories.GraphFactory;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 
 /**

@@ -20,20 +20,30 @@ import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.RandomMasker;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph.parser.ReadTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
+	private DVCFactory dvcFactory;
+	
+	public ExperimentFactory(){
+		dvcFactory = new DVCFactory();
+	}
 	
 	public Experiment buildArrsttGeneration() throws Exception {
 		int[] loopCoverages = { 1, 4, 7 };
 		BranchSeparator separator = new BranchSeparator();
 		
-		List<DependentVariableCollector> collectors = new ArrayList<>();
-		collectors.add(new ARRSTTTimeCollector());
-		collectors.add(new ARRSTTSizeCollector());
+		// selecting the types
+		List<DVCType> types = new ArrayList<>();
+		types.add(DVCType.TIME);
+		types.add(DVCType.SIZE);
+		
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(types);
 		
 		ExperimentSetUpInterface setup = new ExperimentSetUpGeneration(separator.getGraphsToRun(), loopCoverages);
 		Runnable runner = new ExperimentRunner(collectors);
@@ -42,11 +52,15 @@ public class ExperimentFactory {
 	}
 	
 	public Experiment buildArrsttSelection() throws Exception {
-		List<DependentVariableCollector> collectors = new ArrayList<>();
-		collectors.add(new ARRSTTDefectiveEdgesCollector());
-		collectors.add(new ARRSTTDefectsCollector());
-		collectors.add(new ARRSTTSizeCollector());
-		collectors.add(new ARRSTTTimeCollector());
+		
+		// selecting the types
+		List<DVCType> types = new ArrayList<>();
+		types.add(DVCType.TIME);
+		types.add(DVCType.SIZE);
+		types.add(DVCType.DEFECTIVE_EDGES);
+		types.add(DVCType.DEFECTS);
+				
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(types);		
 		
 		ExperimentSetUpInterface setup = new ExperimentSetUpSelection(loadGraphs(), 0.5);
 		Runnable runner = new ExperimentRunner(collectors);

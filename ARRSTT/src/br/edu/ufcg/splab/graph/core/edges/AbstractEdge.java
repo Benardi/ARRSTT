@@ -58,7 +58,7 @@ public abstract class AbstractEdge implements InterfaceEdge {
 	/**
 	 * 
 	 */
-	private EdgeType tipo;
+	private TransitionType tipo;
 	
 	
 	/**
@@ -70,7 +70,7 @@ public abstract class AbstractEdge implements InterfaceEdge {
 	 * @param to The destiny vertex of the edge.
 	 */
 	
-	public AbstractEdge(InterfaceVertex from, String label, InterfaceVertex to, EdgeType tipo){
+	public AbstractEdge(InterfaceVertex from, String label, InterfaceVertex to, TransitionType tipo){
 		this.from=from;
 		this.label=label;
 		this.to=to;
@@ -106,10 +106,10 @@ public abstract class AbstractEdge implements InterfaceEdge {
 		return this.uuid;
 	}
 	
-	public void setTipo(EdgeType tipo){
+	public void setType(TransitionType tipo){
 		this.tipo = tipo;
 	}
-	public EdgeType getTipo(){
+	public TransitionType getType(){
 		return this.tipo;
 	}
 
