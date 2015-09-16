@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import br.edu.ufcg.splab.graph.core.InterfaceEdge;
-import br.edu.ufcg.splab.graph.core.InterfaceGraph;
-import br.edu.ufcg.splab.graph.core.InterfaceVertex;
-import br.edu.ufcg.splab.graph.core.edges.TransitionType;
-import br.edu.ufcg.splab.graph.core.graph.Graph;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
+import br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType;
+import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
 
 public class GraphFactory {
 	public Graph cloneGraph(InterfaceGraph graph) throws Exception {

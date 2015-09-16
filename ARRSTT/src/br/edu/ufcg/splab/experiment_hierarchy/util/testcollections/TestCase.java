@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import br.edu.ufcg.splab.graph.core.InterfaceEdge;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
 /**
  * This class represents a testcase. It is a

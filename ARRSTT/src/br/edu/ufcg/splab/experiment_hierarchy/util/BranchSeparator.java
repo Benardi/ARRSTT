@@ -4,10 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.measurement.BranchMeasurementOne;
-import br.edu.ufcg.splab.experiment_hierarchy.core.measurement.InterfaceMeasurement;
-import br.edu.ufcg.splab.graph.core.InterfaceGraph;
-import br.edu.ufcg.splab.graph.parser.ReadTGF;
+import br.edu.ufcg.splab.experiment_hierarchy.util.measurement.BranchMeasurementOne;
+import br.edu.ufcg.splab.experiment_hierarchy.util.measurement.InterfaceMeasurement;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
+import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 // This class and package should be deleted later after we decide where exactly this code should go.
 // Was not tested yet

@@ -2,8 +2,6 @@ package br.edu.ufcg.splab.trash;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
-
 /**
  * Abstract implementation of an experiment. Already
  * defines some operations with the factors and the combinator.

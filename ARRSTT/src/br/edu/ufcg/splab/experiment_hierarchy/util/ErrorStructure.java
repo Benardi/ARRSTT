@@ -1,7 +1,6 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util;
 
 import java.util.HashMap;
-
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -9,7 +8,7 @@ import java.util.Set;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-import br.edu.ufcg.splab.graph.core.InterfaceEdge;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
 public class ErrorStructure {
     private static String[] failures = {"ERROR"};

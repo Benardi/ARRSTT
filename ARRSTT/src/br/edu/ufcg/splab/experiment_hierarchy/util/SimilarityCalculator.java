@@ -1,7 +1,7 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
-import br.edu.ufcg.splab.graph.core.InterfaceEdge;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
 /**
  * The selection by similarity case needs a calculator of similarities,

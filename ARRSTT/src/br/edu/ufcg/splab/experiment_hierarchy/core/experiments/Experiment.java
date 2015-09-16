@@ -3,14 +3,14 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.experiments;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpInterface;
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.Runnable;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
 
 public class Experiment {
-	private ExperimentSetUpInterface setup;
-	private Runnable runner;
+	private InterfaceSetup setup;
+	private InterfaceRunner runner;
 	
-	public Experiment(ExperimentSetUpInterface setup, Runnable runner) {
+	public Experiment(InterfaceSetup setup, InterfaceRunner runner) {
 		this.setup = setup;
 		this.runner = runner;
 	}

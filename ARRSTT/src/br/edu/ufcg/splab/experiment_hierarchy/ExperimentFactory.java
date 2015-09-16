@@ -4,27 +4,23 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectiveEdgesCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectsCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTTimeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.ExperimentRunner;
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.Runnable;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpGeneration;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpInterface;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.ExperimentSetUpSelection;
-import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.InterfaceGraphMaskarator;
-import br.edu.ufcg.splab.experiment_hierarchy.graph_maskers.RandomMasker;
+import br.edu.ufcg.splab.experiment_hierarchy.core.runners.DefaultRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.GenerationSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.SelectionSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.maskarators.InterfaceGraphMaskarator;
+import br.edu.ufcg.splab.experiment_hierarchy.maskarators.RandomMasker;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-import br.edu.ufcg.splab.graph.core.InterfaceGraph;
-import br.edu.ufcg.splab.graph.parser.ReadTGF;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
+import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
@@ -45,8 +41,8 @@ public class ExperimentFactory {
 		
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(types);
 		
-		ExperimentSetUpInterface setup = new ExperimentSetUpGeneration(separator.getGraphsToRun(), loopCoverages);
-		Runnable runner = new ExperimentRunner(collectors);
+		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages);
+		InterfaceRunner runner = new DefaultRunner(collectors);
 		
 		return new Experiment(setup, runner);
 	}
@@ -62,8 +58,8 @@ public class ExperimentFactory {
 				
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(types);		
 		
-		ExperimentSetUpInterface setup = new ExperimentSetUpSelection(loadGraphs(), 0.5);
-		Runnable runner = new ExperimentRunner(collectors);
+		InterfaceSetup setup = new SelectionSetup(loadGraphs(), 0.5);
+		InterfaceRunner runner = new DefaultRunner(collectors);
 		
 		return new Experiment(setup, runner);
 	}

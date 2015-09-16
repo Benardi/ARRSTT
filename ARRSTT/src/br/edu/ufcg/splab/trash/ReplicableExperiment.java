@@ -2,8 +2,6 @@ package br.edu.ufcg.splab.trash;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
-
 /**
  * Represents a replicable experiment.
  *

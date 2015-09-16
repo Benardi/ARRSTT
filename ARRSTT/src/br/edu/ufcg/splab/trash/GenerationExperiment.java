@@ -8,7 +8,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatmen
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
-import br.edu.ufcg.splab.graph.core.InterfaceGraph;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 
 /**
  * This is the class that should execute the specific experiment made on the
