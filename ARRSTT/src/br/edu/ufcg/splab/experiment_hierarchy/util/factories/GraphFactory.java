@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.util;
+package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.UUID;
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph.core.InterfaceVertex;
-import br.edu.ufcg.splab.graph.core.edges.EdgeType;
+import br.edu.ufcg.splab.graph.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph.core.graph.Graph;
 
 public class GraphFactory {
@@ -28,7 +28,7 @@ public class GraphFactory {
 		for (InterfaceEdge edge : edges) {
 			from = edge.getFrom().getUUID();
 			to = edge.getTo().getUUID();
-			clonedGraph.createEdge(uuids.get(from), uuids.get(to), edge.getLabel(), edge.getTipo());
+			clonedGraph.createEdge(uuids.get(from), uuids.get(to), edge.getLabel(), edge.getType());
 		}
 		
 		return clonedGraph;

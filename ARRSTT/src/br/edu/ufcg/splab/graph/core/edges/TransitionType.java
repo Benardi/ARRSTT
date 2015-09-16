@@ -10,7 +10,7 @@
 package br.edu.ufcg.splab.graph.core.edges;
 
 
-public enum EdgeType {
+public enum TransitionType {
 	DEFAULT("default"),
 	STEPS("steps"),
 	CONDITIONS("conditions"),
@@ -18,7 +18,7 @@ public enum EdgeType {
 	
 	String str;
 	
-	private EdgeType(String str) {
+	private TransitionType(String str) {
 		this.str = str;
 	}
 
@@ -26,8 +26,8 @@ public enum EdgeType {
 		return str;
 	}
 
-	public static EdgeType getInstance(String str) {
-		for (EdgeType t : values()) {
+	public static TransitionType getInstance(String str) {
+		for (TransitionType t : values()) {
 			if (t.getStrTipo().equals(str.toLowerCase())) {
 				return t;
 			}

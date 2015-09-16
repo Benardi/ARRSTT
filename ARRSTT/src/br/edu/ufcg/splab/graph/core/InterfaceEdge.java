@@ -9,7 +9,7 @@
 package br.edu.ufcg.splab.graph.core;
 import java.util.UUID;
 
-import br.edu.ufcg.splab.graph.core.edges.EdgeType;
+import br.edu.ufcg.splab.graph.core.edges.TransitionType;
 
 
 
@@ -26,6 +26,6 @@ public interface InterfaceEdge {
 	public void setFrom(InterfaceVertex from);
 	public void  setTo(InterfaceVertex to);
 	public UUID getUUID();
-	public EdgeType getTipo();
-	public void setTipo(EdgeType tipo);
+	public TransitionType getType();
+	public void setType(TransitionType tipo);
 }

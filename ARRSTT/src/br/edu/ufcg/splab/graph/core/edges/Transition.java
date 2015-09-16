@@ -19,7 +19,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceVertex;
  * 
  * */
 
-public class Edge extends AbstractEdge {
+public class Transition extends AbstractEdge {
 	
 
 	/**
@@ -28,7 +28,7 @@ public class Edge extends AbstractEdge {
 	 * @see abstracts.AbstractEdge
 	 * 
 	 * */
-	public Edge(InterfaceVertex from, String label, InterfaceVertex to,EdgeType tipo) {
+	public Transition(InterfaceVertex from, String label, InterfaceVertex to,TransitionType tipo) {
 		super(from, label, to, tipo);
 	}
 	
@@ -41,8 +41,8 @@ public class Edge extends AbstractEdge {
 	public boolean equals(Object o) {
 		boolean retorno = false;
 
-		if (o instanceof Edge) {
-			Edge edge = (Edge) o;
+		if (o instanceof Transition) {
+			Transition edge = (Transition) o;
 
 			if (edge.getLabel().equals(this.getLabel())
 					&& edge.getFrom().equals(this.getFrom())

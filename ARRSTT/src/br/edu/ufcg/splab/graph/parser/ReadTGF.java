@@ -15,7 +15,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 import br.edu.ufcg.splab.graph.core.InterfaceVertex;
-import br.edu.ufcg.splab.graph.core.edges.EdgeType;
+import br.edu.ufcg.splab.graph.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph.core.graph.Graph;
 import br.edu.ufcg.splab.graph.exceptions.LTSBTException;
 
@@ -68,7 +68,7 @@ public class ReadTGF {
 			String to = scanner2.next().trim();
 			String labelEdge = scanner2.nextLine().trim();
 			try {
-				graph.createEdge(getUUID(from), getUUID(to), labelEdge,EdgeType.DEFAULT);
+				graph.createEdge(getUUID(from), getUUID(to), labelEdge,TransitionType.DEFAULT);
 
 			} catch (NullPointerException e) {
 				scanner.close();

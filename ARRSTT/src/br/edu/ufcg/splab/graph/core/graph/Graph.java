@@ -13,8 +13,8 @@ import java.util.UUID;
 
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceVertex;
-import br.edu.ufcg.splab.graph.core.edges.Edge;
-import br.edu.ufcg.splab.graph.core.edges.EdgeType;
+import br.edu.ufcg.splab.graph.core.edges.Transition;
+import br.edu.ufcg.splab.graph.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph.core.vertex.Vertex;
 import br.edu.ufcg.splab.graph.exceptions.GraphException;
 
@@ -64,7 +64,7 @@ public class Graph extends AbstractGraph{
 	 * and adds edge in graph
 	 * @throws Exception
 	 */
-	public void createEdge(UUID from, UUID to, String labelEdge, EdgeType tipo) throws GraphException{
+	public void createEdge(UUID from, UUID to, String labelEdge, TransitionType tipo) throws GraphException{
 		InterfaceVertex vFrom = getStates().get(from);
 		InterfaceVertex vTo = getStates().get(to);
 		
@@ -73,7 +73,7 @@ public class Graph extends AbstractGraph{
 		if(vFrom==null || vTo==null){
 			throw new NullPointerException("State was not specified for edge: '"+labelEdge+"'");
 		}
-		InterfaceEdge edge = new Edge(vFrom, labelEdge, vTo,tipo);
+		InterfaceEdge edge = new Transition(vFrom, labelEdge, vTo,tipo);
 		vFrom.addEdgeOutTransitions(edge);
 		vTo.addEdgeInTransitions(edge);
 		this.getEdges().add(edge);
