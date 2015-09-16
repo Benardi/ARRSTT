@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
-import br.edu.ufcg.splab.graph.core.InterfaceGraph;
-import br.edu.ufcg.splab.graph.parser.ReadTGF;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
+import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class TestDepthFirstSearch {
 	

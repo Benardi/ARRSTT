@@ -1,6 +1,5 @@
 package br.edu.ufcg.splab.trash;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.combinators.Combinable;
 
 /**
  * Represents a generic type of experiment.
