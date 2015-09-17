@@ -1,10 +1,7 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.experiments;
 
-import java.util.List;
-
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
 
 public class Experiment {
 	private InterfaceSetup setup;

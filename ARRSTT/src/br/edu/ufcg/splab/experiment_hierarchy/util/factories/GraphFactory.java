@@ -9,7 +9,6 @@ import java.util.UUID;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
-import br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
 
 public class GraphFactory {

@@ -4,17 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.SelectionTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.maskarators.InterfaceGraphMaskarator;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 
 /**
  * 
@@ -25,8 +18,6 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
  *
  */
 public class SelectionSetup implements InterfaceSetup {
-	private static final int LOOP_COVERAGE = 0;
-	private InterfaceSearch search;
 	private double selectionPercentage;
 	private List<TestSuite> testSuites;
 
@@ -49,32 +40,18 @@ public class SelectionSetup implements InterfaceSetup {
 
 	@Override
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
-		return combine(selectionPercentage);
-	}
-
-	/**
-	 * 
-	 * @param maskedTestSuites
-	 *            Copy of the graph bound to the class.
-	 * 
-	 * @param selectionPercentage
-	 *            Percentage of cases that shall be chosen
-	 * @return
-	 */
-	private List<Tuple<ExecutableTreatment>> combine(double selectionPercentage) {
 		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<>();
+		TreatmentFactory treatmentFactory = new TreatmentFactory();
+		
+		List<SelectionType> selectionAlgorithms = new ArrayList<SelectionType>();
+		selectionAlgorithms.add(SelectionType.SIMILARITY);
+		selectionAlgorithms.add(SelectionType.RANDOMIZED);
+		selectionAlgorithms.add(SelectionType.BIGGEST);
 
-		List<InterfaceTestCaseSelector> selectionAlgorithms = new ArrayList<InterfaceTestCaseSelector>();
-		selectionAlgorithms.add(new BySimilaritySelector());
-		selectionAlgorithms.add(new RandomizedTestCaseSelection());
-
-		selectionAlgorithms.add(new BiggestTestCaseSelector());
-
-		for (InterfaceTestCaseSelector selection : selectionAlgorithms) {
+		for (SelectionType selection : selectionAlgorithms) {
 			for (TestSuite ts : testSuites) {
 				Tuple<ExecutableTreatment> combination = new Tuple<ExecutableTreatment>();
-				combination.add(new SelectionTreatment(selection, ts,
-						selectionPercentage));
+				combination.add(treatmentFactory.createSelection(selection, ts, selectionPercentage));
 				combinations.add(combination);
 			}
 		}

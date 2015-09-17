@@ -8,8 +8,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 public class ARRSTTDefectiveEdgesCollector implements DependentVariableCollector {
 
 	@Override
-	public void collect(Tuple<ExecutableTreatment> treatment,
-			StringBuffer content) {
+	public void collect(Tuple<ExecutableTreatment> treatment, StringBuffer content) {
 		TestSuite testSuite = treatment.get(0).execute();
 		
 		ErrorStructure errorStructure = new ErrorStructure(testSuite);

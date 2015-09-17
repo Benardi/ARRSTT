@@ -7,11 +7,11 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 
 public class TreatmentFactory {
-	public ExecutableTreatment createSelectionTreatment(SelectionType type, TestSuite testSuite, double percentage) {
+	public ExecutableTreatment createSelection(SelectionType type, TestSuite testSuite, double percentage) {
 		return new SelectionFactory().createTreatment(type, testSuite, percentage);
 	}
 	
-	public ExecutableTreatment createGenerationTreatment(GenerationType type, InterfaceVertex root, int loopCoverage) {
+	public ExecutableTreatment createGeneration(GenerationType type, InterfaceVertex root, int loopCoverage) {
 		return new GenerationFactory().createTreatment(type, root, loopCoverage);
 	}
 }

@@ -24,6 +24,7 @@ import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
+	public final static double SELECTION_PERCENTAGE = 0.5;
 	private DVCFactory dvcFactory;
 	
 	public ExperimentFactory(){
@@ -33,14 +34,7 @@ public class ExperimentFactory {
 	public Experiment buildArrsttGeneration() throws Exception {
 		int[] loopCoverages = { 1, 4, 7 };
 		BranchSeparator separator = new BranchSeparator();
-		
-		// selecting the types
-		List<DVCType> types = new ArrayList<>();
-		types.add(DVCType.TIME);
-		types.add(DVCType.SIZE);
-		
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(types);
-		
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE);
 		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages);
 		InterfaceRunner runner = new DefaultRunner(collectors);
 		
@@ -48,17 +42,9 @@ public class ExperimentFactory {
 	}
 	
 	public Experiment buildArrsttSelection() throws Exception {
-		
-		// selecting the types
-		List<DVCType> types = new ArrayList<>();
-		types.add(DVCType.TIME);
-		types.add(DVCType.SIZE);
-		types.add(DVCType.DEFECTIVE_EDGES);
-		types.add(DVCType.DEFECTS);
-				
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(types);		
-		
-		InterfaceSetup setup = new SelectionSetup(loadGraphs(), 0.5);
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, 
+																					 DVCType.DEFECTIVE_EDGES, DVCType.DEFECTS);		
+		InterfaceSetup setup = new SelectionSetup(loadGraphs(), SELECTION_PERCENTAGE);
 		InterfaceRunner runner = new DefaultRunner(collectors);
 		
 		return new Experiment(setup, runner);
@@ -85,10 +71,8 @@ public class ExperimentFactory {
 		
 		for (InterfaceGraph graph : maskedGraphs) {
 			InterfaceSearch search = new DepthFirstSearch();
-			System.out.println(search.getTestSuite(graph.getRoot(), 0).size());
 			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
 		}
-		System.out.println("---cabou---");
 		
 		return testSuites;
 	}

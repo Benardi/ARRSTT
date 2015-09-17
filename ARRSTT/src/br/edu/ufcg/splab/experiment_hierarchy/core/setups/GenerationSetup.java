@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.GenerationTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.BreadthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 
 /**
@@ -43,19 +41,18 @@ public class GenerationSetup implements InterfaceSetup {
 	@Override
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
 		List<Tuple<ExecutableTreatment>> allTrials = new ArrayList<Tuple<ExecutableTreatment>>();
-		
+		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		//add search factor
-		List<InterfaceSearch> searches = new ArrayList<InterfaceSearch>();
-		searches.add(new DepthFirstSearch());
-		searches.add(new BreadthFirstSearch());
+		List<GenerationType> searches = new ArrayList<GenerationType>();
+		searches.add(GenerationType.DFS);
+		searches.add(GenerationType.BFS);
 		
 		for(InterfaceGraph graph : graphs) {
-			for(InterfaceSearch search: searches) {
+			for(GenerationType search: searches) {
 				for(Integer loopCoverage : loopCoverages) {
 					//creates a trial composed of a: search, graph and loop coverage.
 					Tuple<ExecutableTreatment> trial = new Tuple<ExecutableTreatment>();
-					// Search está sendo usado várias vezes e não está sendo criado novamente.
-					trial.add(new GenerationTreatment(search, graph.getRoot(), loopCoverage));
+					trial.add(treatmentFactory.createGeneration(search, graph.getRoot(), loopCoverage));
 					allTrials.add(trial);
 				}
 			}
