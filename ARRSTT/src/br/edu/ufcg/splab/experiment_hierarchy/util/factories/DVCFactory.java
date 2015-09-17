@@ -13,10 +13,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 
 public class DVCFactory {
 	
-	public DVCFactory(){
-		
-	}
-	
 	public DependentVariableCollector createCollector(DVCType type){
 		if(type == DVCType.DEFECTIVE_EDGES){
 			return new ARRSTTDefectiveEdgesCollector();
@@ -35,10 +31,21 @@ public class DVCFactory {
 	
 	public List<DependentVariableCollector> createCollectorList(Iterable<DVCType> types){
 		List<DependentVariableCollector> dvcs = new ArrayList<>();
+		
 		for(DVCType type : types){
 			dvcs.add(createCollector(type));
 		}
+		
 		return dvcs;
 	}
 
+	public List<DependentVariableCollector> createCollectorList(DVCType... types) {
+		List<DependentVariableCollector> dvcs = new ArrayList<>();
+		
+		for(DVCType type : types){
+			dvcs.add(createCollector(type));
+		}
+		
+		return dvcs;
+	}
 }

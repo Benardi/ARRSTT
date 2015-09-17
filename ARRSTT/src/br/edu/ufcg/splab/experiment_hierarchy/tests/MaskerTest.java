@@ -1,5 +1,8 @@
-package br.edu.ufcg.splab.experiment_hierarchy.maskarators;
+package br.edu.ufcg.splab.experiment_hierarchy.tests;
 
+import br.edu.ufcg.splab.experiment_hierarchy.maskarators.IaronMasker;
+import br.edu.ufcg.splab.experiment_hierarchy.maskarators.InterfaceGraphMaskarator;
+import br.edu.ufcg.splab.experiment_hierarchy.maskarators.RandomMasker;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ErrorStructure;
