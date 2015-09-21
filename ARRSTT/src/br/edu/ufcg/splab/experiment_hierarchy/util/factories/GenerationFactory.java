@@ -1,26 +1,25 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.GenerationTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.BreadthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
+import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
-import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 
 public class GenerationFactory {
-	public ExecutableTreatment createTreatment(GenerationType type, InterfaceVertex root, int loopCoverage) {
+	
+	public InterfaceSearch createTreatment(GenerationType type) {
 		if (type == GenerationType.BFS) {
-			return createBfsGenerator(root, loopCoverage);
+			return createBfsGenerator();
 		} else {
-			return createDfsGenerator(root, loopCoverage);
+			return createDfsGenerator();
 		}
 	}
 	
-	public ExecutableTreatment createBfsGenerator(InterfaceVertex root, int loopCoverage) {
-		return new GenerationTreatment(new DepthFirstSearch(), root, loopCoverage);
+	public InterfaceSearch createBfsGenerator() {
+		return new BreadthFirstSearch();
 	}
 	
-	public ExecutableTreatment createDfsGenerator(InterfaceVertex root, int loopCoverage) {
-		return new GenerationTreatment(new BreadthFirstSearch(), root, loopCoverage);
+	public InterfaceSearch createDfsGenerator() {
+		return new DepthFirstSearch();
 	}
 }
