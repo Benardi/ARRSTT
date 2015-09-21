@@ -67,6 +67,7 @@ public class ExperimentFactory {
 			maskedGraphs.add(masker.mask(graph, MASK_PERCENTAGE));
 		}
 		
+		
 		List<TestSuite> testSuites = new ArrayList<TestSuite>();
 		
 		for (InterfaceGraph graph : maskedGraphs) {

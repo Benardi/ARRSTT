@@ -1,33 +1,32 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.SelectionTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class SelectionFactory {
-	public ExecutableTreatment createTreatment(SelectionType type, TestSuite testSuite, double percentage) {
+	
+	public InterfaceTestCaseSelector createTreatment(SelectionType type) {
 		if (type == SelectionType.BIGGEST) {
-			return createBiggestSelector(testSuite, percentage);
+			return createBiggestSelector();
 		} else if (type == SelectionType.RANDOMIZED) {
-			return createRandomizedSelector(testSuite, percentage);
+			return createRandomizedSelector();
 		} else {
-			return createSimilaritySelector(testSuite, percentage);
+			return createSimilaritySelector();
 		}
 	}
 	
-	public ExecutableTreatment createBiggestSelector(TestSuite testSuite, double percentage) {
-		return new SelectionTreatment(new BiggestTestCaseSelector(), testSuite, percentage);
+	public InterfaceTestCaseSelector createBiggestSelector() {
+		return new BiggestTestCaseSelector();
 	}
 	
-	public ExecutableTreatment createRandomizedSelector(TestSuite testSuite, double percentage) {
-		return new SelectionTreatment(new RandomizedTestCaseSelection(), testSuite, percentage);
+	public InterfaceTestCaseSelector createRandomizedSelector() {
+		return new RandomizedTestCaseSelection();
 	}
 	
-	public ExecutableTreatment createSimilaritySelector(TestSuite testSuite, double percentage) {
-		return new SelectionTreatment(new BySimilaritySelector(), testSuite, percentage);
+	public InterfaceTestCaseSelector createSimilaritySelector() {
+		return new BySimilaritySelector();
 	}
 }
