@@ -3,14 +3,20 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
-
+/* Change		Author		Date
+ * Creation		Unknown		Unknown
+ */
 /**
- * Objects of this class are executable treatments that
+ * Objective: Objects of this class are executable treatments that
  * use an object capable of generating a test suite of a
  * given graph's root.
- *
+ * 
+ * Description of use: This class can be used in any experiment that 
+ * needs graph generation since the execute() method creates a TestSuite.
  */
 public class GenerationTreatment implements ExecutableTreatment {
+	//TODO The rest of the Javadoc.
+	  
 	private InterfaceSearch searchObject;
 	private InterfaceVertex root;
 	private TestSuite testSuite;
