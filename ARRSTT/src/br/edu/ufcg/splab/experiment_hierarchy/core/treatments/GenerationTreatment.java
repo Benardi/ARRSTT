@@ -23,16 +23,18 @@ public class GenerationTreatment implements ExecutableTreatment {
 	private int loopCoverage;
 	
 	/**
-	 * Creates a TreatmentSearch Object with all its possible attributes
-	 * initialized.
+	 * Creates a GenerationTreatment Object with the generation algorithm,
+	 * a graph's root and the loop coverage number
 	 * 
-	 * @param searchObject
-	 * @param graph
+	 * @param generationObject
+	 * 			The generation algorithm
+	 * @param root
+	 * 			The root of the graph that represents an execution
 	 * @param loopCoverage
-	 * @param title
+	 * 			The number of times a trasition can appear in the TestSuite.
 	 */
-	public GenerationTreatment(InterfaceSearch searchObject, InterfaceVertex root, int loopCoverage) {
-		this.searchObject = searchObject;
+	public GenerationTreatment(InterfaceSearch generationObject, InterfaceVertex root, int loopCoverage) {
+		this.searchObject = generationObject;
 		this.loopCoverage = loopCoverage;
 		this.root = root;
 		
@@ -92,6 +94,17 @@ public class GenerationTreatment implements ExecutableTreatment {
 	}
 	
 	@Override
+	/**
+	 * Objective: This class generates a TestSuite based on the graph
+	 * received by construction, the generation algorithm and the loop
+	 * coverage.
+	 * 
+	 * Exemple of use: When the data of a certain generation algorithm, loop
+	 * coverage and graph needs to be saved for an experiment, this class
+	 * is used and the generation happens through this method.
+	 * 
+	 * @return the generated TestSuite
+	 */
 	public TestSuite execute() {
 		testSuite = searchObject.getTestSuite(root, loopCoverage);
 		return testSuite;
