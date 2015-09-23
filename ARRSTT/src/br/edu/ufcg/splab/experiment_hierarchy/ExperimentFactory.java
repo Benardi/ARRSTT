@@ -17,6 +17,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
@@ -33,18 +35,20 @@ public class ExperimentFactory {
 	
 	public Experiment buildArrsttGeneration() throws Exception {
 		int[] loopCoverages = { 1, 4, 7 };
+		GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
 		BranchSeparator separator = new BranchSeparator();
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE);
-		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages);
+		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors);
 		
 		return new Experiment(setup, runner);
 	}
 	
 	public Experiment buildArrsttSelection() throws Exception {
+		SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, 
-																					 DVCType.DEFECTIVE_EDGES, DVCType.DEFECTS);		
-		InterfaceSetup setup = new SelectionSetup(loadGraphs(), SELECTION_PERCENTAGE);
+																					 DVCType.DEFECTIVE_EDGES, DVCType.DEFECTS);
+		InterfaceSetup setup = new SelectionSetup(loadGraphs(), SELECTION_PERCENTAGE, selectionAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors);
 		
 		return new Experiment(setup, runner);
