@@ -15,6 +15,7 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
  *
  */
 public class GenerationSetup implements InterfaceSetup {
+    private GenerationType[] generationAlgorithms;
     private List<InterfaceGraph> graphs;
     private int[] loopCoverages;
 	
@@ -24,9 +25,10 @@ public class GenerationSetup implements InterfaceSetup {
 	 * @param super.getFactors()
 	 * 		The list of super.getFactors() which the treatments are in.
 	 */
-	public GenerationSetup(List<InterfaceGraph> graphs, int[] loopCoverages) {
+	public GenerationSetup(List<InterfaceGraph> graphs, int[] loopCoverages, GenerationType[] generationAlgorithms) {
 		this.graphs = graphs;
 		this.loopCoverages = loopCoverages;
+		this.generationAlgorithms = generationAlgorithms;
 	}
 	
 	/**
@@ -42,13 +44,9 @@ public class GenerationSetup implements InterfaceSetup {
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
 		List<Tuple<ExecutableTreatment>> allTrials = new ArrayList<Tuple<ExecutableTreatment>>();
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
-		//add search factor
-		List<GenerationType> searches = new ArrayList<GenerationType>();
-		searches.add(GenerationType.DFS);
-		searches.add(GenerationType.BFS);
 		
 		for(InterfaceGraph graph : graphs) {
-			for(GenerationType search: searches) {
+			for(GenerationType search: generationAlgorithms) {
 				for(Integer loopCoverage : loopCoverages) {
 					//creates a trial composed of a: search, graph and loop coverage.
 					Tuple<ExecutableTreatment> trial = new Tuple<ExecutableTreatment>();

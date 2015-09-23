@@ -18,6 +18,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  *
  */
 public class SelectionSetup implements InterfaceSetup {
+	private SelectionType[] selectionAlgorithms;
 	private double selectionPercentage;
 	private List<TestSuite> testSuites;
 
@@ -33,20 +34,16 @@ public class SelectionSetup implements InterfaceSetup {
 	 *            Percentage that will be chosen as result.
 	 * 
 	 */
-	public SelectionSetup(List<TestSuite> testSuites, double selectionPercentage) {
+	public SelectionSetup(List<TestSuite> testSuites, double selectionPercentage, SelectionType[] selectionAlgorithms) {
 		this.selectionPercentage = selectionPercentage;
 		this.testSuites = testSuites;
+		this.selectionAlgorithms = selectionAlgorithms;
 	}
 
 	@Override
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
 		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<>();
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
-		
-		List<SelectionType> selectionAlgorithms = new ArrayList<SelectionType>();
-		selectionAlgorithms.add(SelectionType.SIMILARITY);
-		selectionAlgorithms.add(SelectionType.RANDOMIZED);
-		selectionAlgorithms.add(SelectionType.BIGGEST);
 
 		for (SelectionType selection : selectionAlgorithms) {
 			for (TestSuite ts : testSuites) {
