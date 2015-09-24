@@ -2,7 +2,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 /* Change		Author		Date
- * Creation		Unknown		Unknown
+ * Creation		Bernardi	2015-05-24
  */
 /**
  * Objective: Represents a treatment that is able to process data. 
