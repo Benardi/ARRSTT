@@ -4,7 +4,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 /* Change		Author		Date
- * Creation		Unknown		Unknown
+ * Creation		Bernardi	2015-05-24
  */
 /**
  * Objective: Objects of this class are executable treatments that

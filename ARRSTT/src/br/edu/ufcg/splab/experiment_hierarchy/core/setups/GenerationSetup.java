@@ -8,10 +8,17 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
-
+/* Change		Author		Date
+ * Creation		Arthur		2015-07-12
+ * Big refactor	Iaron		2015-08-23
+ */
 /**
- * This is a complete factorial combinator. This means that
- * it will generate all possible combinations for the treatments. 
+ * Objective: This is a complete factorial combinator. This means that
+ * it will generate all possible combinations for the Generation
+ * Experiment's treatments. 
+ * 
+ * Description of use: Used in the Experiment class to generate the
+ * necessary for the Runner to work.
  *
  */
 public class GenerationSetup implements InterfaceSetup {
@@ -20,10 +27,15 @@ public class GenerationSetup implements InterfaceSetup {
     private int[] loopCoverages;
 	
 	/**
-	 * Build a new combinator with a list of super.getFactors(). 
-	 * 
-	 * @param super.getFactors()
-	 * 		The list of super.getFactors() which the treatments are in.
+	 * GenerationSetup's constructor.
+	 * @param graphs
+	 * 		The list of graphs that represent one independent variable
+	 * 		to the experiment.
+	 * @param loopCoverages
+	 * 		An array of loop coverage that represents independent variables.
+	 * @param generationAlgorithms
+	 * 		The list of generation algorithms that represents independent
+	 * 		variables.
 	 */
 	public GenerationSetup(List<InterfaceGraph> graphs, int[] loopCoverages, GenerationType[] generationAlgorithms) {
 		this.graphs = graphs;
@@ -31,16 +43,18 @@ public class GenerationSetup implements InterfaceSetup {
 		this.generationAlgorithms = generationAlgorithms;
 	}
 	
-	/**
-	 * This method do what the combinator is supposed to do.
-	 * That is, for each graph it will vary the searches and
-	 * loop coverages, generating the combinations that will 
-	 * be executed by the runExperiment method.
-	 * 
-	 * @return
-	 * 		A list containing the combinations.
-	 */
 	@Override
+	/**
+	 * Objective: Return the complete factorial independent variables' 
+	 * combinations of the ARRSTT generation experiment.
+	 * 
+	 * Exemple of use: The list of tuples returned can be used
+	 * by a Runner that is going to execute the experiment. This
+	 * generally happens in the Experiment class. 
+	 * 
+	 * @return The list of ExecutableTreatment's tuple, that
+	 * represents independent variables combinations.
+	 */
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
 		List<Tuple<ExecutableTreatment>> allTrials = new ArrayList<Tuple<ExecutableTreatment>>();
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
