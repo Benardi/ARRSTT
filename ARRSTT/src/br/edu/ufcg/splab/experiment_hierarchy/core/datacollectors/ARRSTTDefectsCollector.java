@@ -35,12 +35,15 @@ public class ARRSTTDefectsCollector implements DependentVariableCollector {
 	 * @param content
 	 * 			The StringBuffer used to store the amount of defects.
 	 */
-	public void collect(Tuple<ExecutableTreatment> treatment,
-			StringBuffer content) {
+	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		TestSuite testSuite = treatment.get(0).execute();
 		
 		ErrorStructure errorStructure = new ErrorStructure(testSuite);
-		content.append(errorStructure.countDefects() + "\t");
+		return new StringBuffer(errorStructure.countDefects() + "");
 	}
 
+	@Override
+	public String toString() {
+		return "DV Defects";
+	}
 }

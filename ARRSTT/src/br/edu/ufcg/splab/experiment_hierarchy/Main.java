@@ -9,13 +9,13 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		ExperimentFactory factory = new ExperimentFactory();
 		try {
-			int[] loopCoverages = { 1, 4, 7 };
-			GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
-			Experiment experiment = factory.buildGeneration(loopCoverages, generationAlgorithms);
-			experiment.execute();
+			//int[] loopCoverages = { 1, 4, 7 };
+			//GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
+			//Experiment experiment = factory.buildGeneration(loopCoverages, generationAlgorithms);
+			//experiment.execute();
 			
 			SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
-			experiment = factory.buildSelection(selectionAlgorithms);
+			Experiment experiment = factory.buildSelection(selectionAlgorithms);
 			experiment.execute();
 		} catch(Exception e) {
 			e.printStackTrace();

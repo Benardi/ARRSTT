@@ -39,17 +39,17 @@ public class ExperimentFactory {
 		BranchSeparator separator = new BranchSeparator();
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE);
 		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
-		InterfaceRunner runner = new DefaultRunner(collectors);
+		InterfaceRunner runner = new DefaultRunner(collectors, 6);
 		
 		return new Experiment(setup, runner);
 	}
 	
 	public Experiment buildSelection(SelectionType[] selectionAlgorithms) throws Exception {
 		//SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, 
-																					 DVCType.DEFECTIVE_EDGES, DVCType.DEFECTS);
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, DVCType.DEFECTIVE_EDGES, 
+																					 DVCType.DEFECTS, DVCType.FAILURES);
 		InterfaceSetup setup = new SelectionSetup(loadGraphs(), SELECTION_PERCENTAGE, selectionAlgorithms);
-		InterfaceRunner runner = new DefaultRunner(collectors);
+		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
 		
 		return new Experiment(setup, runner);
 	}

@@ -34,5 +34,5 @@ public interface DependentVariableCollector {
 	 * @param content
 	 * 			The StringBuffer used to store the dependent variable's data.
 	 */
-	public void collect(Tuple<ExecutableTreatment> treatment, StringBuffer content);
+	public StringBuffer collect(Tuple<ExecutableTreatment> treatment);
 }

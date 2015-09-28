@@ -35,11 +35,16 @@ public class ARRSTTDefectiveEdgesCollector implements DependentVariableCollector
 	 * @param content
 	 * 			The StringBuffer used to store the amount of defective edges.
 	 */
-	public void collect(Tuple<ExecutableTreatment> treatment, StringBuffer content) {
+	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		TestSuite testSuite = treatment.get(0).execute();
 		
 		ErrorStructure errorStructure = new ErrorStructure(testSuite);
-		content.append(errorStructure.countDefectiveEdges() + "\t");
+		return new StringBuffer(errorStructure.countDefectiveEdges() + "");
+	}
+	
+	@Override
+	public String toString() {
+		return "DV DefectiveEdges";
 	}
 
 }
