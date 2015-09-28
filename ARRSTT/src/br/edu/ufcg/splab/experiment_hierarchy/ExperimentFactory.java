@@ -33,9 +33,9 @@ public class ExperimentFactory {
 		dvcFactory = new DVCFactory();
 	}
 	
-	public Experiment buildArrsttGeneration() throws Exception {
-		int[] loopCoverages = { 1, 4, 7 };
-		GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
+	public Experiment buildGeneration(int[] loopCoverages, GenerationType[] generationAlgorithms) throws Exception {
+		//int[] loopCoverages = { 1, 4, 7 };
+		//GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
 		BranchSeparator separator = new BranchSeparator();
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE);
 		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
@@ -44,8 +44,8 @@ public class ExperimentFactory {
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildArrsttSelection() throws Exception {
-		SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
+	public Experiment buildSelection(SelectionType[] selectionAlgorithms) throws Exception {
+		//SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, 
 																					 DVCType.DEFECTIVE_EDGES, DVCType.DEFECTS);
 		InterfaceSetup setup = new SelectionSetup(loadGraphs(), SELECTION_PERCENTAGE, selectionAlgorithms);
