@@ -29,13 +29,16 @@ public class ARRSTTTimeCollector implements DependentVariableCollector {
 	 * @param content
 	 * 			The StringBuffer used to store the ExecutableTreatments' execution time.
 	 */
-	public void collect(Tuple<ExecutableTreatment> treatment,
-			StringBuffer content) {
+	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		Long initTime = System.nanoTime();
 		treatment.get(0).execute();
 		Long endTime = System.nanoTime();
 		
-		content.append(endTime - initTime + "\t");
+		return new StringBuffer(endTime - initTime + "");
 	}
 
+	@Override
+	public String toString() {
+		return "DV Time";
+	}
 }

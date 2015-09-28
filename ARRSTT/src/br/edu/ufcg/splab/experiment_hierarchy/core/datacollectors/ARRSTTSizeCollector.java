@@ -32,11 +32,13 @@ public class ARRSTTSizeCollector implements DependentVariableCollector {
 	 * @param content
 	 * 			The StringBuffer used to store the TestSuites' size.
 	 */
-	public void collect(Tuple<ExecutableTreatment> treatment,
-			StringBuffer content) {
+	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		TestSuite testSuite = treatment.get(0).execute();
-		System.out.println(testSuite.size());
-		content.append(testSuite.size() + "\t");
+		return new StringBuffer(testSuite.size() + "");
 	}
 
+	@Override
+	public String toString() {
+		return "DV Size";
+	}
 }

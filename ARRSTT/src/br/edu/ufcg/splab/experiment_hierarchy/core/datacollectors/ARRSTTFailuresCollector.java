@@ -36,12 +36,16 @@ public class ARRSTTFailuresCollector implements DependentVariableCollector {
 	 * @param content
 	 * 			The StringBuffer used to store the amount of failures.
 	 */
-	public void collect(Tuple<ExecutableTreatment> treatment,
-			StringBuffer content) {
+	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		TestSuite testSuite = treatment.get(0).execute();
 		
 		ErrorStructure errorStructure = new ErrorStructure(testSuite);
-		content.append(errorStructure.countFails() + "\t");
+		return new StringBuffer(errorStructure.countFails() + "");
+	}
+	
+	@Override
+	public String toString() {
+		return "DV Failures";
 	}
 
 }
