@@ -22,12 +22,11 @@ public class ARRSTTTimeCollector implements DependentVariableCollector {
 	 * Objective: Calculate the ExecutableTreatment's execution time.
 	 * 
 	 * Example of use: In the ARRSTT Selection Experiment this method receives an ExecutableTreatment
-	 * so it can calculate and save it's execution time in a StringBuffer.
+	 * so it can calculate and save it's execution time in a StringBuffer that will be returned.
 	 * 
 	 * @param treatment
 	 * 			A tuple of ExecutableTreatments.
-	 * @param content
-	 * 			The StringBuffer used to store the ExecutableTreatments' execution time.
+	 * @param The StringBuffer used to store the ExecutableTreatments' execution time.
 	 */
 	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		Long initTime = System.nanoTime();

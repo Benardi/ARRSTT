@@ -28,12 +28,11 @@ public class ARRSTTDefectsCollector implements DependentVariableCollector {
 	 * 
 	 * Example of use: In the ARRSTT Selection Experiment this method receives a SelectionTreatment
 	 * so it can generate TestSuites with defective edges. The amount of defects is calculated and
-	 * stored in a StringBuffer.
+	 * stored in a StringBuffer that will be returned.
 	 * 
 	 * @param treatment
 	 * 			A tuple of ExecutableTreatments that is going to generate a TestSuite.
-	 * @param content
-	 * 			The StringBuffer used to store the amount of defects.
+	 * @param The StringBuffer used to store the amount of defects.
 	 */
 	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		TestSuite testSuite = treatment.get(0).execute();
