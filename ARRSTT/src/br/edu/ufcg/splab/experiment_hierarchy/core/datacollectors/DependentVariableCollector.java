@@ -20,19 +20,18 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 public interface DependentVariableCollector {
 	/**
 	 * Objective: Add the dependent variable data collected from a tuple of
-	 * ExecutableTreatments in a StringBuffer.
+	 * ExecutableTreatments in a StringBuffer that will be returned.
 	 * 
 	 * Example of use: In an experiment that is going to check if merge sort is
 	 * quicker than bubble sort for a certain list, a Tuple of ExecutableTratment with
-	 * the merge sort and the list can be passed to this method alongside with an empty
-	 * StringBuffer so this method will write the execution time of the sort in the
-	 * StringBuffer.
+	 * the merge sort and the list can be passed to this method so it will write the 
+	 * execution time of the sort in a StringBuffer and return it.
 	 * 
 	 * @param treatment
 	 * 			A tuple of ExecutableTreatments that is going to have a dependent variable
 	 * 			collected.
-	 * @param content
-	 * 			The StringBuffer used to store the dependent variable's data.
+	 * 
+	 * @return The StringBuffer containing the dependent variable's data
 	 */
 	public StringBuffer collect(Tuple<ExecutableTreatment> treatment);
 }

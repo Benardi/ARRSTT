@@ -25,12 +25,11 @@ public class ARRSTTSizeCollector implements DependentVariableCollector {
 	 * Executable treatment in the tuple and add it in a StringBuffer.
 	 * 
 	 * Example of use: In the ARRSTT Selection Experiment this method receives an ExecutableTreatment
-	 * so it can generate TestSuites and save it's sizes in a StringBuffer.
+	 * so it can generate TestSuites and save it's sizes in a StringBuffer that will be returned.
 	 * 
 	 * @param treatment
 	 * 			A tuple of ExecutableTreatments that is going to generate a TestSuite.
-	 * @param content
-	 * 			The StringBuffer used to store the TestSuites' size.
+	 * @param The StringBuffer used to store the TestSuites' size.
 	 */
 	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
 		TestSuite testSuite = treatment.get(0).execute();
