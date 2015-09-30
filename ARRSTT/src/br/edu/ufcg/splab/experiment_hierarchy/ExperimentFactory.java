@@ -26,7 +26,6 @@ import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
-	public final static double SELECTION_PERCENTAGE = 0.5;
 	private DVCFactory dvcFactory;
 	
 	public ExperimentFactory(){
@@ -34,8 +33,6 @@ public class ExperimentFactory {
 	}
 	
 	public Experiment buildGeneration(int[] loopCoverages, GenerationType[] generationAlgorithms) throws Exception {
-		//int[] loopCoverages = { 1, 4, 7 };
-		//GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
 		BranchSeparator separator = new BranchSeparator();
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE);
 		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
@@ -44,11 +41,10 @@ public class ExperimentFactory {
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildSelection(SelectionType[] selectionAlgorithms) throws Exception {
-		//SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
+	public Experiment buildSelection(SelectionType[] selectionAlgorithms, double selectionPercentage) throws Exception {
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, DVCType.DEFECTIVE_EDGES, 
 																					 DVCType.DEFECTS, DVCType.FAILURES);
-		InterfaceSetup setup = new SelectionSetup(loadGraphs(), SELECTION_PERCENTAGE, selectionAlgorithms);
+		InterfaceSetup setup = new SelectionSetup(loadGraphs(), selectionPercentage, selectionAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
 		
 		return new Experiment(setup, runner);

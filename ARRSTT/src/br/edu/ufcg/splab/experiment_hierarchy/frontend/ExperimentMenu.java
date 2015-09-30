@@ -1,29 +1,38 @@
 package br.edu.ufcg.splab.experiment_hierarchy.frontend;
 
 import java.util.Scanner;
+
+import br.edu.ufcg.splab.experiment_hierarchy.facade.ARRSTTFacade;
+
 /* Change		Author		Date
  * Creation		Iaron		2015-09-29
  */
 public class ExperimentMenu {
 	private static Scanner scan = new Scanner(System.in);
-	private static ARRSTTFacade facade = new ARRSTFacade();
+	private static ARRSTTFacade facade = new ARRSTTFacade();
+	private static int experimentNumber;
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to the experiment menu!");
 		experimentSelection();
 		System.out.println("Now, pick the treatments.");
-		if(experimentNumber == 0){
+		
+		if(experimentNumber == 1){
 			selectSearch();
 			selectLoopCoverage();
-			selectGenerationDVC();
-		} else if (experimentNumber == 1){
+			//selectGenerationDVC();
+		} else if (experimentNumber == 2){
 			selectSelection();
 			selectSelectionPercentage();
-			selectMaskPercentage();
-			selectSelectionDVC();
+			//selectMaskPercentage();
+			//selectSelectionDVC();
 		}
 		
-
+		try {
+			facade.executeExperiment();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private static void experimentSelection(){
@@ -34,13 +43,19 @@ public class ExperimentMenu {
 					+ "Write the number of the desired experiment (1 - Generation 2 - Selection)");
 		
 			experimentNumber = scan.nextInt();
+			scan.nextLine();
 			if(experimentNumber < 1 || experimentNumber > 2){
 				System.out.println("Please, select a valid experiment");
 			} else {
 				haventSelected = false;
 			}
 		}
-		facade.selectExperiment(experimentNumber);;		
+		ExperimentMenu.experimentNumber = experimentNumber;
+		if (experimentNumber == 1) {
+			facade.selectExperiment(ARRSTTFacade.EXPERIMENT_TYPES[0]);
+		} else if (experimentNumber == 2){
+			facade.selectExperiment(ARRSTTFacade.EXPERIMENT_TYPES[1]);
+		}
 	}
 	
 	private static void selectSearch(){
@@ -56,9 +71,13 @@ public class ExperimentMenu {
 			
 			if(results.length == 0){
 				System.out.println("Please, input valid numbers");
-			}else {
-				for(int i = 0; i < results.length; i++){
-					facade.addGenerationAlgorithm(result[i]);
+			} else {
+				for(int i = 0; i < results.length; i++) {
+					if (results[i].equals("1")) {
+						facade.addGenerationTreatment(ARRSTTFacade.GENERATION_TREATMENTS[0]);
+					} else if (results[i].equals("2")) {
+						facade.addGenerationTreatment(ARRSTTFacade.GENERATION_TREATMENTS[1]);
+					}
 				}
 				haventSelected = false;
 			}
@@ -80,7 +99,15 @@ public class ExperimentMenu {
 				System.out.println("Please, input valid numbers");
 			}else {
 				for(int i = 0; i < results.length; i++){
-					facade.addSelectionAlgorithm(result[i]);
+					if (results[i].equals("1")) {
+						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[0]);
+					} else if (results[i].equals("2")) {
+						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[1]);
+					} else if (results[i].equals("3")) {
+						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[2]);
+					} else if (results[i].equals("4")) {
+						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[3]);
+					}
 				}
 				haventSelected = false;
 			}
@@ -101,7 +128,8 @@ public class ExperimentMenu {
 				System.out.println("Please, input valid numbers");
 			}else {
 				for(int i = 0; i < results.length; i++){
-					facade.addLoopCoverages(result[i]);
+					System.out.println(results[i] + " - UMA LOOP COVERAGE");
+					facade.addLoopCoverage(results[i]);
 				}
 				haventSelected = false;
 			}
@@ -118,13 +146,13 @@ public class ExperimentMenu {
 			if(percentage < 0.0 || percentage > 1.0){
 				System.out.println("Please, input a valid number");
 			} else {
-				facade.addSelectPercentage();
+				facade.addSelectPercentage(percentage);
 				haventSelected = false;
 			}
 		}
 	}
 	
-	private static void selectMaskPercentage(){
+	/*private static void selectMaskPercentage(){
 		boolean haventSelected = true;
 		double percentage = -1;
 		while(haventSelected){
@@ -134,13 +162,13 @@ public class ExperimentMenu {
 			if(percentage < 0.0 || percentage > 1.0){
 				System.out.println("Please, input a valid number");
 			} else {
-				facade.addMaskPercentage();
+				facade.addMaskPercentage(percentage);
 				haventSelected = false;
 			}
 		}
-	}
+	}*/
 	
-	private static void selectGenerationDVC(){
+	/*private static void selectGenerationDVC(){
 		boolean haventSelected = true;
 		String output;
 		String[] results;
@@ -155,7 +183,7 @@ public class ExperimentMenu {
 				System.out.println("Please, input valid numbers");
 			}else {
 				for(int i = 0; i < results.length; i++){
-					facade.addGenerationDVCs(result[i]);
+					//facade.addGenerationDVCs(results[i]);
 				}
 				haventSelected = false;
 			}
@@ -177,12 +205,12 @@ public class ExperimentMenu {
 				System.out.println("Please, input valid numbers");
 			}else {
 				for(int i = 0; i < results.length; i++){
-					facade.addSelectionDVCs(result[i]);
+					//facade.addSelectionDVCs(results[i]);
 				}
 				haventSelected = false;
 			}
 		}
-	}
+	}*/
 	
 	
 
