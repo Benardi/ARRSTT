@@ -128,7 +128,6 @@ public class ExperimentMenu {
 				System.out.println("Please, input valid numbers");
 			}else {
 				for(int i = 0; i < results.length; i++){
-					System.out.println(results[i] + " - UMA LOOP COVERAGE");
 					facade.addLoopCoverage(results[i]);
 				}
 				haventSelected = false;

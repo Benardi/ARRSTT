@@ -50,6 +50,7 @@ public class ExperimentFactory {
 		return new Experiment(setup, runner);
 	}
 	
+	//vai pro controller
 	private List<TestSuite> loadGraphs() throws Exception {
 		List<InterfaceGraph> allGraphs = new ArrayList<>();
 		

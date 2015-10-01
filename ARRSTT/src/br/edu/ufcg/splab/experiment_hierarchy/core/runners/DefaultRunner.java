@@ -1,7 +1,11 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.runners;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
@@ -91,14 +95,26 @@ public class DefaultRunner implements InterfaceRunner {
 	 * Objective: Save the StringBuffer's data in a file.
 	 */
 	public void saveBuffers() {
+		String dirName = createDirectory();		
 		for (int i = 0; i < stringBuffers.size(); i++) {
 			try {
-				ExperimentFile file = new ExperimentFile(dvcs.get(i).toString());
+				ExperimentFile file = new ExperimentFile(dirName + "/" + dvcs.get(i).toString());
 				file.appendContent(stringBuffers.get(i));
 				file.save();
 			} catch(IOException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private String createDirectory(){
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd__HH-mm-ss");
+		Date date = new Date();
+		String dirName = "experiment_results/" + dateFormat.format(date);
+		boolean sucess = (new File (dirName)).mkdirs();
+		if(!sucess){
+			System.out.println("FAILURE TO CREATE THE DIRECTORY");
+		}
+		return dirName;
 	}
 }
