@@ -10,9 +10,18 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-04-20
+ * 
+ */
 /**
- * Class to search root to leaf paths on a graph
- * based on the DFS algorithm. 
+ * Objective: This interface represents a TestSuite generation algorithm that
+ * is based on the graph search DFS.
+ * 
+ * Description of use: This interface is used to generate a TestSuite from a graph.
+ *
  */
 public class DepthFirstSearch implements InterfaceSearch {
 	/**
@@ -46,14 +55,14 @@ public class DepthFirstSearch implements InterfaceSearch {
 	}
 	
 	/**
-	 * Run through the graph searching and returning the testSuite of the graph.
-	 * 
+	 * Objective: Generates a graph's TestSuite.
+	 * Exemple of use: In the ARRSTT Generation experiment to compare TestSuite's
+	 * generation algorithms.
 	 * @param root
-	 * 			The root of the searching graph.
-	 * @param nLoopCoverage
-	 * 			A number representing the loop coverage of the search.
-	 * @return
-	 * 			The test suite.
+	 * 			The graph's root.
+	 * @param loopCoverage
+	 * 			The loop coverage considered to generate the TestSuite.
+	 * @return The graph's TestSuite.
 	 */
 	public TestSuite getTestSuite(InterfaceVertex root, int loopCoverage) {
 		testSuite = new TestSuite(); // verificar redundancia com linha 27

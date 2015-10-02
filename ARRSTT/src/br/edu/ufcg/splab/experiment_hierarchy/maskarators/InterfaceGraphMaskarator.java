@@ -1,41 +1,50 @@
 package br.edu.ufcg.splab.experiment_hierarchy.maskarators;
 
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
-
-/**
- * This interface represents the competence one must have to be a "Maskarator".
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-07-30
  * 
- * @author JoséBenardi
+ */
+/**
+ * Objective: This interface represents a graph masker that is responsible for
+ * modifying a percentage of graph according to a certain criteria.
+ * 
+ * Description of use: It is used when a graph's edges or vertexes needs to be 
+ * modified.
  *
  */
 public interface InterfaceGraphMaskarator {
-	// I think I should pick another name for the methods, but I can't think of
-	// a good one.
-	// Is error the right name? Should I change it by something else?
-	// Should the toBeMasked be a class attribute?
 	/**
-	 * This method receives a graph and return it's masked form, putting some
-	 * "errors" in it. Receives the graph to be masked and the percentage of
-	 * "errors" desired.
+	 * Objective: to receive a graph and modify it according to
+	 * a certain criteria.
+	 * 
+	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * to have graph's with "errors". This method is used to mask them, so
+	 * they have these "errors".
 	 * 
 	 * @param toBeMasked
 	 *            The graph to be masked
 	 * @param percentage
-	 *            The percentage of "errors" desired
+	 *            The percentage of changes desired
 	 * @return A masked version of the graph
 	 */
 	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage);
 
 	/**
-	 * This method receives a graph and return it's masked form, putting some
-	 * "errors" in it. Receives the graph to be masked and the amount of
-	 * "errors" desired.
+	 * Objective: to receive a graph and modify it according to
+	 * a certain criteria.
+	 * 
+	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * to have graph's with "errors". This method is used to mask them, so
+	 * they have these "errors".
 	 * 
 	 * @param toBeMasked
 	 *            The graph to be masked
-	 * @param ErrorQuantity
-	 *            The amount of "errors" desired
-	 * @return
+	 * @param errorQuantity
+	 *            The number of changes desired
+	 * @return A masked version of the graph
 	 */
 	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity);
 }

@@ -3,8 +3,11 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 
-/* Change		Author		Date
- * Creation		Wesley		2015-09-13
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
  */
 /**
  * Objective: This interface represents a dependent variable collector,

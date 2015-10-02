@@ -8,9 +8,13 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
-/* Change		Author		Date
- * Creation		Arthur		2015-07-12
- * Big refactor	Iaron		2015-08-23
+
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Arthur Costa		2015-07-12
+ * Big Refactoring												Iaron Araujo		2015-08-23
+ * 
  */
 /**
  * Objective: This is a complete factorial combinator. This means that

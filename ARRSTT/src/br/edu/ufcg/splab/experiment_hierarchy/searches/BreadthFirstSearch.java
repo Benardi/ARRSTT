@@ -12,11 +12,17 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 
-/**
- * Class to search root to leaf paths on a graph
- * based on the BFS algorithm. 
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Bernardi Nunes		2015-04-04
  * 
- * @author Wesley
+ */
+/**
+ * Objective: This interface represents a TestSuite generation algorithm that
+ * is based on the graph search BFS.
+ * 
+ * Description of use: This interface is used to generate a TestSuite from a graph.
  *
  */
 public class BreadthFirstSearch implements InterfaceSearch {
@@ -37,6 +43,16 @@ public class BreadthFirstSearch implements InterfaceSearch {
 	 */
 	private int nLoopCoverage;
 
+	/**
+	 * Objective: Generates a graph's TestSuite.
+	 * Exemple of use: In the ARRSTT Generation experiment to compare TestSuite's
+	 * generation algorithms.
+	 * @param root
+	 * 			The graph's root.
+	 * @param loopCoverage
+	 * 			The loop coverage considered to generate the TestSuite.
+	 * @return The graph's TestSuite.
+	 */
 	public TestSuite getTestSuite(InterfaceVertex root, int nLoopCoverage) {
 		return search(root, nLoopCoverage);
 	}

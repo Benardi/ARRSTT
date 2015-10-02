@@ -7,11 +7,17 @@ import java.util.Random;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.GraphFactory;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 
-/**
- * THis class represents a "Maskarator" that insert errors in a graph using a
- * random pattern.
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-07-30
  * 
- * @author JoséBenardi
+ */
+/**
+ * Objective: This interface represents a graph masker that is responsible for
+ * modifying a percentage of a graph's transitions, inserting "errors" in it.
+ * 
+ * Description of use: It is used when a graph needs to have "errors" in it.
  *
  */
 public class RandomMasker implements InterfaceGraphMaskarator {
@@ -22,6 +28,20 @@ public class RandomMasker implements InterfaceGraphMaskarator {
 	}
 	
 	@Override
+	/**
+	 * Objective: To receive a graph and modify it to have "errors" in it's 
+	 * transitions. This method randomly inserts "errors" on edges.
+	 * 
+	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * to have graph's with "errors". This method is used to mask them, so
+	 * they have these "errors" in it's transitions.
+	 * 
+	 * @param toBeMasked
+	 *            The graph to be masked.
+	 * @param percentage
+	 *            The percentage of "errors" desired.
+	 * @return A masked version of the graph.
+	 */
 	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage) {
 		int errorQuantity = (int) Math.ceil(toBeMasked.getEdges().size()
 				* percentage);
@@ -29,6 +49,20 @@ public class RandomMasker implements InterfaceGraphMaskarator {
 	}
 
 	@Override
+	/**
+	 * Objective: To receive a graph and modify it to have "errors" in it's 
+	 * transitions. This method randomly inserts "errors" on edges.
+	 * 
+	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * to have graph's with "errors". This method is used to mask them, so
+	 * they have these "errors" in it's transitions.
+	 * 
+	 * @param toBeMasked
+	 *            The graph to be masked.
+	 * @param errorQuantity
+	 *            The number of "errors" desired.
+	 * @return A masked version of the graph.
+	 */
 	public InterfaceGraph mask(InterfaceGraph toBeMasked, int errorQuantity) {
 		InterfaceGraph maskedGraph = null;
 		

@@ -4,8 +4,11 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
-/* Change		Author		Date
- * Creation		Iaron		2015-08-11
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-08-11
+ * 
  */
 /**
  * Objective: This interface represents an experiment set up

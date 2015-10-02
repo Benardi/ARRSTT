@@ -13,8 +13,11 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatmen
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 
-/* Change		Author		Date
- * Creation		Wesley		2015-09-13
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
  */
 /**
 * Objective: This interface represents a runner that
