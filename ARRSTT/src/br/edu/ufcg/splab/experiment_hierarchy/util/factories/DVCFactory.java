@@ -11,6 +11,12 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTTimeColl
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-09-16
+ * 
+ */
 /**
  * Objective: This class covers all necessary procedure involved in the process
  * of generating all the possible dependent variable collectors.

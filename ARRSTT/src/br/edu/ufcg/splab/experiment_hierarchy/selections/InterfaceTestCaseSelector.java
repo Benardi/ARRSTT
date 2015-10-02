@@ -2,6 +2,12 @@ package br.edu.ufcg.splab.experiment_hierarchy.selections;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-08-15
+ * 
+ */
 /**
  * Objective: This interface represents what a selector should be capable of
  * doing.

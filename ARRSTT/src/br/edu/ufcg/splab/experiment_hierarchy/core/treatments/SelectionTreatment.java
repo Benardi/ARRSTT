@@ -2,8 +2,11 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 
 import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-/* Change		Author		Date
- * Creation		Unknown		Unknown
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-08-19
+ * 
  */
 /**
  * Objective: This class represents an ARRSTT experiment's executable

@@ -2,8 +2,11 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.experiments;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
-/* Change		Author		Date
- * Creation		Wesley		2015-09-13
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
  */
 /**
  * Objective: This class receives an experiment's setup and

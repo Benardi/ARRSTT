@@ -9,7 +9,12 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
-
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
+ */
 /**
  * Objective: This class covers all necessary procedure involved in the process
  * of generating a treatment.

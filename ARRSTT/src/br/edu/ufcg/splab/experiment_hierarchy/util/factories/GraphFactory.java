@@ -10,7 +10,12 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
-
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
+ */
 /**
  * Objective: This class covers all necessary procedure involved in the process
  * of generating a new graph with the same particulars of an existing one.

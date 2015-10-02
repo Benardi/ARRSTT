@@ -4,7 +4,12 @@ import br.edu.ufcg.splab.experiment_hierarchy.searches.BreadthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
-
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
+ */
 /**
  * Objective: This class covers all necessary procedure involved in the process
  * of generating a search.

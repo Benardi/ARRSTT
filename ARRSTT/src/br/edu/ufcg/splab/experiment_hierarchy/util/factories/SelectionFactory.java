@@ -5,7 +5,12 @@ import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
-
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-09-13
+ * 
+ */
 /**
  * Objective: his class covers all necessary procedure involved in the process
  * of generating a selector.

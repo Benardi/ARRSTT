@@ -8,8 +8,11 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-/* Change		Author		Date
- * Creation		Iaron		2015-08-11
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Iaron Araujo		2015-08-11
+ * 
  */
 /**
  * Objective: This is a complete factorial combinator. This means that
