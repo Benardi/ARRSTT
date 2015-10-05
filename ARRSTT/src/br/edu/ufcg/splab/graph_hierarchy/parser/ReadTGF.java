@@ -86,7 +86,7 @@ public class ReadTGF {
 
 	/**
 	 * 
-	 * @param the label vertex
+	 * @param label the label vertex
 	 * @return the UUID vertex
 	 */
 	public UUID getUUID(String label){
