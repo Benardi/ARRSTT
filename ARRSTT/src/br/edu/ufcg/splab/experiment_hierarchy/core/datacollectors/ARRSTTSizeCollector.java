@@ -2,6 +2,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 /*
  * Change														Author				Date
@@ -35,7 +36,7 @@ public class ARRSTTSizeCollector implements DependentVariableCollector {
 	 * @param The StringBuffer used to store the TestSuites' size.
 	 */
 	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
-		TestSuite testSuite = treatment.get(0).execute();
+		TestSuite testSuite = treatment.get(0).execute();		
 		return new StringBuffer(testSuite.size() + "");
 	}
 
