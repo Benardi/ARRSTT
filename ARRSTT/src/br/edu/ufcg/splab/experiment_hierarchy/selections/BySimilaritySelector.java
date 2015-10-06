@@ -44,10 +44,10 @@ public class BySimilaritySelector implements InterfaceTestCaseSelector {
 	}
 
 	/**
-	 * Objective: Determine which of the test cases that compose the given test
+	 * <b>Objective:</b> Determine which of the test cases that compose the given test
 	 * suite should be removed.
-	 * 
-	 * Description of use: This method is used in the method select.
+	 * <br>
+	 * <b>Exemple of use:</b> This method is used in the method select.
 	 * 
 	 * @param testSuite
 	 *            The test suit where the selection will occur.
@@ -68,10 +68,10 @@ public class BySimilaritySelector implements InterfaceTestCaseSelector {
 	}
 
 	/**
-	 * Objective:Alter the matrix used to help in the process of selecting test
+	 * <b>Objective:</b> Alter the matrix used to help in the process of selecting test
 	 * cases.
-	 * 
-	 * Description of use: This method is used in the method select. It removes
+	 * <br>
+	 * <b>Exemple of use:</b> This method is used in the method select. It removes
 	 * a position from a matrix.
 	 * 
 	 * @param pos
@@ -83,10 +83,10 @@ public class BySimilaritySelector implements InterfaceTestCaseSelector {
 	}
 
 	/**
-	 * Objective: Take the nulls from the test suite constructed in the
+	 * <b>Objective:</b> Take the nulls from the test suite constructed in the
 	 * selection.
-	 * 
-	 * Description of use: This method is used in the method select. It receives
+	 * <br>
+	 * <<b>Exemple of use:</b> This method is used in the method select. It receives
 	 * a test suite and removes the nulls in it.
 	 * 
 	 * @param selectedTS

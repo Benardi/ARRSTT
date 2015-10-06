@@ -10,11 +10,11 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
  * 
  */
 /**
- * Objective: Objects of this class are executable treatments that
+ * <b>Objective:</b> Objects of this class are executable treatments that
  * use an object capable of generating a test suite of a
  * given graph's root.
- * 
- * Description of use: This class can be used in any experiment that 
+ * <br>
+ * <b>Description of use:</b> This class can be used in any experiment that 
  * needs graph generation since the execute() method creates a TestSuite.
  */
 public class GenerationTreatment implements ExecutableTreatment {
@@ -98,11 +98,11 @@ public class GenerationTreatment implements ExecutableTreatment {
 	
 	@Override
 	/**
-	 * Objective: This class generates a TestSuite based on the graph
+	 * <b>Objective:</b> This class generates a TestSuite based on the graph
 	 * received by construction, the generation algorithm and the loop
 	 * coverage.
-	 * 
-	 * Exemple of use: When the data of a certain generation algorithm, loop
+	 * <br>
+	 * <b>Exemple of use:</b> When the data of a certain generation algorithm, loop
 	 * coverage and graph needs to be saved for an experiment, this class
 	 * is used and the generation happens through this method.
 	 * 

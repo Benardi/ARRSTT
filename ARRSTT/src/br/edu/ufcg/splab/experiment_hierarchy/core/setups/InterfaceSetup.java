@@ -11,20 +11,20 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
  * 
  */
 /**
- * Objective: This interface represents an experiment set up
+ * <b>Objective:</b> This interface represents an experiment set up
  * that is responsible for organizing the executable treatments
  * for execution.
- * 
- * Description of use: This is used in the Experiment class with
+ * <br>
+ * <b>Description of use:</b> This is used in the Experiment class with
  * a runner so the experiment can be executed and the dependent
  * variables collected.
  */
 public interface InterfaceSetup {
 	/**
-	 * Objective: Return the desired combinations of independent
+	 * <b>Objective:</b> Return the desired combinations of independent
 	 * variables of a certain experiment.
-	 * 
-	 * Exemple of use: The list of tuples returned can be used
+	 * <br>
+	 * <b>Exemple of use:</b> The list of tuples returned can be used
 	 * by a Runner that is going to execute the experiment. This
 	 * generally happens in the Experiment class.  
 	 * 

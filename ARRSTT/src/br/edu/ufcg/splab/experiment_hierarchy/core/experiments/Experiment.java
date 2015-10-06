@@ -9,7 +9,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
  * 
  */
 /**
- * Objective: This class receives an experiment's setup and
+ * <b>Objective:</b> This class receives an experiment's setup and
  * runner to execute it.
  */
 public class Experiment {
@@ -29,7 +29,7 @@ public class Experiment {
 	}
 	
 	/**
-	 * Objective: Get the set up and runner to execute
+	 * <b>Objective:</b> Get the set up and runner to execute
 	 * the experiment.
 	 * 
 	 */
