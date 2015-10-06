@@ -11,10 +11,10 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
  * 
  */
 /**
- * Objective: This interface represents a graph masker that is responsible for
+ * <b>Objective:</b> This interface represents a graph masker that is responsible for
  * modifying a percentage of a graph's transitions, inserting "errors" in it.
- * 
- * Description of use: It is used when a graph needs to have "errors" in it.
+ * <br>
+ * <b>Description of use:</b> It is used when a graph needs to have "errors" in it.
  *
  */
 public class IaronMasker implements InterfaceGraphMaskarator {
@@ -26,11 +26,11 @@ public class IaronMasker implements InterfaceGraphMaskarator {
 	
 	@Override
 	/**
-	 * Objective: To receive a graph and modify it to have "errors" in it's 
+	 * <b>Objective:</b> To receive a graph and modify it to have "errors" in it's 
 	 * transitions. This method consider the graph's list of edges and inserts
 	 * the "errors" in positions as spaced as possible from each other.
-	 * 
-	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * <br>
+	 * <b>Exemple of use:</b> In the ARRSTT selection experiment, it is necessary
 	 * to have graph's with "errors". This method is used to mask them, so
 	 * they have these "errors" in it's transitions.
 	 * 
@@ -48,11 +48,11 @@ public class IaronMasker implements InterfaceGraphMaskarator {
 
 	@Override
 	/**
-	 * Objective: To receive a graph and modify it to have "errors" in it's 
+	 * <b>Objective:</b> To receive a graph and modify it to have "errors" in it's 
 	 * transitions. This method consider the graph's list of edges and inserts
 	 * the "errors" in positions as spaced as possible from each other.
-	 * 
-	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * <br>
+	 * <b>Exemple of use:</b> In the ARRSTT selection experiment, it is necessary
 	 * to have graph's with "errors". This method is used to mask them, so
 	 * they have these "errors" in it's transitions.
 	 * 

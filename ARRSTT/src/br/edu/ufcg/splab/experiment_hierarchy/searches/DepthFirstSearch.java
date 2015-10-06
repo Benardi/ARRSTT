@@ -17,10 +17,10 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
  * 
  */
 /**
- * Objective: This interface represents a TestSuite generation algorithm that
+ * <b>Objective:</b> This interface represents a TestSuite generation algorithm that
  * is based on the graph search DFS.
- * 
- * Description of use: This interface is used to generate a TestSuite from a graph.
+ * <br>
+ * <b>Description of use:</b> This interface is used to generate a TestSuite from a graph.
  *
  */
 public class DepthFirstSearch implements InterfaceSearch {
@@ -55,8 +55,9 @@ public class DepthFirstSearch implements InterfaceSearch {
 	}
 	
 	/**
-	 * Objective: Generates a graph's TestSuite.
-	 * Exemple of use: In the ARRSTT Generation experiment to compare TestSuite's
+	 * <b>Objective:</b> Generates a graph's TestSuite.
+	 * <br>
+	 * <b>Exemple of use:</b> In the ARRSTT Generation experiment to compare TestSuite's
 	 * generation algorithms.
 	 * @param root
 	 * 			The graph's root.

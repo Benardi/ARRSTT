@@ -8,19 +8,19 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
  * 
  */
 /**
- * Objective: This interface represents a graph masker that is responsible for
+ * <b>Objective:</b> This interface represents a graph masker that is responsible for
  * modifying a percentage of graph according to a certain criteria.
- * 
- * Description of use: It is used when a graph's edges or vertexes needs to be 
+ * <br>
+ * <b>Description of use:</b> It is used when a graph's edges or vertexes needs to be 
  * modified.
  *
  */
 public interface InterfaceGraphMaskarator {
 	/**
-	 * Objective: to receive a graph and modify it according to
+	 * <b>Objective:</b> to receive a graph and modify it according to
 	 * a certain criteria.
-	 * 
-	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * <br>
+	 * <b>Exemple of use:</b> In the ARRSTT selection experiment, it is necessary
 	 * to have graph's with "errors". This method is used to mask them, so
 	 * they have these "errors".
 	 * 
@@ -33,10 +33,10 @@ public interface InterfaceGraphMaskarator {
 	public InterfaceGraph mask(InterfaceGraph toBeMasked, double percentage);
 
 	/**
-	 * Objective: to receive a graph and modify it according to
+	 * <b>Objective:</b> to receive a graph and modify it according to
 	 * a certain criteria.
-	 * 
-	 * Exemple of use: In the ARRSTT selection experiment, it is necessary
+	 * <br>
+	 * <b>Exemple of use:</b> In the ARRSTT selection experiment, it is necessary
 	 * to have graph's with "errors". This method is used to mask them, so
 	 * they have these "errors".
 	 * 

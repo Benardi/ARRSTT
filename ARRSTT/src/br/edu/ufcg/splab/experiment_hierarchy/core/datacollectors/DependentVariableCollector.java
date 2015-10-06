@@ -10,11 +10,11 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
  * 
  */
 /**
- * Objective: This interface represents a dependent variable collector,
+ * <b>Objective:</b> This interface represents a dependent variable collector,
  * being responsible for the collecting an experiment's dependent variable
  * and saving it in a StringBuffer.
- * 
- * Description of use: It is used in an ExperimentRunner so it can collect
+ * <br>
+ * <b>Description of use:</b> It is used in an ExperimentRunner so it can collect
  * the experiment's dependent variable.
  * 
  * @author Wesley
@@ -22,10 +22,10 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
  */
 public interface DependentVariableCollector {
 	/**
-	 * Objective: Add the dependent variable data collected from a tuple of
+	 * <b>Objective:</b> Add the dependent variable data collected from a tuple of
 	 * ExecutableTreatments in a StringBuffer that will be returned.
-	 * 
-	 * Example of use: In an experiment that is going to check if merge sort is
+	 * <br>
+	 * <b>Example of use:</b> In an experiment that is going to check if merge sort is
 	 * quicker than bubble sort for a certain list, a Tuple of ExecutableTratment with
 	 * the merge sort and the list can be passed to this method so it will write the 
 	 * execution time of the sort in a StringBuffer and return it.

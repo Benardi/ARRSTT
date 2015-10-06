@@ -17,11 +17,11 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
  * 
  */
 /**
- * Objective: This is a complete factorial combinator. This means that
+ * <b>Objective:</b> This is a complete factorial combinator. This means that
  * it will generate all possible combinations for the Generation
  * Experiment's treatments. 
- * 
- * Description of use: Used in the Experiment class to generate the
+ * <br>
+ * <b>Description of use:</b> Used in the Experiment class to generate the
  * necessary for the Runner to work.
  *
  */
@@ -49,10 +49,10 @@ public class GenerationSetup implements InterfaceSetup {
 	
 	@Override
 	/**
-	 * Objective: Return the complete factorial independent variables' 
+	 * <b>Objective:</b> Return the complete factorial independent variables' 
 	 * combinations of the ARRSTT generation experiment.
-	 * 
-	 * Exemple of use: The list of tuples returned can be used
+	 * <br>
+	 * <b>Exemple of use:</b> The list of tuples returned can be used
 	 * by a Runner that is going to execute the experiment. This
 	 * generally happens in the Experiment class. 
 	 * 
