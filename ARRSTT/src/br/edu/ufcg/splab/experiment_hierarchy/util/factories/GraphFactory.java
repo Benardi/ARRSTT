@@ -17,18 +17,18 @@ import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
  * 
  */
 /**
- * Objective: This class covers all necessary procedure involved in the process
+ * <b>Objective:</b> This class covers all necessary procedure involved in the process
  * of generating a new graph with the same particulars of an existing one.
- * 
- * Description of use: Used by the "maskarator" type classes to create copies
+ * <br>
+ * <b>Description of use:</b> Used by the "maskarator" type classes to create copies
  * that will be manipulated.
  *
  */
 public class GraphFactory {
 	/**
-	 * Objective: Return a new graph which is a copy of the provided one.
-	 * 
-	 * Description of use: The copy can be masked and used in the experiment while
+	 * <b>Objective:</b> Return a new graph which is a copy of the provided one.
+	 * <br>
+	 * <b>Description of use:</b> The copy can be masked and used in the experiment while
 	 * the original one is kept.
 	 * 
 	 * @param graph

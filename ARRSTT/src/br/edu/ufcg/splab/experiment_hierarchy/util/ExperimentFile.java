@@ -4,12 +4,19 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/*
+ * Change														Author				Date
+ * -------------------------------------------------------------------------------------------
+ * Creation														Wesley Silva		2015-07-02
+ * 
+ */
 /**
- * Represents an output file of the experiment.
+ * <b>Objective:</b> Represents an output file of the experiment.
  * Stores the data related to a dependent variable
  * and also can save them into a file.
- *
+ * <br>
+ * <b>Description of use:</b> It is used in every ARRSTT experiment to storage the dependent
+ * variable's data.
  */
 public class ExperimentFile {
 	public static final String defaultFormat = ".txt";
@@ -53,7 +60,7 @@ public class ExperimentFile {
 	}
 	
 	/**
-	 * Save the the content of the object into a file.
+	 * <b>Objective:</b>Save the the content of the object into a file.
 	 * Location of the file: root.
 	 * 
 	 * @throws IOException
@@ -97,7 +104,7 @@ public class ExperimentFile {
 	}
 	
 	/**
-	 * Adds content to the end of an StringBuffer.
+	 * <b>Objective:</b> Adds content to the end of an StringBuffer.
 	 * 
 	 * @param toAppendContent The content to be added.
 	 */
@@ -106,7 +113,7 @@ public class ExperimentFile {
 	}
 	
 	/**
-	 * Adds content to the end of an StringBuffer.
+	 * <b>Objective:</b> Adds content to the end of an StringBuffer.
 	 * 
 	 * @param toAppendContent The content to be added.
 	 */

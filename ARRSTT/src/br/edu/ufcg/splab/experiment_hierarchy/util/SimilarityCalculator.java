@@ -4,18 +4,18 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
 /**
- * Objective: Used in the Selection by Similarity class, this class is
+ * <b>Objective:</b> Used in the Selection by Similarity class, this class is
  * responsible for the calculation of similarities.
- * 
- * Description of use: Two test cases are passed to this class so it can
+ * <br>
+ * <b>Description of use:</b> Two test cases are passed to this class so it can
  * calculate how many similarities are between both and return it as a number.
  *
  */
 public class SimilarityCalculator {
 	/**
-	 * Objective: Measures the similarity between two given test cases.
-	 * 
-	 * Description of use: Receives two test cases and generates a value that
+	 * <b>Objective:</b> Measures the similarity between two given test cases.
+	 * <br>
+	 * <b>Description of use:</b> Receives two test cases and generates a value that
 	 * represent how similar they are.
 	 * 
 	 * @param tc1
@@ -29,9 +29,9 @@ public class SimilarityCalculator {
 	}
 
 	/**
-	 * Objective: Measure how many elements are shared between two test cases.
-	 * 
-	 * Description of use: Used by the method getSimilarity as part of its
+	 * <b>Objective:</b> Measure how many elements are shared between two test cases.
+	 * <br>
+	 * <b>Description of use:</b> Used by the method getSimilarity as part of its
 	 * calculus.
 	 * 
 	 * @param tc1

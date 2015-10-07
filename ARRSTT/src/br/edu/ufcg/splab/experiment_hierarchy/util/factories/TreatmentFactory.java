@@ -16,10 +16,10 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
  * 
  */
 /**
- * Objective: This class covers all necessary procedure involved in the process
+ * <b>Objective:</b> This class covers all necessary procedure involved in the process
  * of generating a treatment.
- * 
- * Description of use: This class is used in the "set up" type classes to where
+ * <br>
+ * <b>Description of use:</b> This class is used in the "set up" type classes to where
  * for e.g it can be used to generate the independent variables.
  */
 public class TreatmentFactory {
