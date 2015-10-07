@@ -1,8 +1,11 @@
 package br.edu.ufcg.splab.experiment_hierarchy.frontend;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import br.edu.ufcg.splab.experiment_hierarchy.facade.ARRSTTFacade;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 
 /* Change		Author		Date
  * Creation		Iaron		2015-09-29
@@ -11,8 +14,10 @@ public class ExperimentMenu {
 	private static Scanner scan = new Scanner(System.in);
 	private static ARRSTTFacade facade = new ARRSTTFacade();
 	private static int experimentNumber;
+	private static List<List<String>> inputs;
 	
 	public static void main(String[] args) {
+		inputs = new ArrayList<List<String>>();
 		System.out.println("Welcome to the experiment menu!");
 		experimentSelection();
 		System.out.println("Now, pick the treatments.");
@@ -20,16 +25,16 @@ public class ExperimentMenu {
 		if(experimentNumber == 1){
 			selectSearch();
 			selectLoopCoverage();
-			//selectGenerationDVC();
+			selectGenerationDVC();
 		} else if (experimentNumber == 2){
 			selectSelection();
 			selectSelectionPercentage();
 			//selectMaskPercentage();
-			//selectSelectionDVC();
+			selectSelectionDVC();
 		}
 		
 		try {
-			facade.executeExperiment();
+			facade.execute(inputs);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -38,6 +43,7 @@ public class ExperimentMenu {
 	private static void experimentSelection(){
 		boolean haventSelected = true;
 		int experimentNumber = -1;
+		
 		while(haventSelected){
 			System.out.println("We have two experiments available at the moment.\n"
 					+ "Write the number of the desired experiment (1 - Generation 2 - Selection)");
@@ -51,11 +57,16 @@ public class ExperimentMenu {
 			}
 		}
 		ExperimentMenu.experimentNumber = experimentNumber;
+		
+		List<String> input = new ArrayList<String>();
+		
 		if (experimentNumber == 1) {
-			facade.selectExperiment(ARRSTTFacade.EXPERIMENT_TYPES[0]);
+			input.add("generation");
 		} else if (experimentNumber == 2){
-			facade.selectExperiment(ARRSTTFacade.EXPERIMENT_TYPES[1]);
+			input.add("selection");
 		}
+		
+		inputs.add(input);
 	}
 	
 	private static void selectSearch(){
@@ -72,13 +83,18 @@ public class ExperimentMenu {
 			if(results.length == 0){
 				System.out.println("Please, input valid numbers");
 			} else {
+				List<String> input = new ArrayList<String>();
+				
 				for(int i = 0; i < results.length; i++) {
+					
 					if (results[i].equals("1")) {
-						facade.addGenerationTreatment(ARRSTTFacade.GENERATION_TREATMENTS[0]);
+						input.add("DFS");
 					} else if (results[i].equals("2")) {
-						facade.addGenerationTreatment(ARRSTTFacade.GENERATION_TREATMENTS[1]);
+						input.add("BFS");
 					}
 				}
+				
+				inputs.add(input);
 				haventSelected = false;
 			}
 		}
@@ -98,17 +114,19 @@ public class ExperimentMenu {
 			if(results.length == 0){
 				System.out.println("Please, input valid numbers");
 			}else {
+				List<String> input = new ArrayList<String>();
+				
 				for(int i = 0; i < results.length; i++){
 					if (results[i].equals("1")) {
-						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[0]);
+						input.add("random");
 					} else if (results[i].equals("2")) {
-						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[1]);
+						input.add("biggest");
 					} else if (results[i].equals("3")) {
-						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[2]);
-					} else if (results[i].equals("4")) {
-						facade.addSelectionTreatment(ARRSTTFacade.SELECTION_TREATMENTS[3]);
+						input.add("similarity");
 					}
 				}
+				
+				inputs.add(input);
 				haventSelected = false;
 			}
 		}
@@ -127,10 +145,15 @@ public class ExperimentMenu {
 			if(results.length == 0){
 				System.out.println("Please, input valid numbers");
 			}else {
+				List<String> input = new ArrayList<String>();
+				System.out.println("--- ADICIONANDO ---");
 				for(int i = 0; i < results.length; i++){
-					facade.addLoopCoverage(results[i]);
+					System.out.println(results[i]);
+					input.add(results[i]);
 				}
+				System.out.println("--- ADICIONANDO ---");
 				haventSelected = false;
+				inputs.add(input);
 			}
 		}
 	}
@@ -142,10 +165,14 @@ public class ExperimentMenu {
 			System.out.println("Now, select the selection's percentage");
 			System.out.println("Output exemple: 0.4");
 			percentage = scan.nextDouble();
+			scan.nextLine();
 			if(percentage < 0.0 || percentage > 1.0){
 				System.out.println("Please, input a valid number");
 			} else {
-				facade.addSelectPercentage(percentage);
+				List<String> input = new ArrayList<String>();
+				input.add(percentage + "");
+				inputs.add(input);
+				
 				haventSelected = false;
 			}
 		}
@@ -167,7 +194,7 @@ public class ExperimentMenu {
 		}
 	}*/
 	
-	/*private static void selectGenerationDVC(){
+	private static void selectGenerationDVC(){
 		boolean haventSelected = true;
 		String output;
 		String[] results;
@@ -181,10 +208,18 @@ public class ExperimentMenu {
 			if(results.length == 0){
 				System.out.println("Please, input valid numbers");
 			}else {
+				List<String> input = new ArrayList<String>();
+				
 				for(int i = 0; i < results.length; i++){
-					//facade.addGenerationDVCs(results[i]);
+					if (results[i].equals("1")) {
+						input.add("time");
+					} else if (results[i].equals("2")) {
+						input.add("size");
+					}
 				}
+				
 				haventSelected = false;
+				inputs.add(input);
 			}
 		}
 	}
@@ -203,13 +238,27 @@ public class ExperimentMenu {
 			if(results.length == 0){
 				System.out.println("Please, input valid numbers");
 			}else {
+				List<String> input = new ArrayList<String>();
+				
 				for(int i = 0; i < results.length; i++){
-					//facade.addSelectionDVCs(results[i]);
+					if (results[i].equals("1")) {
+						input.add("time");
+					} else if (results[i].equals("2")) {
+						input.add("size");
+					} else if (results[i].equals("3")) {
+						input.add("defects");
+					} else if (results[i].equals("4")) {
+						input.add("defective edges");
+					} else if (results[i].equals("5")) {
+						input.add("failures");
+					}
 				}
+				
 				haventSelected = false;
+				inputs.add(input);
 			}
 		}
-	}*/
+	}
 	
 	
 
