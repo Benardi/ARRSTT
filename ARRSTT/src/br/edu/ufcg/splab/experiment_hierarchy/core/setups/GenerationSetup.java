@@ -26,9 +26,9 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
  *
  */
 public class GenerationSetup implements InterfaceSetup {
-    private GenerationType[] generationAlgorithms;
+    private List<GenerationType> generationAlgorithms;
     private List<InterfaceGraph> graphs;
-    private int[] loopCoverages;
+    private List<Integer> loopCoverages;
 	
 	/**
 	 * GenerationSetup's constructor.
@@ -41,7 +41,7 @@ public class GenerationSetup implements InterfaceSetup {
 	 * 		The list of generation algorithms that represents independent
 	 * 		variables.
 	 */
-	public GenerationSetup(List<InterfaceGraph> graphs, int[] loopCoverages, GenerationType[] generationAlgorithms) {
+	public GenerationSetup(List<InterfaceGraph> graphs, List<Integer> loopCoverages, List<GenerationType> generationAlgorithms) {
 		this.graphs = graphs;
 		this.loopCoverages = loopCoverages;
 		this.generationAlgorithms = generationAlgorithms;

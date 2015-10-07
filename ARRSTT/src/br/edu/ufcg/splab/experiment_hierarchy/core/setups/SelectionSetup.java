@@ -24,7 +24,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  *
  */
 public class SelectionSetup implements InterfaceSetup {
-	private SelectionType[] selectionAlgorithms;
+	private List<SelectionType> selectionAlgorithms;
 	private double selectionPercentage;
 	private List<TestSuite> testSuites;
 	
@@ -41,7 +41,7 @@ public class SelectionSetup implements InterfaceSetup {
 	 * 			The algorithm that will take the TestSuite and percentage
 	 * 			and do the selection.
 	 */
-	public SelectionSetup(List<TestSuite> testSuites, double selectionPercentage, SelectionType[] selectionAlgorithms) {
+	public SelectionSetup(List<TestSuite> testSuites, double selectionPercentage, List<SelectionType> selectionAlgorithms) {
 		this.selectionPercentage = selectionPercentage;
 		this.testSuites = testSuites;
 		this.selectionAlgorithms = selectionAlgorithms;

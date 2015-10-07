@@ -32,18 +32,17 @@ public class ExperimentFactory {
 		dvcFactory = new DVCFactory();
 	}
 	
-	public Experiment buildGeneration(int[] loopCoverages, GenerationType[] generationAlgorithms) throws Exception {
+	public Experiment buildGeneration(List<Integer> loopCoverages, List<GenerationType> generationAlgorithms, List<DVCType> dvcTypes) throws Exception {
 		BranchSeparator separator = new BranchSeparator();
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE);
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors, 6);
 		
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildSelection(SelectionType[] selectionAlgorithms, double selectionPercentage) throws Exception {
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(DVCType.TIME, DVCType.SIZE, DVCType.DEFECTIVE_EDGES, 
-																					 DVCType.DEFECTS, DVCType.FAILURES);
+	public Experiment buildSelection(List<SelectionType> selectionAlgorithms, double selectionPercentage, List<DVCType> dvcTypes) throws Exception {
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		InterfaceSetup setup = new SelectionSetup(loadGraphs(), selectionPercentage, selectionAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
 		
