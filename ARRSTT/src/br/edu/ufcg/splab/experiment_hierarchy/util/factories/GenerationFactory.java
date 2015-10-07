@@ -11,10 +11,10 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
  * 
  */
 /**
- * Objective: This class covers all necessary procedure involved in the process
+ * <b>Objective:</b> This class covers all necessary procedure involved in the process
  * of generating a search.
- * 
- * Description of use: Receives a type and returns a search of the respective
+ * <br>
+ * <b>Description of use:</b> Receives a type and returns a search of the respective
  * type.
  */
 public class GenerationFactory {

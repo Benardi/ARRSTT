@@ -3,6 +3,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.runners;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,11 +110,10 @@ public class DefaultRunner implements InterfaceRunner {
 	}
 	
 	private String createDirectory(){
-//		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd__HH-mm-ss");
-//		Date date = new Date();
-		LocalDateTime data = LocalDateTime.now();
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy_MM_dd -- HH_mm_ss");
+		LocalDateTime date = LocalDateTime.now();
 		
-		String dirName = "experiment_results/" + data.toString().replaceAll("T", "__").replaceAll(":", "_");
+		String dirName = "experiment_results/" + date.format(dateFormatter);
 		boolean sucess = (new File (dirName)).mkdirs();
 		if(!sucess){
 			System.out.println("FAILURE TO CREATE THE DIRECTORY");

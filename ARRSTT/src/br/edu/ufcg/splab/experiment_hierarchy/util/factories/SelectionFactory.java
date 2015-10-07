@@ -12,18 +12,18 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
  * 
  */
 /**
- * Objective: his class covers all necessary procedure involved in the process
+ * <b>Objective:</b> his class covers all necessary procedure involved in the process
  * of generating a selector.
- * 
- * Description of use: Receives a type of selection and returns a selector of
+ * <br>
+ * <b>Description of use:</b> Receives a type of selection and returns a selector of
  * the respective type.
  */
 public class SelectionFactory {
 	/**
-	 * Objective: Generating a selector whose type of selection is the same as
+	 * <b>Objective:</b> Generating a selector whose type of selection is the same as
 	 * the provided one.
-	 * 
-	 * Description of use: The generated selection can be used in the building
+	 * <br>
+	 * <b>Description of use:</b> The generated selection can be used in the building
 	 * of a selection as in the Experiment Factory class.
 	 * 
 	 * @param type

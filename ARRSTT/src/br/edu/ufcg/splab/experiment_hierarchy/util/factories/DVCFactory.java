@@ -18,18 +18,18 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
  * 
  */
 /**
- * Objective: This class covers all necessary procedure involved in the process
+ * <b>Objective:</b> This class covers all necessary procedure involved in the process
  * of generating all the possible dependent variable collectors.
- * 
- * Description of use: Receives a type and returns a collector of the respective
+ * <br>
+ * <b>Description of use:</b> Receives a type and returns a collector of the respective
  * type, this process can be repeated as the collectors are put in a List.
  */
 public class DVCFactory {
 	/**
-	 * Objective: Generating a dependent variable collector whose type of
+	 * <b>Objective:</b> Generating a dependent variable collector whose type of
 	 * variable is the same as the provided one.
-	 * 
-	 * Description of use: The generated dvc can be used in the building of a
+	 * <br>
+	 * <b>Description of use:</b> The generated dvc can be used in the building of a
 	 * generation as in the Experiment Factory class.
 	 * 
 	 * @param type
@@ -53,7 +53,7 @@ public class DVCFactory {
 	}
 
 	/**
-	 * Objective: This method initializes and fills a list with different
+	 * <b>Objective:</b> This method initializes and fills a list with different
 	 * collectors.
 	 * 
 	 * @param types
@@ -72,7 +72,7 @@ public class DVCFactory {
 	}
 
 	/**
-	 * Objective: This method initializes and fills a list with one collector
+	 * <b>Objective:</b> This method initializes and fills a list with one collector
 	 * for each of the existing types.
 	 * 
 	 * @param types
