@@ -17,6 +17,14 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
  * 
  */
 
+/**
+ * <b>Objective:</b> This class is used by the facade to create and run ARRSTT's experiments,
+ * such as selection experiment and generation experiment.
+ * <br>
+ * <b>Description of use:<b> It's only public method is execute() that is responsible for the
+ * creation and execution of ARRSTT's experiments.
+ *
+ */
 public class ARRSTTController {	
 	public static final String[] EXPERIMENT_TYPES = {"GENERATION", "SELECTION"};
 	public static final String[] GENERATION_TREATMENTS = {"BFS", "DFS"};
@@ -32,6 +40,9 @@ public class ARRSTTController {
 	//private double maskPercentage;
 	private ExperimentFactory factory;
 	
+	/**
+	 * The controller's constructor. Initializes the needed lists and factories.
+	 */
 	public ARRSTTController() {
 		generationTreatments = new ArrayList<GenerationType>();
 		selectionTreatments = new ArrayList<SelectionType>();
@@ -40,7 +51,35 @@ public class ARRSTTController {
 		factory = new ExperimentFactory();
 	}
 	
-	public void buildGeneration(List<List<String>> inputs) throws Exception {
+	/**
+	 * <b>Objective:<b> This method creates and executes a certain experiment. It
+	 * receives a list of String lists, each one containing vital information about
+	 * the experiment's attributes, such as which experiment is going to be created
+	 * and executed and the independent variables.
+	 * <br>
+	 * <b>Exemple of use:<b> This method is used in the ARRSTTFacade.
+	 * @param inputs
+	 * 			The list of String lists containing the necessary information to create
+	 * and execute the experiments.
+	 * @throws Exception An exception is throwed if the experiment type in the inputs
+	 * list is invalid.
+	 */
+	public void execute(List<List<String>> inputs) throws Exception {		
+		switch(inputs.get(0).get(0).toLowerCase()) {
+			case "generation":
+				buildGeneration(inputs);
+				break;
+			case "selection":
+				buildSelection(inputs);
+				break;
+			default:
+				throw new Exception("Invalid experiment type.");
+		}
+		
+		executeExperiment();
+	}
+	
+	private void buildGeneration(List<List<String>> inputs) throws Exception {
 		List<String> algorithms = inputs.get(1);
 		List<String> loopCoverages = inputs.get(2);
 		List<String> dvcs = inputs.get(3);
@@ -60,7 +99,7 @@ public class ARRSTTController {
 		experiment = factory.buildGeneration(this.loopCoverages, this.generationTreatments, this.dvcs);
 	}
 	
-	public void buildSelection(List<List<String>> inputs) throws Exception {
+	private void buildSelection(List<List<String>> inputs) throws Exception {
 		List<String> algorithms = inputs.get(1);
 		List<String> selectionPercentages = inputs.get(2);
 		List<String> dvcs = inputs.get(3);
@@ -81,11 +120,10 @@ public class ARRSTTController {
 			this.addSelectionDvcs(dvc);
 		}
 		
-		System.out.println(Arrays.toString(inputs.toArray()));
 		experiment = factory.buildSelection(selectionTreatments, selectPercentage, this.dvcs);
 	}
 	
-	public void executeExperiment() {
+	private void executeExperiment() {
 		experiment.execute();
 	}
 	
@@ -99,7 +137,6 @@ public class ARRSTTController {
 	
 	private void addSelectionTreatment(String treatmentName) {
 		if (treatmentName.equals("random")) {
-			System.out.println("olá pessoas");
 			selectionTreatments.add(SelectionType.RANDOMIZED);
 		} else if (treatmentName.equals("biggest")) {
 			selectionTreatments.add(SelectionType.BIGGEST);
@@ -120,7 +157,7 @@ public class ARRSTTController {
 		this.maskPercentage = Double.parseDouble(maskPercentage);
 	}*/
 	
-	public void addGenerationDvcs(String dvcType) {
+	private void addGenerationDvcs(String dvcType) {
 		dvcType = dvcType.toUpperCase();
 		
 		if (dvcType.equals("TIME")) {
@@ -131,7 +168,7 @@ public class ARRSTTController {
 		}
 	}
 	
-	public void addSelectionDvcs(String dvcType) {
+	private void addSelectionDvcs(String dvcType) {
 		dvcType = dvcType.toUpperCase();
 		
 		if (dvcType.equals("TIME")) {
