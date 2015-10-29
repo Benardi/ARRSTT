@@ -8,8 +8,7 @@ import java.util.Random;
 import java.util.Set;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirement;
-import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirementARRSTT;
 
 /*
  * Change														Author				Date
@@ -18,26 +17,26 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
  * Refactoring and fixes										Iaron Araujo		2015-10-28
  */
 public class GreedyStructure {
-	private Map<TestCase, List<TestRequirement>> map;
+	private Map<TestCase, List<TestRequirementARRSTT>> map;
 
-	public GreedyStructure(Map<TestRequirement, Set<TestCase>> inputMap) {
+	public GreedyStructure(Map<TestRequirementARRSTT, Set<TestCase>> inputMap) {
 		this.map = buildMap(inputMap);
 		System.out.println(map);
 	}
 	
 	
-	private Map<TestCase, List<TestRequirement>> buildMap(Map<TestRequirement, Set<TestCase>> inputMap) {
-		Map<TestCase, List<TestRequirement>> map = new HashMap<TestCase, List<TestRequirement>>();
+	private Map<TestCase, List<TestRequirementARRSTT>> buildMap(Map<TestRequirementARRSTT, Set<TestCase>> inputMap) {
+		Map<TestCase, List<TestRequirementARRSTT>> map = new HashMap<TestCase, List<TestRequirementARRSTT>>();
 		fill(map, inputMap);
 		return map;
 	}
 	
-	private void fill(Map<TestCase, List<TestRequirement>> map, Map<TestRequirement, Set<TestCase>> inputMap){
-		for(TestRequirement req: inputMap.keySet()){
+	private void fill(Map<TestCase, List<TestRequirementARRSTT>> map, Map<TestRequirementARRSTT, Set<TestCase>> inputMap){
+		for(TestRequirementARRSTT req: inputMap.keySet()){
 			for(TestCase tc : inputMap.get(req)){
 				//This if is necessary so that each TestCase has a list of requirements
 				if(!map.containsKey(tc)){
-					map.put(tc, new ArrayList<TestRequirement>());
+					map.put(tc, new ArrayList<TestRequirementARRSTT>());
 				}
 				//This add a requirement that the current TestCase covers.
 				map.get(tc).add(req);
@@ -52,11 +51,11 @@ public class GreedyStructure {
 	}
 	
 	private void removeReqs(TestCase biggestTestCase) {
-		List<TestRequirement> reqsToBeRemoved = map.get(biggestTestCase);
+		List<TestRequirementARRSTT> reqsToBeRemoved = map.get(biggestTestCase);
 		for(TestCase tc: map.keySet()){
 			//The deletion of the biggestTestCase will happen in the end of the method.
 			if(tc.equals(biggestTestCase)) continue;
-			for(TestRequirement req : reqsToBeRemoved){
+			for(TestRequirementARRSTT req : reqsToBeRemoved){
 				map.get(tc).remove(req);
 			}
 		}

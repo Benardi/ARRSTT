@@ -1,13 +1,15 @@
 package br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.interfaces.RequirementTracer;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirement;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirementARRSTT;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
@@ -24,15 +26,15 @@ public class ReqTracerAllTransitionsCoverage implements RequirementTracer{
 		this.ts =  ts;
 	}
 	
-	public Map<TestRequirement, Set<TestCase>> getMap() {
-		Map<TestRequirement, Set<TestCase>> map = new HashMap<TestRequirement, Set<TestCase>>();
+	public Map<TestRequirementARRSTT, Set<TestCase>> getMap() {
+		Map<TestRequirementARRSTT, Set<TestCase>> map = new HashMap<TestRequirementARRSTT, Set<TestCase>>();
 		fillKeys(map);
 		fillValues(map);
 		
 		return map;
 	}
 	
-	private void fillKeys(Map<TestRequirement, Set<TestCase>> map) {
+	private void fillKeys(Map<TestRequirementARRSTT, Set<TestCase>> map) {
 		Set<InterfaceEdge> keys = new HashSet<InterfaceEdge>();
 		
 		for (TestCase tc : ts) {
@@ -42,18 +44,20 @@ public class ReqTracerAllTransitionsCoverage implements RequirementTracer{
 		}
 		
 		for (InterfaceEdge edge : keys) {
-			TestRequirement edges = new TestRequirement();
+			List<InterfaceEdge> edges = new ArrayList<InterfaceEdge>();
 			edges.add(edge);
-			map.put(edges, new HashSet<TestCase>());
+			TestRequirementARRSTT requirement = new TestRequirementARRSTT(edges);
+			map.put(requirement, new HashSet<TestCase>())	;
 		}
 	}
 	
-	private void fillValues(Map<TestRequirement, Set<TestCase>> map) {
+	private void fillValues(Map<TestRequirementARRSTT, Set<TestCase>> map) {
 		for (TestCase tc : ts) {
 			for (InterfaceEdge edge : tc) {
-				TestRequirement edges = new TestRequirement();
+				List<InterfaceEdge> edges = new ArrayList<InterfaceEdge>();
 				edges.add(edge);
-				map.get(edges).add(tc);
+				TestRequirementARRSTT requirement = new TestRequirementARRSTT(edges);
+				map.get(requirement).add(tc);
 			}
 		}
 	}

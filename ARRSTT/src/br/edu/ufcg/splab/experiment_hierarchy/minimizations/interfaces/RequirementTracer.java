@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirement;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirementARRSTT;
 /*
  * Change														Author				Date
  * -------------------------------------------------------------------------------------------
@@ -12,5 +12,5 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequireme
  * 
  */
 public interface RequirementTracer {
-	public Map<TestRequirement, Set<TestCase>> getMap();
+	public Map<TestRequirementARRSTT, Set<TestCase>> getMap();
 }
