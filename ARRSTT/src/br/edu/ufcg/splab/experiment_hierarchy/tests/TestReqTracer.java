@@ -1,12 +1,12 @@
 package br.edu.ufcg.splab.experiment_hierarchy.tests;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.GreedyStructure;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.ReqTracerAllTransitionsCoverage;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
+import br.edu.ufcg.splab.trash.GreedyStructure;
+import br.edu.ufcg.splab.trash.ReqTracerAllTransitionsCoverage;
 
 public class TestReqTracer {
 	public static void main(String[] args) {
