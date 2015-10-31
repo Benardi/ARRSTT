@@ -1,10 +1,10 @@
-package br.edu.ufcg.splab.experiment_hierarchy.minimizations.interfaces;
+package br.edu.ufcg.splab.trash;
 
 import java.util.Map;
 import java.util.Set;
 
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.ARRSTTTestRequirement;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequirementARRSTT;
 /*
  * Change														Author				Date
  * -------------------------------------------------------------------------------------------
@@ -12,5 +12,5 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestRequireme
  * 
  */
 public interface RequirementTracer {
-	public Map<TestRequirementARRSTT, Set<TestCase>> getMap();
+	public Map<ARRSTTTestRequirement, Set<TestCase>> getMap();
 }

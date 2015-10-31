@@ -222,6 +222,14 @@ public class TestCase implements List<InterfaceEdge> {
 	public List<InterfaceEdge> subList(int fromIndex, int toIndex) {
 		return tCase.subList(fromIndex, toIndex);
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((tCase == null) ? 0 : tCase.hashCode());
+		return result;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

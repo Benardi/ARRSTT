@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.edu.ufcg.splab.experiment_hierarchy.facade.ARRSTTFacade;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 
 /* Change		Author		Date
  * Creation		Iaron		2015-09-29
