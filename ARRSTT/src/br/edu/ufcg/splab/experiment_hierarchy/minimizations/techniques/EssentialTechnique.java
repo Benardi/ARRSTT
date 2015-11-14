@@ -28,8 +28,13 @@ public class EssentialTechnique implements InterfaceMinimizationTechnique{
 			}
 		}
 		
-		TestCase selected = Randomizer.getRandomTestCase(essentialTestCases);
-		structure.removeTuples(selected);	
+		TestCase selected = null;
+		
+		if (!essentialTestCases.isEmpty()) {
+			selected = Randomizer.getRandomTestCase(essentialTestCases);
+			structure.removeTuples(selected);
+		}
+		
 		return selected;
 	}
 	

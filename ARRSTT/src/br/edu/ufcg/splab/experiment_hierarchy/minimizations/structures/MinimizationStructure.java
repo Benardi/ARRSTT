@@ -85,4 +85,8 @@ public class MinimizationStructure {
 		
 		tuples.removeAll(tuplesToRemove);
 	}
+	
+	public boolean isEmpty() {
+		return tuples.isEmpty();
+	}
 }

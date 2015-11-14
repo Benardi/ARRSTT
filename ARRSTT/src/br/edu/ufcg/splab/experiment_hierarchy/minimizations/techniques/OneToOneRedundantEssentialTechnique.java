@@ -6,10 +6,10 @@ import java.util.Set;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 
-public class OneToOneRedundantEssentialTechinique extends EssentialTechnique{
+public class OneToOneRedundantEssentialTechnique extends EssentialTechnique{
 	
 	
-	public OneToOneRedundantEssentialTechinique(MinimizationStructure structure) {
+	public OneToOneRedundantEssentialTechnique(MinimizationStructure structure) {
 		super(structure);
 	}
 
