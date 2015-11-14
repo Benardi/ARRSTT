@@ -34,8 +34,13 @@ public class GreedyTechnique implements InterfaceMinimizationTechnique{
 			}
 		}
 		
-		TestCase selected = Randomizer.getRandomTestCase(biggestTestCases);
-		structure.removeTuples(selected);	
+		TestCase selected = null;
+		
+		if (!biggestTestCases.isEmpty()) {
+			selected = Randomizer.getRandomTestCase(biggestTestCases);
+			structure.removeTuples(selected);
+		}
+		
 		return selected;
 	}
 }
