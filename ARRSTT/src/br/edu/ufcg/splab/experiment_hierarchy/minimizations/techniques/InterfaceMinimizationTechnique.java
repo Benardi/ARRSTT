@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures;
+package br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 

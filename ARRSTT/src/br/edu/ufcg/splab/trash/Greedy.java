@@ -1,30 +1,40 @@
 package br.edu.ufcg.splab.trash;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.algorithms.InterfaceMinimization;
+import java.util.List;
+
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class Greedy implements InterfaceMinimization {
-	private GreedyStructure gs;
+	private DoubleStructure structure;
 	
-	public Greedy(TestSuite ts) {
-		ReqTracerAllTransitionsCoverage reqTracer = new ReqTracerAllTransitionsCoverage(ts);
-		GreedyStructure gs = new GreedyStructure(reqTracer.getMap());
-		this.gs = gs;
+	public Greedy(TestSuite ts, List<TestRequirement> reqs) {
+		this.structure = new DoubleStructure(ts, reqs);
 	}
 	
-	public GreedyStructure getGreedyStructure() {
-		return gs;
+	public DoubleStructure getStructure() {
+		return structure;
 	}
-	
+
+	@Override
 	public TestSuite execute() {
-		TestSuite ts = new TestSuite();
+		TestSuite minTS = new TestSuite();
 		
-		while (!gs.isEmptyOnReqs()) {
-			TestCase tc = gs.selectGreedyTestCase();
-			ts.add(tc);
+		boolean keepRunning = true;
+		
+		while(keepRunning) {
+			TestCase tCase = structure.markTestCase();
+			
+			if (tCase == null) {
+				keepRunning = false;
+			} else {
+				minTS.add(tCase);
+			}
 		}
 		
-		return ts;
+		return minTS;
 	}
+	
+	
 }

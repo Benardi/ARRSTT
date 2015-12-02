@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures;
+package br.edu.ufcg.splab.trash;
 
 import java.util.ArrayList;
 import java.util.HashMap;

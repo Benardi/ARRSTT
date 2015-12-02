@@ -5,10 +5,11 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.RequirementBuilder;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.EssentialTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.GreedyTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.Harrold;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.OneToOneRedundantEssentialTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
@@ -23,6 +24,7 @@ public class Minimization {
 		this.techniques.add(new GreedyTechnique(minimizationStructure));
 		this.techniques.add(new EssentialTechnique(minimizationStructure));
 		this.techniques.add(new OneToOneRedundantEssentialTechnique(minimizationStructure));
+		this.techniques.add(new Harrold(minimizationStructure));
 	}
 	
 	private void buildStructure(TestSuite testSuite, List<TestRequirement> testRequirements) {
@@ -82,5 +84,17 @@ public class Minimization {
 		}
 		
 		return minimizedTestSuite;
+	}
+	
+	public TestSuite minimizeH() {
+		InterfaceMinimizationTechnique techniqueH = techniques.get(3);
+		
+		TestSuite minimizationTestSuite = new TestSuite();
+		
+		while (!minimizationStructure.isEmpty()) {
+			minimizationTestSuite.add(techniqueH.minimize());
+		}
+		
+		return minimizationTestSuite;
 	}
 }

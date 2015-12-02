@@ -3,7 +3,6 @@ package br.edu.ufcg.splab.experiment_hierarchy.tests;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.algorithms.GreedyEssencial;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.ATCoverage;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.RequirementBuilder;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
@@ -17,6 +16,7 @@ import br.edu.ufcg.splab.graph_hierarchy.core.edges.Transition;
 import br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph_hierarchy.core.vertex.Vertex;
 import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
+import br.edu.ufcg.splab.trash.GreedyEssencial;
 
 public class TestMinimization {
 	private TestSuite myTS;
