@@ -1,34 +1,51 @@
 package br.edu.ufcg.splab.trash;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.algorithms.InterfaceMinimization;
+import java.util.List;
+
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class GreedyEssencial implements InterfaceMinimization {
 	private Greedy greedy;
 	
-	public GreedyEssencial(TestSuite ts) {
-		this.greedy = new Greedy(ts);
+	public GreedyEssencial(TestSuite ts, List<TestRequirement> reqs) {
+		this.greedy = new Greedy(ts, reqs);
 	}
 	
-	public TestSuite execute() {
-		GreedyStructure gs = greedy.getGreedyStructure();
-		TestSuite ts = new TestSuite();
+	public DoubleStructure getStructure() {
+		return this.greedy.getStructure();
+	}
+	
+	public TestSuite executeGreedy() {
+		return greedy.execute();
+	}
+
+	public TestSuite executeEssencial() {
+		TestSuite essencialTS = new TestSuite();
 		
-		while (true) {
-			TestCase tc = gs.selectEssencialTestCase(); 
+		boolean keepRunning = true;
+		
+		while(keepRunning) {
+			TestCase tCase = greedy.getStructure().markEssencialTestCase();
 			
-			if (tc == null) {
-				break;
+			if (tCase == null) {
+				keepRunning = false;
+			} else {
+				essencialTS.add(tCase);
 			}
-			
-			ts.add(tc);
 		}
 		
-		TestSuite gts = greedy.execute();
-		gts.addAll(ts);
+		return essencialTS;
+	}
+	
+	@Override
+	public TestSuite execute() {
+		TestSuite essencialTS = executeEssencial();
+		TestSuite minTS = greedy.execute();
+		minTS.addAll(essencialTS);
 		
-		return gts;
+		return minTS;
 	}
 	
 	

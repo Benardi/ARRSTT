@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Set;
 
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Randomizer;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
@@ -41,11 +40,14 @@ public class Harrold implements InterfaceMinimizationTechnique {
 			selectedTestCase = mostEssencialTestCase(potencialTestCases);
 			
 			if (selectedTestCase != null) {
+				structure.removeTuples(selectedTestCase);
 				return selectedTestCase;
 			}
 		}
 		
-		return Randomizer.getRandomTestCase(potencialTestCases);
+		selectedTestCase = Randomizer.getRandomTestCase(potencialTestCases);
+		structure.removeTuples(selectedTestCase);
+		return selectedTestCase;
 	}
 	
 	private Map<Integer, List<TestRequirement>> createCardinalityMap() {

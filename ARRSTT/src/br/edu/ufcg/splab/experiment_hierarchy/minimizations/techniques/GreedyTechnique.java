@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Randomizer;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
