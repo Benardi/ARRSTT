@@ -24,7 +24,7 @@ public class EAlgorithm implements InterfaceMinimizationAlgorithm {
 		
 		if (!essentialTestCases.isEmpty()) {
 			selected = Randomizer.getRandomTestCase(essentialTestCases);
-			structure.removeTuples(selected);
+			structure.removeAllTuples(structure.getTestRequirements(selected));
 		}
 		
 		return selected;

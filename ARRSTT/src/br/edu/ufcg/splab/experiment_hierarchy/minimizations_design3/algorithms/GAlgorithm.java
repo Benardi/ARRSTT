@@ -1,9 +1,11 @@
 package br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.algorithms;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.requirements.TestRequirement;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Randomizer;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
@@ -31,10 +33,10 @@ public class GAlgorithm implements InterfaceMinimizationAlgorithm {
 		}
 		
 		TestCase selected = null;
-		
 		if (!biggestTestCases.isEmpty()) {
 			selected = Randomizer.getRandomTestCase(biggestTestCases);
-			structure.removeTuples(selected);
+			
+			structure.removeAllTuples(structure.getTestRequirements(selected));
 		}
 		
 		return selected;

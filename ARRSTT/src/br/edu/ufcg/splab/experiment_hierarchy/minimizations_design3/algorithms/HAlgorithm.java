@@ -34,13 +34,13 @@ public class HAlgorithm implements InterfaceMinimizationAlgorithm {
 			selectedTestCase = mostEssencialTestCase(potencialTestCases, structure);
 			
 			if (selectedTestCase != null) {
-				structure.removeTuples(selectedTestCase);
+				structure.removeAllTuples(structure.getTestRequirements(selectedTestCase));
 				return selectedTestCase;
 			}
 		}
 		
 		selectedTestCase = Randomizer.getRandomTestCase(potencialTestCases);
-		structure.removeTuples(selectedTestCase);
+		structure.removeAllTuples(structure.getTestRequirements(selectedTestCase));
 		return selectedTestCase;
 	}
 	
@@ -50,7 +50,7 @@ public class HAlgorithm implements InterfaceMinimizationAlgorithm {
 		for (TestRequirement req : structure.getTestRequirements()) {
 			int size = structure.getTestCases(req).size();
 			
-			if (cardinalityMap.containsKey(size)) {
+			if (!cardinalityMap.containsKey(size)) {
 				cardinalityMap.put(size, new ArrayList<TestRequirement>());
 			}
 			

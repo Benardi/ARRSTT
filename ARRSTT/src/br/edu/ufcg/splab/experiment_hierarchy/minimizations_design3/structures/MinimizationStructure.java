@@ -86,6 +86,12 @@ public class MinimizationStructure {
 		tuples.removeAll(tuplesToRemove);
 	}
 	
+	public void removeAllTuples(Set<TestRequirement> reqs){
+		for(TestRequirement req: reqs){
+			removeTuples(req);
+		}
+	}
+	
 	public boolean isEmpty() {
 		return tuples.isEmpty();
 	}
