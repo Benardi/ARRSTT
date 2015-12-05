@@ -7,6 +7,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.factories.Mi
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.factories.MinimizationStructureFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.requirements.TestRequirement;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.structures.MinimizationStructure;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class GTechnique implements InterfaceMinimizationTechnique {
@@ -23,7 +24,6 @@ public class GTechnique implements InterfaceMinimizationTechnique {
 		InterfaceMinimizationAlgorithm greedyAlgorithm = factory.createGreedyAlgorithm();
 		
 		TestSuite minimizedTestSuite = new TestSuite();
-		
 		while (!structure.isEmpty()) {
 			minimizedTestSuite.add(greedyAlgorithm.execute(structure));
 		}
