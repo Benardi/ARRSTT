@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3;
+package br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.factories;
 
 import java.util.List;
 
