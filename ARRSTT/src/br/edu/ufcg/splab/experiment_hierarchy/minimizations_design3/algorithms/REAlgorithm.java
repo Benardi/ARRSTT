@@ -3,7 +3,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.algorithms;
 import java.util.HashSet;
 import java.util.Set;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.MinimizationAlgorithmFactory;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.factories.MinimizationAlgorithmFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 
