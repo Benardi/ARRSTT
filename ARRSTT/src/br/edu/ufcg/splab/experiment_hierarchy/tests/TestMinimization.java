@@ -3,8 +3,8 @@ package br.edu.ufcg.splab.experiment_hierarchy.tests;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.ATCoverage;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.RequirementBuilder;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations_unchanged_design.builders.ATCoverage;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations_unchanged_design.builders.RequirementBuilder;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
