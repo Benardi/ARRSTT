@@ -52,7 +52,7 @@ public class GenerationSetup implements InterfaceSetup {
 	 * <b>Objective:</b> Return the complete factorial independent variables' 
 	 * combinations of the ARRSTT generation experiment.
 	 * <br>
-	 * <b>Exemple of use:</b> The list of tuples returned can be used
+	 * <b>Example of use:</b> The list of tuples returned can be used
 	 * by a Runner that is going to execute the experiment. This
 	 * generally happens in the Experiment class. 
 	 * 
