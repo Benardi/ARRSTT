@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors;
+package br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
@@ -31,7 +31,7 @@ public class ARRSTTTimeCollector implements DependentVariableCollector {
 	 * 			A tuple of ExecutableTreatments.
 	 * @param The StringBuffer used to store the ExecutableTreatments' execution time.
 	 */
-	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
+	public StringBuffer collect(TestSuite testSuite) {
 		Long initTime = System.nanoTime();
 		treatment.get(0).execute();
 		Long endTime = System.nanoTime();

@@ -68,7 +68,7 @@ public class DefaultRunner implements InterfaceRunner {
 	public void runExperiment(List<Tuple<ExecutableTreatment>> combinations) {
 		for (int i = 0; i < dvcs.size(); i++) {
 			for (int j = 0; j < combinations.size(); j++) {
-				stringBuffers.get(i).append(dvcs.get(i).collect(combinations.get(j)) + "\t");
+				stringBuffers.get(i).append(dvcs.get(i).collect(combinations.get(j).get(0).execute()) + "\t");
 				
 				if ((j + 1) % lineSize == 0) {
 					stringBuffers.get(i).append(LINE_END);
