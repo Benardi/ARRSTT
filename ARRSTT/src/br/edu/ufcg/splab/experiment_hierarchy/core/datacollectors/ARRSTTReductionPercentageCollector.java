@@ -1,7 +1,5 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class ARRSTTReductionPercentageCollector implements DependentVariableCollector {
@@ -12,8 +10,8 @@ public class ARRSTTReductionPercentageCollector implements DependentVariableColl
 	}
 	
 	@Override
-	public StringBuffer collect(Tuple<ExecutableTreatment> treatment) {
-		int reduction = originalTestSuite.size() - treatment.get(0).execute().size();
+	public StringBuffer collect(TestSuite testSuite) {
+		int reduction = originalTestSuite.size() - testSuite.size();
 		double reductionPercentage = ((double) reduction) / originalTestSuite.size();
 		
 		return new StringBuffer(reductionPercentage + "");
