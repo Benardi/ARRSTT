@@ -7,7 +7,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectiv
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectsCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTFailuresCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTTimeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 
@@ -45,8 +44,6 @@ public class DVCFactory {
 			return new ARRSTTFailuresCollector();
 		} else if (type == DVCType.SIZE) {
 			return new ARRSTTSizeCollector();
-		} else if (type == DVCType.TIME) {
-			return new ARRSTTTimeCollector();
 		} else {
 			return null;
 		}

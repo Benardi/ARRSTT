@@ -10,14 +10,17 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.runners.DefaultRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.GenerationSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.MinimizationSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.SelectionSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.maskarators.InterfaceGraphMaskarator;
 import br.edu.ufcg.splab.experiment_hierarchy.maskarators.RandomMasker;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
@@ -44,6 +47,16 @@ public class ExperimentFactory {
 	public Experiment buildSelection(List<SelectionType> selectionAlgorithms, double selectionPercentage, List<DVCType> dvcTypes) throws Exception {
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		InterfaceSetup setup = new SelectionSetup(loadGraphs(), selectionPercentage, selectionAlgorithms);
+		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
+		
+		return new Experiment(setup, runner);
+	}
+	
+	public Experiment buildMinimization(List<MinimizationType> minimizationAlgorithms, ReqBuilderType builder, List<DVCType> dvcTypes) throws Exception{
+		List<TestSuite> testSuites = loadGraphs();
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
+		
+		InterfaceSetup setup = new MinimizationSetup(testSuites, minimizationAlgorithms, builder);
 		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
 		
 		return new Experiment(setup, runner);

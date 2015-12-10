@@ -19,6 +19,8 @@ public class MinimizationTechniquesFactory {
 			return createGETechnique(testSuite, requirements);
 		} else if (type == MinimizationType.GREEDY_ESSENCIAL_REDUNDANT) {
 			return createGRETechnique(testSuite, requirements);
+		} else if (type == MinimizationType.HARROLD) {
+			return createHTechnique(testSuite, requirements);
 		}
 		
 		return null;

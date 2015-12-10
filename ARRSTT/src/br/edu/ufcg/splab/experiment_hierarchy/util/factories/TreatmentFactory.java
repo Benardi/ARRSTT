@@ -1,8 +1,15 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
+import java.util.List;
+
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.GenerationTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.MinimizationTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.SelectionTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationTechniquesFactory;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
@@ -57,5 +64,11 @@ public class TreatmentFactory {
 		InterfaceSearch generator = new GenerationFactory()
 				.createTreatment(type);
 		return new GenerationTreatment(generator, root, loopCoverage);
+	}
+	
+	public ExecutableTreatment createMinimization(MinimizationType type, TestSuite testSuite, List<TestRequirement> requirements) {
+		InterfaceMinimizationTechnique minimization = new MinimizationTechniquesFactory()
+				.createMinimizationTechnique(type, testSuite, requirements);
+		return new MinimizationTreatment(minimization);
 	}
 }
