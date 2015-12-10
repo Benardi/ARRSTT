@@ -1,10 +1,10 @@
 package br.edu.ufcg.splab.experiment_hierarchy.tests;
 
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.builders.ATCoverage;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.builders.RequirementBuilder;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.factories.MinimizationTechniquesFactory;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations_design3.techniques.InterfaceMinimizationTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.ATCoverage;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.RequirementBuilder;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationTechniquesFactory;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
