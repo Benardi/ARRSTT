@@ -5,8 +5,11 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.ExperimentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.APCoverage;
+import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 
 /*
@@ -33,8 +36,10 @@ public class ARRSTTController {
 	private Experiment experiment;
 	private List<GenerationType> generationTreatments;
 	private List<SelectionType> selectionTreatments;
+	private List<MinimizationType> minimizationTreatments;
 	private List<Integer> loopCoverages;
 	private List<DVCType> dvcs;
+	private ReqBuilderType builder;
 	private double selectPercentage;
 	//private double maskPercentage;
 	private ExperimentFactory factory;
@@ -71,6 +76,9 @@ public class ARRSTTController {
 			case "selection":
 				buildSelection(inputs);
 				break;
+			case "minimization":
+				buildMinimization(inputs);
+				break;
 			default:
 				throw new Exception("Invalid experiment type.");
 		}
@@ -92,7 +100,7 @@ public class ARRSTTController {
 		}
 		
 		for (String dvc : dvcs) {
-			this.addGenerationDvcs(dvc);
+			this.addDvcs(dvc);
 		}
 		
 		experiment = factory.buildGeneration(this.loopCoverages, this.generationTreatments, this.dvcs);
@@ -116,10 +124,31 @@ public class ARRSTTController {
 		}*/
 		
 		for (String dvc : dvcs) {
-			this.addSelectionDvcs(dvc);
+			this.addDvcs(dvc);
 		}
 		
 		experiment = factory.buildSelection(selectionTreatments, selectPercentage, this.dvcs);
+	}
+	
+	private void buildMinimization(List<List<String>> inputs) throws Exception {
+		// TÉCNICA DE GERAÇÃO (BFS, DFS) / TÉCNICA DE MINIMIZAÇÃO (G, GE, GRE, H) / REQUIREMENT BUILDER (AP, AT)
+		List<String> minimizationAlgorithms = inputs.get(1);
+		List<String> requirementBuilders = inputs.get(2);
+		List<String> dvcs = inputs.get(3);
+		
+		for (String minimizationAlgorithm : minimizationAlgorithms) {
+			this.addMinimizationTreatment(minimizationAlgorithm);
+		}
+		
+		for (String requirementBuilder : requirementBuilders) {
+			this.addRequirementBuilder(requirementBuilder);
+		}
+		
+		for (String dvc : dvcs) {
+			this.addDvcs(dvc);
+		}
+		
+		experiment = factory.buildMinimization(minimizationTreatments, builder, this.dvcs);
 	}
 	
 	private void executeExperiment() {
@@ -144,6 +173,26 @@ public class ARRSTTController {
 		}
 	}
 	
+	private void addMinimizationTreatment(String treatmentName) {
+		if (treatmentName.equals("G")) {
+			minimizationTreatments.add(MinimizationType.GREEDY);
+		} else if (treatmentName.equals("GE")) {
+			minimizationTreatments.add(MinimizationType.GREEDY_ESSENCIAL);
+		} else if (treatmentName.equals("GRE")) {
+			minimizationTreatments.add(MinimizationType.GREEDY_ESSENCIAL_REDUNDANT);
+		} else if (treatmentName.equals("H")) {
+			minimizationTreatments.add(MinimizationType.HARROLD);
+		}
+	}
+	
+	private void addRequirementBuilder(String builderName) {
+		if (builderName.equals("AP")) {
+			builder = ReqBuilderType.APCoverage;
+		} else if (builderName.equals("AT")) {
+			builder = ReqBuilderType.ATCoverage;
+		}
+	}
+	
 	private void addLoopCoverage(String loopCoverage) {
 		loopCoverages.add(Integer.parseInt(loopCoverage));
 	}
@@ -156,18 +205,7 @@ public class ARRSTTController {
 		this.maskPercentage = Double.parseDouble(maskPercentage);
 	}*/
 	
-	private void addGenerationDvcs(String dvcType) {
-		dvcType = dvcType.toUpperCase();
-		
-		if (dvcType.equals("TIME")) {
-			System.out.println("olá pessoas");
-			dvcs.add(DVCType.TIME);
-		} else if (dvcType.equals("SIZE")) {
-			dvcs.add(DVCType.SIZE);
-		}
-	}
-	
-	private void addSelectionDvcs(String dvcType) {
+	private void addDvcs(String dvcType) {
 		dvcType = dvcType.toUpperCase();
 		
 		if (dvcType.equals("TIME")) {
