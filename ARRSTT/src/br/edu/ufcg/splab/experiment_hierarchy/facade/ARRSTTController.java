@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.ExperimentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.builders.APCoverage;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
@@ -50,6 +49,7 @@ public class ARRSTTController {
 	public ARRSTTController() {
 		generationTreatments = new ArrayList<GenerationType>();
 		selectionTreatments = new ArrayList<SelectionType>();
+		minimizationTreatments = new ArrayList<MinimizationType>();
 		loopCoverages = new ArrayList<Integer>();
 		dvcs = new ArrayList<DVCType>();
 		factory = new ExperimentFactory();
@@ -218,6 +218,8 @@ public class ARRSTTController {
 			dvcs.add(DVCType.DEFECTIVE_EDGES);
 		} else if (dvcType.equals("FAILURES")) {
 			dvcs.add(DVCType.FAILURES);
+		} else if (dvcType.equals(DVCType.REDUCTION)) {
+			dvcs.add(DVCType.REDUCTION);
 		}
 	}
 }

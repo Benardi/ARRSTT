@@ -5,6 +5,7 @@ public enum DVCType {
 	DEFECTS,
 	FAILURES,
 	SIZE,
-	TIME;
+	TIME,
+	REDUCTION;
 	
 }

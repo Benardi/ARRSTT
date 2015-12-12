@@ -17,7 +17,7 @@ public class IaronAuxiliarTestClass {
 		ReadTGF reader = new ReadTGF();
 		InterfaceSearch search = new DepthFirstSearch();
 		
-		InterfaceGraph graph = reader.getGraph("input_examples/iaron_easytoy4.tgf");
+		InterfaceGraph graph = reader.getGraph("input_examples/full_of_branches.tgf");
 		
 		TestSuite original = search.getTestSuite(graph.getRoot(), 0);
 		//System.out.println(original);
