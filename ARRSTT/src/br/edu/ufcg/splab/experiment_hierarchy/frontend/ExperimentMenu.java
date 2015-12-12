@@ -21,7 +21,7 @@ public class ExperimentMenu {
 		experimentSelection();
 		System.out.println("Now, pick the treatments.");
 		
-		if(experimentNumber == 1){
+		if (experimentNumber == 1){
 			selectSearch();
 			selectLoopCoverage();
 			selectGenerationDVC();
@@ -30,6 +30,10 @@ public class ExperimentMenu {
 			selectSelectionPercentage();
 			//selectMaskPercentage();
 			selectSelectionDVC();
+		} else if (experimentNumber == 3) {
+			selectMinimization();
+			selectBuilder();
+			selectMinimizationDVC();
 		}
 		
 		try {
@@ -45,11 +49,11 @@ public class ExperimentMenu {
 		
 		while(haventSelected){
 			System.out.println("We have two experiments available at the moment.\n"
-					+ "Write the number of the desired experiment (1 - Generation 2 - Selection)");
+					+ "Write the number of the desired experiment (1 - Generation 2 - Selection 3 - Minimization)");
 		
 			experimentNumber = scan.nextInt();
 			scan.nextLine();
-			if(experimentNumber < 1 || experimentNumber > 2){
+			if(experimentNumber < 1 || experimentNumber > 3){
 				System.out.println("Please, select a valid experiment");
 			} else {
 				haventSelected = false;
@@ -63,6 +67,8 @@ public class ExperimentMenu {
 			input.add("generation");
 		} else if (experimentNumber == 2){
 			input.add("selection");
+		} else if (experimentNumber == 3) {
+			input.add("minimization");
 		}
 		
 		inputs.add(input);
@@ -214,6 +220,106 @@ public class ExperimentMenu {
 						input.add("time");
 					} else if (results[i].equals("2")) {
 						input.add("size");
+					}
+				}
+				
+				haventSelected = false;
+				inputs.add(input);
+			}
+		}
+	}
+	
+	private static void selectMinimization() {
+		boolean haventSelected = true;
+		String output;
+		String[] results;
+		while(haventSelected){
+			System.out.println("Now, select which treatments you want for minimization:");
+			System.out.println("1 - G 2 - GE 3 - GRE 4 - H");
+			System.out.println("Output exemple: 1 2 4 2");
+			output = scan.nextLine();
+			results = output.split(" ");
+			
+			if(results.length == 0){
+				System.out.println("Please, input valid numbers");
+			}else {
+				List<String> input = new ArrayList<String>();
+				
+				for(int i = 0; i < results.length; i++){
+					if (results[i].equals("1")) {
+						input.add("G");
+					} else if (results[i].equals("2")) {
+						input.add("GE");
+					} else if (results[i].equals("3")) {
+						input.add("GRE");
+					} else if (results[i].equals("4")) {
+						input.add("H");
+					}
+				}
+				
+				inputs.add(input);
+				haventSelected = false;
+			}
+		}
+	}
+	
+	private static void selectBuilder() {
+		boolean haventSelected = true;
+		String output;
+		String[] results;
+		while(haventSelected){
+			System.out.println("Now, select which treatments you want for minimization:");
+			System.out.println("1 - AT 2 - AP");
+			System.out.println("Output exemple: 1");
+			output = scan.nextLine();
+			results = output.split(" ");
+			
+			if (results.length == 0){
+				System.out.println("Please, input valid numbers");
+			} else {
+				List<String> input = new ArrayList<String>();
+				
+				if (output.equals("1")) {
+					input.add("AT");
+				} else if (output.equals("2")) {
+					input.add("AP");
+				}
+				
+				inputs.add(input);
+				haventSelected = false;
+			}
+		}
+	}
+	
+	private static void selectMinimizationDVC(){
+		boolean haventSelected = true;
+		String output;
+		String[] results;
+		while(haventSelected){
+			System.out.println("Now, select which dependent variables you want:");
+			System.out.println("1 - Time 2 - Size 3 - Defects 4 - Defective trasitions 5 - Failures 6 - Reduction");
+			System.out.println("Output exemple: 1 2 3 4 5 6");
+			output = scan.nextLine();
+			results = output.split(" ");
+			
+			if(results.length == 0){
+				System.out.println("Please, input valid numbers");
+			}else {
+				List<String> input = new ArrayList<String>();
+				
+				for(int i = 0; i < results.length; i++){
+					if (results[i].equals("1")) {
+						input.add("time");
+					} else if (results[i].equals("2")) {
+						input.add("size");
+					} else if (results[i].equals("3")) {
+						input.add("defects");
+					} else if (results[i].equals("4")) {
+						input.add("defective edges");
+					} else if (results[i].equals("5")) {
+						input.add("failures");
+					} else if (results[i].equals("6")) {
+						input.add("reduction");
 					}
 				}
 				

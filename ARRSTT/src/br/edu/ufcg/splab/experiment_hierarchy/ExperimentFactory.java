@@ -53,11 +53,11 @@ public class ExperimentFactory {
 	}
 	
 	public Experiment buildMinimization(List<MinimizationType> minimizationAlgorithms, ReqBuilderType builder, List<DVCType> dvcTypes) throws Exception{
-		List<TestSuite> testSuites = loadGraphs();
+		List<TestSuite> testSuites = loadGraphsWithoutMasking();
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		
 		InterfaceSetup setup = new MinimizationSetup(testSuites, minimizationAlgorithms, builder);
-		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
+		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		
 		return new Experiment(setup, runner);
 	}
@@ -65,9 +65,9 @@ public class ExperimentFactory {
 	//vai pro controller
 	private List<TestSuite> loadGraphs() throws Exception {
 		List<InterfaceGraph> allGraphs = new ArrayList<>();
-		
 		File[] folder = new File("input_examples/").listFiles();
 		ReadTGF tgfReader = new ReadTGF();
+		System.out.println(folder[0]);
 		for (File file : folder) {
 			InterfaceGraph graph = tgfReader.getGraph(file.getAbsolutePath());
 			allGraphs.add(graph);
@@ -84,6 +84,26 @@ public class ExperimentFactory {
 		List<TestSuite> testSuites = new ArrayList<TestSuite>();
 		
 		for (InterfaceGraph graph : maskedGraphs) {
+			InterfaceSearch search = new DepthFirstSearch();
+			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
+		}
+		
+		return testSuites;
+	}
+	
+	private List<TestSuite> loadGraphsWithoutMasking() throws Exception {
+		List<InterfaceGraph> allGraphs = new ArrayList<>();
+		File[] folder = new File("input_examples/").listFiles();
+		ReadTGF tgfReader = new ReadTGF();
+		
+		for (File file : folder) {
+			InterfaceGraph graph = tgfReader.getGraph(file.getAbsolutePath());
+			allGraphs.add(graph);
+		}
+		
+		List<TestSuite> testSuites = new ArrayList<TestSuite>();
+		
+		for (InterfaceGraph graph : allGraphs) {
 			InterfaceSearch search = new DepthFirstSearch();
 			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
 		}
