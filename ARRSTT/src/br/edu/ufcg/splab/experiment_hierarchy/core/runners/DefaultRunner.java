@@ -7,10 +7,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.InterfaceBenchmark;
+import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.TimeBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 /*
  * Change														Author				Date
@@ -31,7 +34,10 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 public class DefaultRunner implements InterfaceRunner {
 	public static final String LINE_END = System.getProperty("line.separator");
 	private List<DependentVariableCollector> dvcs;
+	private List<InterfaceBenchmark> benchmarks;
 	private List<StringBuffer> stringBuffers;
+	private List<StringBuffer> benchmarkBuffers;
+	private boolean haveBenchmarked;
 	private int lineSize;
 	
 	/**
@@ -47,9 +53,19 @@ public class DefaultRunner implements InterfaceRunner {
 		this.dvcs = dvcs;
 		this.stringBuffers = new ArrayList<StringBuffer>();
 		this.lineSize = lineSize;
+		this.benchmarks = new ArrayList<InterfaceBenchmark>();
+		createBenchmarks();
+		this.benchmarkBuffers = new ArrayList<StringBuffer>();
+		this.haveBenchmarked = false;
 		
 		for (int i = 0; i < dvcs.size(); i++) {
 			stringBuffers.add(new StringBuffer());
+		}
+		
+		int benchmarksSize = benchmarks.size();
+		
+		for (int i = 0; i < benchmarksSize; i++) {
+			benchmarkBuffers.add(new StringBuffer());
 		}
 	}
 	
@@ -68,15 +84,38 @@ public class DefaultRunner implements InterfaceRunner {
 	public void runExperiment(List<Tuple<ExecutableTreatment>> combinations) {
 		for (int i = 0; i < dvcs.size(); i++) {
 			for (int j = 0; j < combinations.size(); j++) {
-				stringBuffers.get(i).append(dvcs.get(i).collect(combinations.get(j).get(0).execute()) + "\t");
+				startBenchmarks();
+				TestSuite resultingTestSuite = combinations.get(j).get(0).execute();
+				//endBenchmarks(i);
+				
+				stringBuffers.get(i).append(dvcs.get(i).collect(resultingTestSuite) + "\t");
+				if (!haveBenchmarked) {
+					benchmarkBuffers.get(i).append(benchmarks.get(i).endBenchmark() + "\t");
+				}
 				
 				if ((j + 1) % lineSize == 0) {
 					stringBuffers.get(i).append(LINE_END);
+					if (!haveBenchmarked) {
+						benchmarkBuffers.get(i).append(LINE_END);
+					}
 				}
 			}				
+			haveBenchmarked = true;
 		}
 		
 		saveBuffers();
+	}
+	
+	private void createBenchmarks() {
+		this.benchmarks.add(new TimeBenchmark());
+	}
+	
+	private void startBenchmarks() {
+		if (!haveBenchmarked) {
+			for (InterfaceBenchmark benchmark : this.benchmarks) {
+				benchmark.startBenchmark();
+			}
+		}
 	}
 	
 	/**
@@ -102,6 +141,16 @@ public class DefaultRunner implements InterfaceRunner {
 			try {
 				ExperimentFile file = new ExperimentFile(dirName + "/" + dvcs.get(i).toString());
 				file.appendContent(stringBuffers.get(i));
+				file.save();
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for (int i = 0; i < benchmarkBuffers.size(); i++) {
+			try {
+				ExperimentFile file = new ExperimentFile(dirName + "/" + "Time");
+				file.appendContent(benchmarkBuffers.get(i));
 				file.save();
 			} catch(IOException e) {
 				e.printStackTrace();
