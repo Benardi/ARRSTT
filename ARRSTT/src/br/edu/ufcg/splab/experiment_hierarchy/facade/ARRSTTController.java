@@ -7,6 +7,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.ExperimentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ExperimentType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
@@ -27,11 +28,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
  *
  */
 public class ARRSTTController {	
-	public static final String[] EXPERIMENT_TYPES = {"GENERATION", "SELECTION"};
-	public static final String[] GENERATION_TREATMENTS = {"BFS", "DFS"};
-	public static final String[] SELECTION_TREATMENTS = {"RANDOMIZED", "BIGGEST", "SIMILARITY"};
-	public static final String[] DVC_TYPES = {"TIME", "SIZE", "DEFECTS", "DEFECTIVE_TRANSITIONS", "FAILURES"};
-	
 	private Experiment experiment;
 	private List<GenerationType> generationTreatments;
 	private List<SelectionType> selectionTreatments;
@@ -39,9 +35,10 @@ public class ARRSTTController {
 	private List<Integer> loopCoverages;
 	private List<DVCType> dvcs;
 	private ReqBuilderType builder;
-	private double selectPercentage;
+	private double selectionPercentage;
 	//private double maskPercentage;
 	private ExperimentFactory factory;
+	private ExperimentType experimentType;
 	
 	/**
 	 * The controller's constructor. Initializes the needed lists and factories.
@@ -68,31 +65,36 @@ public class ARRSTTController {
 	 * @throws Exception An exception is throwed if the experiment type in the inputs
 	 * list is invalid.
 	 */
-	public void execute(List<List<String>> inputs) throws Exception {		
-		switch(inputs.get(0).get(0).toLowerCase()) {
-			case "generation":
+	public void execute(List<List<String>> inputs) throws Exception {
+		String experimentString = inputs.get(0).get(0).toUpperCase();
+		
+		switch(experimentString) {
+			case "GENERATION":
+				this.experimentType = ExperimentType.GENERATION;
 				buildGeneration(inputs);
 				break;
-			case "selection":
+			case "SELECTION":
+				this.experimentType = ExperimentType.SELECTION;
 				buildSelection(inputs);
 				break;
-			case "minimization":
+			case "MINIMIZATION":
+				this.experimentType = ExperimentType.MINIMIZATION;
 				buildMinimization(inputs);
 				break;
 			default:
-				throw new Exception("Invalid experiment type.");
+				throw new RuntimeException("Experiment Type Not Found");
 		}
 		
 		executeExperiment();
 	}
 	
 	private void buildGeneration(List<List<String>> inputs) throws Exception {
-		List<String> algorithms = inputs.get(1);
+		List<String> generationTreatments = inputs.get(1);
 		List<String> loopCoverages = inputs.get(2);
 		List<String> dvcs = inputs.get(3);
 		
-		for (String algorithm : algorithms) {
-			this.addGenerationTreatment(algorithm);
+		for (String generationTreatment : generationTreatments) {
+			this.addTreatment(generationTreatment);
 		}
 		
 		for (String loopCoverage : loopCoverages) {
@@ -100,23 +102,27 @@ public class ARRSTTController {
 		}
 		
 		for (String dvc : dvcs) {
-			this.addDvcs(dvc);
+			this.addDvc(dvc);
 		}
 		
 		experiment = factory.buildGeneration(this.loopCoverages, this.generationTreatments, this.dvcs);
 	}
 	
+	private void addLoopCoverage(String loopCoverage) {
+		loopCoverages.add(Integer.parseInt(loopCoverage));
+	}
+	
 	private void buildSelection(List<List<String>> inputs) throws Exception {
-		List<String> algorithms = inputs.get(1);
+		List<String> selectionTreatments = inputs.get(1);
 		List<String> selectionPercentages = inputs.get(2);
 		List<String> dvcs = inputs.get(3);
 		
-		for (String algorithm : algorithms) {
-			this.addSelectionTreatment(algorithm);
+		for (String selectionTreatment : selectionTreatments) {
+			this.addTreatment(selectionTreatment);
 		}
 		
-		for (String selectPercentage : selectionPercentages) {
-			this.addSelectPercentage(selectPercentage);
+		for (String selectionPercentage : selectionPercentages) {
+			this.addSelectionPercentage(selectionPercentage);
 		}
 		
 		/*for (String maskPercentage : maskPercentages) {
@@ -124,102 +130,148 @@ public class ARRSTTController {
 		}*/
 		
 		for (String dvc : dvcs) {
-			this.addDvcs(dvc);
+			this.addDvc(dvc);
 		}
 		
-		experiment = factory.buildSelection(selectionTreatments, selectPercentage, this.dvcs);
+		experiment = factory.buildSelection(this.selectionTreatments, selectionPercentage, this.dvcs);
 	}
 	
-	private void buildMinimization(List<List<String>> inputs) throws Exception {
-		// TÉCNICA DE GERAÇÃO (BFS, DFS) / TÉCNICA DE MINIMIZAÇÃO (G, GE, GRE, H) / REQUIREMENT BUILDER (AP, AT)
-		List<String> minimizationAlgorithms = inputs.get(1);
-		List<String> requirementBuilders = inputs.get(2);
-		List<String> dvcs = inputs.get(3);
-		
-		for (String minimizationAlgorithm : minimizationAlgorithms) {
-			this.addMinimizationTreatment(minimizationAlgorithm);
-		}
-		
-		for (String requirementBuilder : requirementBuilders) {
-			this.addRequirementBuilder(requirementBuilder);
-		}
-		
-		for (String dvc : dvcs) {
-			this.addDvcs(dvc);
-		}
-		
-		experiment = factory.buildMinimization(minimizationTreatments, builder, this.dvcs);
-	}
-	
-	private void executeExperiment() {
-		experiment.execute();
-	}
-	
-	private void addGenerationTreatment(String treatmentName) {
-		if (treatmentName.equals(GENERATION_TREATMENTS[0])) {
-			generationTreatments.add(GenerationType.BFS);
-		} else if (treatmentName.equals(GENERATION_TREATMENTS[1])) {
-			generationTreatments.add(GenerationType.DFS);
-		}
-	}
-	
-	private void addSelectionTreatment(String treatmentName) {
-		if (treatmentName.equals("random")) {
-			selectionTreatments.add(SelectionType.RANDOMIZED);
-		} else if (treatmentName.equals("biggest")) {
-			selectionTreatments.add(SelectionType.BIGGEST);
-		} else if (treatmentName.equals("similarity")) {
-			selectionTreatments.add(SelectionType.SIMILARITY);
-		}
-	}
-	
-	private void addMinimizationTreatment(String treatmentName) {
-		if (treatmentName.equals("G")) {
-			minimizationTreatments.add(MinimizationType.GREEDY);
-		} else if (treatmentName.equals("GE")) {
-			minimizationTreatments.add(MinimizationType.GREEDY_ESSENCIAL);
-		} else if (treatmentName.equals("GRE")) {
-			minimizationTreatments.add(MinimizationType.GREEDY_ESSENCIAL_REDUNDANT);
-		} else if (treatmentName.equals("H")) {
-			minimizationTreatments.add(MinimizationType.HARROLD);
-		}
-	}
-	
-	private void addRequirementBuilder(String builderName) {
-		if (builderName.equals("AP")) {
-			builder = ReqBuilderType.APCoverage;
-		} else if (builderName.equals("AT")) {
-			builder = ReqBuilderType.ATCoverage;
-		}
-	}
-	
-	private void addLoopCoverage(String loopCoverage) {
-		loopCoverages.add(Integer.parseInt(loopCoverage));
-	}
-	
-	private void addSelectPercentage(String selectPercentage) {
-		this.selectPercentage = Double.parseDouble(selectPercentage);
+	private void addSelectionPercentage(String percentage) {
+		this.selectionPercentage = Double.parseDouble(percentage);
 	}
 	
 	/*public void addMaskPercentage(String maskPercentage) {
 		this.maskPercentage = Double.parseDouble(maskPercentage);
 	}*/
 	
-	private void addDvcs(String dvcType) {
-		dvcType = dvcType.toUpperCase();
+	private void buildMinimization(List<List<String>> inputs) throws Exception {
+		List<String> minimizationTreatments = inputs.get(1);
+		List<String> builder = inputs.get(2);
+		List<String> dvcs = inputs.get(3);
 		
-		if (dvcType.equals("TIME")) {
-			dvcs.add(DVCType.TIME);
-		} else if (dvcType.equals("SIZE")) {
-			dvcs.add(DVCType.SIZE);
-		} else if (dvcType.equals("DEFECTS")) {
-			dvcs.add(DVCType.DEFECTS);
-		} else if (dvcType.equals("DEFECTIVE EDGES")) {
-			dvcs.add(DVCType.DEFECTIVE_EDGES);
-		} else if (dvcType.equals("FAILURES")) {
-			dvcs.add(DVCType.FAILURES);
-		} else if (dvcType.equals(DVCType.REDUCTION)) {
-			dvcs.add(DVCType.REDUCTION);
+		for (String minimizationTreatment : minimizationTreatments) {
+			addTreatment(minimizationTreatment);
 		}
+		
+		for (String requirementBuilder : builder) {
+			addRequirementBuilder(requirementBuilder);
+		}
+		
+		for (String dvc : dvcs) {
+			addDvc(dvc);
+		}
+		
+		experiment = factory.buildMinimization(this.minimizationTreatments, this.builder, this.dvcs);
+	}
+	
+	private void addRequirementBuilder(String builderString) {
+		switch(builderString) {
+			case "AP":
+				this.builder = ReqBuilderType.APCoverage;
+				break;
+			case "AT":
+				this.builder = ReqBuilderType.ATCoverage;
+				break;
+			default:
+				throw new RuntimeException("Requirement Builder Not Found");
+		}
+	}
+	
+	private void addTreatment(String treatmentString) {
+		switch(experimentType) {
+			case MINIMIZATION:
+				addMinimizationTreatment(treatmentString);
+				break;
+			case SELECTION:
+				addSelectionTreatment(treatmentString);
+				break;
+			case GENERATION:
+				addGenerationTreatment(treatmentString);
+				break;
+			default:
+				throw new RuntimeException("Experiment Type Not Found");
+		}
+	}
+	
+	private void addGenerationTreatment(String treatmentString) {
+		treatmentString = treatmentString.toUpperCase();
+		
+		switch(treatmentString) {
+			case "BFS":
+				this.generationTreatments.add(GenerationType.BFS);
+				break;
+			case "DFS":
+				this.generationTreatments.add(GenerationType.DFS);
+				break;
+			default:
+				throw new RuntimeException("Generation Treatment Not Found");
+		}
+	}
+	
+	private void addSelectionTreatment(String treatmentString) {
+		treatmentString = treatmentString.toUpperCase();
+		
+		switch(treatmentString) {
+			case "RANDOM":
+				this.selectionTreatments.add(SelectionType.RANDOMIZED);
+				break;
+			case "BIGGEST":
+				this.selectionTreatments.add(SelectionType.BIGGEST);
+				break;
+			case "SIMILARITY":
+				this.selectionTreatments.add(SelectionType.SIMILARITY);
+				break;
+			default:
+				throw new RuntimeException("Selection Treatment Not Found");
+		}
+	}
+	
+	private void addMinimizationTreatment(String treatmentString) {
+		treatmentString = treatmentString.toUpperCase();
+		
+		switch(treatmentString) {
+			case "G":
+				this.minimizationTreatments.add(MinimizationType.GREEDY);
+				break;
+			case "GE":
+				this.minimizationTreatments.add(MinimizationType.GREEDY_ESSENCIAL);
+				break;
+			case "GRE":
+				this.minimizationTreatments.add(MinimizationType.GREEDY_ESSENCIAL_REDUNDANT);
+				break;
+			case "H":
+				this.minimizationTreatments.add(MinimizationType.HARROLD);
+				break;
+			default:
+				throw new RuntimeException("Minimization Treatment Not Found");
+		}
+	}
+	
+	private void addDvc(String dvcString) {
+		dvcString = dvcString.toUpperCase();
+		
+		switch(dvcString) { 
+			case "SIZE":
+				dvcs.add(DVCType.SIZE);
+				break;
+			case "DEFECTS":
+				dvcs.add(DVCType.DEFECTS);
+				break;
+			case "DEFECTIVE EDGES":
+				dvcs.add(DVCType.DEFECTIVE_EDGES);
+				break;
+			case "FAILURES":
+				dvcs.add(DVCType.FAILURES);
+				break;
+			case "REDUCTION":
+				dvcs.add(DVCType.REDUCTION);
+				break;
+			default:
+				throw new RuntimeException("DVC Not Found");
+		}
+	}
+	
+	private void executeExperiment() {
+		experiment.execute();
 	}
 }

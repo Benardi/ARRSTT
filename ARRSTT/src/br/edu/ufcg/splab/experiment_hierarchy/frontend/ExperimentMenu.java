@@ -143,7 +143,7 @@ public class ExperimentMenu {
 		String[] results;
 		while(haventSelected){
 			System.out.println("Now, select which loop coverages you want:");
-			System.out.println("Output exemple: 0 1 2 3 4 5 6");
+			System.out.println("Output example: 0 1 2 3 4 5 6");
 			output = scan.nextLine();
 			results = output.split(" ");
 			
@@ -151,12 +151,9 @@ public class ExperimentMenu {
 				System.out.println("Please, input valid numbers");
 			}else {
 				List<String> input = new ArrayList<String>();
-				System.out.println("--- ADICIONANDO ---");
 				for(int i = 0; i < results.length; i++){
-					System.out.println(results[i]);
 					input.add(results[i]);
 				}
-				System.out.println("--- ADICIONANDO ---");
 				haventSelected = false;
 				inputs.add(input);
 			}
