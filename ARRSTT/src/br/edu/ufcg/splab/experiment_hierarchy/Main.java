@@ -15,8 +15,8 @@ public class Main {
 			//experiment.execute();
 			
 			SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
-			Experiment experiment = factory.buildSelection(selectionAlgorithms, 0.5);
-			experiment.execute();
+			//Experiment experiment = factory.buildSelection(selectionAlgorithms, 0.5);
+			//experiment.execute();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
