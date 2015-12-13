@@ -28,6 +28,7 @@ public interface ExecutableTreatment {
 	 * 		The output test suite.
 	 */
 	public TestSuite execute();
+	
 	/**
 	 * The title is the String that is shown in the output
 	 * table about.
