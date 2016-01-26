@@ -1,7 +1,6 @@
 package br.edu.ufcg.splab.parsers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
