@@ -1,9 +1,5 @@
 package br.edu.ufcg.splab.parsers;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,27 +20,79 @@ public class EvosuiteParser {
 	}
 	
 	public TestSuite parseFile(String filePath) {
-		String completeCode = buildCompleteCodeString(new File(filePath));
-		String[] methodsCode = breakCodeIntoMethods(completeCode);
-		List<String[]> stepsCode = breakCodeIntoSteps(methodsCode);
-		TestSuite ts = new TestSuite();
+		ParseFile file = new ParseFile(filePath);
 		
-		for (String[] stepsMethod : stepsCode) {
-			for (int i = 0; i < stepsMethod.length; i++) {
-				stepsMethod[i] = stepsMethod[i].trim();
-			}
-			
-			ts.add(buildTestCase(stepsMethod));
-		}
+		file.streamOn();
+		String completeCode = makeCompleteCode(file);
+		List<String> methods = splitToMethodsOfCode(completeCode);
+		cleanMethods(methods);
+		List<List<String>> lines = splitToLinesOfCode(methods);
+		cleanLines(lines);
+		file.streamOff();
 		
-		System.out.println(ts);
-		
-		return ts;
+		return buildTestSuite(lines);
 	}
 	
-	private TestCase buildTestCase(String steps[]) {
+	private String makeCompleteCode(ParseFile file) {
+		StringBuffer code = new StringBuffer();
+		String currentLine = new String();
+		
+		while (currentLine != null) {
+			code.append(currentLine);
+			currentLine = file.readLine();
+		}
+		
+		return code.toString();
+	}
+	
+	private List<String> splitToMethodsOfCode(String completeCode) {
+		String[] methodsOfCode = completeCode.split("@Test");
+		List<String> methodsOfCodeList = new ArrayList<String>();
+		
+		for (String method : methodsOfCode) {
+			methodsOfCodeList.add(method);
+		}
+		
+		return methodsOfCodeList;
+	}
+	
+	private void cleanMethods(List<String> methods) {
+		methods.remove(0); // Remove class header
+	}
+
+	private List<List<String>> splitToLinesOfCode(List<String> methodsOfCode) {
+		List<List<String>> linesOfCode = new ArrayList<List<String>>();
+		
+		for (String method : methodsOfCode) {
+			List<String> linesInMethod = new ArrayList<String>(); 
+			
+			for (String line : method.split(";")) {
+				linesInMethod.add(line);
+			}
+			
+			linesOfCode.add(linesInMethod);
+		}
+		
+		return linesOfCode;
+	}
+
+	private void cleanLines(List<List<String>> linesOfCode) {
+		// Remove methods signature and closing curly braces
+		for (List<String> linesInMethod : linesOfCode) {
+			linesInMethod.set(0, linesInMethod.get(0).split("\\{")[1]);
+			linesInMethod.remove(linesInMethod.size() - 1);
+		}
+		
+		// Trim lines
+		for (List<String> linesInMethod : linesOfCode) {
+			for (int i = 0; i < linesInMethod.size(); i++) {
+				linesInMethod.set(i, linesInMethod.get(i).trim());
+			}
+		}
+	}
+
+	private TestCase buildTestCase(List<String> steps) {
 		TestCase buildingTestCase = new TestCase();
-		this.count = 0;
 		
 		for (String step : steps) {
 			InterfaceVertex startVertex = new Vertex(count + "");
@@ -58,47 +106,15 @@ public class EvosuiteParser {
 		return buildingTestCase;
 	}
 	
-	private String buildCompleteCodeString(File file) {
-		BufferedReader characterReader = null;
-		StringBuffer completeCode = new StringBuffer();
-		String currentLine = new String();
+	private TestSuite buildTestSuite(List<List<String>> lines) {
+		TestSuite testSuite = new TestSuite();
+		this.count = 0;
 		
-		try {
-			characterReader = new BufferedReader(new FileReader(file));
-			
-			while (currentLine != null) {
-				currentLine = characterReader.readLine();
-				completeCode.append(currentLine);
-			}
-		} catch(IOException ioException) {
-			ioException.printStackTrace();
-		} finally {
-			try {
-				characterReader.close();
-			} catch(IOException innerIOException) {
-				innerIOException.printStackTrace();
-			}
+		for (List<String> linesInMethod : lines) {
+			testSuite.add(buildTestCase(linesInMethod));
 		}
 		
-		return completeCode.toString();
+		return testSuite;
 	}
 	
-	private String[] breakCodeIntoMethods(String completeCode) {
-		String[] codeInMethods = completeCode.split("@Test");
-		String[] modCodeInMethods = Arrays.copyOfRange(codeInMethods, 1, codeInMethods.length);
-		return modCodeInMethods;
-	}
-	
-	private List<String[]> breakCodeIntoSteps(String[] methodsCode) {
-		List<String[]> steps = new ArrayList<String[]>();
-		
-		for (String method : methodsCode) {
-			String[] stepLines = method.split(";");
-			stepLines[0] = stepLines[0].split("\\{")[1];
-			stepLines = Arrays.copyOfRange(stepLines, 0, stepLines.length - 1);
-			steps.add(stepLines);
-		}
-		
-		return steps;
-	}
 }
