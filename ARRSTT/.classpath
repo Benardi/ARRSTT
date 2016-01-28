@@ -5,5 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="C:/Users/Wesley/.eclipse/org.eclipse.platform_4.5.1_1709980481_win32_win32_x86_64/plugins/org.evosuite.plugins.eclipse.deps_1.0.2.201512261016/lib/evosuite.jar"/>
 	<classpathentry kind="src" path="evosuite-tests"/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
