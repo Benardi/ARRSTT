@@ -1,6 +1,6 @@
 package br.edu.ufcg.splab.gui.view;
 
-import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
+import br.edu.ufcg.splab.gui.ArrsttApplication;
 import br.edu.ufcg.splab.gui.model.FileSource;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,22 +26,18 @@ public class FileParsingController {
 	@FXML
 	private Button parseButton;
 	
-	private GuiApplication app;
+	private ArrsttApplication app;
 	
 	@FXML
 	private void initialize() {
 		this.fileSourceTableColumn.setCellValueFactory(new PropertyValueFactory<FileSource, String>("source"));
-		this.openFileButton.setOnAction(event -> filePathTextField.setText(app.showOpenFileChooseDialog().getPath()));
+		this.openFileButton.setOnAction(event -> filePathTextField.setText(app.getGraphicStudio().showFileChooser(app.getGraphicStudio().getMainStage()).getPath()));
 		this.parseButton.setOnAction(event -> { this.app.getParsingFacade().changeParser(fileSourceTableView.getSelectionModel().getSelectedItem().getSource().toLowerCase());
 												this.generatedTestSuiteTextArea.setText(app.getParsingFacade().parse(this.filePathTextField.getText()));});
 	}
 	
-	public void setApp(GuiApplication app) {
+	public void setApp(ArrsttApplication app) {
 		this.app = app;
-		fillTable();
-	}
-	
-	private void fillTable() {
-		this.fileSourceTableView.setItems(app.getFileSources());
+		this.fileSourceTableView.setItems(app.getDataHandler().getFileSources());
 	}
 }

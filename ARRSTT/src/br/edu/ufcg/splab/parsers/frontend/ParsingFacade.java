@@ -1,31 +1,29 @@
-package br.edu.ufcg.splab.parsers;
+package br.edu.ufcg.splab.parsers.frontend;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
+import br.edu.ufcg.splab.parsers.EvosuiteParser;
 
 public class ParsingFacade {
-	private Parser parser;
-	private TestSuite lastGeneratedTestSuite;
+	private ParseController controller;
 	
 	public ParsingFacade(Parser parser) {
-		this.parser = parser;
+		
 	}
 	
 	public ParsingFacade() {
-		this.parser = null;
+		this.controller = new ParseController();
 	}
 	
 	public void changeParser(String parserStr) {
 		if (parserStr.equals("evosuite")) {
-			this.parser = new EvosuiteParser();
+			controller.setParser(new EvosuiteParser());
 		}
 	}
 	
 	public String parse(String filePath) {
-		this.lastGeneratedTestSuite = parser.parseFile(filePath);
-		System.out.println(this.lastGeneratedTestSuite);
-		return formatTestSuiteString(lastGeneratedTestSuite);
+		return formatTestSuiteString(controller.parse(filePath));
 	}
 	
 	private String formatTestSuiteString(TestSuite testSuite) {
