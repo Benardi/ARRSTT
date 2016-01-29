@@ -4,5 +4,5 @@ import javafx.scene.control.Dialog;
 
 @FunctionalInterface
 public interface DialogBuilder {
-	public Dialog<?> buildDialog();
+	public Dialog<?> createDialog();
 }
