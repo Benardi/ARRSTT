@@ -1,7 +1,13 @@
 package br.edu.ufcg.splab.gui.view;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 import br.edu.ufcg.splab.gui.ArrsttApplication;
 import br.edu.ufcg.splab.gui.model.FileSource;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -9,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class FileParsingController {
 	@FXML
@@ -25,15 +32,46 @@ public class FileParsingController {
 	private Button openFileButton;
 	@FXML
 	private Button parseButton;
+	@FXML
+	private Button outputButton;
 	
 	private ArrsttApplication app;
 	
 	@FXML
 	private void initialize() {
 		this.fileSourceTableColumn.setCellValueFactory(new PropertyValueFactory<FileSource, String>("source"));
-		this.openFileButton.setOnAction(event -> filePathTextField.setText(app.getGraphicStudio().showFileChooser(app.getGraphicStudio().getMainStage()).getPath()));
-		this.parseButton.setOnAction(event -> { this.app.getParsingFacade().changeParser(fileSourceTableView.getSelectionModel().getSelectedItem().getSource().toLowerCase());
-												this.generatedTestSuiteTextArea.setText(app.getParsingFacade().parse(this.filePathTextField.getText()));});
+		
+		this.openFileButton.setOnAction(new EventHandler<ActionEvent>() {	
+			@Override
+			public void handle(ActionEvent event) {
+				Stage mainStage = app.getGraphicStudio().getMainStage();
+				File choosenFile = app.getGraphicStudio().showFileChooser(mainStage);
+				File choosenFileParent = choosenFile.getParentFile();
+				
+				filePathTextField.setText(choosenFile.getPath());
+				app.getGraphicStudio().getFileChooser().setInitialDirectory(choosenFileParent);
+			}
+		});
+		
+		this.parseButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				app.getParsingFacade().changeParser(fileSourceTableView.getSelectionModel().getSelectedItem().getSource().toLowerCase());
+				generatedTestSuiteTextArea.setText(app.getParsingFacade().parse(filePathTextField.getText()));	
+			}
+		});
+		
+		this.outputButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					Desktop.getDesktop().open(new File("C:\\"));
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		});
 	}
 	
 	public void setApp(ArrsttApplication app) {
