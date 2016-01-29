@@ -10,6 +10,7 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 import br.edu.ufcg.splab.graph_hierarchy.core.edges.Transition;
 import br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph_hierarchy.core.vertex.Vertex;
+import br.edu.ufcg.splab.parsers.frontend.Parser;
 
 public class EvosuiteParser implements Parser {
 	private int count;
