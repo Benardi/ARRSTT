@@ -46,18 +46,30 @@ public class FileParsingController {
 			public void handle(ActionEvent event) {
 				Stage mainStage = app.getGraphicStudio().getMainStage();
 				File choosenFile = app.getGraphicStudio().showFileChooser(mainStage);
-				File choosenFileParent = choosenFile.getParentFile();
 				
-				filePathTextField.setText(choosenFile.getPath());
-				app.getGraphicStudio().getFileChooser().setInitialDirectory(choosenFileParent);
+				if (choosenFile != null) {
+					File choosenFileParent = choosenFile.getParentFile();
+				
+					filePathTextField.setText(choosenFile.getPath());
+					app.getGraphicStudio().getFileChooser().setInitialDirectory(choosenFileParent);
+				}
 			}
 		});
 		
 		this.parseButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				app.getParsingFacade().changeParser(fileSourceTableView.getSelectionModel().getSelectedItem().getSource().toLowerCase());
-				generatedTestSuiteTextArea.setText(app.getParsingFacade().parse(filePathTextField.getText()));	
+				FileSource selectedItem = fileSourceTableView.getSelectionModel().getSelectedItem();
+				String filePath = filePathTextField.getText();
+				
+				if (selectedItem == null) {
+					app.getGraphicStudio().createAndShowDialog("Select a source before trying to parse!", "No Source Selected");	
+				} else if (filePath == null || filePath.equals("")) {
+					app.getGraphicStudio().createAndShowDialog("Select a file before trying to parse!", "No File Selected");
+				} else {
+					app.getParsingFacade().changeParser(selectedItem.getSource());
+					generatedTestSuiteTextArea.setText(app.getParsingFacade().parse(filePath));
+				}
 			}
 		});
 		
