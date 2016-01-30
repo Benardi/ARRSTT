@@ -4,7 +4,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
-import br.edu.ufcg.splab.gui.ArrsttApplication;
+import br.edu.ufcg.splab.gui.ModulesController;
 import br.edu.ufcg.splab.gui.model.FileSource;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,7 +35,7 @@ public class FileParsingController {
 	@FXML
 	private Button outputButton;
 	
-	private ArrsttApplication app;
+	private ModulesController appController;
 	
 	@FXML
 	private void initialize() {
@@ -44,14 +44,14 @@ public class FileParsingController {
 		this.openFileButton.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				Stage mainStage = app.getGraphicStudio().getMainStage();
-				File choosenFile = app.getGraphicStudio().showFileChooser(mainStage);
+				Stage mainStage = appController.getMainStage();
+				File choosenFile = appController.showFileChooser(mainStage);
 				
 				if (choosenFile != null) {
 					File choosenFileParent = choosenFile.getParentFile();
 				
 					filePathTextField.setText(choosenFile.getPath());
-					app.getGraphicStudio().getFileChooser().setInitialDirectory(choosenFileParent);
+					appController.getFileChooser().setInitialDirectory(choosenFileParent);
 				}
 			}
 		});
@@ -63,12 +63,12 @@ public class FileParsingController {
 				String filePath = filePathTextField.getText();
 				
 				if (selectedItem == null) {
-					app.getGraphicStudio().createAndShowDialog("Select a source before trying to parse!", "No Source Selected");	
+					appController.createAndShowDialog("Select a source before trying to parse!", "No Source Selected");	
 				} else if (filePath == null || filePath.equals("")) {
-					app.getGraphicStudio().createAndShowDialog("Select a file before trying to parse!", "No File Selected");
+					appController.createAndShowDialog("Select a file before trying to parse!", "No File Selected");
 				} else {
-					app.getParsingFacade().changeParser(selectedItem.getSource());
-					generatedTestSuiteTextArea.setText(app.getParsingFacade().parse(filePath));
+					appController.changeParser(selectedItem.getSource());
+					generatedTestSuiteTextArea.setText(appController.parse(filePath));
 				}
 			}
 		});
@@ -86,8 +86,8 @@ public class FileParsingController {
 		});
 	}
 	
-	public void setApp(ArrsttApplication app) {
-		this.app = app;
-		this.fileSourceTableView.setItems(app.getDataHandler().getFileSources());
+	public void setApp(ModulesController appFacade) {
+		this.appController = appFacade;
+		this.fileSourceTableView.setItems(appFacade.getFileSources());
 	}
 }

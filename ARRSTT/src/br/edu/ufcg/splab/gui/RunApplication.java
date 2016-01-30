@@ -10,7 +10,7 @@ public class RunApplication extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		ArrsttApplication app = new ArrsttApplication();
+		ModulesController app = new ModulesController();
 		app.initialize();
 	}
 }

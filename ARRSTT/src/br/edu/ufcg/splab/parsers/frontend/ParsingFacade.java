@@ -8,10 +8,6 @@ import br.edu.ufcg.splab.parsers.EvosuiteParser;
 public class ParsingFacade {
 	private ParseController controller;
 	
-	public ParsingFacade(Parser parser) {
-		
-	}
-	
 	public ParsingFacade() {
 		this.controller = new ParseController();
 	}
