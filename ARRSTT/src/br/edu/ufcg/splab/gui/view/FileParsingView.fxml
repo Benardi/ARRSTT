@@ -16,7 +16,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="fileSourceTableView" layoutX="18.0" layoutY="50.0" prefHeight="484.0" prefWidth="235.0" styleClass="default-table-view" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+                  <TableView fx:id="fileSourceTableView" layoutX="18.0" layoutY="50.0" prefHeight="484.0" prefWidth="235.0" styleClass="default-table-view" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="5.0">
                     <columns>
                       <TableColumn fx:id="fileSourceTableColumn" prefWidth="75.0" styleClass="table_view_column" text="File Source" />
                     </columns>
@@ -29,13 +29,13 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="openFileButton" layoutX="424.0" layoutY="494.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="119.0" styleClass="open-file" text="Open File..." AnchorPane.rightAnchor="14.0" />
-                  <TextArea fx:id="generatedTestSuiteTextArea" editable="false" layoutX="16.0" layoutY="37.0" prefHeight="422.0" prefWidth="526.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="15.0" />
+                  <Button fx:id="openFileButton" layoutX="424.0" layoutY="494.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="119.0" styleClass="open-file" text="Open File..." AnchorPane.rightAnchor="4.0" />
+                  <TextArea fx:id="generatedTestSuiteTextArea" editable="false" layoutX="16.0" layoutY="37.0" prefHeight="422.0" prefWidth="526.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="4.0" />
                   <Label layoutX="16.0" layoutY="14.0" text="Generated Test Suite:" />
-                  <TextField fx:id="filePathTextField" editable="false" layoutX="14.0" layoutY="495.0" prefHeight="32.0" prefWidth="405.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="138.0" />
+                  <TextField fx:id="filePathTextField" editable="false" layoutX="14.0" layoutY="495.0" prefHeight="32.0" prefWidth="405.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="130.0" />
                   <Label layoutX="16.0" layoutY="475.0" text="File Path:" />
-                  <Button fx:id="outputButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="132.0" styleClass="common-button" text="Output Folder" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
-                  <Button fx:id="parseButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="119.0" styleClass="common-button" text="Parse" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                  <Button fx:id="outputButton" layoutX="16.0" layoutY="535.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="132.0" styleClass="common-button" text="Output Folder" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="16.0" />
+                  <Button fx:id="parseButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="119.0" styleClass="common-button" text="Parse" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="4.0" />
                </children>
             </AnchorPane>
         </items>

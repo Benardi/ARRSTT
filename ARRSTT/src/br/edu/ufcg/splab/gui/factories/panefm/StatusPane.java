@@ -1,26 +1,18 @@
-package br.edu.ufcg.splab.gui.factories.scenefm;
+package br.edu.ufcg.splab.gui.factories.panefm;
 
 import java.io.IOException;
 import java.net.URL;
 
-import br.edu.ufcg.splab.gui.ArrsttApplication;
 import br.edu.ufcg.splab.gui.exceptions.screen.SceneLoadingException;
 import br.edu.ufcg.splab.gui.view.FileParsingController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
-public class ParseSceneBuilder implements SceneBuilder {
-	public static final URL LOCATION = FileParsingController.class.getResource("FileParsingView.fxml");
+public class StatusPane implements PaneBuilder {
+	public static final URL LOCATION = FileParsingController.class.getResource("StatusView.fxml");
 	
-	private ArrsttApplication application;
-	
-	public ParseSceneBuilder(ArrsttApplication application) {
-		this.application = application;
-	}
-
 	@Override
-	public Scene createScene() {
+	public Pane createPane() {
 		Pane pane = null;
 		
 		try {
@@ -28,8 +20,8 @@ public class ParseSceneBuilder implements SceneBuilder {
 			loader.setLocation(LOCATION);
 		
 			pane = loader.load();
-			FileParsingController controller = loader.getController();
-			controller.setApp(this.application);
+			//FileParsingController controller = loader.getController();
+			//controller.setApp(this.application);
 		} catch(IOException e) {
 			throw new SceneLoadingException("Exception while trying to "
 											+ "create scene");
@@ -38,7 +30,7 @@ public class ParseSceneBuilder implements SceneBuilder {
 		if (pane == null) throw new SceneLoadingException("Exception while trying to "
 															+ "load a pane to the scene");
 
-		return new Scene(pane, 800, 600); 
+		return pane;
 	}
 
 }
