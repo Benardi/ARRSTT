@@ -17,7 +17,7 @@ public class ParsingFacade {
 	}
 	
 	public void changeParser(String parserStr) {
-		if (parserStr.equals("evosuite")) {
+		if (parserStr.equalsIgnoreCase("evosuite")) {
 			controller.setParser(new EvosuiteParser());
 		}
 	}
