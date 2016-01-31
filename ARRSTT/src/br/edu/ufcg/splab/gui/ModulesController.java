@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Iterator;
 
 import br.edu.ufcg.splab.gui.datahandler.DataHandler;
-import br.edu.ufcg.splab.gui.factories.commonfactories.SceneFactory;
 import br.edu.ufcg.splab.gui.graphic.GraphicStudio;
 import br.edu.ufcg.splab.gui.model.FileSource;
 import br.edu.ufcg.splab.parsers.frontend.ParsingFacade;
@@ -28,10 +27,6 @@ public class ModulesController {
 	public void initialize() {
 		this.gStudio.placeRootPane();
 		this.gStudio.placeParsePane();
-		//PaneBuilder[] builders = {new ParsePane(this), new MenuPane(), new StatusPane()};
-		//String[] positions = {BorderLayout.CENTER, BorderLayout.NORTH, BorderLayout.SOUTH};
-		
-		//this.gStudio.mainStageScene(sceneFactory.createScene(new RootPane(builders, positions).createPane(), 800, 650));
 		this.gStudio.showMainStage();
 	}
 	
