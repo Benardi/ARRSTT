@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-   <children>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufcg.splab.gui.view.ExperimentSetupController">
+    <children>
       <SplitPane dividerPositions="0.3032581453634085" layoutX="235.0" layoutY="128.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="18.0" layoutY="48.0" prefHeight="598.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView layoutX="18.0" layoutY="48.0" prefHeight="598.0" prefWidth="396.0" styleClass="default-table-view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Operation" />
                     </columns>
@@ -30,10 +30,14 @@
                       <TitledPane animated="false" prefHeight="447.0" prefWidth="263.0" text="untitled 2" />
                     </panes>
                   </Accordion>
-                  <Label layoutX="6.0" layoutY="14.0" text="Experiment Setup" />
+                  <Label layoutX="6.0" layoutY="14.0" text="Experiment Settings:" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
    </children>
+   <stylesheets>
+      <URL value="@style/uicontrols_1.css" />
+      <URL value="@style/base_theme.css" />
+   </stylesheets>
 </AnchorPane>

@@ -10,7 +10,7 @@ public class FileSource {
 		this.source = new SimpleStringProperty(source);
 	}
 	
-	public StringProperty getStringProperty() {
+	public StringProperty getSourceProperty() {
 		return this.source;
 	}
 	

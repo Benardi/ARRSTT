@@ -28,7 +28,7 @@ public class ParsePane implements PaneBuilder {
 		
 			pane = loader.load();
 			FileParsingController controller = loader.getController();
-			controller.setApp(this.application);
+			controller.setController(this.application);
 		} catch(IOException e) {
 			throw new SceneLoadingException("Exception while trying to "
 											+ "create scene");
