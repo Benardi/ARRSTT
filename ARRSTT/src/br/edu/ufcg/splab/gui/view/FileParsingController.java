@@ -79,15 +79,25 @@ public class FileParsingController {
 				try {
 					Desktop.getDesktop().open(new File("C:\\"));
 				} catch(IOException e) {
-					e.printStackTrace();
+					appController.createAndShowDialog("Directory can not be open or do not exist.", "Directory Error");
 				}
+			}
+			
+		});
+		
+		this.setupExperimentButton.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				appController.setCenterToExperimental();
 			}
 			
 		});
 	}
 	
-	public void setApp(ModulesController appFacade) {
-		this.appController = appFacade;
-		this.fileSourceTableView.setItems(appFacade.getFileSources());
+	public void setController(ModulesController appController) {
+		System.out.println(appController);
+		this.appController = appController;
+		this.fileSourceTableView.setItems(this.appController.getFileSources());
 	}
 }
