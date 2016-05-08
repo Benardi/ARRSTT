@@ -1,6 +1,7 @@
 package br.edu.ufcg.splab.experiment_hierarchy;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +19,20 @@ import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.Minimizati
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
+import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
+	public static final String LINE_END = System.getProperty("line.separator");
 	private DVCFactory dvcFactory;
 	
 	public ExperimentFactory(){
@@ -80,6 +84,7 @@ public class ExperimentFactory {
 			maskedGraphs.add(masker.mask(graph, MASK_PERCENTAGE));
 		}
 		
+		putGraphsInformationInFile(maskedGraphs);
 		
 		List<TestSuite> testSuites = new ArrayList<TestSuite>();
 		
@@ -91,6 +96,33 @@ public class ExperimentFactory {
 		return testSuites;
 	}
 	
+	//I AM HERE
+	private void putGraphsInformationInFile(List<InterfaceGraph> maskedGraphs) {
+		int errorAmount;
+		StringBuffer information = new StringBuffer();
+		String defectiveLabel = "ERROR";
+		for(InterfaceGraph g : maskedGraphs){
+			errorAmount = 0;
+			for(InterfaceEdge edge : g.getEdges()){
+				if(edge.getLabel().equals(defectiveLabel)){
+					errorAmount++;
+				}
+			}
+			information.append(errorAmount + " ");
+		}
+		information.append(LINE_END);
+		
+		//put to file
+		try {
+			ExperimentFile file = new ExperimentFile("Graphs Defects Information");
+			file.appendContent(information);
+			file.save();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 	private List<TestSuite> loadGraphsWithoutMasking() throws Exception {
 		List<InterfaceGraph> allGraphs = new ArrayList<>();
 		File[] folder = new File("input_examples/").listFiles();
