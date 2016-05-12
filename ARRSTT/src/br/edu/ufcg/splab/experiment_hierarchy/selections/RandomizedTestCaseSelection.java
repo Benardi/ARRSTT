@@ -29,6 +29,7 @@ public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 	@Override
 	public TestSuite select(TestSuite testSuite, Double percentage) {
 		int howMany = getAmountOfTestCases(testSuite, percentage);
+		
 		TestSuite helper = new TestSuite();
 		helper.addAll(testSuite);
 		TestSuite chosen = new TestSuite();

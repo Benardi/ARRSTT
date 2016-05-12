@@ -29,6 +29,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
 import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
+import br.edu.ufcg.splab.graph_hierarchy.parser.WriteTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
@@ -101,8 +102,22 @@ public class ExperimentFactory {
 		int errorAmount;
 		StringBuffer information = new StringBuffer();
 		String defectiveLabel = "ERROR";
+		int counter = 0;
+		
 		for(InterfaceGraph g : maskedGraphs){
 			errorAmount = 0;
+			
+			// Write TGF of Graph
+			WriteTGF writer = new WriteTGF();
+			
+			try {
+				writer.putInTGF(g, counter + "");
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+			
+			counter++;
+			
 			for(InterfaceEdge edge : g.getEdges()){
 				if(edge.getLabel().equals(defectiveLabel)){
 					errorAmount++;
@@ -117,6 +132,8 @@ public class ExperimentFactory {
 			ExperimentFile file = new ExperimentFile("Graphs Defects Information");
 			file.appendContent(information);
 			file.save();
+			
+			
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

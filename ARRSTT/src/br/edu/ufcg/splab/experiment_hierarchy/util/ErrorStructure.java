@@ -83,6 +83,8 @@ public class ErrorStructure {
 	    Iterator<TestCase> keysIt = keys.iterator();
 	    Set<InterfaceEdge> defectiveEdges = new HashSet<InterfaceEdge>();
 	    
+	    
+	    
 	    while (keysIt.hasNext()) {
 	    	TestCase iteratingTestCase = keysIt.next();
 	    	
