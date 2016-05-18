@@ -28,6 +28,9 @@ public class TestCase implements List<InterfaceEdge> {
 	 * The list of edges
 	 */
 	private List<InterfaceEdge> tCase;
+	
+	private String name;
+	private String id;
 
 	/**
 	 * * <b>Objective:</b> Enable the construction of and object from this
@@ -43,6 +46,8 @@ public class TestCase implements List<InterfaceEdge> {
 	 */
 	public TestCase(List<InterfaceEdge> tCase) {
 		this.tCase = tCase;
+		this.name = "Noname";
+		this.id = "Noname";
 	}
 
 	/**
@@ -55,6 +60,8 @@ public class TestCase implements List<InterfaceEdge> {
 	 */
 	public TestCase(TestCase tCaseCopy) {
 		this.tCase = tCaseCopy.getTestCaseCopy();
+		this.name = "Noname";
+		this.id = "Noname";
 	}
 
 	/**
@@ -62,6 +69,14 @@ public class TestCase implements List<InterfaceEdge> {
 	 */
 	public TestCase() {
 		this(new ArrayList<InterfaceEdge>());
+		this.name = "Noname";
+		this.id = "Noname";
+	}
+	
+	public TestCase(String id, String name){
+		this(new ArrayList<InterfaceEdge>());
+		this.name = name;
+		this.id = id;
 	}
 
 	/**
@@ -139,6 +154,11 @@ public class TestCase implements List<InterfaceEdge> {
 
 	@Override
 	public boolean add(InterfaceEdge e) {
+		return tCase.add(e);
+	}
+	
+	
+	public boolean addEdge(InterfaceEdge e) {
 		return tCase.add(e);
 	}
 

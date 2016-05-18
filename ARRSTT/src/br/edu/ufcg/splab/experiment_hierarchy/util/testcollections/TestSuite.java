@@ -25,6 +25,8 @@ public class TestSuite implements List<TestCase> {
 	 * The list of TestCases.
 	 */
 	private List<TestCase> tSuite;
+	
+	private String id;
 
 	/**
 	 * <b>Objective:</b> Enable the construction of and object from this class. <br>
@@ -39,6 +41,7 @@ public class TestSuite implements List<TestCase> {
 	 */
 	public TestSuite(List<TestCase> tSuite) {
 		this.tSuite = tSuite;
+		id = "Noname";
 	}
 
 	/**
@@ -52,6 +55,7 @@ public class TestSuite implements List<TestCase> {
 	 */
 	public TestSuite(TestSuite tSuiteCopy) {
 		this.tSuite = tSuiteCopy.getTestSuiteCopy();
+		id = "Noname";
 	}
 
 	/**
@@ -59,6 +63,12 @@ public class TestSuite implements List<TestCase> {
 	 */
 	public TestSuite() {
 		this(new ArrayList<TestCase>());
+		id = "Noname";
+	}
+	
+	public TestSuite(String id){
+		this(new ArrayList<TestCase>());
+		this.id = id;
 	}
 
 	/**
