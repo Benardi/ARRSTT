@@ -1,33 +1,28 @@
 package br.edu.ufcg.splab.gambiarra;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import br.edu.ufcg.splab.exceptions.ParseException;
-import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
+
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
-public class dataGatherer {
-	private XMLParser parser;
+public class DataGatherer {
 	private List<TestSuite> tsList;
 	
-	public dataGatherer(){
-		this.parser = new XMLParser();
+	public DataGatherer(List<TestSuite> tsList){
 		this.tsList = new ArrayList<>();
+		this.tsList = tsList;
 	}
 	
-	/*
-	 * I think we need to update our TestSuite. I don't think our TS can have another TS inside it.
-	 * But we can also get Joao's Test Suite class as adapt it.
-	 */
-	public void loadSuites(String filePath) throws ParseException, IOException{
-		tsList = parser.read(filePath);
+	public void setTsList(List<TestSuite> tsList){
+		this.tsList = tsList;
 	}
+	
+	
 	
 	// - quantidade de test suites
 	public int getTestSuiteQuantity(){
