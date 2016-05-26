@@ -20,16 +20,6 @@ import br.edu.ufcg.splab.graph_hierarchy.core.edges.Transition;
 import br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph_hierarchy.core.vertex.Vertex;
 
-/*
- * import br.edu.ufcg.splab.core.InterfaceEdge;
-import br.edu.ufcg.splab.core.InterfaceVertex;
-import br.edu.ufcg.splab.core.edges.Edge;
-import br.edu.ufcg.splab.core.edges.EdgeType;
-import br.edu.ufcg.splab.core.vertex.Vertex;
-import br.edu.ufcg.splab.exceptions.ParseException;
-import br.edu.ufcg.splab.generator.TestCase;
-import br.edu.ufcg.splab.generator.TestSuite;
- */
 
 public class XMLParser {
 	/**
