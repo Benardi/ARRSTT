@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ARRSTT/evosuite-tests"/>
+	<classpathentry kind="src" path="ARRSTT/src"/>
+	<classpathentry kind="lib" path="ARRSTT/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="ARRSTT/lib/jdom-2.0.6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
