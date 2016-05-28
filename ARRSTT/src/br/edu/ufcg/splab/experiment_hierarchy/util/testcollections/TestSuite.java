@@ -111,6 +111,10 @@ public class TestSuite implements List<TestCase> {
 		List<TestCase> copyList = new ArrayList<TestCase>(tSuite);
 		return new TestSuite(copyList);
 	}
+	
+	public String getID(){
+		return id;
+	}
 
 	@Override
 	public int size() {
