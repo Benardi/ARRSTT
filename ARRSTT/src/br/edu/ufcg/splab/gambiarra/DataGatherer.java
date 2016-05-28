@@ -97,15 +97,19 @@ public class DataGatherer {
 		int howRedudant = 0;
 		for (int i = 0; i < tsList.size(); i++) {
 			TestSuite tsSuite = tsList.get(i);
-			Map<String, Integer> map = this.getTransitionsOccurence(tsSuite);
+			Map<String, Integer> map = this.getTransitionsOccurrence(tsSuite);
 			for (int j = 0; j < tsSuite.size(); j++) {
 				TestCase tsCase = tsSuite.get(j);
 				List<InterfaceEdge> transitions = tsCase.getTestCase();
 				for (int z = 0; z < transitions.size(); z++) {
 					InterfaceEdge thisOne = transitions.get(z);
 					int value = map.get(thisOne.getLabel());
-					if (value >= 0) {
-						howRedudant += value;
+					/*
+					 * Iaron aqui: Alterei o valor abaixo pra 1, e fiz howRedundant += value -1
+					 * Fiz isso pois só é redundante quando ele aparece mais de uma vez
+					 */
+					if (value >= 1) {
+						howRedudant += value - 1;
 					}
 				}
 
@@ -115,7 +119,7 @@ public class DataGatherer {
 	}
 
 	public void getRedundance() {
-
+			
 	}
 
 	public InterfaceEdge getTotalMostRepeatedTransition() {
@@ -123,7 +127,7 @@ public class DataGatherer {
 
 		for (int i = 0; i < this.tsList.size(); i++) {
 			TestSuite tsSuite = tsList.get(i);
-			Map<String, Integer> map = this.getTransitionsOccurence(tsSuite);
+			Map<String, Integer> map = this.getTransitionsOccurrence(tsSuite);
 			for (int j = 0; j < tsSuite.size(); j++) {
 				TestCase tsCase = tsSuite.get(j);
 				List<InterfaceEdge> transitions = tsCase.getTestCase();
@@ -142,7 +146,7 @@ public class DataGatherer {
 	}
 
 	public InterfaceEdge getMostRepeatedTransition(TestSuite ts) {
-		Map<String, Integer> map = this.getTransitionsOccurence(ts);
+		Map<String, Integer> map = this.getTransitionsOccurrence(ts);
 		InterfaceEdge mostRepeated = null;
 
 			for (int i = 0; i < ts.size(); i++) {
@@ -166,7 +170,7 @@ public class DataGatherer {
 		Map<String, Integer> theMap = new HashMap<>();
 		for (int i = 0; i < this.tsList.size(); i++) {
 			TestSuite ts = tsList.get(i);
-			Map<String, Integer> map = this.getTransitionsOccurence(ts);
+			Map<String, Integer> map = this.getTransitionsOccurrence(ts);
 			InterfaceEdge edge= this.getMostRepeatedTransition(ts);
 			theMap.put(edge.getLabel(),map.get(edge.getLabel()));
 
@@ -174,7 +178,7 @@ public class DataGatherer {
 		return theMap;
 	}
 
-	private Map<String, Integer> getTransitionsOccurence(TestSuite ts) {
+	public Map<String, Integer> getTransitionsOccurrence(TestSuite ts) {
 		Map<String, Integer> map = new HashMap<>();
 		List<TestCase> tcList = ts.getTestSuite();
 		int aux;
