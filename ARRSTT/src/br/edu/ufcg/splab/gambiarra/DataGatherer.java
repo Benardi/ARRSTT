@@ -13,7 +13,6 @@ public class DataGatherer {
 	private List<TestSuite> tsList;
 
 	public DataGatherer(List<TestSuite> tsList) {
-		this.tsList = new ArrayList<>();
 		this.tsList = tsList;
 	}
 
@@ -118,8 +117,26 @@ public class DataGatherer {
 		return howRedudant;
 	}
 
-	public void getRedundance() {
-			
+	public int getRedundance(TestSuite ts) {
+		int howRedudant = 0;
+			Map<String, Integer> map = this.getTransitionsOccurrence(ts);
+			for (int j = 0; j < ts.size(); j++) {
+				TestCase tsCase = ts.get(j);
+				List<InterfaceEdge> transitions = tsCase.getTestCase();
+				for (int z = 0; z < transitions.size(); z++) {
+					InterfaceEdge thisOne = transitions.get(z);
+					int value = map.get(thisOne.getLabel());
+					/*
+					 * Iaron aqui: Alterei o valor abaixo pra 1, e fiz howRedundant += value -1
+					 * Fiz isso pois so eh redundante quando ele aparece mais de uma vez
+					 */
+					if (value >= 1) {
+						howRedudant += value - 1;
+					}
+				}
+			}
+		
+		return howRedudant;
 	}
 
 	public InterfaceEdge getTotalMostRepeatedTransition() {
@@ -183,7 +200,7 @@ public class DataGatherer {
 		List<TestCase> tcList = ts.getTestSuite();
 		int aux;
 		for (TestCase tc : tcList) {
-			for (InterfaceEdge edge : tc) {
+			for (InterfaceEdge edge : tc.getTestCase()) {
 				if (map.containsKey(edge.getLabel())) {
 					aux = map.get(edge.getLabel());
 					map.put(edge.getLabel(), aux + 1);

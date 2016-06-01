@@ -22,7 +22,7 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
  * class.
  *
  */
-public class TestCase implements List<InterfaceEdge> {
+public class TestCase {
 
 	/**
 	 * The list of edges
