@@ -19,7 +19,7 @@ import java.util.ListIterator;
  * selection classes.
  *
  */
-public class TestSuite implements List<TestCase> {
+public class TestSuite {
 
 	/**
 	 * The list of TestCases.
