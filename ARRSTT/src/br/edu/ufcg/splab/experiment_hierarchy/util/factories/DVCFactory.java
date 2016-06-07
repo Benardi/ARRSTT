@@ -3,12 +3,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectiveEdgesCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectsCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTFailuresCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTReductionPercentageCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.*;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
 
 /*
@@ -45,6 +40,12 @@ public class DVCFactory {
 			return new ARRSTTFailuresCollector();
 		} else if (type == DVCType.SIZE) {
 			return new ARRSTTSizeCollector();
+		} else if (type == DVCType.MEDIA_MAX_MIN){
+			return new ARRSTTMediaMaxMin();
+		} else if (type == DVCType.MOST_REPEATED_TRANSITION){
+			return new ARRSTTMostRepeatedTransitionCollector();
+		} else if(type == DVCType.REDUNDANCE){
+			return new ARRSTTRedundanceCollector();
 		} else {
 			return null;
 		}
