@@ -12,6 +12,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.GenerationSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.MinimizationSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NoneSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.SelectionSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.maskarators.InterfaceGraphMaskarator;
 import br.edu.ufcg.splab.experiment_hierarchy.maskarators.RandomMasker;
@@ -64,6 +65,14 @@ public class ExperimentFactory {
 		InterfaceSetup setup = new MinimizationSetup(testSuites, minimizationAlgorithms, builder);
 		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		
+		return new Experiment(setup, runner);
+	}
+	
+	public Experiment buildNone(List<DVCType> dvcTypes) throws Exception{
+		List<TestSuite> testSuites = loadGraphsWithoutMasking(); // may change
+		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
+		InterfaceSetup setup = new NoneSetup(testSuites);
+		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		return new Experiment(setup, runner);
 	}
 	
