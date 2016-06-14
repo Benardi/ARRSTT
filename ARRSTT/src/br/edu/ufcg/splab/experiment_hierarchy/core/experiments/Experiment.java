@@ -1,5 +1,8 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.experiments;
 
+import java.util.List;
+
+import br.edu.ufcg.splab.experiment_hierarchy.core.runners.DefaultRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
 /*
@@ -35,5 +38,16 @@ public class Experiment {
 	 */
 	public void execute() {
 		runner.runExperiment(setup.getIndependentVariables());
+	}
+	
+	
+	public String[] getDvcData() {
+		DefaultRunner defaultRunner = (DefaultRunner) runner;
+		return defaultRunner.getStringBuffers();
+	}
+	
+	public String[] getBenchmarkData() {
+		DefaultRunner defaultRunner = (DefaultRunner) runner;
+		return defaultRunner.getStringBuffers();
 	}
 }

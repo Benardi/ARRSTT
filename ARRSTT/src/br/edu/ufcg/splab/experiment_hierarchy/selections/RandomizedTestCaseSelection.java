@@ -31,7 +31,7 @@ public class RandomizedTestCaseSelection implements InterfaceTestCaseSelector {
 		int howMany = getAmountOfTestCases(testSuite, percentage);
 		
 		TestSuite helper = new TestSuite();
-		helper.addAll(testSuite);
+		helper.addAll(testSuite.getTestSuite());
 		TestSuite chosen = new TestSuite();
 
 		while (chosen.size() < howMany) {

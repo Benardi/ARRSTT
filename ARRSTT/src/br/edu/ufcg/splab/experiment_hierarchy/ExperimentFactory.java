@@ -50,16 +50,15 @@ public class ExperimentFactory {
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildSelection(List<SelectionType> selectionAlgorithms, double selectionPercentage, List<DVCType> dvcTypes) throws Exception {
+	public Experiment buildSelection(List<TestSuite> testSuites, List<SelectionType> selectionAlgorithms, double selectionPercentage, List<DVCType> dvcTypes) throws Exception {
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
-		InterfaceSetup setup = new SelectionSetup(loadGraphs(), selectionPercentage, selectionAlgorithms);
-		InterfaceRunner runner = new DefaultRunner(collectors, loadGraphs().size());
+		InterfaceSetup setup = new SelectionSetup(testSuites, selectionPercentage, selectionAlgorithms);
+		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildMinimization(List<MinimizationType> minimizationAlgorithms, ReqBuilderType builder, List<DVCType> dvcTypes) throws Exception{
-		List<TestSuite> testSuites = loadGraphsWithoutMasking();
+	public Experiment buildMinimization(List<TestSuite> testSuites, List<MinimizationType> minimizationAlgorithms, ReqBuilderType builder, List<DVCType> dvcTypes) throws Exception{
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		
 		InterfaceSetup setup = new MinimizationSetup(testSuites, minimizationAlgorithms, builder);
@@ -68,16 +67,14 @@ public class ExperimentFactory {
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildNone(List<DVCType> dvcTypes) throws Exception{
-		List<TestSuite> testSuites = loadGraphsWithoutMasking(); // may change
+	public Experiment buildNone(List<TestSuite> testSuites, List<DVCType> dvcTypes) throws Exception{
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		InterfaceSetup setup = new NoneSetup(testSuites);
 		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		return new Experiment(setup, runner);
 	}
 	
-	//vai pro controller
-	private List<TestSuite> loadGraphs() throws Exception {
+	/*private List<TestSuite> loadGraphs() throws Exception {
 		List<InterfaceGraph> allGraphs = new ArrayList<>();
 		File[] folder = new File("input_examples/").listFiles();
 		ReadTGF tgfReader = new ReadTGF();
@@ -167,5 +164,5 @@ public class ExperimentFactory {
 		}
 		
 		return testSuites;
-	}
+	}*/
 }

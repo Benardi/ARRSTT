@@ -1,9 +1,5 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.runners;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +7,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.InterfaceBenchma
 import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.TimeBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
-import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
@@ -87,7 +82,7 @@ public class DefaultRunner implements InterfaceRunner {
 				startBenchmarks();
 				TestSuite resultingTestSuite = combinations.get(j).get(0).execute();
 				//endBenchmarks(i);
-				
+				System.out.println(dvcs);
 				stringBuffers.get(i).append(dvcs.get(i).collect(resultingTestSuite) + "\t");
 				if (!haveBenchmarked) {
 					benchmarkBuffers.get(i).append(benchmarks.get(i).endBenchmark() + "\t");
@@ -102,8 +97,6 @@ public class DefaultRunner implements InterfaceRunner {
 			}				
 			haveBenchmarked = true;
 		}
-		
-		saveBuffers();
 	}
 	
 	private void createBenchmarks() {
@@ -128,15 +121,38 @@ public class DefaultRunner implements InterfaceRunner {
 	 * @return The StringBuffers containing the execution's
 	 * data.
 	 */
-	public List<StringBuffer> getStringBuffers() {
-		return stringBuffers;
+	public String[] getStringBuffers() {
+		List<String> strings = new ArrayList<String>();
+		
+		for (StringBuffer stringBuffer : stringBuffers) {
+			strings.add(stringBuffer.toString());
+		}
+		
+		String[] stringsArray = new String[strings.size()];
+		
+		for (int i = 0; i < stringsArray.length; i++) {
+			stringsArray[i] = strings.get(i);
+		}
+		
+		return stringsArray;
+	}
+	
+	public String[] getBenchmarkBuffers() {
+		List<String> strings = new ArrayList<String>();
+		
+		for (StringBuffer stringBuffer : benchmarkBuffers) {
+			strings.add(stringBuffer.toString());
+		}
+		
+		return (String[]) strings.toArray();
 	}
 	
 	/**
 	 * <b>Objective:</b> Save the StringBuffer's data in a file.
 	 */
-	public void saveBuffers() {
-		String dirName = createDirectory();		
+	/*public void saveBuffers() {
+		String dirName = createDirectory();
+		
 		for (int i = 0; i < stringBuffers.size(); i++) {
 			try {
 				ExperimentFile file = new ExperimentFile(dirName + "/" + dvcs.get(i).toString());
@@ -168,5 +184,5 @@ public class DefaultRunner implements InterfaceRunner {
 			System.out.println("FAILURE TO CREATE THE DIRECTORY");
 		}
 		return dirName;
-	}
+	}*/
 }

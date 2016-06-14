@@ -1,38 +1,74 @@
 package br.edu.ufcg.splab.experiment_hierarchy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.io.File;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
+import br.edu.ufcg.splab.experiment_hierarchy.facade.ARRSTTFacade;
 
 public class Main {
-
+	private static ARRSTTFacade facade;
+	
+	/*
+	 *  DVCs:
+	 * "DEFECTIVE_EDGES"
+	 * "DEFECTS"
+	 * "FAILURES"
+	 * "SIZE"
+	 * "TIME" -> DO NOT USE IT YET
+	 * "REDUCTION"
+	 * "MEDIA_MAX_MIN"
+	 * "MOST_REPEATED_TRANSITION"
+	 * "REDUNDANCE"
+	 * 
+	 *  Generation Techniques:
+	 * "BFS"
+	 * "DFS"
+	 *  
+	 *  Selection Techniques:
+	 * "BIGGEST"
+	 * "SIMILARITY"
+	 * "RANDOMIZED"
+	 * 
+	 *   Minimization Techniques:
+	 *  "GREEDY"
+	 *  "GREEDY_ESSENCIAL"
+	 *  "GREEDY_ESSENCIAL_REDUNDANT"
+	 *  "HARROLD";
+	 * 
+	 */
 	public static void main(String[] args) throws Exception {
-		ExperimentFactory factory = new ExperimentFactory();
-		try {
-			//int[] loopCoverages = { 1, 4, 7 };
-			//GenerationType[] generationAlgorithms = {GenerationType.BFS, GenerationType.DFS};
-			//Experiment experiment = factory.buildGeneration(loopCoverages, generationAlgorithms);
-			//experiment.execute();
-			
-			//SelectionType[] selectionAlgorithms = {SelectionType.BIGGEST, SelectionType.SIMILARITY, SelectionType.RANDOMIZED};
-			List<SelectionType> selectionTechniques = new ArrayList<SelectionType>();
-			selectionTechniques.add(SelectionType.BIGGEST);
-			selectionTechniques.add(SelectionType.SIMILARITY);
-			selectionTechniques.add(SelectionType.RANDOMIZED);
-			
-			DVCType[] dvcs = {DVCType.FAILURES, DVCType.DEFECTS, DVCType.DEFECTIVE_EDGES, DVCType.SIZE};
-			List<DVCType> dvcsForSelection = new ArrayList<DVCType>(Arrays.asList(dvcs));
-			
-			
-			Experiment experiment = factory.buildSelection(selectionTechniques, 1, dvcsForSelection);
-			experiment.execute();
-		} catch(Exception e) {
-			e.printStackTrace();
+		facade = new ARRSTTFacade();
+		
+		experiment1();
+	}
+	
+	public static void experiment1() {
+		String[] artifacts = {"input_examples\\iaron_easytoy1.tgf"};
+		String[] techniques = {"BIGGEST", "SIMILARITY"};
+		String[] dvcs = {"SIZE", "FAILURES"};
+		
+		facade.setOutputFolder("experiment_results/");
+		facade.setArtifacts(artifacts);
+		
+		facade.setupSelectionExperiment(techniques, dvcs, 0.9);
+		facade.execute(dvcs);
+	}
+	
+	public static void experiment2() {
+		String[] techniques = {"BIGGEST", "SIMILARITY"};
+		String[] dvcs = {"SIZE", "FAILURES"};
+		
+		facade.setOutputFolder("experiment_results/");
+		facade.setArtifacts(directoryToPath(new File("input_examples/")));
+		
+		facade.setupSelectionExperiment(techniques, dvcs, 0.9);
+		facade.execute(dvcs);
+	}
+	
+	private static File[] directoryToPath(File file) {
+		if (file.isDirectory()) {
+			return file.listFiles();
+		} else {
+			throw new RuntimeException("Given file is not a directory");
 		}
 	}
 }
