@@ -210,7 +210,7 @@ public class BreadthFirstSearch implements InterfaceSearch {
 	 * end with a leaf.
 	 */
 	private void cleanTestSuite() {
-		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite);
+		List<TestCase> testSuiteCopy = new ArrayList<TestCase>(testSuite.getTestSuite());
 
 		for (TestCase e : testSuiteCopy) {
 			if (!e.get(e.size() - 1).getTo().isLeaf()) {

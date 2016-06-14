@@ -1,6 +1,6 @@
 package br.edu.ufcg.splab.experiment_hierarchy.facade;
 
-import java.util.List;
+import java.io.File;
 
 /*
  * Change														Author				Date
@@ -10,8 +10,41 @@ import java.util.List;
  */
 
 public class ARRSTTFacade {
-	public void execute(List<List<String>> inputs) throws Exception {
-		ARRSTTController controller = new ARRSTTController();
-		controller.execute(inputs);
+	private ARRSTTController controller;
+	
+	public ARRSTTFacade() {
+		this.controller = new ARRSTTController();
+	}
+	
+	public void setArtifacts(String[] paths) {
+		controller.setArtifacts(paths);
+	}
+	
+	public void setArtifacts(File[] files) {
+		controller.setArtifacts(files);
+	}
+	
+	public void setupGenerationExperiment(String[] techniques, String[] dvcs, Integer[] loopCoverages) {
+		controller.setupGenerationExperiment(techniques, dvcs, loopCoverages);
+	}
+	
+	public void setupSelectionExperiment(String[] techniques, String[] dvcs, double selPercentage) {
+		controller.setupSelectionExperiment(techniques, dvcs, selPercentage);
+	}
+	
+	public void setupMinimizationExperiment(String[] techniques, String[] dvcs, String coverage) {
+		controller.setupMinimizationExperiment(techniques, dvcs, coverage);
+	}
+	
+	public void setupNoneExperiment(String[] dvcs) {
+		controller.setupNoneExperiment(dvcs);
+	}
+	
+	public void execute(String[] dvcs) {
+		controller.execute(dvcs);
+	}
+	
+	public void setOutputFolder(String path) {
+		controller.setOutputFolder(path);
 	}
 }

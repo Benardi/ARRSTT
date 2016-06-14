@@ -1,7 +1,6 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.testcollections;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -19,7 +18,7 @@ import java.util.ListIterator;
  * selection classes.
  *
  */
-public class TestSuite {
+public class TestSuite implements Iterable<TestCase> {
 
 	/**
 	 * The list of TestCases.
@@ -116,17 +115,14 @@ public class TestSuite {
 		return id;
 	}
 
-	@Override
 	public int size() {
 		return tSuite.size();
 	}
 
-	@Override
 	public boolean isEmpty() {
 		return tSuite.isEmpty();
 	}
 
-	@Override
 	public boolean contains(Object o) {
 		return tSuite.contains(o);
 	}
@@ -136,104 +132,85 @@ public class TestSuite {
 		return tSuite.iterator();
 	}
 
-	@Override
 	public Object[] toArray() {
 		return tSuite.toArray();
 	}
 
-	@Override
 	public <T> T[] toArray(T[] a) {
 		return tSuite.toArray(a);
 	}
 
-	@Override
 	public boolean add(TestCase e) {
 		return tSuite.add(e);
 	}
 
-	@Override
 	public boolean remove(Object o) {
-
 		return tSuite.remove(o);
 	}
 
-	@Override
-	public boolean containsAll(Collection<?> c) {
+	public boolean containsAll(List<TestCase> c) {
 		return tSuite.containsAll(c);
 	}
 
-	@Override
-	public boolean addAll(Collection<? extends TestCase> c) {
+	public boolean addAll(List<TestCase> c) {
 		return tSuite.addAll(c);
 	}
 
-	@Override
-	public boolean addAll(int index, Collection<? extends TestCase> c) {
-		return tSuite.addAll(c);
+	public boolean addAll(int index, List<TestCase> c) {
+		return tSuite.addAll(index, c);
 	}
 
-	@Override
-	public boolean removeAll(Collection<?> c) {
+	public boolean removeAll(List<TestCase> c) {
 		return tSuite.removeAll(c);
 	}
 
-	@Override
-	public boolean retainAll(Collection<?> c) {
+	public boolean retainAll(List<TestCase> c) {
 		return tSuite.retainAll(c);
 	}
 
-	@Override
 	public void clear() {
 		tSuite.clear();
 	}
 
-	@Override
 	public TestCase get(int index) {
 		return tSuite.get(index);
 	}
 
-	@Override
 	public TestCase set(int index, TestCase element) {
 		return tSuite.set(index, element);
 	}
 
-	@Override
 	public void add(int index, TestCase element) {
 		tSuite.add(index, element);
 	}
 
-	@Override
 	public TestCase remove(int index) {
 		return tSuite.remove(index);
 	}
 
-	@Override
 	public int indexOf(Object o) {
 		return tSuite.indexOf(o);
 	}
 
-	@Override
 	public int lastIndexOf(Object o) {
 		return tSuite.lastIndexOf(o);
 	}
 
-	@Override
 	public ListIterator<TestCase> listIterator() {
 		return tSuite.listIterator();
 	}
 
-	@Override
 	public ListIterator<TestCase> listIterator(int index) {
 		return tSuite.listIterator(index);
 	}
 
-	@Override
 	public List<TestCase> subList(int fromIndex, int toIndex) {
 		return tSuite.subList(fromIndex, toIndex);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
+	// GENERATE HASHCODE
+	
+	public boolean equals(Object obj) { // IMPLEMENT THIS AGAIN
 		if (!(obj instanceof TestSuite))
 			return false;
 		TestSuite other = (TestSuite) obj;
