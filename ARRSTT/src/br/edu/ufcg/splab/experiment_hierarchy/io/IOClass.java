@@ -12,17 +12,17 @@ import br.edu.ufcg.splab.exceptions.ParseException;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
-import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
+import br.edu.ufcg.splab.experiment_hierarchy.util.OldXMLParser;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
 import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class IOClass {
-	private XMLParser xmlParser;
+	private OldXMLParser xmlParser;
 	private ReadTGF tgfParser;
 	
 	public IOClass() {
-		this.xmlParser = new XMLParser();
+		this.xmlParser = new OldXMLParser();
 		this.tgfParser = new ReadTGF();
 	}
 	

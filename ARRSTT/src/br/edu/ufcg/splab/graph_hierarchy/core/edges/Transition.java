@@ -43,10 +43,14 @@ public class Transition extends AbstractEdge {
 
 		if (o instanceof Transition) {
 			Transition edge = (Transition) o;
-
-			if (edge.getLabel().equals(this.getLabel())
+			
+			//this was removed so that we could do similarity and minimizations with xml
+			/*if (edge.getLabel().equals(this.getLabel())
 					&& edge.getFrom().equals(this.getFrom())
 					&& edge.getTo().equals(this.getTo())) {
+				retorno = true;
+			}*/
+			if (edge.getLabel().equals(this.getLabel())){
 				retorno = true;
 			}
 		}
