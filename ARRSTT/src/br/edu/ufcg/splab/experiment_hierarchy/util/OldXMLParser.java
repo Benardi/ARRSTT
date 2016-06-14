@@ -20,7 +20,8 @@ import br.edu.ufcg.splab.graph_hierarchy.core.edges.Transition;
 import br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph_hierarchy.core.vertex.Vertex;
 
-public class XMLParser {
+
+public class OldXMLParser {
 	/**
 	 * Holds the counter for the vertexes labels.
 	 */
@@ -54,18 +55,13 @@ public class XMLParser {
 		vertexCounter = 0;
 		
 		Document parsedXML = this.parseXML(filePath);
-		String initialPath = parsedXML.getRootElement().getAttributeValue("name"); 
+		String initialPath = parsedXML.getRootElement().getChildText("name"); 
 		
 		/* The algorithm assumes that there are no "testsuites" tags inside a "testsuites" tag.
 		 and also that all "testsuites" have the root element as parent.*/
-		
-		//comentei a parte de baixo
-		/*for(Element testSuitesTag : parsedXML.getRootElement().getChildren("testsuite")) { 
-			//recursiveRead(initialPath, testSuitesTag);
+		for(Element testSuitesTag : parsedXML.getRootElement().getChildren("testsuites")) { 
 			recursiveRead(initialPath, testSuitesTag);
-		}*/
-		
-		recursiveRead(initialPath, parsedXML.getRootElement());
+		}
 		
 		return result;
 	}
@@ -102,8 +98,7 @@ public class XMLParser {
 				ts.add(createTestCase(testCaseTag));
 			}
 			result.add(ts);
-		} 
-		if(!tag.getChildren("testsuite").isEmpty()) {
+		} else {
 			for (Element testSuiteTag : tag.getChildren("testsuite")) {
 				recursiveRead(id + "/" + testSuiteTag.getAttributeValue("name"), testSuiteTag);
 			}
@@ -117,32 +112,25 @@ public class XMLParser {
 	 * @return The created TestCase.
 	 */
 	private TestCase createTestCase(Element testCaseTag) {
-		//gambiarra
-		InterfaceEdge edge;
-		
 		// Initialize test case.
 		TestCase testCase = new TestCase(testCaseTag.getAttributeValue("internalid"), testCaseTag.getAttributeValue("name"));
 		
 		// Add the precondition to the test case.
 		String preconditions = testCaseTag.getChildText("preconditions");
-		if(preconditions != null){
-			edge = this.createPreconditionsEdge(this.correctTestLinkLabel(preconditions));
-			if(!edge.getLabel().equals("")) testCase.addEdge(edge);
-		}
+		testCase.addEdge(this.createPreconditionsEdge(this.correctTestLinkLabel(preconditions)));
+		
 		// Iteration through the steps.
 	    for (Element testCaseSteps : testCaseTag.getChildren("steps")) {
 	        for (Element testCaseStep : testCaseSteps.getChildren("step")) {
 	        	
 	        	// Add an action edge to the test case.
 	            String actions = testCaseStep.getChildText("actions");
-	            edge = this.createActionsEdge(this.correctTestLinkLabel(actions));
-	            if(!edge.getLabel().equals("")) testCase.addEdge(edge);
+	            testCase.addEdge(this.createActionsEdge(this.correctTestLinkLabel(actions)));
 	            
 	            // Add an expected results to the test case.
 	            if (testCaseStep.getChild("expectedresults") != null) {
 	                String expectedResults = testCaseStep.getChildText("expectedresults");
-	                edge = this.createResultsEdge(this.correctTestLinkLabel(expectedResults));
-	                if(!edge.getLabel().equals("")) testCase.addEdge(edge);
+	                testCase.addEdge(this.createResultsEdge(this.correctTestLinkLabel(expectedResults)));
 	            }
 	        }
 	    }

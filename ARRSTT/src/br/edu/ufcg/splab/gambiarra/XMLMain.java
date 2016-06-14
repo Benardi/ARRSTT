@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
-import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
+import br.edu.ufcg.splab.experiment_hierarchy.util.OldXMLParser;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class XMLMain {
@@ -23,7 +23,7 @@ public class XMLMain {
 	//=============================================================================================
 	// Wesley, eu n completei esse metodo pq n sabia como tu ia testar e a gente ainda n tem os xml
 	private static List<TestSuite> loadTSList() {
-		XMLParser parser = new XMLParser();
+		OldXMLParser parser = new OldXMLParser();
 		// TODO 
 		return null;
 	}

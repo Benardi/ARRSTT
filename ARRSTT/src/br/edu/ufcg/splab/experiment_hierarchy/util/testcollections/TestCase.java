@@ -243,7 +243,7 @@ public class TestCase implements Iterable<InterfaceEdge> {
 
 	@Override
 	public String toString() {
-		return tCase.toString();
+		return "{ID: " + this.id + " NAME: " + this.name + "}" + tCase.toString();
 	}
 
 }
