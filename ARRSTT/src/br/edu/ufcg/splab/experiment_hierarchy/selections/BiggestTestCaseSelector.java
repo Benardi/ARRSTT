@@ -26,7 +26,7 @@ public class BiggestTestCaseSelector implements InterfaceTestCaseSelector {
 	/**
 	 * <b>Objective:</b> Calculate the dimension of the smaller test suite.
 	 * <br>
-	 * <b>Exemple of use:</b> This method is used on the select method to help
+	 * <b>Example of use:</b> This method is used on the select method to help
 	 * build the new test suite.
 	 *
 	 * @param testSuite
@@ -50,10 +50,10 @@ public class BiggestTestCaseSelector implements InterfaceTestCaseSelector {
 	}
 
 	/**
-	 * <b>Objective:</b> Add to one test suite the biggest test cas from another test
+	 * <b>Objective:</b> Add to one test suite the biggest test case from another test
 	 * suite.
 	 * <br>
-	 * <b>Exemple of use:</b> This method is used on the select method to help
+	 * <b>Example of use:</b> This method is used on the select method to help
 	 * build the new test suite.
 	 * 
 	 * @param result
