@@ -11,7 +11,7 @@ public class XMLMain {
 
 	public static void main(String[] args) throws ParseException, IOException {
 		XMLParser parser = new XMLParser();
-		String path = "C:\\Users\\Iaron-PC\\git\\application-of-reproducibility-research-with-software-testing\\ARRSTT\\xmls\\";
+		String path = "xmls\\";
 		List<TestSuite> list1 = parser.read(path + "firstTry.testproject-deep.xml");
 		List<TestSuite> list2 = parser.read(path + "TestSuite1.testsuite-deep.xml");
 		List<TestSuite> list3 = parser.read(path + "Toy4.testsuite-deep.xml");

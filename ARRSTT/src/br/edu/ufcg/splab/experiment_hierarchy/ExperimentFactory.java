@@ -1,77 +1,73 @@
 package br.edu.ufcg.splab.experiment_hierarchy;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TestArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.DefaultRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.GenerationSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.MinimizationSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NoneSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.SelectionSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.maskarators.InterfaceGraphMaskarator;
-import br.edu.ufcg.splab.experiment_hierarchy.maskarators.RandomMasker;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.util.BranchSeparator;
-import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
-import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
-import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceGraph;
-import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
-import br.edu.ufcg.splab.graph_hierarchy.parser.WriteTGF;
 
 public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
 	public static final String LINE_END = System.getProperty("line.separator");
-	private DVCFactory dvcFactory;
 	
 	public ExperimentFactory(){
-		dvcFactory = new DVCFactory();
 	}
 	
-	public Experiment buildGeneration(List<Integer> loopCoverages, List<GenerationType> generationAlgorithms, List<DVCType> dvcTypes) throws Exception {
+	// THIS IS GONNA HAVE TO BE CHANGED A LOT TO WORK.
+	/*public Experiment buildGeneration(List<Integer> loopCoverages, List<GenerationType> generationAlgorithms) throws Exception {
 		BranchSeparator separator = new BranchSeparator();
 		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
 		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors, 6);
 		
 		return new Experiment(setup, runner);
-	}
+	}*/
 	
-	public Experiment buildSelection(List<TestSuite> testSuites, List<SelectionType> selectionAlgorithms, double selectionPercentage, List<DVCType> dvcTypes) throws Exception {
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
+	public Experiment buildSelection(List<TestArtifact> artifacts, List<SelectionType> selectionAlgorithms, double selectionPercentage) throws Exception {
+		List<TestSuite> testSuites = suiteList(artifacts);
 		InterfaceSetup setup = new SelectionSetup(testSuites, selectionPercentage, selectionAlgorithms);
 		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildMinimization(List<TestSuite> testSuites, List<MinimizationType> minimizationAlgorithms, ReqBuilderType builder, List<DVCType> dvcTypes) throws Exception{
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
-		
+	public Experiment buildMinimization(List<TestArtifact> artifacts, List<MinimizationType> minimizationAlgorithms, ReqBuilderType builder) throws Exception{
+		List<TestSuite> testSuites = suiteList(artifacts);
 		InterfaceSetup setup = new MinimizationSetup(testSuites, minimizationAlgorithms, builder);
 		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
 		
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildNone(List<TestSuite> testSuites, List<DVCType> dvcTypes) throws Exception{
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
+	public Experiment buildNone(List<TestArtifact> artifacts) throws Exception{
+		List<TestSuite> testSuites = suiteList(artifacts);
 		InterfaceSetup setup = new NoneSetup(testSuites);
 		InterfaceRunner runner = new DefaultRunner(collectors, testSuites.size());
+		
 		return new Experiment(setup, runner);
+	}
+	
+	// SHOULD BE DELETED AFTER REFACTORING
+	private List<TestSuite> suiteList(List<TestArtifact> artifacts) {
+		List<TestSuite> testSuites = new ArrayList<TestSuite>();
+		for (TestArtifact artifact : artifacts) {
+			testSuites.add(artifact.getTarget());
+		}
+		
+		return testSuites;
 	}
 	
 	/*private List<TestSuite> loadGraphs() throws Exception {

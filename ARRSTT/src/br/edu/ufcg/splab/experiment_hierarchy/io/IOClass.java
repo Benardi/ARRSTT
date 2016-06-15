@@ -12,17 +12,17 @@ import br.edu.ufcg.splab.exceptions.ParseException;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
-import br.edu.ufcg.splab.experiment_hierarchy.util.OldXMLParser;
+import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
 import br.edu.ufcg.splab.graph_hierarchy.parser.ReadTGF;
 
 public class IOClass {
-	private OldXMLParser xmlParser;
+	private XMLParser xmlParser;
 	private ReadTGF tgfParser;
 	
 	public IOClass() {
-		this.xmlParser = new OldXMLParser();
+		this.xmlParser = new XMLParser();
 		this.tgfParser = new ReadTGF();
 	}
 	
@@ -106,11 +106,11 @@ public class IOClass {
 	}
 	
 	private List<TestSuite> getXMLSuite(File file) throws ParseException, IOException {
-		return xmlParser.read(file.getPath()); // getPath or getAbsolutePath?
+		return xmlParser.read(file.getPath());
 	}
 
 	private TestSuite getTGFSuite(File file) throws Exception {
-		Graph graph = tgfParser.getGraph(file.getAbsolutePath()); // getPath or getAbsolutePath?
+		Graph graph = tgfParser.getGraph(file.getAbsolutePath());
 		InterfaceSearch search = new DepthFirstSearch();
 		return search.getTestSuite(graph.getRoot(), 0);
 	}

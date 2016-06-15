@@ -17,16 +17,16 @@ public class ARRSTTFacade {
 	}
 	
 	public void setArtifacts(String[] paths) {
-		controller.setArtifacts(paths);
+		controller.setInput(paths);
 	}
 	
 	public void setArtifacts(File[] files) {
-		controller.setArtifacts(files);
+		controller.setInput(files);
 	}
 	
-	public void setupGenerationExperiment(String[] techniques, String[] dvcs, Integer[] loopCoverages) {
+	/*public void setupGenerationExperiment(String[] techniques, String[] dvcs, Integer[] loopCoverages) {
 		controller.setupGenerationExperiment(techniques, dvcs, loopCoverages);
-	}
+	}*/
 	
 	public void setupSelectionExperiment(String[] techniques, String[] dvcs, double selPercentage) {
 		controller.setupSelectionExperiment(techniques, dvcs, selPercentage);

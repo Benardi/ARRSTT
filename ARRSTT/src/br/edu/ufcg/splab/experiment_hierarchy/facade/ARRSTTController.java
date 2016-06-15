@@ -2,18 +2,19 @@ package br.edu.ufcg.splab.experiment_hierarchy.facade;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import br.edu.ufcg.splab.exceptions.ARRSTTException;
 import br.edu.ufcg.splab.experiment_hierarchy.ExperimentFactory;
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TestArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
 import br.edu.ufcg.splab.experiment_hierarchy.io.IOClass;
 import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ArtifactBuilder;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
+import br.edu.ufcg.splab.experiment_hierarchy.util.factories.DVCFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 /*
@@ -36,18 +37,22 @@ public class ARRSTTController {
 	private String outputFolder;
 	private Experiment experiment;
 	private ExperimentFactory experimentFactory;
+	private DVCFactory dvcFactory;
 	private List<TestSuite> input;
+	private ArtifactBuilder artifactBuilder;
 	
 	/**
 	 * The controller's constructor. Initializes the needed lists and factories.
 	 */
 	public ARRSTTController() {
 		this.experimentFactory = new ExperimentFactory();
+		this.dvcFactory = new DVCFactory();
 		this.io = new IOClass();
 		this.input = new ArrayList<TestSuite>();
+		this.artifactBuilder = new ArtifactBuilder();
 	}
 	
-	public void setArtifacts(String[] paths) {
+	public void setInput(String[] paths) {
 		try {
 			input = io.getTestSuites(paths);
 		} catch(Exception e) {
@@ -56,7 +61,7 @@ public class ARRSTTController {
 		}
 	}
 	
-	public void setArtifacts(File[] files) {
+	public void setInput(File[] files) {
 		try {
 			input = io.getTestSuites(files);
 		} catch(Exception e) {
@@ -65,7 +70,7 @@ public class ARRSTTController {
 		}
 	}
 	
-	public void setupGenerationExperiment(String[] techniques, String[] dvcs, Integer[] loopCoverages) {
+	/*public void setupGenerationExperiment(String[] techniques, String[] dvcs, Integer[] loopCoverages) {
 		try {
 			List<GenerationType> parsedTechniques = getGenerationTechniques(techniques);
 			List<DVCType> parsedDvcs = getDvcs(dvcs);
@@ -74,13 +79,13 @@ public class ARRSTTController {
 		} catch(Exception e) {
 			throw new ARRSTTException("Error while trying to setup a generation experiment. " + e.getMessage());
 		}
-	}
+	}*/
 	
 	public void setupSelectionExperiment(String[] techniques, String[] dvcs, double selPercentage) {
 		try {
 			List<SelectionType> parsedTechniques = getSelectionTechniques(techniques);
-			List<DVCType> parsedDvcs = getDvcs(dvcs);		
-			experiment = experimentFactory.buildSelection(input, parsedTechniques, selPercentage, parsedDvcs);
+			List<TestArtifact> artifacts = artifactBuilder.buildArtifacts(input, dvcs);
+			experiment = experimentFactory.buildSelection(artifacts, parsedTechniques, selPercentage);
 		} catch(Exception e) {
 			throw new ARRSTTException("Error while trying to setup a selection experiment. " + e.getMessage());
 		}
@@ -89,9 +94,9 @@ public class ARRSTTController {
 	public void setupMinimizationExperiment(String[] techniques, String[] dvcs, String coverage) {
 		try {
 			List<MinimizationType> parsedTechniques = getMinimizationTechniques(techniques);
-			List<DVCType> parsedDvcs = getDvcs(dvcs);		
+			List<TestArtifact> artifacts = artifactBuilder.buildArtifacts(input, dvcs);
 			ReqBuilderType parsedCoverage = getCoverage(coverage);
-			experiment = experimentFactory.buildMinimization(input, parsedTechniques, parsedCoverage, parsedDvcs);			
+			experiment = experimentFactory.buildMinimization(artifacts, parsedTechniques, parsedCoverage);			
 		} catch(Exception e) {
 			throw new ARRSTTException("Error while trying to setup a minimization experiment. " + e.getMessage());
 		}
@@ -99,17 +104,21 @@ public class ARRSTTController {
 	
 	public void setupNoneExperiment(String[] dvcs) {
 		try {
-			List<DVCType> parsedDvcs = getDvcs(dvcs);
-			experiment = experimentFactory.buildNone(input, parsedDvcs);
+			List<TestArtifact> artifacts = artifactBuilder.buildArtifacts(input, dvcs);
+			experiment = experimentFactory.buildNone(artifacts);
 		} catch(Exception e) {
 			throw new ARRSTTException("Error while trying to setup a none experiment. " + e.getMessage());
 		}
 	}
 	
 	public void execute(String[] dvcs) {
-		experiment.execute();
-		io.saveData(experiment.getBenchmarkData(), experiment.getDvcData(), dvcs, outputFolder);
-		System.out.println("Results generated with success");
+		try {
+			experiment.execute();
+			io.saveData(experiment.getBenchmarkData(), experiment.getDvcData(), dvcs, outputFolder);
+			System.out.println("Results generated with success");
+		} catch(Exception e) {
+			throw new ARRSTTException("Error while trying to execute a experiment. " + e.getMessage());
+		}
 	}
 	
 	public void setOutputFolder(String path) {
@@ -156,16 +165,6 @@ public class ARRSTTController {
 		return parsedTechniques;
 	}
 	
-	private List<DVCType> getDvcs(String[] dvcs) {
-		List<DVCType> parsedDvcs = new ArrayList<DVCType>();
-		
-		for (String dvc : dvcs) {
-			parsedDvcs.add(getDvc(dvc));
-		}
-		
-		return parsedDvcs;
-	}
-	
 	private GenerationType getGenerationTechnique(String technique) {
 		try {
 			return GenerationType.valueOf(technique);
@@ -193,16 +192,6 @@ public class ARRSTTController {
 			throw new ARRSTTException("Technique " + technique + " not found.");
 		} catch(NullPointerException ne) {
 			throw new ARRSTTException("Technique name cannot be null.");
-		}
-	}
-	
-	private DVCType getDvc(String dvc) {
-		try {
-			return DVCType.valueOf(dvc);
-		} catch(IllegalArgumentException ie) {
-			throw new ARRSTTException("DVC " + dvc + " not found.");
-		} catch(NullPointerException ne) {
-			throw new ARRSTTException("DVC name cannot be null.");
 		}
 	}
 }

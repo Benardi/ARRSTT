@@ -35,5 +35,5 @@ public interface DependentVariableCollector {
 	 * 
 	 * @return The StringBuffer containing the dependent variable's data
 	 */
-	public StringBuffer collect(TestSuite testSuite);
+	public StringBuffer collect(TestSuite t);
 }

@@ -1,10 +1,14 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.*;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectiveEdgesCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectsCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTFailuresCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTMediaMaxMin;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTMostRepeatedTransitionCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTRedundanceCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 /*
  * Change														Author				Date
@@ -20,72 +24,37 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
  * type, this process can be repeated as the collectors are put in a List.
  */
 public class DVCFactory {
-	/**
-	 * <b>Objective:</b> Generating a dependent variable collector whose type of
-	 * variable is the same as the provided one.
-	 * <br>
-	 * <b>Description of use:</b> The generated dvc can be used in the building of a
-	 * generation as in the Experiment Factory class.
-	 * 
-	 * @param type
-	 *            The type of variable the collector will manage.
-	 * @return A collector of variables of specific type.
-	 */
-	public DependentVariableCollector createCollector(DVCType type) {
-		if (type == DVCType.DEFECTIVE_EDGES) {
-			return new ARRSTTDefectiveEdgesCollector();
-		} else if (type == DVCType.DEFECTS) {
-			return new ARRSTTDefectsCollector();
-		} else if (type == DVCType.FAILURES) {
-			return new ARRSTTFailuresCollector();
-		} else if (type == DVCType.SIZE) {
-			return new ARRSTTSizeCollector();
-		} else if (type == DVCType.MEDIA_MAX_MIN){
-			return new ARRSTTMediaMaxMin();
-		} else if (type == DVCType.MOST_REPEATED_TRANSITION){
-			return new ARRSTTMostRepeatedTransitionCollector();
-		} else if(type == DVCType.REDUNDANCE){
-			return new ARRSTTRedundanceCollector();
-		} else {
-			return null;
-		}
+	
+	public DependentVariableCollector createDefectiveEdgesDvc() {
+		return new ARRSTTDefectiveEdgesCollector();
+	}
+	
+	public DependentVariableCollector createDefectsDvc() {
+		return new ARRSTTDefectsCollector();
+	}
+	
+	public DependentVariableCollector createFailuresDvc() {
+		return new ARRSTTFailuresCollector();
+	}
+	
+	public DependentVariableCollector createSizeDvc() {
+		return new ARRSTTSizeCollector();
+	}
+	
+	public DependentVariableCollector createMediaMaxMinDvc() {
+		return new ARRSTTMediaMaxMin();
+	}
+	
+	public DependentVariableCollector createMostRepeatedTransitionDvc() {
+		return new ARRSTTMostRepeatedTransitionCollector();
+	}
+	
+	public DependentVariableCollector createRedundanceDvc() {
+		return new ARRSTTRedundanceCollector();
+	}
+	
+	public DependentVariableCollector createReductionPercentageDvc(TestSuite testSuite) {
+		return new ARRSTTRedundanceCollector();
 	}
 
-	/**
-	 * <b>Objective:</b> This method initializes and fills a list with different
-	 * collectors.
-	 * 
-	 * @param types
-	 *            The type of the variables that each collector will manage.
-	 * @return A list filled with one collector for each of the types given.
-	 */
-	public List<DependentVariableCollector> createCollectorList(
-			Iterable<DVCType> types) {
-		List<DependentVariableCollector> dvcs = new ArrayList<>();
-
-		for (DVCType type : types) {
-			dvcs.add(createCollector(type));
-		}
-
-		return dvcs;
-	}
-
-	/**
-	 * <b>Objective:</b> This method initializes and fills a list with one collector
-	 * for each of the existing types.
-	 * 
-	 * @param types
-	 *            All the types of dependent variables.
-	 * @return A list filled with one collector for each one of all the types.
-	 */
-	public List<DependentVariableCollector> createCollectorList(
-			DVCType... types) {
-		List<DependentVariableCollector> dvcs = new ArrayList<>();
-
-		for (DVCType type : types) {
-			dvcs.add(createCollector(type));
-		}
-
-		return dvcs;
-	}
 }
