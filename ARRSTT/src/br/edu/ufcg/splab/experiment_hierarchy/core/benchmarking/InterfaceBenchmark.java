@@ -1,6 +1,8 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking;
 
-public interface InterfaceBenchmark {
+import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
+
+public interface InterfaceBenchmark extends DependentVariableCollector<Void> {
 	public void startBenchmark();
-	public String endBenchmark();
+	public void endBenchmark();
 }

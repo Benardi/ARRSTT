@@ -4,7 +4,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.gambiarra.MediaMaxMin;
 
-public class ARRSTTMediaMaxMin implements DependentVariableCollector{
+public class ARRSTTMediaMaxMin implements DependentVariableCollector {
 
 	@Override
 	public StringBuffer collect(TestSuite testSuite) {

@@ -3,8 +3,8 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.runners;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.ARRSTTTimeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.InterfaceBenchmark;
-import br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking.TimeBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
@@ -49,19 +49,32 @@ public class DefaultRunner implements InterfaceRunner {
 		this.stringBuffers = new ArrayList<StringBuffer>();
 		this.lineSize = lineSize;
 		this.benchmarks = new ArrayList<InterfaceBenchmark>();
-		createBenchmarks();
 		this.benchmarkBuffers = new ArrayList<StringBuffer>();
 		this.haveBenchmarked = false;
 		
+		buildBenchmarksList();
+				
 		for (int i = 0; i < dvcs.size(); i++) {
 			stringBuffers.add(new StringBuffer());
 		}
 		
-		int benchmarksSize = benchmarks.size();
-		
-		for (int i = 0; i < benchmarksSize; i++) {
+		for (int i = 0; i < benchmarks.size(); i++) {
 			benchmarkBuffers.add(new StringBuffer());
 		}
+	}
+	
+	private void buildBenchmarksList() {
+		List<DependentVariableCollector> benchmarkDvcs = new ArrayList<DependentVariableCollector>();
+		
+		for (DependentVariableCollector dvc : dvcs) {
+			if (dvc instanceof InterfaceBenchmark) {
+				InterfaceBenchmark benchmark = (InterfaceBenchmark) dvc;
+				benchmarks.add(benchmark);
+				benchmarkDvcs.add(dvc);
+			}
+		}
+		
+		dvcs.removeAll(benchmarkDvcs);
 	}
 	
 	@Override
@@ -80,27 +93,24 @@ public class DefaultRunner implements InterfaceRunner {
 		for (int i = 0; i < dvcs.size(); i++) {
 			for (int j = 0; j < combinations.size(); j++) {
 				startBenchmarks();
+				
 				TestSuite resultingTestSuite = combinations.get(j).get(0).execute();
-				//endBenchmarks(i);
-				System.out.println(dvcs);
+				
 				stringBuffers.get(i).append(dvcs.get(i).collect(resultingTestSuite) + "\t");
-				if (!haveBenchmarked) {
-					benchmarkBuffers.get(i).append(benchmarks.get(i).endBenchmark() + "\t");
+				if (!haveBenchmarked && benchmarks.size() > 0) {
+					benchmarks.get(i).endBenchmark();
+					benchmarkBuffers.get(i).append(benchmarks.get(i).collect(null) + "\t");
 				}
 				
 				if ((j + 1) % lineSize == 0) {
 					stringBuffers.get(i).append(LINE_END);
-					if (!haveBenchmarked) {
+					if (!haveBenchmarked && benchmarks.size() > 0) {
 						benchmarkBuffers.get(i).append(LINE_END);
 					}
 				}
 			}				
 			haveBenchmarked = true;
 		}
-	}
-	
-	private void createBenchmarks() {
-		this.benchmarks.add(new TimeBenchmark());
 	}
 	
 	private void startBenchmarks() {
