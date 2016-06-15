@@ -245,5 +245,9 @@ public class TestCase implements Iterable<InterfaceEdge> {
 	public String toString() {
 		return "{ID: " + this.id + " NAME: " + this.name + "}" + tCase.toString();
 	}
+	
+	public String getID(){
+		return id;
+	}
 
 }

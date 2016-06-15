@@ -17,7 +17,7 @@ public class NoneSetup implements InterfaceSetup{
 	
 	
 	@Override
-	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
+	public List<Tuple<ExecutableTreatment>> getArtifacts() {
 		List<Tuple<ExecutableTreatment>> tuples = new ArrayList<>();
 		for(TestSuite ts: testSuites){
 			Tuple<ExecutableTreatment> t = new Tuple<>();

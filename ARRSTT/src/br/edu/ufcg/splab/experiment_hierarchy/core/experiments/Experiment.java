@@ -37,7 +37,7 @@ public class Experiment {
 	 * 
 	 */
 	public void execute() {
-		runner.runExperiment(setup.getIndependentVariables());
+		runner.runExperiment(setup.getArtifacts());
 	}
 	
 	
