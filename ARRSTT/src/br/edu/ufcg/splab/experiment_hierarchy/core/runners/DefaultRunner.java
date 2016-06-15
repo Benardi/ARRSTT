@@ -96,7 +96,9 @@ public class DefaultRunner implements InterfaceRunner {
 				
 				TestSuite resultingTestSuite = combinations.get(j).get(0).execute();
 				
+				
 				stringBuffers.get(i).append(dvcs.get(i).collect(resultingTestSuite) + "\t");
+				
 				if (!haveBenchmarked && benchmarks.size() > 0) {
 					benchmarks.get(i).endBenchmark();
 					benchmarkBuffers.get(i).append(benchmarks.get(i).collect(null) + "\t");

@@ -3,6 +3,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.setups;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.Tuple;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
@@ -60,6 +61,7 @@ public class SelectionSetup implements InterfaceSetup {
 	 * represents independent variables combinations.
 	 */
 	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
+		List<TreatmentArtifact> artifacts = new ArrayList<TreatmentArtifact>();
 		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<>();
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 
