@@ -63,7 +63,7 @@ public class MinimizationSetup implements InterfaceSetup {
 	 * @return The list of ExecutableTreatment's tuple, that
 	 * represents independent variables combinations.
 	 */
-	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
+	public List<Tuple<ExecutableTreatment>> getArtifacts() {
 		List<Tuple<ExecutableTreatment>> combinations = new ArrayList<>();
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 

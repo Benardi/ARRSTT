@@ -59,7 +59,7 @@ public class GenerationSetup implements InterfaceSetup {
 	 * @return The list of ExecutableTreatment's tuple, that
 	 * represents independent variables combinations.
 	 */
-	public List<Tuple<ExecutableTreatment>> getIndependentVariables() {
+	public List<Tuple<ExecutableTreatment>> getArtifacts() {
 		List<Tuple<ExecutableTreatment>> allTrials = new ArrayList<Tuple<ExecutableTreatment>>();
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		
