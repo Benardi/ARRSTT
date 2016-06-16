@@ -13,16 +13,17 @@ public class NeoSelectionDvcSetup implements InterfaceDvcSetup{
 	
 	private int algorithmsAmount;
 	private List<TestSuite> tSuites;
+	private File[] files;
 	
-	public NeoSelectionDvcSetup(int algorithmsAmount, List<TestSuite> tSuites){
+	public NeoSelectionDvcSetup(int algorithmsAmount, List<TestSuite> tSuites, File[] files){
 		this.algorithmsAmount = algorithmsAmount;
 		this.tSuites = tSuites;
+		this.files = files;
 	}
 	
 	@Override
 	public List<List<DependentVariableCollector>> getDVCs() {
 		List<List<DependentVariableCollector>> matches = new ArrayList<>();
-		File[] files = getFiles();
 
 		for(int i = 0; i < algorithmsAmount; i++){
 			for(int j = 0; j < tSuites.size(); j++){
@@ -33,18 +34,6 @@ public class NeoSelectionDvcSetup implements InterfaceDvcSetup{
 			}
 		}
 		return matches;
-	}
-	
-	/*
-	 *  essa eh a parte da GAMBIARRA.
-	 *  A gente vai na mao mesmo carregar os arquivos que a gente quer.
-	 *  Esse metodo provavelmente vai ficar feio pq temos que OBRIGATORIAMENTE
-	 *  criar essa lista pra dar match nos testsuites do setup.
-	 *  boa sorte pragente
-	 */
-	private File[] getFiles(){		
-		//TODO VAI SER TENSO VEI
-		return null;
 	}
 
 }

@@ -1,22 +1,19 @@
 package br.edu.ufcg.splab.experiment_hierarchy;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
-import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TestArtifact;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.DefaultRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.runners.NeoSelectionRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.MinimizationSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NoneSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.SelectionSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.factories.MinimizationType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.DVCType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.ReqBuilderType;
-import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NeoSelectionSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
+import br.edu.ufcg.splab.experiment_hierarchy.selections.SmallestTestCaseSelector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class ExperimentFactory {
@@ -26,16 +23,25 @@ public class ExperimentFactory {
 	public ExperimentFactory(){
 	}
 	
-	// THIS IS GONNA HAVE TO BE CHANGED A LOT TO WORK.
-	/*public Experiment buildGeneration(List<Integer> loopCoverages, List<GenerationType> generationAlgorithms) throws Exception {
-		BranchSeparator separator = new BranchSeparator();
-		List<DependentVariableCollector> collectors = dvcFactory.createCollectorList(dvcTypes);
-		InterfaceSetup setup = new GenerationSetup(separator.getGraphsToRun(), loopCoverages, generationAlgorithms);
-		InterfaceRunner runner = new DefaultRunner(collectors, 6);
+	
+	public Experiment buildNeoSelection(List<TestSuite> testSuites, File[] files){
+		List<InterfaceTestCaseSelector> selectionAlgorithms = new ArrayList<>();
+		double selectionPercentage = 0.8;
+		
+		selectionAlgorithms.add(new BiggestTestCaseSelector());
+		selectionAlgorithms.add(new BySimilaritySelector());
+		selectionAlgorithms.add(new RandomizedTestCaseSelection());
+		selectionAlgorithms.add(new SmallestTestCaseSelector());
+		
+		InterfaceSetup setup = new NeoSelectionSetup(selectionAlgorithms, selectionPercentage, testSuites, files);
+		InterfaceRunner runner = new NeoSelectionRunner(selectionAlgorithms.size());
 		
 		return new Experiment(setup, runner);
-	}*/
+	}
 	
+	
+	//==================================================================================================================================================
+	/*
 	public Experiment buildSelection(List<TestArtifact> artifacts, List<SelectionType> selectionAlgorithms, double selectionPercentage) throws Exception {
 		List<TestSuite> testSuites = suiteList(artifacts);
 		InterfaceSetup setup = new SelectionSetup(testSuites, selectionPercentage, selectionAlgorithms);
@@ -68,97 +74,6 @@ public class ExperimentFactory {
 		}
 		
 		return testSuites;
-	}
-	
-	/*private List<TestSuite> loadGraphs() throws Exception {
-		List<InterfaceGraph> allGraphs = new ArrayList<>();
-		File[] folder = new File("input_examples/").listFiles();
-		ReadTGF tgfReader = new ReadTGF();
-		System.out.println(folder[0]);
-		for (File file : folder) {
-			InterfaceGraph graph = tgfReader.getGraph(file.getAbsolutePath());
-			allGraphs.add(graph);
-		}
-		
-		List<InterfaceGraph> maskedGraphs = new ArrayList<>();
-		InterfaceGraphMaskarator masker = new RandomMasker();
-		
-		for (InterfaceGraph graph : allGraphs) {
-			maskedGraphs.add(masker.mask(graph, MASK_PERCENTAGE));
-		}
-		
-		putGraphsInformationInFile(maskedGraphs);
-		
-		List<TestSuite> testSuites = new ArrayList<TestSuite>();
-		
-		for (InterfaceGraph graph : maskedGraphs) {
-			InterfaceSearch search = new DepthFirstSearch();
-			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
-		}
-		
-		return testSuites;
-	}
-	
-	//I AM HERE
-	private void putGraphsInformationInFile(List<InterfaceGraph> maskedGraphs) {
-		int errorAmount;
-		StringBuffer information = new StringBuffer();
-		String defectiveLabel = "ERROR";
-		int counter = 0;
-		
-		for(InterfaceGraph g : maskedGraphs){
-			errorAmount = 0;
-			
-			// Write TGF of Graph
-			WriteTGF writer = new WriteTGF();
-			
-			try {
-				writer.putInTGF(g, counter + "");
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
-			
-			counter++;
-			
-			for(InterfaceEdge edge : g.getEdges()){
-				if(edge.getLabel().equals(defectiveLabel)){
-					errorAmount++;
-				}
-			}
-			information.append(errorAmount + " ");
-		}
-		information.append(LINE_END);
-		
-		//put to file
-		try {
-			ExperimentFile file = new ExperimentFile("Graphs Defects Information");
-			file.appendContent(information);
-			file.save();
-			
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
-
-	private List<TestSuite> loadGraphsWithoutMasking() throws Exception {
-		List<InterfaceGraph> allGraphs = new ArrayList<>();
-		File[] folder = new File("input_examples/").listFiles();
-		ReadTGF tgfReader = new ReadTGF();
-		
-		for (File file : folder) {
-			InterfaceGraph graph = tgfReader.getGraph(file.getAbsolutePath());
-			allGraphs.add(graph);
-		}
-		
-		List<TestSuite> testSuites = new ArrayList<TestSuite>();
-		
-		for (InterfaceGraph graph : allGraphs) {
-			InterfaceSearch search = new DepthFirstSearch();
-			testSuites.add(search.getTestSuite(graph.getRoot(), 0));
-		}
-		
-		return testSuites;
 	}*/
+
 }

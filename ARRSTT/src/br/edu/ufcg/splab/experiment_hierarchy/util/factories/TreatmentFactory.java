@@ -40,12 +40,9 @@ public class TreatmentFactory {
 	 *            the percentage
 	 * @return A selection treatment that is composed by all the parameters.
 	 */
-	public ExecutableTreatment createSelection(SelectionType type,
-			TestSuite testSuite, double percentage) {
+	public ExecutableTreatment createSelection(InterfaceTestCaseSelector selector, TestSuite testSuite, double percentage) {
 		// cria o selection type
 		// chamar o selection para retornar a instancia de selection.
-		InterfaceTestCaseSelector selector = new SelectionFactory()
-				.createTreatment(type);
 		return new SelectionTreatment(selector, testSuite, percentage);
 	}
 

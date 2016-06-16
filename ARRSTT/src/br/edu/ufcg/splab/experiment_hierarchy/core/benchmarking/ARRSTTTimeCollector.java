@@ -25,8 +25,14 @@ public class ARRSTTTimeCollector implements InterfaceBenchmark {
 		time = System.nanoTime() - time;
 	}
 
-	@Override
+	/*@Override
 	public StringBuffer collect(Void v) {
 		return new StringBuffer(time + "");
+	}*/
+
+	@Override
+	public StringBuffer collect(TestSuite t) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

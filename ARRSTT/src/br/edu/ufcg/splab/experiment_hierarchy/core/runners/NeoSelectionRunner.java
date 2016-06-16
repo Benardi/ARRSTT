@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 
 public class NeoSelectionRunner implements InterfaceRunner{
 	public static final String LINE_END = System.getProperty("line.separator");
@@ -19,7 +20,7 @@ public class NeoSelectionRunner implements InterfaceRunner{
 	 * Vou deixar ja os stringbuffers prontos pra poupar trabalho
 	 */
 	@Override
-	public void runExperiment(List<TreatmentArtifact> artifacts) {
+	public List<ExperimentData> runExperiment(List<TreatmentArtifact> artifacts) {
 		List<StringBuffer> results = new ArrayList<>();
 		for(TreatmentArtifact art : artifacts){
 			results.add(art.getDVCResults());
@@ -34,8 +35,8 @@ public class NeoSelectionRunner implements InterfaceRunner{
 			String aux = partialResult.toString();
 			String[] split = aux.split("/");
 			
-			fileResult.append(split[0]);
-			reductionResult.append(split[1]);
+			fileResult.append(split[0] + " ");
+			reductionResult.append(split[1] + " ");
 			
 			if((i+1) % lineSize == 0){
 				fileResult.append(LINE_END);
@@ -43,7 +44,17 @@ public class NeoSelectionRunner implements InterfaceRunner{
 			}
 		}
 		
-		//temos os resultados de 2 dvcs aqui, o fileResult e o reductionResult. Ainda nao sei o que vamos fazer com ele.
+		//List<String> finalResults = new ArrayList<>();
+		//finalResults.add(fileResult.toString());
+		//finalResults.add(reductionResult.toString());
+		
+		List<ExperimentData> finalResults = new ArrayList<>();
+		finalResults.add(new ExperimentData("File_DVC", fileResult.toString()));
+		finalResults.add(new ExperimentData("Reduction_DVC", reductionResult.toString()));		
+		
+		
+		return finalResults;
+		
 		
 	}
 
