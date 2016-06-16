@@ -38,30 +38,18 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		
-		experiment2();
+		experiment1();
 	}
 	
 	public static void experiment1() {
-		String[] artifacts = {"input_examples\\iaron_easytoy1.tgf"};
+		File[] artifacts = directoryToPath(new File("ARRSTT\\extras\\input_examples"));
 		String[] techniques = {"BIGGEST", "SIMILARITY"};
 		String[] dvcs = {"SIZE", "FAILURES"};
 		
-		facade.setOutputFolder("experiment_results/");
+		facade.setOutputFolder("ARRSTT/experiment_results/");
 		facade.setArtifacts(artifacts);
 		
-		facade.setupSelectionExperiment(techniques, dvcs, 0.9);
-		facade.execute(dvcs);
-	}
-	
-	public static void experiment2() {
-		String[] techniques = {"BIGGEST", "SIMILARITY"};
-		String[] dvcs = {"SIZE", "FAILURES"};
-		
-		facade.setOutputFolder("experiment_results/");
-		facade.setArtifacts(directoryToPath(new File("input_examples/")));
-		
-		facade.setupSelectionExperiment(techniques, dvcs, 0.9);
-		facade.execute(dvcs);
+		facade.runNeoSelectionExperiment(dvcs);
 	}
 	
 	private static File[] directoryToPath(File file) {

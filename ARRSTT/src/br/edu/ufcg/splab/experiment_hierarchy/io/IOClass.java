@@ -11,6 +11,7 @@ import br.edu.ufcg.splab.exceptions.ARRSTTException;
 import br.edu.ufcg.splab.exceptions.ParseException;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
 import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
@@ -24,6 +25,15 @@ public class IOClass {
 	public IOClass() {
 		this.xmlParser = new XMLParser();
 		this.tgfParser = new ReadTGF();
+	}
+	
+	
+	public File[] getFiles(String[] paths){
+		File[] files = new File[paths.length];
+		for(int i = 0; i < paths.length; i++){
+			files[i] = new File(paths[i]);
+		}
+		return files;
 	}
 	
 	public List<TestSuite> getTestSuites(String[] paths) throws ParseException, IOException, Exception {
@@ -47,31 +57,22 @@ public class IOClass {
 		return testSuites;
 	}
 	
-	public void saveData(String[] benchmarkData, String[] dvcData, String[] dvcs, String outputFolderPath) {
+	public void saveData(List<ExperimentData> datas, String outputFolderPath) {
 		File outputFolder = new File(outputFolderPath);
 		if (!outputFolder.isDirectory()) throw new ARRSTTException("The given path is not a valid directory.");
 		
 		String dirName = createDirectory(outputFolder);
 		
-		for (int i = 0; i < dvcData.length; i++) {
+		
+		for(ExperimentData data: datas){
 			try {
-				ExperimentFile file = new ExperimentFile(dirName + "/" + dvcs[i].toString());
-				file.appendContent(dvcData[i]);
+				ExperimentFile file = new ExperimentFile(dirName + "/" + data.getFileName(), data.getContent());
 				file.save();
-			} catch(IOException e) {
-				e.printStackTrace();
+			} catch (IOException e) {
+				throw new ARRSTTException(e.getMessage());
 			}
 		}
 		
-		for (int i = 0; i < benchmarkData.length; i++) {
-			try {
-				ExperimentFile file = new ExperimentFile(dirName + "/" + "Time");
-				file.appendContent(benchmarkData[i]);
-				file.save();
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 	
 	private String createDirectory(File outputFolder){

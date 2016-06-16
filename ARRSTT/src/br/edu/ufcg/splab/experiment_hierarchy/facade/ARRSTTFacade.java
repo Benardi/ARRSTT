@@ -24,25 +24,10 @@ public class ARRSTTFacade {
 		controller.setInput(files);
 	}
 	
-	/*public void setupGenerationExperiment(String[] techniques, String[] dvcs, Integer[] loopCoverages) {
-		controller.setupGenerationExperiment(techniques, dvcs, loopCoverages);
-	}*/
-	
-	public void setupSelectionExperiment(String[] techniques, String[] dvcs, double selPercentage) {
-		controller.setupSelectionExperiment(techniques, dvcs, selPercentage);
+	public void runNeoSelectionExperiment(String[] paths){
+		controller.runNeoSelectionExperiment(paths);
 	}
-	
-	public void setupMinimizationExperiment(String[] techniques, String[] dvcs, String coverage) {
-		controller.setupMinimizationExperiment(techniques, dvcs, coverage);
-	}
-	
-	public void setupNoneExperiment(String[] dvcs) {
-		controller.setupNoneExperiment(dvcs);
-	}
-	
-	public void execute(String[] dvcs) {
-		controller.execute(dvcs);
-	}
+
 	
 	public void setOutputFolder(String path) {
 		controller.setOutputFolder(path);

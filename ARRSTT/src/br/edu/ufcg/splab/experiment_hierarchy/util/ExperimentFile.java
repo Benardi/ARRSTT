@@ -44,10 +44,14 @@ public class ExperimentFile {
 	 * @param fileName The name of the file.
 	 * @param fileFormat The format of the file.
 	 */
-	public ExperimentFile(String fileName, String fileFormat) {
-		this.content = new StringBuffer();
+	public ExperimentFile(String fileName, String fileContent, String fileFormat) {
+		this.content = new StringBuffer(fileContent);
 		this.fileFormat = fileFormat;
 		this.fileName = fileName;
+	}
+	
+	public ExperimentFile(String fileName, String fileContent){
+		this(fileName, fileContent, defaultFormat);
 	}
 	
 	/**
@@ -56,7 +60,7 @@ public class ExperimentFile {
 	 * @param fileName The name of the file.
 	 */
 	public ExperimentFile(String fileName) {
-		this(fileName, defaultFormat);
+		this(fileName, "" ,defaultFormat);
 	}
 	
 	/**
