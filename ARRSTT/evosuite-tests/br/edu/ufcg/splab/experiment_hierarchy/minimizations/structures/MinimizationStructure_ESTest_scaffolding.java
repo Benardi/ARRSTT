@@ -21,7 +21,7 @@ public class MinimizationStructure_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure"; 
+    org.evosuite.runtime.RuntimeSettings.className = "br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure"; 
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
@@ -47,16 +47,16 @@ public class MinimizationStructure_ESTest_scaffolding {
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(MinimizationStructure_ESTest_scaffolding.class.getClassLoader() ,
       "br.edu.ufcg.splab.graph_hierarchy.core.vertex.Vertex",
-      "br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.ARRSTTTestRequirement",
+      "br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.requirements.ARRSTTTestRequirement",
       "br.edu.ufcg.splab.graph_hierarchy.core.vertex.AbstractVertex",
       "br.edu.ufcg.splab.graph_hierarchy.core.edges.AbstractEdge",
       "br.edu.ufcg.splab.graph_hierarchy.core.edges.TransitionType",
       "br.edu.ufcg.splab.graph_hierarchy.core.edges.Transition",
       "br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex",
-      "br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationTuple",
+      "br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationTuple",
       "br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge",
-      "br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure",
-      "br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement",
+      "br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure",
+      "br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.requirements.TestRequirement",
       "br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase"
     );
   } 

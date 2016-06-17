@@ -9,8 +9,9 @@ import java.util.List;
 
 import br.edu.ufcg.splab.exceptions.ARRSTTException;
 import br.edu.ufcg.splab.exceptions.ParseException;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.DFSTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.InterfaceGenerationTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ArresttConstants;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
@@ -93,10 +94,10 @@ public class IOClass {
 		String extension = getFileExtension(file);
 		
 		switch(extension) {
-			case IOConstants.TGF:
+			case ArresttConstants.TGF:
 				testSuites.add(getTGFSuite(file));
 				break;
-			case IOConstants.XML:
+			case ArresttConstants.XML:
 				testSuites.addAll(getXMLSuite(file));
 				break;
 			default:
@@ -112,13 +113,13 @@ public class IOClass {
 
 	private TestSuite getTGFSuite(File file) throws Exception {
 		Graph graph = tgfParser.getGraph(file.getAbsolutePath());
-		InterfaceSearch search = new DepthFirstSearch();
+		InterfaceGenerationTechnique search = new DFSTechnique();
 		return search.getTestSuite(graph.getRoot(), 0);
 	}
 	
 	private String getFileExtension(File file) {
 		String fileName = file.getName();
-		int lastIndex = fileName.lastIndexOf(IOConstants.EXTENSION_SEPARATOR);
+		int lastIndex = fileName.lastIndexOf(ArresttConstants.EXTENSION_SEPARATOR);
 		return fileName.substring(lastIndex, fileName.length());
 	}
 

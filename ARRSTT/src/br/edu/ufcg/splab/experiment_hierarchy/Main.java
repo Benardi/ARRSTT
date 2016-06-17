@@ -42,11 +42,10 @@ public class Main {
 	}
 	
 	public static void experiment1() {
-		File[] artifacts = directoryToPath(new File("ARRSTT\\extras\\input_examples"));
-		String[] techniques = {"BIGGEST", "SIMILARITY"};
+		File[] artifacts = directoryToPath(new File("extras\\input_examples"));
 		String[] dvcs = {"SIZE", "FAILURES"};
 		
-		facade.setOutputFolder("ARRSTT/experiment_results/");
+		facade.setOutputFolder("experiment_results/");
 		facade.setArtifacts(artifacts);
 		
 		facade.runNeoSelectionExperiment(dvcs);

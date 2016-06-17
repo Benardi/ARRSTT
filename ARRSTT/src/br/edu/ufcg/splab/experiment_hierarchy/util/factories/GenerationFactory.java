@@ -1,8 +1,8 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
-import br.edu.ufcg.splab.experiment_hierarchy.searches.BreadthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.DepthFirstSearch;
-import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.BFSTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.DFSTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.InterfaceGenerationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.GenerationType;
 /*
  * Change														Author				Date
@@ -24,7 +24,7 @@ public class GenerationFactory {
 	 *            the type of search
 	 * @return A search
 	 */
-	public InterfaceSearch createTreatment(GenerationType type) {
+	public InterfaceGenerationTechnique createTreatment(GenerationType type) {
 		if (type == GenerationType.BFS) {
 			return createBfsGenerator();
 		} else {
@@ -35,14 +35,14 @@ public class GenerationFactory {
 	 * 
 	 * @return A Breadth First Search.
 	 */
-	public InterfaceSearch createBfsGenerator() {
-		return new BreadthFirstSearch();
+	public InterfaceGenerationTechnique createBfsGenerator() {
+		return new BFSTechnique();
 	}
 	/**
 	 * 
 	 * @return A Depth First Search.
 	 */
-	public InterfaceSearch createDfsGenerator() {
-		return new DepthFirstSearch();
+	public InterfaceGenerationTechnique createDfsGenerator() {
+		return new DFSTechnique();
 	}
 }

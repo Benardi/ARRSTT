@@ -2,13 +2,13 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.artifacts;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 
 public class Artifact <T> {
 	private T target;
-	private List<DependentVariableCollector> dvcs;
+	private List<InterfaceDvc> dvcs;
 	
-	public Artifact(T target, List<DependentVariableCollector> dvcs) {
+	public Artifact(T target, List<InterfaceDvc> dvcs) {
 		this.target = target;
 		this.dvcs = dvcs;
 	}
@@ -17,7 +17,7 @@ public class Artifact <T> {
 		return target;
 	}
 	
-	public List<DependentVariableCollector> getDvcs() {
+	public List<InterfaceDvc> getDvcs() {
 		return dvcs;
 	}
 }

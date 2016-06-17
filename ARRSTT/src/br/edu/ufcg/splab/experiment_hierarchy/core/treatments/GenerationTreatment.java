@@ -1,6 +1,7 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 
-import br.edu.ufcg.splab.experiment_hierarchy.searches.InterfaceSearch;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.InterfaceGenerationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 /*
@@ -20,7 +21,7 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
 public class GenerationTreatment implements ExecutableTreatment {
 	//TODO The rest of the Javadoc.
 	  
-	private InterfaceSearch searchObject;
+	private InterfaceGenerationTechnique searchObject;
 	private InterfaceVertex root;
 	private TestSuite testSuite;
 	private int loopCoverage;
@@ -36,7 +37,7 @@ public class GenerationTreatment implements ExecutableTreatment {
 	 * @param loopCoverage
 	 * 			The number of times a trasition can appear in the TestSuite.
 	 */
-	public GenerationTreatment(InterfaceSearch generationObject, InterfaceVertex root, int loopCoverage) {
+	public GenerationTreatment(InterfaceGenerationTechnique generationObject, InterfaceVertex root, int loopCoverage) {
 		this.searchObject = generationObject;
 		this.loopCoverage = loopCoverage;
 		this.root = root;
