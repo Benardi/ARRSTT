@@ -4,6 +4,9 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.MinimizationTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class TreatmentArtifact {
 	private ExecutableTreatment target;
@@ -16,8 +19,11 @@ public class TreatmentArtifact {
 	
 	public StringBuffer getDVCResults(){
 		StringBuffer result = new StringBuffer();
+		// TESTE
+		TestSuite resultTestSuite = target.execute();
+		
 		for(InterfaceDvc dvc : dvcs){
-			result.append(dvc.collect(target.execute()) + "/");
+			result.append(dvc.collect(resultTestSuite) + "/");
 		}
 		return result;
 	}

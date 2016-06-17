@@ -12,8 +12,9 @@ import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 public class ATCoverage implements RequirementBuilder {
 	private TestSuite testSuite;
 	
-	public ATCoverage(TestSuite testSuite) {
-		this.testSuite = testSuite;
+	public ATCoverage(TestSuite ortestSuite) {
+		
+		this.testSuite = new TestSuite(ortestSuite);
 	}
 
 	@Override

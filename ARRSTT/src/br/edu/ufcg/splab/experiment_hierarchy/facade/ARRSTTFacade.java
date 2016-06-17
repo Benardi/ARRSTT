@@ -27,7 +27,10 @@ public class ARRSTTFacade {
 	public void runNeoSelectionExperiment(String[] paths){
 		controller.runNeoSelectionExperiment(paths);
 	}
-
+	
+	public void runNeoMinimizationExperiment(String[] paths){
+		controller.runNeoMinimizationExperiment(paths);
+	}
 	
 	public void setOutputFolder(String path) {
 		controller.setOutputFolder(path);

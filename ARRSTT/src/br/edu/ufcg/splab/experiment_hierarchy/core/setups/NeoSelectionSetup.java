@@ -10,6 +10,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
@@ -37,8 +38,9 @@ public class NeoSelectionSetup implements InterfaceSetup{
 				ExecutableTreatment treatment = treatmentFactory.createSelection(selectionTechniques.get(i), testSuites.get(j), selectionPercentage);
 				
 				List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-				dvcs.add(new ARRSTTFileCollector(failureFiles[0]));
+				dvcs.add(new ARRSTTFileCollector(failureFiles[0])); // Replace for -> failuresFiles[j]
 				dvcs.add(new ARRSTTReductionPercentageCollector(new TestSuite(testSuites.get(j))));
+				dvcs.add(new ARRSTTSizeCollector());
 				
 				artifacts.add(new TreatmentArtifact(treatment, dvcs));
 			}

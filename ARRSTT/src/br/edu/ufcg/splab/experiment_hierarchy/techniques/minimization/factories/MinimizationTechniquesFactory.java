@@ -12,21 +12,21 @@ import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class MinimizationTechniquesFactory {
-	public InterfaceMinimizationTechnique createMinimizationTechnique(MinimizationType type, TestSuite testSuite, List<TestRequirement> requirements) {
-		if (type == MinimizationType.GREEDY) {
+	public InterfaceMinimizationTechnique createMinimizationTechnique(MinimizationTechniques type, TestSuite testSuite, List<TestRequirement> requirements) {
+		if (type == MinimizationTechniques.G) {
 			return createGTechnique(testSuite, requirements);
-		} else if (type == MinimizationType.GREEDY_ESSENCIAL) {
+		} else if (type == MinimizationTechniques.GE) {
 			return createGETechnique(testSuite, requirements);
-		} else if (type == MinimizationType.GREEDY_ESSENCIAL_REDUNDANT) {
+		} else if (type == MinimizationTechniques.GRE) {
 			return createGRETechnique(testSuite, requirements);
-		} else if (type == MinimizationType.HARROLD) {
+		} else if (type == MinimizationTechniques.H) {
 			return createHTechnique(testSuite, requirements);
 		}
 		
 		return null;
 	}
 	
-	public InterfaceMinimizationTechnique createMinimizationTechnique(MinimizationType type, TestSuite testSuite, RequirementBuilder builder) {
+	public InterfaceMinimizationTechnique createMinimizationTechnique(MinimizationTechniques type, TestSuite testSuite, RequirementBuilder builder) {
 		return createMinimizationTechnique(type, testSuite, builder.getRequirements());
 	}
 	

@@ -27,6 +27,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  *
  */
 public class ARRSTTController {	
+	public static List<TestSuite> inputstatic;
 	private IOClass io;
 	private String outputFolder;
 	private ExperimentFactory experimentFactory;
@@ -44,6 +45,7 @@ public class ARRSTTController {
 	public void setInput(String[] paths) {
 		try {
 			input = io.getTestSuites(paths);
+			inputstatic = input;
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new ARRSTTException("Error while trying to define artifacts. " + e.getMessage());
@@ -53,6 +55,7 @@ public class ARRSTTController {
 	public void setInput(File[] files) {
 		try {
 			input = io.getTestSuites(files);
+			inputstatic = input;
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new ARRSTTException("Error while trying to define artifacts. " + e.getMessage());
@@ -68,10 +71,17 @@ public class ARRSTTController {
 			e.printStackTrace();
 			throw new ARRSTTException("Error while trying to setup Neo Selection Experiment. " + e.getMessage());
 		}
-		
-		
-		
-		
+	}
+	
+	public void runNeoMinimizationExperiment(String[] paths) {
+		try {
+			Experiment experiment = experimentFactory.buildNeoMinimization(input, io.getFiles(paths));
+			List<ExperimentData> datas = experiment.execute();
+			io.saveData(datas, outputFolder);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to setup Neo Selection Experiment. " + e.getMessage());
+		}
 	}
 	
 	public void setOutputFolder(String path) {

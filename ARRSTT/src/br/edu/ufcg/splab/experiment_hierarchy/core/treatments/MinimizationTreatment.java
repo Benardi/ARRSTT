@@ -21,4 +21,9 @@ public class MinimizationTreatment implements ExecutableTreatment {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return technique.toString();
+	}
 }

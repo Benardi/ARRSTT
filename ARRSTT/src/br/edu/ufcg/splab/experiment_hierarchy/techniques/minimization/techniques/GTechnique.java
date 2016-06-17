@@ -14,7 +14,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 public class GTechnique implements InterfaceMinimizationTechnique {
 	private MinimizationStructure structure;
 	
-	public GTechnique(TestSuite testSuite, List<TestRequirement> requirements){
+	public GTechnique(TestSuite originalTestSuite, List<TestRequirement> requirements){
+		TestSuite testSuite = new TestSuite(originalTestSuite);
 		MinimizationStructureFactory factory = new MinimizationStructureFactory();
 		this.structure = factory.createStructure(testSuite, requirements);
 	}
