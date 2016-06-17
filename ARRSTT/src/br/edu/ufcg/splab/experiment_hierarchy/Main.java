@@ -10,25 +10,25 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		
-		experiment1();
-		//experiment2();
+		//experiment1();
+		experiment2();
 	}
 	
 	public static void experiment1() {
-		File[] artifacts = directoryToPath(new File("extras\\input_examples"));
-		String[] dvcs = {"SIZE", "FAILURES"};
+		File[] artifacts = directoryToPath(new File("ARRSTT\\extras\\input_examples\\"));
+		String[] dvcs = {"ARRSTT\\extras\\files\\default.txt"};
 		
-		facade.setOutputFolder("experiment_results/");
+		facade.setOutputFolder("ARRSTT\\experiment_results\\");
 		facade.setArtifacts(artifacts);
 		
 		facade.runNeoSelectionExperiment(dvcs);
 	}
 	
 	public static void experiment2() {
-		File[] artifacts = directoryToPath(new File("extras\\input_examples"));
-		String[] dvcs = {"SIZE", "FAILURES"};
+		File[] artifacts = directoryToPath(new File("ARRSTT\\extras\\input_examples\\"));
+		String[] dvcs = {"ARRSTT\\extras\\files\\default.txt"};
 		
-		facade.setOutputFolder("experiment_results/");
+		facade.setOutputFolder("ARRSTT\\experiment_results\\");
 		facade.setArtifacts(artifacts);
 		
 		facade.runNeoMinimizationExperiment(dvcs);
