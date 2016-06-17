@@ -30,13 +30,13 @@ public class ExperimentFactory {
 	public Experiment buildNeoSelection(List<TestSuite> testSuites, File[] files){
 		List<InterfaceSelectionTechnique> selectionTechniques = new ArrayList<>();
 		selectionTechniques.add(new BiggestTechnique());
-		selectionTechniques.add(new SimilarityTechnique());
-		selectionTechniques.add(new RandomTechnique());
 		selectionTechniques.add(new SmallestTechnique());
+		selectionTechniques.add(new RandomTechnique());
+		selectionTechniques.add(new SimilarityTechnique());
 		
-		double selectionPercentage = 0.8;		
+		double selectionPercentage = 0.4;		
 		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files);
-		InterfaceRunner runner = new NeoExperimentRunner(selectionTechniques.size());
+		InterfaceRunner runner = new NeoExperimentRunner(testSuites.size());
 		
 		return new Experiment(setup, runner);
 	}
@@ -49,7 +49,7 @@ public class ExperimentFactory {
 		enumMinimizationTechniques.add(MinimizationTechniques.H);
 		
 		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files);
-		InterfaceRunner runner = new NeoExperimentRunner(enumMinimizationTechniques.size());
+		InterfaceRunner runner = new NeoExperimentRunner(testSuites.size());
 		
 		return new Experiment(setup, runner);
 	}
