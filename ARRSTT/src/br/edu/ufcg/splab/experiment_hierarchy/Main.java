@@ -7,34 +7,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.facade.ARRSTTFacade;
 public class Main {
 	private static ARRSTTFacade facade;
 	
-	/*
-	 *  DVCs:
-	 * "DEFECTIVE_EDGES"
-	 * "DEFECTS"
-	 * "FAILURES"
-	 * "SIZE"
-	 * "TIME" -> DO NOT USE IT YET
-	 * "REDUCTION"
-	 * "MEDIA_MAX_MIN"
-	 * "MOST_REPEATED_TRANSITION"
-	 * "REDUNDANCE"
-	 * 
-	 *  Generation Techniques:
-	 * "BFS"
-	 * "DFS"
-	 *  
-	 *  Selection Techniques:
-	 * "BIGGEST"
-	 * "SIMILARITY"
-	 * "RANDOMIZED"
-	 * 
-	 *   Minimization Techniques:
-	 *  "G"
-	 *  "GE"
-	 *  "GRE"
-	 *  "H";
-	 * 
-	 */
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		
