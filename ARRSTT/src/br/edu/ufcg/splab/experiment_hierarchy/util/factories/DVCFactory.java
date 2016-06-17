@@ -1,13 +1,13 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectiveEdgesCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTDefectsCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTFailuresCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTMediaMaxMin;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTMostRepeatedTransitionCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTRedundanceCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.ARRSTTSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.datacollectors.DependentVariableCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTDefectiveEdgesCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTDefectsCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFailuresCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTMediaMaxMin;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTMostRepeatedTransitionCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTRedundanceCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 /*
@@ -25,35 +25,35 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  */
 public class DVCFactory {
 	
-	public DependentVariableCollector createDefectiveEdgesDvc() {
+	public InterfaceDvc createDefectiveEdgesDvc() {
 		return new ARRSTTDefectiveEdgesCollector();
 	}
 	
-	public DependentVariableCollector createDefectsDvc() {
+	public InterfaceDvc createDefectsDvc() {
 		return new ARRSTTDefectsCollector();
 	}
 	
-	public DependentVariableCollector createFailuresDvc() {
+	public InterfaceDvc createFailuresDvc() {
 		return new ARRSTTFailuresCollector();
 	}
 	
-	public DependentVariableCollector createSizeDvc() {
+	public InterfaceDvc createSizeDvc() {
 		return new ARRSTTSizeCollector();
 	}
 	
-	public DependentVariableCollector createMediaMaxMinDvc() {
+	public InterfaceDvc createMediaMaxMinDvc() {
 		return new ARRSTTMediaMaxMin();
 	}
 	
-	public DependentVariableCollector createMostRepeatedTransitionDvc() {
+	public InterfaceDvc createMostRepeatedTransitionDvc() {
 		return new ARRSTTMostRepeatedTransitionCollector();
 	}
 	
-	public DependentVariableCollector createRedundanceDvc() {
+	public InterfaceDvc createRedundanceDvc() {
 		return new ARRSTTRedundanceCollector();
 	}
 	
-	public DependentVariableCollector createReductionPercentageDvc(TestSuite testSuite) {
+	public InterfaceDvc createReductionPercentageDvc(TestSuite testSuite) {
 		return new ARRSTTRedundanceCollector();
 	}
 

@@ -21,7 +21,7 @@ public class BySimilaritySelector_ESTest_scaffolding {
 
   @BeforeClass 
   public static void initEvoSuiteFramework() { 
-    org.evosuite.runtime.RuntimeSettings.className = "br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector"; 
+    org.evosuite.runtime.RuntimeSettings.className = "br.edu.ufcg.splab.experiment_hierarchy.selections.SimilarityTechnique"; 
     org.evosuite.runtime.GuiSupport.initialize(); 
     org.evosuite.runtime.RuntimeSettings.maxNumberOfIterationsPerLoop = 10000; 
     org.evosuite.runtime.Runtime.getInstance().resetRuntime(); 
@@ -47,7 +47,7 @@ public class BySimilaritySelector_ESTest_scaffolding {
   private static void initializeClasses() {
     org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(BySimilaritySelector_ESTest_scaffolding.class.getClassLoader() ,
       "br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector",
-      "br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector",
+      "br.edu.ufcg.splab.experiment_hierarchy.selections.SimilarityTechnique",
       "br.edu.ufcg.splab.experiment_hierarchy.util.matrix.Matrix",
       "br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite",
       "br.edu.ufcg.splab.experiment_hierarchy.util.matrix.SimilarityStructure",

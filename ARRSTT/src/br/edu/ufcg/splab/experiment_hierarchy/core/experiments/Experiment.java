@@ -2,9 +2,8 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.experiments;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.DefaultRunner;
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.InterfaceRunner;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.InterfaceSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 /*
  * Change														Author				Date
@@ -19,7 +18,6 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 public class Experiment {
 	private InterfaceSetup setup;
 	private InterfaceRunner runner;
-	private List<ExperimentData> dvcResults;
 	
 	/**
 	 * Experiment's constructor.
@@ -41,9 +39,4 @@ public class Experiment {
 	public List<ExperimentData> execute() {
 		return runner.runExperiment(setup.getArtifacts());
 	}
-	
-	
-	/*public List<ExperimentData> getExperimentData() {
-		return dvcResults;
-	}*/
 }

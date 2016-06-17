@@ -14,8 +14,9 @@ import br.edu.ufcg.splab.graph_hierarchy.exceptions.LTSBTException;
  *
  **/
 public class ParseException extends LTSBTException {
-	
-	
+	private static final long serialVersionUID = 2096559636965507877L;
+
+
 	public ParseException(){
 		super("And error has occured in ParseException.");
 	}

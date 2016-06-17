@@ -1,6 +1,7 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 
-import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 /*
  * Change														Author				Date
@@ -20,7 +21,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  *
  */
 public class SelectionTreatment implements ExecutableTreatment {
-	private InterfaceTestCaseSelector selectionObject;
+	private InterfaceSelectionTechnique selectionObject;
 	private TestSuite testSuite;
 	private Double percentage;
 
@@ -35,7 +36,7 @@ public class SelectionTreatment implements ExecutableTreatment {
 	 *            The percentage that represents the section of the test
 	 *            suite that will be chosen.
 	 */
-	public SelectionTreatment(InterfaceTestCaseSelector selectionObject, TestSuite testSuite, Double percentage) {
+	public SelectionTreatment(InterfaceSelectionTechnique selectionObject, TestSuite testSuite, Double percentage) {
 		this.selectionObject = selectionObject;
 		this.testSuite = testSuite;
 		this.percentage = percentage;
@@ -67,7 +68,7 @@ public class SelectionTreatment implements ExecutableTreatment {
 	 * 
 	 * @return The selection algorithm bound to the class.
 	 */
-	public InterfaceTestCaseSelector getSelector() {
+	public InterfaceSelectionTechnique getSelector() {
 		return selectionObject;
 	}
 }

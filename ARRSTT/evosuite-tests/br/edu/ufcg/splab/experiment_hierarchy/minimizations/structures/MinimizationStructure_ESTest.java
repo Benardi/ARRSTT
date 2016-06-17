@@ -20,8 +20,9 @@ import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.ARRSTTTestRequirement;
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.requirements.TestRequirement;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.requirements.ARRSTTTestRequirement;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.requirements.TestRequirement;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceVertex;
@@ -44,7 +45,7 @@ public class MinimizationStructure_ESTest extends MinimizationStructure_ESTest_s
          //
          // no message in exception (getMessage() returned null)
          //
-         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure", e);
+         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure", e);
       }
   }
 
@@ -61,7 +62,7 @@ public class MinimizationStructure_ESTest extends MinimizationStructure_ESTest_s
          //
          // no message in exception (getMessage() returned null)
          //
-         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure", e);
+         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure", e);
       }
   }
 
@@ -136,7 +137,7 @@ public class MinimizationStructure_ESTest extends MinimizationStructure_ESTest_s
          //
          // no message in exception (getMessage() returned null)
          //
-         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure", e);
+         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure", e);
       }
   }
 
@@ -164,7 +165,7 @@ public class MinimizationStructure_ESTest extends MinimizationStructure_ESTest_s
          //
          // no message in exception (getMessage() returned null)
          //
-         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure", e);
+         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure", e);
       }
   }
 
@@ -234,7 +235,7 @@ public class MinimizationStructure_ESTest extends MinimizationStructure_ESTest_s
          //
          // no message in exception (getMessage() returned null)
          //
-         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.minimizations.structures.MinimizationStructure", e);
+         assertThrownBy("br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.structures.MinimizationStructure", e);
       }
   }
 }

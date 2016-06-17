@@ -1,6 +1,7 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.treatments;
 
-import br.edu.ufcg.splab.experiment_hierarchy.minimizations.techniques.InterfaceMinimizationTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.InterfaceMinimizationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class MinimizationTreatment implements ExecutableTreatment {

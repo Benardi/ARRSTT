@@ -1,9 +1,9 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util.factories;
 
-import br.edu.ufcg.splab.experiment_hierarchy.selections.BiggestTestCaseSelector;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.BySimilaritySelector;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.InterfaceTestCaseSelector;
-import br.edu.ufcg.splab.experiment_hierarchy.selections.RandomizedTestCaseSelection;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.BiggestTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.RandomTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.SimilarityTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.enums.SelectionType;
 /*
  * Change														Author				Date
@@ -30,7 +30,7 @@ public class SelectionFactory {
 	 *            The desired type of selection
 	 * @return A selector of the desired type.
 	 */
-	public InterfaceTestCaseSelector createTreatment(SelectionType type) {
+	public InterfaceSelectionTechnique createTreatment(SelectionType type) {
 		if (type == SelectionType.BIGGEST) {
 			return createBiggestSelector();
 		} else if (type == SelectionType.RANDOMIZED) {
@@ -44,23 +44,23 @@ public class SelectionFactory {
 	 * 
 	 * @return A biggest test case selector
 	 */
-	public InterfaceTestCaseSelector createBiggestSelector() {
-		return new BiggestTestCaseSelector();
+	public InterfaceSelectionTechnique createBiggestSelector() {
+		return new BiggestTechnique();
 	}
 
 	/**
 	 * 
 	 * @return A randomized selector.
 	 */
-	public InterfaceTestCaseSelector createRandomizedSelector() {
-		return new RandomizedTestCaseSelection();
+	public InterfaceSelectionTechnique createRandomizedSelector() {
+		return new RandomTechnique();
 	}
 
 	/**
 	 * 
 	 * @return a similarity selector.
 	 */
-	public InterfaceTestCaseSelector createSimilaritySelector() {
-		return new BySimilaritySelector();
+	public InterfaceSelectionTechnique createSimilaritySelector() {
+		return new SimilarityTechnique();
 	}
 }

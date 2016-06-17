@@ -20,7 +20,7 @@ public class BySimilaritySelector_ESTest extends BySimilaritySelector_ESTest_sca
 
   @Test
   public void test0()  throws Throwable  {
-      BySimilaritySelector bySimilaritySelector0 = new BySimilaritySelector();
+      SimilarityTechnique bySimilaritySelector0 = new SimilarityTechnique();
       // Undeclared exception!
       try { 
         bySimilaritySelector0.select((TestSuite) null, (Double) null);
