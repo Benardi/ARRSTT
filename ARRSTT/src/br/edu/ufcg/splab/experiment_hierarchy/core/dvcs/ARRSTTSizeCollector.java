@@ -33,7 +33,7 @@ public class ARRSTTSizeCollector implements InterfaceDvc {
 	 * 			A tuple of ExecutableTreatments that is going to generate a TestSuite.
 	 * @param The StringBuffer used to store the TestSuites' size.
 	 */
-	public StringBuffer collect(TestSuite testSuite) {		
+	public StringBuffer collect(TestSuite testSuite) {
 		return new StringBuffer(testSuite.size() + "");
 	}
 

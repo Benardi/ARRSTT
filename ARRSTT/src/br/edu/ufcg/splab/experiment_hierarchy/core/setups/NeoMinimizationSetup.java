@@ -10,34 +10,49 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.builders.RequirementBuilder;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniques;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniquesFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.InterfaceMinimizationTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.RequirementBuilders;
+import br.edu.ufcg.splab.experiment_hierarchy.util.factories.RequirementBuilderFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class NeoMinimizationSetup implements InterfaceSetup {
-	private List<InterfaceMinimizationTechnique> minimizationTechniques;
+	private List<MinimizationTechniques> enumMinimizationTechniques;
+	private RequirementBuilders enumBuilder;
 	private List<TestSuite> testSuites;
 	private File[] failureFiles;
 	
-	public NeoMinimizationSetup(List<TestSuite> testSuites, List<InterfaceMinimizationTechnique> minimizationTechniques, File[] failureFiles) {
-		this.minimizationTechniques = minimizationTechniques;
+	public NeoMinimizationSetup(List<TestSuite> testSuites, List<MinimizationTechniques> enumMinimizationTechniques, RequirementBuilders enumBuilder, File[] failureFiles) {
+		this.enumMinimizationTechniques = enumMinimizationTechniques;
 		this.testSuites = testSuites;
 		this.failureFiles = failureFiles;
+		this.enumBuilder = enumBuilder;
 	}
 
 	@Override
 	public List<TreatmentArtifact> getArtifacts() {
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
+		MinimizationTechniquesFactory minimizationFactory = new MinimizationTechniquesFactory();
+		RequirementBuilderFactory reqBuilderFactory = new RequirementBuilderFactory();
+		
 		List<TreatmentArtifact> artifacts = new ArrayList<TreatmentArtifact>();
 		
-		for (int i = 0; i < minimizationTechniques.size(); i++) {
+		for (int i = 0; i < enumMinimizationTechniques.size(); i++) {
 			for (int j = 0; j < testSuites.size(); j++) {
-				ExecutableTreatment treatment = treatmentFactory.createMinimization(minimizationTechniques.get(i));
+				RequirementBuilder builder = reqBuilderFactory.createRequirementBuilder(testSuites.get(j), enumBuilder);
+				InterfaceMinimizationTechnique minimizationTechnique = minimizationFactory.createMinimizationTechnique(enumMinimizationTechniques.get(i), testSuites.get(j), builder.getRequirements());
+				
+				ExecutableTreatment treatment = treatmentFactory.createMinimization(minimizationTechnique);
 				
 				List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-				dvcs.add(new ARRSTTFileCollector(failureFiles[j]));
+				dvcs.add(new ARRSTTFileCollector(failureFiles[0])); // Replace for -> failuresFiles[j]
 				dvcs.add(new ARRSTTReductionPercentageCollector(new TestSuite(testSuites.get(j))));
-				
+				dvcs.add(new ARRSTTSizeCollector());
+					
 				artifacts.add(new TreatmentArtifact(treatment, dvcs));
 			}
 		}

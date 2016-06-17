@@ -8,17 +8,15 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.runners.NeoExperimentRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NeoMinimizationSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NeoSelectionSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.GETechnique;
-import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.GRETechnique;
-import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.GTechnique;
-import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.HTechnique;
-import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.techniques.InterfaceMinimizationTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniques;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.BiggestTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.RandomTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.SimilarityTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.SmallestTechnique;
+import br.edu.ufcg.splab.experiment_hierarchy.util.enums.RequirementBuilders;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class ExperimentFactory {
@@ -44,7 +42,15 @@ public class ExperimentFactory {
 	}
 	
 	public Experiment buildNeoMinimization(List<TestSuite> testSuites, File[] files) {
-		List<InterfaceMinimizationTechnique> minimizationTechniques = new ArrayList<>();
-		return null;
+		List<MinimizationTechniques> enumMinimizationTechniques = new ArrayList<MinimizationTechniques>();
+		enumMinimizationTechniques.add(MinimizationTechniques.G);
+		enumMinimizationTechniques.add(MinimizationTechniques.GE);
+		enumMinimizationTechniques.add(MinimizationTechniques.GRE);
+		enumMinimizationTechniques.add(MinimizationTechniques.H);
+		
+		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files);
+		InterfaceRunner runner = new NeoExperimentRunner(enumMinimizationTechniques.size());
+		
+		return new Experiment(setup, runner);
 	}
 }

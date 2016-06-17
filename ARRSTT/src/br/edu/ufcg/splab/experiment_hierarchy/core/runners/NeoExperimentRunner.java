@@ -25,6 +25,7 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		
 		StringBuffer fileResult = new StringBuffer();
 		StringBuffer reductionResult = new StringBuffer();
+		StringBuffer sizeResult = new StringBuffer();
 		
 		for(int i = 0; i < results.size(); i++){
 			
@@ -34,16 +35,19 @@ public class NeoExperimentRunner implements InterfaceRunner{
 			
 			fileResult.append(split[0] + " ");
 			reductionResult.append(split[1] + " ");
+			sizeResult.append(split[2] + " ");
 			
 			if((i+1) % lineSize == 0){
 				fileResult.append(ArresttConstants.LINE_SEPARATOR);
 				reductionResult.append(ArresttConstants.LINE_SEPARATOR);
+				sizeResult.append(ArresttConstants.LINE_SEPARATOR);
 			}
 		}
 		
 		List<ExperimentData> finalResults = new ArrayList<>();
 		finalResults.add(new ExperimentData("File_DVC", fileResult.toString()));
-		finalResults.add(new ExperimentData("Reduction_DVC", reductionResult.toString()));		
+		finalResults.add(new ExperimentData("Reduction_DVC", reductionResult.toString()));
+		finalResults.add(new ExperimentData("Size_DVC", sizeResult.toString()));
 		
 		return finalResults;	
 	}

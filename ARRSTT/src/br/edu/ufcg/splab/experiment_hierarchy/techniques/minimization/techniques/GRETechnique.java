@@ -15,7 +15,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 public class GRETechnique implements InterfaceMinimizationTechnique {
 	private MinimizationStructure structure;
 	
-	public GRETechnique(TestSuite testSuite, List<TestRequirement> requirements) {
+	public GRETechnique(TestSuite originalTestSuite, List<TestRequirement> requirements) {
+		TestSuite testSuite = new TestSuite(originalTestSuite);
 		MinimizationStructureFactory factory = new MinimizationStructureFactory();
 		this.structure = factory.createStructure(testSuite, requirements);
 	}

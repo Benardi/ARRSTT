@@ -29,16 +29,17 @@ public class Main {
 	 * "RANDOMIZED"
 	 * 
 	 *   Minimization Techniques:
-	 *  "GREEDY"
-	 *  "GREEDY_ESSENCIAL"
-	 *  "GREEDY_ESSENCIAL_REDUNDANT"
-	 *  "HARROLD";
+	 *  "G"
+	 *  "GE"
+	 *  "GRE"
+	 *  "H";
 	 * 
 	 */
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		
 		experiment1();
+		//experiment2();
 	}
 	
 	public static void experiment1() {
@@ -49,6 +50,16 @@ public class Main {
 		facade.setArtifacts(artifacts);
 		
 		facade.runNeoSelectionExperiment(dvcs);
+	}
+	
+	public static void experiment2() {
+		File[] artifacts = directoryToPath(new File("extras\\input_examples"));
+		String[] dvcs = {"SIZE", "FAILURES"};
+		
+		facade.setOutputFolder("experiment_results/");
+		facade.setArtifacts(artifacts);
+		
+		facade.runNeoMinimizationExperiment(dvcs);
 	}
 	
 	private static File[] directoryToPath(File file) {
