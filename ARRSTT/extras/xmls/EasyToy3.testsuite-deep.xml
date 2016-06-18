@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite id="16" name="Toy4" >
-<node_order><![CDATA[2]]></node_order>
+<testsuite id="52" name="EasyToy3" >
+<node_order><![CDATA[3]]></node_order>
 <details><![CDATA[]]></details> 
 
-<testcase internalid="17" name="TC1">
+<testcase internalid="53" name="TC1">
 	<node_order><![CDATA[1000]]></node_order>
-	<externalid><![CDATA[4]]></externalid>
+	<externalid><![CDATA[10]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[]]></summary>
 	<preconditions><![CDATA[]]></preconditions>
@@ -19,50 +19,24 @@
 	<actions><![CDATA[<p>
 	A</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	AE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
-	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[<p>
-	B</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	BE</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[4]]></step_number>
-	<actions><![CDATA[<p>
-	C</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	CE</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[5]]></step_number>
+	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
 	D</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	DE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
 </testcase>
 
-<testcase internalid="25" name="TC2">
+<testcase internalid="57" name="TC2">
 	<node_order><![CDATA[1001]]></node_order>
-	<externalid><![CDATA[5]]></externalid>
+	<externalid><![CDATA[11]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[]]></summary>
 	<preconditions><![CDATA[]]></preconditions>
@@ -73,53 +47,34 @@
 <steps>
 <step>
 	<step_number><![CDATA[1]]></step_number>
-	<actions><![CDATA[<p>
-	A</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	AE</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
 	B</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	BE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	E</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[<p>
-	G</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	GE</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[4]]></step_number>
-	<actions><![CDATA[<p>
-	H</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	HE</p>
-]]></expectedresults>
+	<actions><![CDATA[]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
 </testcase>
 
-<testcase internalid="31" name="TC3">
+<testcase internalid="62" name="TC3">
 	<node_order><![CDATA[1002]]></node_order>
-	<externalid><![CDATA[6]]></externalid>
+	<externalid><![CDATA[12]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[]]></summary>
 	<preconditions><![CDATA[]]></preconditions>
@@ -131,11 +86,9 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	B</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	EE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
@@ -144,39 +97,46 @@
 	<actions><![CDATA[<p>
 	F</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	FE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
+</steps>
+</testcase>
 
+<testcase internalid="66" name="TC4">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[13]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
 <step>
-	<step_number><![CDATA[3]]></step_number>
+	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
 	C</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	CE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
-	<step_number><![CDATA[4]]></step_number>
+	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	G</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	DE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
 </testcase>
 
-<testcase internalid="37" name="TC4">
-	<node_order><![CDATA[1003]]></node_order>
-	<externalid><![CDATA[7]]></externalid>
+<testcase internalid="70" name="TC5">
+	<node_order><![CDATA[1004]]></node_order>
+	<externalid><![CDATA[14]]></externalid>
 	<version><![CDATA[1]]></version>
 	<summary><![CDATA[]]></summary>
 	<preconditions><![CDATA[]]></preconditions>
@@ -188,44 +148,49 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	C</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	EE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	FE</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[<p>
-	G</p>
-]]></actions>
-	<expectedresults><![CDATA[<p>
-	GE</p>
-]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[4]]></step_number>
-	<actions><![CDATA[<p>
 	H</p>
 ]]></actions>
-	<expectedresults><![CDATA[<p>
-	HE</p>
-]]></expectedresults>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="74" name="TC6">
+	<node_order><![CDATA[1005]]></node_order>
+	<externalid><![CDATA[15]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	C</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	I</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
