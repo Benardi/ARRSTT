@@ -20,14 +20,13 @@ public class ARRSTTFileCollector implements InterfaceDvc{
 	}
 	
 	@Override
-	public StringBuffer collect(TestSuite t) {
+	public StringBuffer collect(TestSuite testSuite) {
 		List<String> ids = getIDs();
 		int defectiveTCamount = 0;
-		for(String id : ids){
-			for(TestCase tc : t.getTestSuite()){
-				if(tc.getID().equals(id)){
-					defectiveTCamount++;
-				}
+		
+		for (TestCase testCase : testSuite) {
+			if (ids.contains(testCase.getID())) {
+				defectiveTCamount++;
 			}
 		}
 		
