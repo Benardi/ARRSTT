@@ -11,7 +11,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTReductionPercentageCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalTestSuiteCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFTestSuiteCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.builders.RequirementBuilder;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniques;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniquesFactory;
@@ -53,7 +53,7 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 				dvcs.add(new ARRSTTFileCollector(failureFiles[j])); // Replace for -> failuresFiles[j]
 				dvcs.add(new ARRSTTReductionPercentageCollector(new TestSuite(testSuites.get(j))));
 				dvcs.add(new ARRSTTSizeCollector());
-				dvcs.add(new FinalTestSuiteCollector());
+				dvcs.add(new ARRSTTFTestSuiteCollector());
 					
 				artifacts.add(new TreatmentArtifact(treatment, dvcs));
 			}
