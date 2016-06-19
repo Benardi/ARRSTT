@@ -8,10 +8,10 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFileCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTReductionPercentageCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFTestSuiteCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FileCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSuiteCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
@@ -39,10 +39,10 @@ public class NeoSelectionSetup implements InterfaceSetup{
 				ExecutableTreatment treatment = treatmentFactory.createSelection(selectionTechniques.get(i), testSuites.get(j), selectionPercentage);
 				
 				List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-				dvcs.add(new ARRSTTFileCollector(failureFiles[j])); // Replace for -> failuresFiles[j]
-				dvcs.add(new ARRSTTReductionPercentageCollector(new TestSuite(testSuites.get(j))));
-				dvcs.add(new ARRSTTSizeCollector());
-				dvcs.add(new ARRSTTFTestSuiteCollector());
+				dvcs.add(new FileCollector(failureFiles[j])); // Replace for -> failuresFiles[j]
+				dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
+				dvcs.add(new FinalSizeCollector());
+				dvcs.add(new FinalSuiteCollector());
 				
 				artifacts.add(new TreatmentArtifact(treatment, dvcs));
 			}

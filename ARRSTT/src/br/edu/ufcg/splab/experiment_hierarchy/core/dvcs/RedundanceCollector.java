@@ -8,7 +8,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
-public class ARRSTTRedundanceCollector implements InterfaceDvc {
+public class RedundanceCollector implements InterfaceDvc {
 
 	@Override
 	public StringBuffer collect(TestSuite testSuite) {

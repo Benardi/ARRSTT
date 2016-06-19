@@ -21,7 +21,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  * @author Wesley
  *
  */
-public class ARRSTTDefectiveEdgesCollector implements InterfaceDvc {
+public class DefectiveEdgesCollector implements InterfaceDvc {
 	
 	@Override
 	/**
