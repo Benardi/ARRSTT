@@ -5,7 +5,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.gambiarra.MediaMaxMin;
 
-public class ARRSTTMediaMaxMin implements InterfaceDvc {
+public class MediaMaxMinCollector implements InterfaceDvc {
 
 	@Override
 	public StringBuffer collect(TestSuite testSuite) {

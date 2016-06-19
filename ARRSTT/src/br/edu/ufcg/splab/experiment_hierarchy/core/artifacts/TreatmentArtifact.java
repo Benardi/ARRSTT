@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.MinimizationTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 

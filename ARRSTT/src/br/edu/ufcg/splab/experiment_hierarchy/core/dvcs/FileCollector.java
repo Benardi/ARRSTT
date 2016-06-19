@@ -12,10 +12,10 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class ARRSTTFileCollector implements InterfaceDvc{
+public class FileCollector implements InterfaceDvc{
 	
 	private File f;
-	public ARRSTTFileCollector(File f){
+	public FileCollector(File f){
 		this.f = f;
 	}
 	

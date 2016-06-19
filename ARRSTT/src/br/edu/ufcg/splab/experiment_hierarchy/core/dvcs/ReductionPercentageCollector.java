@@ -5,11 +5,11 @@ import java.text.DecimalFormat;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class ARRSTTReductionPercentageCollector implements InterfaceDvc {
+public class ReductionPercentageCollector implements InterfaceDvc {
 	private TestSuite originalTestSuite;
 	private DecimalFormat df;
 	
-	public ARRSTTReductionPercentageCollector(TestSuite originalTestSuite) {
+	public ReductionPercentageCollector(TestSuite originalTestSuite) {
 		this.originalTestSuite = originalTestSuite;
 		this.df = new DecimalFormat("0.00");
 	}

@@ -19,7 +19,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  * @author Wesley
  *
  */
-public class ARRSTTSizeCollector implements InterfaceDvc {
+public class FinalSizeCollector implements InterfaceDvc {
 
 	@Override
 	/**
