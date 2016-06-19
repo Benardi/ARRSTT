@@ -12,7 +12,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class FileCollector implements InterfaceDvc{
+public class FileCollector implements InterfaceDvc {
 	
 	private File f;
 	public FileCollector(File f){

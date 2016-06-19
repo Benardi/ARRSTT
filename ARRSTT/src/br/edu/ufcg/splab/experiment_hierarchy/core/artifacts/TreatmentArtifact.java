@@ -1,30 +1,41 @@
 package br.edu.ufcg.splab.experiment_hierarchy.core.artifacts;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.treatments.MinimizationTreatment;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.InterfaceBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class TreatmentArtifact {
 	private ExecutableTreatment target;
 	private List<InterfaceDvc> dvcs;
+	private List<InterfaceBenchmark> benchmarks;
 	
 	public TreatmentArtifact(ExecutableTreatment target, List<InterfaceDvc> dvcs) {
 		this.target = target;
 		this.dvcs = dvcs;
+		this.benchmarks = createBenchmarkList(dvcs);
 	}
 	
 	public StringBuffer getDVCResults(){
 		StringBuffer result = new StringBuffer();
-		// TESTE
+		
+		for (InterfaceBenchmark benchmark : benchmarks) {
+			benchmark.startBenchmark();
+		}
+		
 		TestSuite resultTestSuite = target.execute();
+		
+		for (InterfaceBenchmark benchmark : benchmarks) {
+			benchmark.endBenchmark();
+		}
 		
 		for(InterfaceDvc dvc : dvcs){
 			result.append(dvc.collect(resultTestSuite) + "/");
 		}
+		
 		return result;
 	}
 	
@@ -36,4 +47,15 @@ public class TreatmentArtifact {
 		return dvcs;
 	}
 
+	private List<InterfaceBenchmark> createBenchmarkList(List<InterfaceDvc> dvcs) {
+		List<InterfaceBenchmark> benchmarks = new ArrayList<InterfaceBenchmark>();
+		
+		for (InterfaceDvc dvc : dvcs) {
+			if (dvc instanceof InterfaceBenchmark) {
+				benchmarks.add((InterfaceBenchmark) dvc);
+			}
+		}
+		
+		return benchmarks;
+	}
 }

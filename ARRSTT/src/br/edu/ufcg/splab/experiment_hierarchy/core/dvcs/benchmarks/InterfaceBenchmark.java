@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking;
+package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 

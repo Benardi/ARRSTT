@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.benchmarking;
+package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks;
 
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
@@ -8,10 +8,10 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  * Creation														Wesley Silva		2015-09-13
  * 
  */
-public class ARRSTTTimeCollector implements InterfaceBenchmark {
+public class TimeBenchmark implements InterfaceBenchmark {
 	private long time;
 	
-	public ARRSTTTimeCollector() {
+	public TimeBenchmark() {
 		this.time = 0;
 	}
 	
@@ -25,14 +25,8 @@ public class ARRSTTTimeCollector implements InterfaceBenchmark {
 		time = System.nanoTime() - time;
 	}
 
-	/*@Override
-	public StringBuffer collect(Void v) {
-		return new StringBuffer(time + "");
-	}*/
-
 	@Override
-	public StringBuffer collect(TestSuite t) {
-		// TODO Auto-generated method stub
-		return null;
+	public StringBuffer collect(TestSuite testSuite) {
+		return new StringBuffer(time + "");
 	}
 }

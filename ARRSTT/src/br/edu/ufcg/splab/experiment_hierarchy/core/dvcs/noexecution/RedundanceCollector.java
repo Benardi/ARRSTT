@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs;
+package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,10 +9,15 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
 public class RedundanceCollector implements InterfaceDvc {
-
+	private TestSuite originalSuite;
+	
+	public RedundanceCollector(TestSuite originalSuite) {
+		this.originalSuite = originalSuite;
+	}
+	
 	@Override
-	public StringBuffer collect(TestSuite testSuite) {
-		double result = getRedundance(testSuite);
+	public StringBuffer collect(TestSuite finalSuite) {
+		double result = getRedundance(originalSuite);
 		return new StringBuffer(result + "");
 	}
 	

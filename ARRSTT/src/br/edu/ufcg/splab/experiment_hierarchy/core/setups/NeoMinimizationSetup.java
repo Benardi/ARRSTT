@@ -10,6 +10,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.TimeBenchmark;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MediaMaxMinCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSuiteCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.builders.RequirementBuilder;
@@ -54,6 +56,8 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 				dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
 				dvcs.add(new FinalSizeCollector());
 				dvcs.add(new FinalSuiteCollector());
+				dvcs.add(new TimeBenchmark());
+				dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
 					
 				artifacts.add(new TreatmentArtifact(treatment, dvcs));
 			}
