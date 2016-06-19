@@ -4,10 +4,11 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.DefectiveEdgesCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.DefectsCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.MediaMaxMinCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.MostRepeatedTransitionCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.RedundanceCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MediaMaxMinCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MostRepeatedTransitionCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.RedundanceCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 /*
@@ -41,20 +42,20 @@ public class DVCFactory {
 		return new FinalSizeCollector();
 	}
 	
-	public InterfaceDvc createMediaMaxMinDvc() {
-		return new MediaMaxMinCollector();
+	public InterfaceDvc createMediaMaxMinDvc(TestSuite testSuite) {
+		return new MediaMaxMinCollector(testSuite);
 	}
 	
-	public InterfaceDvc createMostRepeatedTransitionDvc() {
-		return new MostRepeatedTransitionCollector();
+	public InterfaceDvc createMostRepeatedTransitionDvc(TestSuite testSuite) {
+		return new MostRepeatedTransitionCollector(testSuite);
 	}
 	
-	public InterfaceDvc createRedundanceDvc() {
-		return new RedundanceCollector();
+	public InterfaceDvc createRedundanceDvc(TestSuite testSuite) {
+		return new RedundanceCollector(testSuite);
 	}
 	
 	public InterfaceDvc createReductionPercentageDvc(TestSuite testSuite) {
-		return new RedundanceCollector();
+		return new ReductionPercentageCollector(testSuite);
 	}
 
 }

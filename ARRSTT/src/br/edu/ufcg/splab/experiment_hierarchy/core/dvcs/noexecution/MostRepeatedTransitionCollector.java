@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs;
+package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,10 +12,15 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.InterfaceEdge;
 
 public class MostRepeatedTransitionCollector implements InterfaceDvc {
-
+	private TestSuite originalSuite;
+	
+	public MostRepeatedTransitionCollector(TestSuite originalSuite) {
+		this.originalSuite = originalSuite;
+	}
+	
 	@Override
-	public StringBuffer collect(TestSuite testSuite) {
-		String transition = getMostRepeatedTransition(testSuite);
+	public StringBuffer collect(TestSuite finalSuite) {
+		String transition = getMostRepeatedTransition(originalSuite);
 		return new StringBuffer(transition);
 	}
 	
