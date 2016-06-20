@@ -59,8 +59,8 @@ public class TestCase implements Iterable<InterfaceEdge> {
 	 */
 	public TestCase(TestCase tCaseCopy) {
 		this.tCase = tCaseCopy.getTestCaseCopy();
-		this.name = "Noname";
-		this.id = "Noname";
+		this.name = tCaseCopy.getName();
+		this.id = tCaseCopy.getID();
 	}
 
 	/**
@@ -76,6 +76,10 @@ public class TestCase implements Iterable<InterfaceEdge> {
 		this(new ArrayList<InterfaceEdge>());
 		this.name = name;
 		this.id = id;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 	/**

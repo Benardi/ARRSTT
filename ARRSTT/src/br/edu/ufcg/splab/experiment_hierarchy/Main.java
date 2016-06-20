@@ -11,7 +11,9 @@ public class Main {
 		facade = new ARRSTTFacade();
 		
 		//experiment1();
-		experiment2();
+		//experiment2();
+		//experiment3();
+		experiment4();
 	}
 	
 	public static void experiment1() {
@@ -32,6 +34,26 @@ public class Main {
 		facade.setArtifacts(artifacts);
 		
 		facade.runNeoMinimizationExperiment(dvcs);
+	}
+	
+	public static void experiment3() {
+		String[] artifacts = {"extras\\xmls\\EasyToy4.testsuite-deep.xml"}; 
+		String[] files = {"extras\\files\\easytoy4_fails.txt"};
+		
+		facade.setOutputFolder("experiment_results\\");
+		facade.setArtifacts(artifacts);
+		
+		facade.runNeoSelectionExperiment(files);
+	}
+	
+	public static void experiment4() {
+		String[] artifacts = {"extras\\xmls\\EasyToy4.testsuite-deep.xml"}; 
+		String[] files = {"extras\\files\\easytoy4_fails.txt"};
+		
+		facade.setOutputFolder("experiment_results\\");
+		facade.setArtifacts(artifacts);
+		
+		facade.runNeoMinimizationExperiment(files);
 	}
 	
 	private static File[] directoryToPath(File file) {

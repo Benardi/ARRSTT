@@ -8,9 +8,12 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTFileCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTReductionPercentageCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ARRSTTSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FileCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.TimeBenchmark;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MediaMaxMinCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSuiteCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.builders.RequirementBuilder;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniques;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniquesFactory;
@@ -49,9 +52,12 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 				ExecutableTreatment treatment = treatmentFactory.createMinimization(minimizationTechnique);
 				
 				List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-				dvcs.add(new ARRSTTFileCollector(failureFiles[0])); // Replace for -> failuresFiles[j]
-				dvcs.add(new ARRSTTReductionPercentageCollector(new TestSuite(testSuites.get(j))));
-				dvcs.add(new ARRSTTSizeCollector());
+				dvcs.add(new FileCollector(failureFiles[j])); // Replace for -> failuresFiles[j]
+				dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
+				dvcs.add(new FinalSizeCollector());
+				dvcs.add(new FinalSuiteCollector());
+				dvcs.add(new TimeBenchmark());
+				dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
 					
 				artifacts.add(new TreatmentArtifact(treatment, dvcs));
 			}
