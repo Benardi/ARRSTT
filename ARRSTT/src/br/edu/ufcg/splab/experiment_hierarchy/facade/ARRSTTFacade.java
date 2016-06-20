@@ -24,12 +24,12 @@ public class ARRSTTFacade {
 		controller.setInput(files);
 	}
 	
-	public void runNeoSelectionExperiment(String[] paths){
-		controller.runNeoSelectionExperiment(paths);
+	public void runNeoSelectionExperiment(String[] paths, int replications){
+		controller.runNeoSelectionExperiment(paths, replications);
 	}
 	
-	public void runNeoMinimizationExperiment(String[] paths){
-		controller.runNeoMinimizationExperiment(paths);
+	public void runNeoMinimizationExperiment(String[] paths, int replications){
+		controller.runNeoMinimizationExperiment(paths, replications);
 	}
 	
 	public void setOutputFolder(String path) {

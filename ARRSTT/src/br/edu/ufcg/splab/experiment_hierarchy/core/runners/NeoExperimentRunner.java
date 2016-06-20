@@ -54,7 +54,7 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		}
 		
 		List<ExperimentData> finalResults = new ArrayList<>();
-		finalResults.add(new ExperimentData("FailruresByFile_DVC", fileResult.toString()));
+		finalResults.add(new ExperimentData("FailuresByFile_DVC", fileResult.toString()));
 		finalResults.add(new ExperimentData("Reduction_DVC", reductionResult.toString()));
 		finalResults.add(new ExperimentData("FinalSize_DVC", sizeResult.toString()));
 		finalResults.add(new ExperimentData("ResultTS_DVC", testSuiteResult.toString()));

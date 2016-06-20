@@ -121,8 +121,8 @@ public class XMLParser {
 		InterfaceEdge edge;
 		
 		// Initialize test case.
-		TestCase testCase = new TestCase(testCaseTag.getAttributeValue("internalid"), testCaseTag.getAttributeValue("name"));
-		
+		TestCase testCase = new TestCase(testCaseTag.getChildText("externalid"), testCaseTag.getAttributeValue("name"));
+	
 		// Add the precondition to the test case.
 		String preconditions = testCaseTag.getChildText("preconditions");
 		if(preconditions != null){
