@@ -23,12 +23,14 @@ public class NeoSelectionSetup implements InterfaceSetup{
 	private List<TestSuite> testSuites;
 	private File[] failureFiles;
 	private double selectionPercentage;
+	private int replications;
 	
-	public NeoSelectionSetup(List<TestSuite> testSuites, List<InterfaceSelectionTechnique> selectionTechniques, double selectionPercentage, File[] failureFiles) {
+	public NeoSelectionSetup(List<TestSuite> testSuites, List<InterfaceSelectionTechnique> selectionTechniques, double selectionPercentage, File[] failureFiles, int replications) {
 		this.selectionTechniques = selectionTechniques;
 		this.selectionPercentage = selectionPercentage;
 		this.testSuites = testSuites;
 		this.failureFiles = failureFiles;
+		this.replications = replications;
 	}
 	
 	@Override
@@ -36,19 +38,21 @@ public class NeoSelectionSetup implements InterfaceSetup{
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		List<TreatmentArtifact> artifacts = new ArrayList<TreatmentArtifact>();
 		
-		for (int i = 0; i < selectionTechniques.size(); i++) {
-			for (int j = 0; j < testSuites.size(); j++) {
-				ExecutableTreatment treatment = treatmentFactory.createSelection(selectionTechniques.get(i), testSuites.get(j), selectionPercentage);
-				
-				List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-				dvcs.add(new FileCollector(failureFiles[j])); // Replace for -> failuresFiles[j]
-				dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
-				dvcs.add(new FinalSizeCollector());
-				dvcs.add(new FinalSuiteCollector());
-				dvcs.add(new TimeBenchmark());
-				dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
-				
-				artifacts.add(new TreatmentArtifact(treatment, dvcs));
+		for (int j = 0; j < testSuites.size(); j++) {
+			for (int i = 0; i < selectionTechniques.size(); i++) {
+				for (int k = 0; k <= replications; k++) {
+					ExecutableTreatment treatment = treatmentFactory.createSelection(selectionTechniques.get(i), testSuites.get(j), selectionPercentage);
+					
+					List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
+					dvcs.add(new FileCollector(failureFiles[0]));
+					dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
+					dvcs.add(new FinalSizeCollector());
+					dvcs.add(new FinalSuiteCollector());
+					dvcs.add(new TimeBenchmark());
+					dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
+					
+					artifacts.add(new TreatmentArtifact(treatment, dvcs));
+				}
 			}
 		}
 		

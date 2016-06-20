@@ -23,7 +23,7 @@ public class Main {
 		facade.setOutputFolder("ARRSTT\\experiment_results\\");
 		facade.setArtifacts(artifacts);
 		
-		facade.runNeoSelectionExperiment(dvcs);
+		facade.runNeoSelectionExperiment(dvcs, 0);
 	}
 	
 	public static void experiment2() {
@@ -33,27 +33,27 @@ public class Main {
 		facade.setOutputFolder("ARRSTT\\experiment_results\\");
 		facade.setArtifacts(artifacts);
 		
-		facade.runNeoMinimizationExperiment(dvcs);
+		facade.runNeoMinimizationExperiment(dvcs, 0);
 	}
 	
 	public static void experiment3() {
-		String[] artifacts = {"extras\\xmls\\EasyToy4.testsuite-deep.xml"}; 
+		File[] artifacts = directoryToPath(new File("extras/input_examples/")); 
 		String[] files = {"extras\\files\\easytoy4_fails.txt"};
 		
 		facade.setOutputFolder("experiment_results\\");
 		facade.setArtifacts(artifacts);
 		
-		facade.runNeoSelectionExperiment(files);
+		facade.runNeoSelectionExperiment(files, 0);
 	}
 	
 	public static void experiment4() {
-		String[] artifacts = {"extras\\xmls\\EasyToy4.testsuite-deep.xml"}; 
-		String[] files = {"extras\\files\\easytoy4_fails.txt"};
+		String[] artifacts = {"extras/xmls/EasyToy4.testsuite-deep.xml"};  
+		String[] files = {"extras/files/easytoy4_fails.txt"};
 		
-		facade.setOutputFolder("experiment_results\\");
+		facade.setOutputFolder("experiment_results/");
 		facade.setArtifacts(artifacts);
 		
-		facade.runNeoMinimizationExperiment(files);
+		facade.runNeoMinimizationExperiment(files, 1);
 	}
 	
 	private static File[] directoryToPath(File file) {

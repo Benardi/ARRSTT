@@ -28,12 +28,14 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 	private RequirementBuilders enumBuilder;
 	private List<TestSuite> testSuites;
 	private File[] failureFiles;
+	private int replications;
 	
-	public NeoMinimizationSetup(List<TestSuite> testSuites, List<MinimizationTechniques> enumMinimizationTechniques, RequirementBuilders enumBuilder, File[] failureFiles) {
+	public NeoMinimizationSetup(List<TestSuite> testSuites, List<MinimizationTechniques> enumMinimizationTechniques, RequirementBuilders enumBuilder, File[] failureFiles, int replications) {
 		this.enumMinimizationTechniques = enumMinimizationTechniques;
 		this.testSuites = testSuites;
 		this.failureFiles = failureFiles;
 		this.enumBuilder = enumBuilder;
+		this.replications = replications;
 	}
 
 	@Override
@@ -44,22 +46,24 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 		
 		List<TreatmentArtifact> artifacts = new ArrayList<TreatmentArtifact>();
 		
-		for (int i = 0; i < enumMinimizationTechniques.size(); i++) {
-			for (int j = 0; j < testSuites.size(); j++) {
-				RequirementBuilder builder = reqBuilderFactory.createRequirementBuilder(testSuites.get(j), enumBuilder);
-				InterfaceMinimizationTechnique minimizationTechnique = minimizationFactory.createMinimizationTechnique(enumMinimizationTechniques.get(i), testSuites.get(j), builder.getRequirements());
-				
-				ExecutableTreatment treatment = treatmentFactory.createMinimization(minimizationTechnique);
-				
-				List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-				dvcs.add(new FileCollector(failureFiles[j])); // Replace for -> failuresFiles[j]
-				dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
-				dvcs.add(new FinalSizeCollector());
-				dvcs.add(new FinalSuiteCollector());
-				dvcs.add(new TimeBenchmark());
-				dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
+		for (int j = 0; j < testSuites.size(); j++) {
+			for (int i = 0; i < enumMinimizationTechniques.size(); i++) {
+				for (int k = 0; k <= replications; k++) {
+					RequirementBuilder builder = reqBuilderFactory.createRequirementBuilder(testSuites.get(j), enumBuilder);
+					InterfaceMinimizationTechnique minimizationTechnique = minimizationFactory.createMinimizationTechnique(enumMinimizationTechniques.get(i), testSuites.get(j), builder.getRequirements());
 					
-				artifacts.add(new TreatmentArtifact(treatment, dvcs));
+					ExecutableTreatment treatment = treatmentFactory.createMinimization(minimizationTechnique);
+					
+					List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
+					dvcs.add(new FileCollector(failureFiles[0]));
+					dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
+					dvcs.add(new FinalSizeCollector());
+					dvcs.add(new FinalSuiteCollector());
+					dvcs.add(new TimeBenchmark());
+					dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
+						
+					artifacts.add(new TreatmentArtifact(treatment, dvcs));
+				}
 			}
 		}
 		

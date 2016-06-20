@@ -62,9 +62,9 @@ public class ARRSTTController {
 		}
 	}
 	
-	public void runNeoSelectionExperiment(String[] paths){
+	public void runNeoSelectionExperiment(String[] paths, int replications){
 		try{
-			Experiment experiment = experimentFactory.buildNeoSelection(input, io.getFiles(paths));
+			Experiment experiment = experimentFactory.buildNeoSelection(input, io.getFiles(paths), replications);
 			List<ExperimentData> datas = experiment.execute();
 			io.saveData(datas, outputFolder);
 		} catch (Exception e){
@@ -73,9 +73,9 @@ public class ARRSTTController {
 		}
 	}
 	
-	public void runNeoMinimizationExperiment(String[] paths) {
+	public void runNeoMinimizationExperiment(String[] paths, int replications) {
 		try {
-			Experiment experiment = experimentFactory.buildNeoMinimization(input, io.getFiles(paths));
+			Experiment experiment = experimentFactory.buildNeoMinimization(input, io.getFiles(paths), replications);
 			List<ExperimentData> datas = experiment.execute();
 			io.saveData(datas, outputFolder);
 		} catch (Exception e) {

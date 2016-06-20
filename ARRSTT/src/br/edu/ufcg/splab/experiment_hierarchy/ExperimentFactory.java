@@ -23,11 +23,7 @@ public class ExperimentFactory {
 	public final static double MASK_PERCENTAGE = 0.4;
 	public static final String LINE_END = System.getProperty("line.separator");
 	
-	public ExperimentFactory(){
-	}
-	
-	
-	public Experiment buildNeoSelection(List<TestSuite> testSuites, File[] files){
+	public Experiment buildNeoSelection(List<TestSuite> testSuites, File[] files, int replications){
 		List<InterfaceSelectionTechnique> selectionTechniques = new ArrayList<>();
 		selectionTechniques.add(new BiggestTechnique());
 		selectionTechniques.add(new SmallestTechnique());
@@ -35,21 +31,21 @@ public class ExperimentFactory {
 		selectionTechniques.add(new SimilarityTechnique());
 		
 		double selectionPercentage = 0.4;		
-		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files);
-		InterfaceRunner runner = new NeoExperimentRunner(testSuites.size());
+		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, 0);
+		InterfaceRunner runner = new NeoExperimentRunner(selectionTechniques.size() * (replications + 1));
 		
 		return new Experiment(setup, runner);
 	}
 	
-	public Experiment buildNeoMinimization(List<TestSuite> testSuites, File[] files) {
+	public Experiment buildNeoMinimization(List<TestSuite> testSuites, File[] files, int replications) {
 		List<MinimizationTechniques> enumMinimizationTechniques = new ArrayList<MinimizationTechniques>();
 		enumMinimizationTechniques.add(MinimizationTechniques.G);
 		enumMinimizationTechniques.add(MinimizationTechniques.GE);
 		enumMinimizationTechniques.add(MinimizationTechniques.GRE);
 		enumMinimizationTechniques.add(MinimizationTechniques.H);
 		
-		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files);
-		InterfaceRunner runner = new NeoExperimentRunner(testSuites.size());
+		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files, replications);
+		InterfaceRunner runner = new NeoExperimentRunner(enumMinimizationTechniques.size() * (replications + 1));
 		
 		return new Experiment(setup, runner);
 	}
