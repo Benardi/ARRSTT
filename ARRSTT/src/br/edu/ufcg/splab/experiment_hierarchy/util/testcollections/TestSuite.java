@@ -226,10 +226,7 @@ public class TestSuite implements Iterable<TestCase> {
 		String output = "";
 
 		for (TestCase tCase : tSuite) {
-			tCase.toString();
-			output += tCase.toString() + "\n";
-			output += "----------------------------------------------------"
-					+ "\n";
+			output += tCase.toString();
 		}
 
 		return output;

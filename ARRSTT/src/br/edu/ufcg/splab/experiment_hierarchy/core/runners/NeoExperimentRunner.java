@@ -26,6 +26,9 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		StringBuffer fileResult = new StringBuffer();
 		StringBuffer reductionResult = new StringBuffer();
 		StringBuffer sizeResult = new StringBuffer();
+		StringBuffer testSuiteResult = new StringBuffer();
+		StringBuffer timeResult = new StringBuffer();
+		StringBuffer mmmResult = new StringBuffer();
 		
 		for(int i = 0; i < results.size(); i++){
 			
@@ -33,21 +36,30 @@ public class NeoExperimentRunner implements InterfaceRunner{
 			String aux = partialResult.toString();
 			String[] split = aux.split("/");
 			
-			fileResult.append(split[0] + " ");
-			reductionResult.append(split[1] + " ");
-			sizeResult.append(split[2] + " ");
+			fileResult.append(split[0] + "\t");
+			reductionResult.append(split[1] + "\t");
+			sizeResult.append(split[2] + "\t");
+			testSuiteResult.append(split[3] + "\t");
+			timeResult.append(split[4] + "\t");
+			mmmResult.append(split[5] + "\t");
 			
 			if((i+1) % lineSize == 0){
 				fileResult.append(ArresttConstants.LINE_SEPARATOR);
 				reductionResult.append(ArresttConstants.LINE_SEPARATOR);
 				sizeResult.append(ArresttConstants.LINE_SEPARATOR);
+				testSuiteResult.append(ArresttConstants.LINE_SEPARATOR);
+				timeResult.append(ArresttConstants.LINE_SEPARATOR);
+				mmmResult.append(ArresttConstants.LINE_SEPARATOR);
 			}
 		}
 		
 		List<ExperimentData> finalResults = new ArrayList<>();
-		finalResults.add(new ExperimentData("File_DVC", fileResult.toString()));
+		finalResults.add(new ExperimentData("FailruresByFile_DVC", fileResult.toString()));
 		finalResults.add(new ExperimentData("Reduction_DVC", reductionResult.toString()));
-		finalResults.add(new ExperimentData("Size_DVC", sizeResult.toString()));
+		finalResults.add(new ExperimentData("FinalSize_DVC", sizeResult.toString()));
+		finalResults.add(new ExperimentData("ResultTS_DVC", testSuiteResult.toString()));
+		finalResults.add(new ExperimentData("Time_DVC", timeResult.toString()));
+		finalResults.add(new ExperimentData("MediaMaxMin_DVC", mmmResult.toString()));
 		
 		return finalResults;	
 	}

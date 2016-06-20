@@ -71,4 +71,9 @@ public class SelectionTreatment implements ExecutableTreatment {
 	public InterfaceSelectionTechnique getSelector() {
 		return selectionObject;
 	}
+	
+	@Override
+	public String toString() {
+		return testSuite.toString();
+	}
 }
