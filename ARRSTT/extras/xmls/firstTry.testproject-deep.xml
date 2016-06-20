@@ -2131,4 +2131,554 @@
 </step>
 </steps>
 </testcase>
+</testsuite><testsuite id="295" name="SmallProgram" >
+<node_order><![CDATA[9]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="296" name="TC1">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[54]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on program icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Click on someone&#39;s icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Goes to the person&#39;s page</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Click on chat button</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	A chat window appears</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Type message and press send</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The message is sent</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	Press the X</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program closes</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="303" name="TC2">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[55]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on program icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Click on someone&#39;s icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Goes to person&#39;s page</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Click on chat button</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	A chat window appears</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Press the X</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program closes</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="305" name="TC3">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[56]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on program icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Click on someone&#39;s icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Goes to person&#39;s page</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Press the X</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program closes</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="307" name="TC4">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[57]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on program icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Press the X</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The program closes</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="318" name="Challenge" >
+<node_order><![CDATA[10]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="319" name="TC1">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[58]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Picks sword</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Become a warrior</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Challenge an archer</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	VICTORY</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="321" name="TC2">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[59]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Picks sword</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Become a warrior</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Challenge a cleric</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	DEFEAT</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="323" name="TC3">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[60]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Pick a staff</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Become a mage</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Challenge an archer</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	DEFEAT</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="325" name="TC4">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[61]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Pick a staff</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Become a mage</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Challenge a cleric</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	VICTORY</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="335" name="Info" >
+<node_order><![CDATA[11]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="336" name="TC1">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[62]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on app icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	App opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Press camera icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Photo mode</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Passes page</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Video mode</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Press record</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Video recorded</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="342" name="TC2">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[63]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on app icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	App opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Press camera icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Photo mode</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Passes page</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Video mode</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Presses moon icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Dark vision mode</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="348" name="TC3">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[64]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on app icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	App opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Press camera icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Photo mode</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Presses square</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Photo taken</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="353" name="TC4">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[65]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Click on app icon</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	App opens</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Press config</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Config page</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
 </testsuite></testsuite>
