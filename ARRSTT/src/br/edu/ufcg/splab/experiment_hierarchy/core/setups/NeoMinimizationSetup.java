@@ -8,7 +8,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FileCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresByFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.TimeBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MediaMaxMinCollector;
@@ -53,9 +53,8 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 					InterfaceMinimizationTechnique minimizationTechnique = minimizationFactory.createMinimizationTechnique(enumMinimizationTechniques.get(i), testSuites.get(j), builder.getRequirements());
 					
 					ExecutableTreatment treatment = treatmentFactory.createMinimization(minimizationTechnique);
-					
 					List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
-					dvcs.add(new FileCollector(failureFiles[0]));
+					dvcs.add(new FailuresByFileCollector(findRightFile(testSuites.get(j))));
 					dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
 					dvcs.add(new FinalSizeCollector());
 					dvcs.add(new FinalSuiteCollector());
@@ -68,5 +67,21 @@ public class NeoMinimizationSetup implements InterfaceSetup {
 		}
 		
 		return artifacts;
+	}
+	
+	private File findRightFile(TestSuite testSuite) {
+		File rightFile = null;
+		
+		if (testSuite.getID().equals("noid")) {
+			return null;
+		}
+		
+		for (int i = 0; i < failureFiles.length; i++) {
+			if ((testSuite.getID() + "_failures.txt").equalsIgnoreCase(failureFiles[i].getName())) {
+				rightFile = failureFiles[i];
+			}
+		}
+		
+		return rightFile;
 	}
 }

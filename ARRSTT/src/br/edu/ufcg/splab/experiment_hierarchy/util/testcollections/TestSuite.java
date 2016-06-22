@@ -38,9 +38,9 @@ public class TestSuite implements Iterable<TestCase> {
 	 * @param tSuite
 	 *            The list of TestCase.
 	 */
-	public TestSuite(List<TestCase> tSuite) {
+	public TestSuite(List<TestCase> tSuite, String id) {
 		this.tSuite = tSuite;
-		id = "Noname";
+		this.id = id;
 	}
 
 	/**
@@ -54,19 +54,18 @@ public class TestSuite implements Iterable<TestCase> {
 	 */
 	public TestSuite(TestSuite tSuiteCopy) {
 		this.tSuite = tSuiteCopy.getTestSuiteCopy();
-		id = "Noname";
+		id = tSuiteCopy.getID();
+	}
+	
+	public TestSuite() {
+		this(new ArrayList<TestCase>(), "noid");
 	}
 
 	/**
 	 * Creates an empty TestSuite.
 	 */
-	public TestSuite() {
-		this(new ArrayList<TestCase>());
-		id = "Noname";
-	}
-	
-	public TestSuite(String id){
-		this(new ArrayList<TestCase>());
+	public TestSuite(String id) {
+		this(new ArrayList<TestCase>(), id);
 		this.id = id;
 	}
 
@@ -108,7 +107,7 @@ public class TestSuite implements Iterable<TestCase> {
 	 */
 	public TestSuite getCopy() {
 		List<TestCase> copyList = new ArrayList<TestCase>(tSuite);
-		return new TestSuite(copyList);
+		return new TestSuite(copyList, "noid");
 	}
 	
 	public String getID(){

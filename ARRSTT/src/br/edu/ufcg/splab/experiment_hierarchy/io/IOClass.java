@@ -80,7 +80,7 @@ public class IOClass {
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy_MM_dd -- HH_mm_ss");
 		LocalDateTime date = LocalDateTime.now();
 		
-		String dirName = outputFolder + date.format(dateFormatter);
+		String dirName = outputFolder + "/" + date.format(dateFormatter);
 		
 		if(!(new File (dirName)).mkdirs()) {
 			throw new ARRSTTException("It was not able to create a data directory.");

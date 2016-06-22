@@ -7,7 +7,7 @@ public class FinalSuiteCollector implements InterfaceDvc {
 
 	@Override
 	public StringBuffer collect(TestSuite t) {
-		return new StringBuffer(t.toString());
+		return new StringBuffer("----- " + "NEW TEST SUITE" + " -----" + t.toString());
 	}
 
 }

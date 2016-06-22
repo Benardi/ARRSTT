@@ -103,6 +103,7 @@ public class XMLParser {
 			}
 			result.add(ts);
 		} 
+		
 		if(!tag.getChildren("testsuite").isEmpty()) {
 			for (Element testSuiteTag : tag.getChildren("testsuite")) {
 				recursiveRead(id + "/" + testSuiteTag.getAttributeValue("name"), testSuiteTag);
@@ -117,7 +118,6 @@ public class XMLParser {
 	 * @return The created TestCase.
 	 */
 	private TestCase createTestCase(Element testCaseTag) {
-		//gambiarra
 		InterfaceEdge edge;
 		
 		// Initialize test case.
