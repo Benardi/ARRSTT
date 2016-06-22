@@ -16,23 +16,27 @@ public class ARRSTTFacade {
 		this.controller = new ARRSTTController();
 	}
 	
-	public void setArtifacts(String[] paths) {
-		controller.setInput(paths);
+	public void runNeoSelectionExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications){
+		controller.runNeoSelectionExperiment(input, dvcFiles, outputFolder, replications);
 	}
 	
-	public void setArtifacts(File[] files) {
-		controller.setInput(files);
+	public void runNeoSelectionExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications){
+		controller.runNeoSelectionExperiment(input, dvcFiles, outputFolder, replications);
 	}
 	
-	public void runNeoSelectionExperiment(String[] paths, int replications){
-		controller.runNeoSelectionExperiment(paths, replications);
+	public void runNeoSelectionExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications){
+		controller.runNeoSelectionExperiment(input, dvcFiles, outputFolder, replications);
 	}
 	
-	public void runNeoMinimizationExperiment(String[] paths, int replications){
-		controller.runNeoMinimizationExperiment(paths, replications);
+	public void runNeoMinimizationExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications){
+		controller.runNeoMinimizationExperiment(input, dvcFiles, outputFolder, replications);
 	}
 	
-	public void setOutputFolder(String path) {
-		controller.setOutputFolder(path);
+	public void runNeoMinimizationExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications){
+		controller.runNeoMinimizationExperiment(input, dvcFiles, outputFolder, replications);
+	}
+	
+	public void runNeoMinimizationExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications){
+		controller.runNeoMinimizationExperiment(input, dvcFiles, outputFolder, replications);
 	}
 }

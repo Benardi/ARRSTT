@@ -31,7 +31,7 @@ public class ExperimentFactory {
 		selectionTechniques.add(new SimilarityTechnique());
 		
 		double selectionPercentage = 0.4;		
-		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, 0);
+		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
 		InterfaceRunner runner = new NeoExperimentRunner(selectionTechniques.size() * (replications + 1));
 		
 		return new Experiment(setup, runner);

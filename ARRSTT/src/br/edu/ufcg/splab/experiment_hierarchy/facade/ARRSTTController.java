@@ -27,11 +27,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
  *
  */
 public class ARRSTTController {	
-	public static List<TestSuite> inputstatic;
 	private IOClass io;
-	private String outputFolder;
 	private ExperimentFactory experimentFactory;
-	private List<TestSuite> input;
 	
 	/**
 	 * The controller's constructor. Initializes the needed lists and factories.
@@ -39,52 +36,93 @@ public class ARRSTTController {
 	public ARRSTTController() {
 		this.experimentFactory = new ExperimentFactory();
 		this.io = new IOClass();
-		this.input = new ArrayList<TestSuite>();
 	}
 	
-	public void setInput(String[] paths) {
+	public void runNeoSelectionExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
+			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), io.getFiles(dvcFiles), replications);
+			List<ExperimentData> outputData = experiment.execute();
+			io.saveData(outputData, outputFolder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
+		}
+	}
+	
+	public void runNeoSelectionExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
+		try {
+			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), io.getFiles(dvcFiles), replications);
+			List<ExperimentData> outputData = experiment.execute();
+			io.saveData(outputData, outputFolder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
+		}
+	}
+	
+	public void runNeoSelectionExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications) {
+		try {
+			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), dvcFiles, replications);
+			List<ExperimentData> outputData = experiment.execute();
+			io.saveData(outputData, outputFolder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
+		}
+	}
+	
+	public void runNeoMinimizationExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications) {
+		try {
+			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), io.getFiles(dvcFiles), replications);
+			List<ExperimentData> outputData = experiment.execute();
+			io.saveData(outputData, outputFolder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
+		}
+	}
+	
+	public void runNeoMinimizationExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
+		try {
+			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), io.getFiles(dvcFiles), replications);
+			List<ExperimentData> outputData = experiment.execute();
+			io.saveData(outputData, outputFolder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
+		}
+	}
+	
+	public void runNeoMinimizationExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications) {
+		try {
+			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), dvcFiles, replications);
+			List<ExperimentData> outputData = experiment.execute();
+			io.saveData(outputData, outputFolder);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
+		}
+	}
+	
+	private List<TestSuite> getInput(String[] paths) {
+		try {
+			List<TestSuite> input = new ArrayList<TestSuite>();
 			input = io.getTestSuites(paths);
-			inputstatic = input;
+			return input;
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new ARRSTTException("Error while trying to define artifacts. " + e.getMessage());
 		}
 	}
 	
-	public void setInput(File[] files) {
+	private List<TestSuite> getInput(File[] files) {
 		try {
+			List<TestSuite> input = new ArrayList<TestSuite>();
 			input = io.getTestSuites(files);
-			inputstatic = input;
+			return input;
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new ARRSTTException("Error while trying to define artifacts. " + e.getMessage());
 		}
-	}
-	
-	public void runNeoSelectionExperiment(String[] paths, int replications){
-		try{
-			Experiment experiment = experimentFactory.buildNeoSelection(input, io.getFiles(paths), replications);
-			List<ExperimentData> datas = experiment.execute();
-			io.saveData(datas, outputFolder);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new ARRSTTException("Error while trying to setup Neo Selection Experiment. " + e.getMessage());
-		}
-	}
-	
-	public void runNeoMinimizationExperiment(String[] paths, int replications) {
-		try {
-			Experiment experiment = experimentFactory.buildNeoMinimization(input, io.getFiles(paths), replications);
-			List<ExperimentData> datas = experiment.execute();
-			io.saveData(datas, outputFolder);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ARRSTTException("Error while trying to setup Neo Selection Experiment. " + e.getMessage());
-		}
-	}
-	
-	public void setOutputFolder(String path) {
-		this.outputFolder = path;
 	}
 }
