@@ -42,7 +42,7 @@ public class BiggestTechnique implements InterfaceSelectionTechnique {
 	@Override
 	public TestSuite select(TestSuite testSuite, Double percentage) {
 		TestSuite result = new TestSuite();
-		int quantity = getQuantity(testSuite, 1 - percentage);
+		int quantity = getQuantity(testSuite, percentage);
 		for (int i = 0; i < quantity; i++) {
 			addBiggestTestCase(result, testSuite);
 		}

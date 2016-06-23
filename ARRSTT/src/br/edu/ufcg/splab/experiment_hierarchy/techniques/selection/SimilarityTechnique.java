@@ -29,7 +29,7 @@ public class SimilarityTechnique implements InterfaceSelectionTechnique {
 
 	public TestSuite select(TestSuite testSuite, Double percentage) {
 		matrix = new SimilarityStructure(testSuite);
-		int selectingAmount = (int) Math.ceil(testSuite.size() * (1 - percentage));
+		int selectingAmount = (int) Math.ceil(testSuite.size() * percentage);
 		int limitIterations = testSuite.size() - selectingAmount;
 		TestSuite selectedTS = new TestSuite(testSuite);
 

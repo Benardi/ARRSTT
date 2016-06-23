@@ -28,7 +28,7 @@ public class RandomTechnique implements InterfaceSelectionTechnique {
 
 	@Override
 	public TestSuite select(TestSuite testSuite, Double percentage) {
-		int howMany = getAmountOfTestCases(testSuite, 1 - percentage);
+		int howMany = getAmountOfTestCases(testSuite, percentage);
 		
 		TestSuite helper = new TestSuite();
 		helper.addAll(testSuite.getTestSuite());

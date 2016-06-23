@@ -10,11 +10,9 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 
 public class NeoExperimentRunner implements InterfaceRunner{
 	private int lineSize;
-	private String[] rowHeader;
 	
-	public NeoExperimentRunner(int lineSize) {
+	public NeoExperimentRunner(int lineSize){
 		this.lineSize = lineSize;
-		// SET ROW HEADER HERE.
 	}
 	
 	@Override
@@ -32,17 +30,8 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		StringBuffer timeResult = new StringBuffer();
 		StringBuffer mmmResult = new StringBuffer();
 		
-		List<StringBuffer> output = new ArrayList<StringBuffer>();
-		results.add(fileResult);
-		results.add(reductionResult);
-		results.add(sizeResult);
-		results.add(testSuiteResult);
-		results.add(timeResult);
-		results.add(mmmResult);
-		
-		buildRowHeader(rowHeader, output);
-		
 		for(int i = 0; i < results.size(); i++){
+			
 			StringBuffer partialResult = results.get(i);
 			String aux = partialResult.toString();
 			String[] split = aux.split("/");
@@ -54,7 +43,7 @@ public class NeoExperimentRunner implements InterfaceRunner{
 			timeResult.append(split[4] + "\t");
 			mmmResult.append(split[5] + "\t");
 			
-			if((i+1) % lineSize == 0) {
+			if((i+1) % lineSize == 0){
 				fileResult.append(ArresttConstants.LINE_SEPARATOR);
 				reductionResult.append(ArresttConstants.LINE_SEPARATOR);
 				sizeResult.append(ArresttConstants.LINE_SEPARATOR);
@@ -74,12 +63,5 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		
 		return finalResults;	
 	}
-	
-	private void buildRowHeader(String[] techniquesTitle, List<StringBuffer> allData) {
-		for (StringBuffer stringData: allData) { 
-			for (int i = 0; i < techniquesTitle.length; i++) {
-				stringData.append(techniquesTitle[i] + "/t");
-			}
-		}
-	}
+
 }

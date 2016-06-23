@@ -32,7 +32,7 @@ public class ExperimentFactory {
 		
 		double selectionPercentage = 0.4;		
 		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
-		InterfaceRunner runner = new NeoExperimentRunner(selectionTechniques.size());
+		InterfaceRunner runner = new NeoExperimentRunner(selectionTechniques.size() * (replications + 1));
 		
 		return new Experiment(setup, runner);
 	}
@@ -45,7 +45,7 @@ public class ExperimentFactory {
 		enumMinimizationTechniques.add(MinimizationTechniques.H);
 		
 		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files, replications);
-		InterfaceRunner runner = new NeoExperimentRunner(enumMinimizationTechniques.size());
+		InterfaceRunner runner = new NeoExperimentRunner(enumMinimizationTechniques.size() * (replications + 1));
 		
 		return new Experiment(setup, runner);
 	}
