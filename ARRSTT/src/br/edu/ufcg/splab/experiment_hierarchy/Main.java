@@ -13,8 +13,8 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		
-		experiment1();
-		//experiment2();
+		//experiment1();
+		experiment2();
 		//experiment2();
 		//experiment3();
 		//experiment4();
@@ -29,7 +29,6 @@ public class Main {
 	}
 	
 	public static void experiment2() {
-		System.out.println(xmlFiles.length);
 		File[] input = xmlFiles;
 		String[] files = {"extras/failure_files/easytoy4_failures.txt"};
 		String outputFolder = "experiment_results";

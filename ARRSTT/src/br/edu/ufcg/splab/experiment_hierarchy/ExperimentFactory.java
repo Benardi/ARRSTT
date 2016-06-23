@@ -30,9 +30,11 @@ public class ExperimentFactory {
 		selectionTechniques.add(new RandomTechnique());
 		selectionTechniques.add(new SimilarityTechnique());
 		
+		String headerRow = "BIGGEST\tSMALLEST\tRANDOM\tSIMILARITY";
+		
 		double selectionPercentage = 0.4;		
 		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
-		InterfaceRunner runner = new NeoExperimentRunner(selectionTechniques.size());
+		InterfaceRunner runner = new NeoExperimentRunner(headerRow, selectionTechniques.size());
 		
 		return new Experiment(setup, runner);
 	}
@@ -44,8 +46,10 @@ public class ExperimentFactory {
 		enumMinimizationTechniques.add(MinimizationTechniques.GRE);
 		enumMinimizationTechniques.add(MinimizationTechniques.H);
 		
+		String headerRow = "G\tGE\tGRE\tH";
+		
 		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files, replications);
-		InterfaceRunner runner = new NeoExperimentRunner(enumMinimizationTechniques.size());
+		InterfaceRunner runner = new NeoExperimentRunner(headerRow, enumMinimizationTechniques.size());
 		
 		return new Experiment(setup, runner);
 	}
