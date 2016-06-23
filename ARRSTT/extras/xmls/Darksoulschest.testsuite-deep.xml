@@ -17,27 +17,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Chest is a mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic eats you</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Died from mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	&quot;Try to hit the chest before you attack&quot;</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -57,36 +63,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Crossbow appears</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Shoots arrow</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Presses space</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dodge the arrows</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Try to get item</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Item picked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -106,36 +120,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Crossbow appears</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Shoots arrow</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Does nothing</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Is hit</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Dies from arrows</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	&quot;Try dodging the arrows!&quot;</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -155,18 +177,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Normal chest</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Gets item</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -186,27 +212,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Presses hit</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Attack chest</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Normal chest</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Nothing happens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Opens to get item</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Item added to inventory</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -226,36 +258,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Presses hit</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Attack chest</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	M</p>
+	Chest is mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic raises</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	N</p>
+	Fight the mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Fight continues until one is dead</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	O</p>
+	Defeated mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Drinks potion and gets item</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -275,36 +315,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Presses hit</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Attack chest</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	M</p>
+	Chest is mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic raises</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	N</p>
+	Fight the mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Fight continues until one is dead</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	P</p>
+	Mimic was too strong</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic wins the battle</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>

@@ -17,36 +17,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Clicks on someone&#39;s photo</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s social page opens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on feed</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s feed appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Clicks on a post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Reaction options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Likes post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Post is liked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -66,36 +74,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Clicks on someone&#39;s photo</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s social page opens&nbsp;</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on feed</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s feed appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Clicks on a post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Reactions options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Shares post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Post goes to feed</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -115,27 +131,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Searches person</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s name appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Clicks on name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Interaction options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Click on follow</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Now following person</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -155,27 +177,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Searches person</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s name appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Click on name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Interaction options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Click on unfollow</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person removed from following list</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -195,18 +223,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Clicks on make post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Text box appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Cancel</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Back to feed</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -226,18 +258,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Clicks on make post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Text box appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Writes and clicks on post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Post on feed</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>

@@ -17,18 +17,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Selects flashlight</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Flashlight activates</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects lightning icon</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Flashlight intensity increased</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -48,25 +52,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects camera mode</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Camera window opens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Press the photo button</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Photo taken</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -86,18 +87,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects camera mode</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Camera window opens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Presses mirror icon</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Frontal camera photo</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -117,18 +122,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects video option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Video window</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Presses record button</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Records video</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -148,18 +157,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects video option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Video window</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Presses video mirror option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Films from the frontal camera</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -179,17 +192,28 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects video option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Video window</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Selects nightmode</p>
 ]]></actions>
+	<expectedresults><![CDATA[<p>
+	Nightmode on with dark vision</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[]]></actions>
 	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
