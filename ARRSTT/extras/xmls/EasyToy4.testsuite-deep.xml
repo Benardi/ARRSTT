@@ -17,10 +17,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Chooses male char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	AE</p>
+	Male char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -28,10 +28,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Chooses male name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	BE</p>
+	Male name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -39,10 +39,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Chooses phoenix as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	CE</p>
+	Phoenix appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -50,10 +50,10 @@
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Customize phoenix</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	DE</p>
+	Phoenix ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -74,10 +74,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Chooses male char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	AE</p>
+	Male char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -85,10 +85,10 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Chooses male name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	BE</p>
+	Male name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -96,10 +96,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Chooses golem as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	GE</p>
+	Golem appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -107,10 +107,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Customize golem</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	HE</p>
+	Golem ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -131,10 +131,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Chooses female char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	EE</p>
+	Female char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -142,10 +142,10 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Chooses female name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	FE</p>
+	Female name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -153,10 +153,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Chooses phoenix as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	CE</p>
+	Phoenix appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -164,10 +164,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Customize phoenix</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	DE</p>
+	Phoenix ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -188,10 +188,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Chooses female char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	EE</p>
+	Female char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -199,10 +199,10 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Chooses female name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	FE</p>
+	Female name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -210,10 +210,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Chooses golem as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	GE</p>
+	Golem appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -221,10 +221,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Customize golem</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	HE</p>
+	Golem ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>

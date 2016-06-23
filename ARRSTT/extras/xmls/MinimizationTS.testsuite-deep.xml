@@ -17,27 +17,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Opens agenda</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Agenda screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Clicks on note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens note page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Writes note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Note saved</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -57,18 +63,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Selects quick note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to note page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Writes note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Note saved</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -88,18 +98,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects date</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Save event</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar is marked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -119,9 +133,11 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects date</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -141,9 +157,11 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Opens agenda</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Agenda screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -163,18 +181,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Presses return</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to main screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Clicks on note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens note page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -194,36 +216,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Presses return</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to main screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Opens agenda</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Agenda screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects date</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Save event</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar is marked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>

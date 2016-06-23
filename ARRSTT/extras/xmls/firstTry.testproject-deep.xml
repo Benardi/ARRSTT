@@ -20,10 +20,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Chooses male char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	AE</p>
+	Male char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -31,10 +31,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Chooses male name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	BE</p>
+	Male name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -42,10 +42,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Chooses phoenix as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	CE</p>
+	Phoenix appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -53,10 +53,10 @@
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Customize phoenix</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	DE</p>
+	Phoenix ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -77,10 +77,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Chooses male char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	AE</p>
+	Male char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -88,10 +88,10 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Chooses male name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	BE</p>
+	Male name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -99,10 +99,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Chooses golem as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	GE</p>
+	Golem appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -110,10 +110,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Customize golem</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	HE</p>
+	Golem ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -134,10 +134,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Chooses female char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	EE</p>
+	Female char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -145,10 +145,10 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Chooses female name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	FE</p>
+	Female name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -156,10 +156,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Chooses phoenix as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	CE</p>
+	Phoenix appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -167,10 +167,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Customize phoenix</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	DE</p>
+	Phoenix ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -191,10 +191,10 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Chooses female char</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	EE</p>
+	Female char creation screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -202,10 +202,10 @@
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Chooses female name</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	FE</p>
+	Female name chosen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -213,10 +213,10 @@
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Chooses golem as pet</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	GE</p>
+	Golem appears at screen</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -224,10 +224,10 @@
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Customize golem</p>
 ]]></actions>
 	<expectedresults><![CDATA[<p>
-	HE</p>
+	Golem ready</p>
 ]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -251,18 +251,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Selects flashlight</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Flashlight activates</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects lightning icon</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Flashlight intensity increased</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -282,25 +286,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects camera mode</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Camera window opens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Press the photo button</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
-	<execution_type><![CDATA[1]]></execution_type>
-</step>
-
-<step>
-	<step_number><![CDATA[3]]></step_number>
-	<actions><![CDATA[]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Photo taken</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -320,18 +321,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects camera mode</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Camera window opens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Presses mirror icon</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Frontal camera photo</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -351,18 +356,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects video option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Video window</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Presses record button</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Records video</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -382,18 +391,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects video option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Video window</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Presses video mirror option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Films from the frontal camera</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -413,17 +426,28 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects video option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Video window</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Selects nightmode</p>
 ]]></actions>
+	<expectedresults><![CDATA[<p>
+	Nightmode on with dark vision</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[]]></actions>
 	<expectedresults><![CDATA[]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
@@ -447,36 +471,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Clicks on someone&#39;s photo</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s social page opens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on feed</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s feed appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Clicks on a post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Reaction options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Likes post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Post is liked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -496,36 +528,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Clicks on someone&#39;s photo</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s social page opens&nbsp;</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on feed</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s feed appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Clicks on a post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Reactions options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Shares post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Post goes to feed</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -545,27 +585,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Searches person</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s name appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Clicks on name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Interaction options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Click on follow</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Now following person</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -585,27 +631,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Searches person</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person&#39;s name appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Click on name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Interaction options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Click on unfollow</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Person removed from following list</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -625,18 +677,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Clicks on make post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Text box appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Cancel</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Back to feed</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -656,18 +712,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Clicks on make post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Text box appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Writes and clicks on post</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Post on feed</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -690,45 +750,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects elf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Selects dwarf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Confirm</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char created</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -748,45 +818,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects elf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Selects dwarf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Presses X</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Game quits</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -806,45 +886,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects human female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Selects elf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Selects dwarf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Confirm</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char created</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -864,45 +954,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects human female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Selects elf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Female elf selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Selects dwarf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Presses X</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Game quits</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -922,27 +1022,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Selects human female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Presses next</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Custom creation</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -962,45 +1068,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation sceen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects elf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Selects male orc</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Male orc selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Presses next</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Custom creation</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1020,63 +1136,77 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects elf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Selects orc male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Orc male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Selects elf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[6]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Selects dwarf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[7]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Confirm</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char created</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1096,63 +1226,77 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects elf male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Selects male orc</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Orc male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Selects elf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Elf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[6]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Selects dwarf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[7]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Presses X</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Game quits</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1172,45 +1316,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects orc female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Orc female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Selects dwarf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Confirm</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char created</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1230,45 +1384,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Opens game</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Char creation screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Selects human male</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Human male selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects orc female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Orc female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Selects dwarf female</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dwarf female selected</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Presses X</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Game quits</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1291,18 +1455,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses on own name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to personal page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Logs off</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Login screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1322,27 +1490,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on store</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Selects E-book</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens E-book page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Buy E-book</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	E-book purchase confirmation</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1362,27 +1536,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on store</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book options appear</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects physical</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens physical book page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Buy book</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book purchase confirmation</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1402,27 +1582,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on store</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book options appear</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects audio books</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Open audio books page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Buy audio book</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Audio book purchase confirmation</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1442,36 +1628,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on store</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book options appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Selects audio books</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Open audio books page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Cancel search</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to main screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Logs off</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Login screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1491,45 +1685,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on store</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book options appear</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Selects discount option</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Text space appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	M</p>
+	Enters discount code</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Discount applied</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses on own name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to personal page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Logs off</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Login screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1549,45 +1753,55 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Clicks on store</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Book options appear</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Selects E-book</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens E-book page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Select download via email</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Download confirmation</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses on own name</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to personal page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[5]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Logs off</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Login screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1610,27 +1824,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Chest is a mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic eats you</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Died from mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	&quot;Try to hit the chest before you attack&quot;</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1650,36 +1870,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Crossbow appears</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Shoots arrow</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Presses space</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Dodge the arrows</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Try to get item</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Item picked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1699,36 +1927,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Crossbow appears</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Shoots arrow</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Does nothing</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Is hit</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	H</p>
+	Dies from arrows</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	&quot;Try dodging the arrows!&quot;</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1748,18 +1984,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Presses open</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Try to open it</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	I</p>
+	Normal chest</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Gets item</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1779,27 +2019,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Presses hit</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Attack chest</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	K</p>
+	Normal chest</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Nothing happens</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	L</p>
+	Opens to get item</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Item added to inventory</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1819,36 +2065,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Presses hit</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Attack chest</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	M</p>
+	Chest is mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic raises</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	N</p>
+	Fight the mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Fight continues until one is dead</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	O</p>
+	Defeated mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Drinks potion and gets item</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1868,36 +2122,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	J</p>
+	Presses hit</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Attack chest</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	M</p>
+	Chest is mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic raises</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	N</p>
+	Fight the mimic</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Fight continues until one is dead</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	P</p>
+	Mimic was too strong</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Mimic wins the battle</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1920,27 +2182,33 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Opens agenda</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Agenda screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Clicks on note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens note page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Writes note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Note saved</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1960,18 +2228,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	A</p>
+	Selects quick note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to note page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	F</p>
+	Writes note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Note saved</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -1991,18 +2263,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects date</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Save event</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar is marked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -2022,9 +2298,11 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects date</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -2044,9 +2322,11 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Opens agenda</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Agenda screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -2066,18 +2346,22 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Presses return</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to main screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	D</p>
+	Clicks on note</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Opens note page</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
@@ -2097,36 +2381,44 @@
 <step>
 	<step_number><![CDATA[1]]></step_number>
 	<actions><![CDATA[<p>
-	B</p>
+	Presses return</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Goes to main screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[2]]></step_number>
 	<actions><![CDATA[<p>
-	C</p>
+	Opens agenda</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Agenda screen</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[3]]></step_number>
 	<actions><![CDATA[<p>
-	E</p>
+	Selects date</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar appears</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 
 <step>
 	<step_number><![CDATA[4]]></step_number>
 	<actions><![CDATA[<p>
-	G</p>
+	Save event</p>
 ]]></actions>
-	<expectedresults><![CDATA[]]></expectedresults>
+	<expectedresults><![CDATA[<p>
+	Calendar is marked</p>
+]]></expectedresults>
 	<execution_type><![CDATA[1]]></execution_type>
 </step>
 </steps>
