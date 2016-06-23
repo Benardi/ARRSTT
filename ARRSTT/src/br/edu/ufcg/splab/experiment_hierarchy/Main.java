@@ -7,8 +7,8 @@ import br.edu.ufcg.splab.experiment_hierarchy.facade.ARRSTTFacade;
 public class Main {
 	private static ARRSTTFacade facade;
 	
-	private static File[] tgfFiles = directoryToPath("extras/input_examples");
-	private static File[] xmlFiles = directoryToPath("extras/xmls");
+	private static File[] tgfFiles = directoryToFiles("extras/input_examples");
+	private static File[] xmlFiles = directoryToFiles("extras/xmls");
 	
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
@@ -29,7 +29,6 @@ public class Main {
 	}
 	
 	public static void experiment2() {
-		System.out.println(xmlFiles.length);
 		File[] input = xmlFiles;
 		String[] files = {"extras/failure_files/easytoy4_failures.txt"};
 		String outputFolder = "experiment_results";
@@ -37,7 +36,7 @@ public class Main {
 		facade.runNeoMinimizationExperiment(input, files, outputFolder, 1);
 	}
 	
-	private static File[] directoryToPath(String pathToFolder) {
+	private static File[] directoryToFiles(String pathToFolder) {
 		File file = new File(pathToFolder);
 		
 		if (file.isDirectory()) {

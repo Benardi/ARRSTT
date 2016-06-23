@@ -41,7 +41,7 @@ public class SmallestTechnique implements InterfaceSelectionTechnique {
 	@Override
 	public TestSuite select(TestSuite testSuite, Double percentage) {
 		TestSuite result = new TestSuite();
-		int quantity = getQuantity(testSuite, percentage);
+		int quantity = getQuantity(testSuite, 1 - percentage);
 		for (int i = 0; i < quantity; i++) {
 			addSmallestTestCase(result, testSuite);
 		}
