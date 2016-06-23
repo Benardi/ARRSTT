@@ -10,9 +10,11 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
 
 public class NeoExperimentRunner implements InterfaceRunner{
 	private int lineSize;
+	private String headerRowText;
 	
-	public NeoExperimentRunner(int lineSize){
+	public NeoExperimentRunner(String headerRowText, int lineSize){
 		this.lineSize = lineSize;
+		this.headerRowText = headerRowText;
 	}
 	
 	@Override
@@ -29,6 +31,8 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		StringBuffer testSuiteResult = new StringBuffer();
 		StringBuffer timeResult = new StringBuffer();
 		StringBuffer mmmResult = new StringBuffer();
+		
+		writeHeaderRow(fileResult, reductionResult, sizeResult, testSuiteResult, timeResult, mmmResult);
 		
 		for(int i = 0; i < results.size(); i++){
 			
@@ -54,14 +58,19 @@ public class NeoExperimentRunner implements InterfaceRunner{
 		}
 		
 		List<ExperimentData> finalResults = new ArrayList<>();
-		finalResults.add(new ExperimentData("FailuresByFile_DVC", fileResult.toString()));
-		finalResults.add(new ExperimentData("Reduction_DVC", reductionResult.toString()));
-		finalResults.add(new ExperimentData("FinalSize_DVC", sizeResult.toString()));
-		finalResults.add(new ExperimentData("ResultTS_DVC", testSuiteResult.toString()));
-		finalResults.add(new ExperimentData("Time_DVC", timeResult.toString()));
-		finalResults.add(new ExperimentData("MediaMaxMin_DVC", mmmResult.toString()));
+		finalResults.add(new ExperimentData("FailuresByFile_Dvc", fileResult.toString()));
+		finalResults.add(new ExperimentData("TSReduction_Dvc", reductionResult.toString()));
+		finalResults.add(new ExperimentData("TSFinalSize_Dvc", sizeResult.toString()));
+		finalResults.add(new ExperimentData("TSFinal_Dcv", testSuiteResult.toString()));
+		finalResults.add(new ExperimentData("Time_Dvc", timeResult.toString()));
+		finalResults.add(new ExperimentData("MediaMaxMin_Dvc", mmmResult.toString()));
 		
 		return finalResults;	
 	}
 
+	private void writeHeaderRow(StringBuffer...stringBuffers) {
+		for (int i = 0; i < stringBuffers.length; i++) {
+			stringBuffers[i].append(headerRowText + ArresttConstants.LINE_SEPARATOR);
+		}
+	}
 }
