@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentDataGroup;
 /*
  * Change														Author				Date
  * -------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ public class Experiment {
 	 * the experiment.
 	 * 
 	 */
-	public List<ExperimentData> execute() {
+	public List<ExperimentDataGroup> execute() {
 		return runner.runExperiment(setup.getArtifacts());
 	}
 }

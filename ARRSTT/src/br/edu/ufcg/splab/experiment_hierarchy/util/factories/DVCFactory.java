@@ -5,7 +5,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.DefectiveEdgesCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.DefectsCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MediaMaxMinCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MostRepeatedTransitionCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.RedundanceCollector;
@@ -55,7 +55,7 @@ public class DVCFactory {
 	}
 	
 	public InterfaceDvc createReductionPercentageDvc(TestSuite testSuite) {
-		return new ReductionPercentageCollector(testSuite);
+		return new ReductionCollector(testSuite);
 	}
 
 }

@@ -1,10 +1,10 @@
 package br.edu.ufcg.splab.experiment_hierarchy.util;
 
-public class ExperimentData {
+public class ExperimentDataGroup {
 	private String content;
 	private String fileName;
 	
-	public ExperimentData(String fileName, String content){
+	public ExperimentDataGroup(String fileName, String content){
 		this.content = content;
 		this.fileName = fileName;
 	}

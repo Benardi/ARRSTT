@@ -12,7 +12,7 @@ import br.edu.ufcg.splab.exceptions.ParseException;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.DFSTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.InterfaceGenerationTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ArresttConstants;
-import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentDataGroup;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
 import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
@@ -58,14 +58,14 @@ public class IOClass {
 		return testSuites;
 	}
 	
-	public void saveData(List<ExperimentData> datas, String outputFolderPath) {
+	public void saveData(List<ExperimentDataGroup> datas, String outputFolderPath) {
 		File outputFolder = new File(outputFolderPath);
 		if (!outputFolder.isDirectory()) throw new ARRSTTException("The given path is not a valid directory.");
 		
 		String dirName = createDirectory(outputFolder);
 		
 		
-		for(ExperimentData data: datas){
+		for(ExperimentDataGroup data: datas){
 			try {
 				ExperimentFile file = new ExperimentFile(dirName + "/" + data.getFileName(), data.getContent());
 				file.save();

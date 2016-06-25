@@ -8,7 +8,7 @@ import br.edu.ufcg.splab.exceptions.ARRSTTException;
 import br.edu.ufcg.splab.experiment_hierarchy.ExperimentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
 import br.edu.ufcg.splab.experiment_hierarchy.io.IOClass;
-import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentDataGroup;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 /*
@@ -41,7 +41,7 @@ public class ARRSTTController {
 	public void runNeoSelectionExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), io.getFiles(dvcFiles), replications);
-			List<ExperimentData> outputData = experiment.execute();
+			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class ARRSTTController {
 	public void runNeoSelectionExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), io.getFiles(dvcFiles), replications);
-			List<ExperimentData> outputData = experiment.execute();
+			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -63,7 +63,7 @@ public class ARRSTTController {
 	public void runNeoSelectionExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), dvcFiles, replications);
-			List<ExperimentData> outputData = experiment.execute();
+			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -74,7 +74,7 @@ public class ARRSTTController {
 	public void runNeoMinimizationExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), io.getFiles(dvcFiles), replications);
-			List<ExperimentData> outputData = experiment.execute();
+			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ARRSTTController {
 	public void runNeoMinimizationExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), io.getFiles(dvcFiles), replications);
-			List<ExperimentData> outputData = experiment.execute();
+			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -96,7 +96,7 @@ public class ARRSTTController {
 	public void runNeoMinimizationExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), dvcFiles, replications);
-			List<ExperimentData> outputData = experiment.execute();
+			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {
 			e.printStackTrace();
