@@ -11,21 +11,21 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresByFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSuiteCollector;
-import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionPercentageCollector;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.TimeBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.noexecution.MediaMaxMinCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.util.factories.TreatmentFactory;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class NeoSelectionSetup implements InterfaceSetup{
+public class MySelectionSetup implements InterfaceSetup{
 	private List<InterfaceSelectionTechnique> selectionTechniques;
 	private List<TestSuite> testSuites;
 	private File[] failureFiles;
 	private double selectionPercentage;
 	private int replications;
 	
-	public NeoSelectionSetup(List<TestSuite> testSuites, List<InterfaceSelectionTechnique> selectionTechniques, double selectionPercentage, File[] failureFiles, int replications) {
+	public MySelectionSetup(List<TestSuite> testSuites, List<InterfaceSelectionTechnique> selectionTechniques, double selectionPercentage, File[] failureFiles, int replications) {
 		this.selectionTechniques = selectionTechniques;
 		this.selectionPercentage = selectionPercentage;
 		this.testSuites = testSuites;
@@ -46,7 +46,7 @@ public class NeoSelectionSetup implements InterfaceSetup{
 					List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
 					
 					dvcs.add(new FailuresByFileCollector(findRightFile(testSuites.get(j))));
-					dvcs.add(new ReductionPercentageCollector(new TestSuite(testSuites.get(j))));
+					dvcs.add(new ReductionCollector(new TestSuite(testSuites.get(j))));
 					dvcs.add(new FinalSizeCollector());
 					dvcs.add(new FinalSuiteCollector());
 					dvcs.add(new TimeBenchmark());

@@ -3,10 +3,10 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.dvcs;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class ReductionPercentageCollector implements InterfaceDvc {
+public class ReductionCollector implements InterfaceDvc {
 	private TestSuite originalTestSuite;
 	
-	public ReductionPercentageCollector(TestSuite originalTestSuite) {
+	public ReductionCollector(TestSuite originalTestSuite) {
 		this.originalTestSuite = originalTestSuite;
 	}
 	

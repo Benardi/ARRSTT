@@ -7,9 +7,9 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.experiments.Experiment;
-import br.edu.ufcg.splab.experiment_hierarchy.core.runners.NeoExperimentRunner;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NeoMinimizationSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.core.setups.NeoSelectionSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.runners.MyExperimentRunner;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.MyMinimizationSetup;
+import br.edu.ufcg.splab.experiment_hierarchy.core.setups.MySelectionSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.minimization.factories.MinimizationTechniques;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.BiggestTechnique;
 import br.edu.ufcg.splab.experiment_hierarchy.techniques.selection.InterfaceSelectionTechnique;
@@ -33,8 +33,8 @@ public class ExperimentFactory {
 		String headerRow = "BIGGEST\tSMALLEST\tRANDOM\tSIMILARITY";
 		
 		double selectionPercentage = 0.4;		
-		InterfaceSetup setup = new NeoSelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
-		InterfaceRunner runner = new NeoExperimentRunner(headerRow, selectionTechniques.size());
+		InterfaceSetup setup = new MySelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
+		InterfaceRunner runner = new MyExperimentRunner(headerRow, selectionTechniques.size());
 		
 		return new Experiment(setup, runner);
 	}
@@ -48,8 +48,8 @@ public class ExperimentFactory {
 		
 		String headerRow = "G\tGE\tGRE\tH";
 		
-		InterfaceSetup setup = new NeoMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files, replications);
-		InterfaceRunner runner = new NeoExperimentRunner(headerRow, enumMinimizationTechniques.size());
+		InterfaceSetup setup = new MyMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files, replications);
+		InterfaceRunner runner = new MyExperimentRunner(headerRow, enumMinimizationTechniques.size());
 		
 		return new Experiment(setup, runner);
 	}

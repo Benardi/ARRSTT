@@ -6,19 +6,19 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceRunner;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ArresttConstants;
-import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentData;
+import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentDataGroup;
 
-public class NeoExperimentRunner implements InterfaceRunner{
+public class MyExperimentRunner implements InterfaceRunner{
 	private int lineSize;
 	private String headerRowText;
 	
-	public NeoExperimentRunner(String headerRowText, int lineSize){
+	public MyExperimentRunner(String headerRowText, int lineSize){
 		this.lineSize = lineSize;
 		this.headerRowText = headerRowText;
 	}
 	
 	@Override
-	public List<ExperimentData> runExperiment(List<TreatmentArtifact> artifacts) {
+	public List<ExperimentDataGroup> runExperiment(List<TreatmentArtifact> artifacts) {
 		List<StringBuffer> results = new ArrayList<>();
 		
 		for(TreatmentArtifact art : artifacts){
@@ -57,13 +57,13 @@ public class NeoExperimentRunner implements InterfaceRunner{
 			}
 		}
 		
-		List<ExperimentData> finalResults = new ArrayList<>();
-		finalResults.add(new ExperimentData("FailuresByFile_Dvc", fileResult.toString()));
-		finalResults.add(new ExperimentData("TSReduction_Dvc", reductionResult.toString()));
-		finalResults.add(new ExperimentData("TSFinalSize_Dvc", sizeResult.toString()));
-		finalResults.add(new ExperimentData("TSFinal_Dcv", testSuiteResult.toString()));
-		finalResults.add(new ExperimentData("Time_Dvc", timeResult.toString()));
-		finalResults.add(new ExperimentData("MediaMaxMin_Dvc", mmmResult.toString()));
+		List<ExperimentDataGroup> finalResults = new ArrayList<>();
+		finalResults.add(new ExperimentDataGroup("FailuresByFile_Dvc", fileResult.toString()));
+		finalResults.add(new ExperimentDataGroup("TSReduction_Dvc", reductionResult.toString()));
+		finalResults.add(new ExperimentDataGroup("TSFinalSize_Dvc", sizeResult.toString()));
+		finalResults.add(new ExperimentDataGroup("TSFinal_Dcv", testSuiteResult.toString()));
+		finalResults.add(new ExperimentDataGroup("Time_Dvc", timeResult.toString()));
+		finalResults.add(new ExperimentDataGroup("MediaMaxMin_Dvc", mmmResult.toString()));
 		
 		return finalResults;	
 	}
