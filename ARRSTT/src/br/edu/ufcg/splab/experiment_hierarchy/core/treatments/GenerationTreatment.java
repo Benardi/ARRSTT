@@ -91,11 +91,6 @@ public class GenerationTreatment implements ExecutableTreatment {
 	public TestSuite getTestSuite() {
 		return testSuite;
 	}
-
-	@Override
-	public String getTitle() {
-		return "Generation";
-	}
 	
 	@Override
 	/**

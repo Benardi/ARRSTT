@@ -29,13 +29,4 @@ public interface ExecutableTreatment {
 	 */
 	public TestSuite execute();
 	
-	/**
-	 * The title is the String that is shown in the output
-	 * table about.
-	 * 
-	 * @return
-	 *		The title of a treatment.
-	 */
-	@Deprecated
-	public String getTitle();
 }

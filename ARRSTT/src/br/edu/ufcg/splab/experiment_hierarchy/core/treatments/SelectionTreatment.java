@@ -59,11 +59,6 @@ public class SelectionTreatment implements ExecutableTreatment {
 		return selectionObject.select(testSuite, percentage);
 	}
 
-	@Override
-	public String getTitle() {
-		return "Selection";
-	}
-
 	/**
 	 * 
 	 * @return The selection algorithm bound to the class.

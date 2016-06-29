@@ -8,12 +8,12 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.InterfaceBenchmark;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
-public class TreatmentArtifact {
+public class Artifact {
 	private ExecutableTreatment target;
 	private List<InterfaceDvc> dvcs;
 	private List<InterfaceBenchmark> benchmarks;
 	
-	public TreatmentArtifact(ExecutableTreatment target, List<InterfaceDvc> dvcs) {
+	public Artifact(ExecutableTreatment target, List<InterfaceDvc> dvcs) {
 		this.target = target;
 		this.dvcs = dvcs;
 		this.benchmarks = createBenchmarkList(dvcs);
