@@ -7,7 +7,7 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresByFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.ReductionCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.benchmarks.TimeBenchmark;
@@ -39,12 +39,12 @@ public class MyMinimizationSetup implements InterfaceSetup {
 	}
 
 	@Override
-	public List<TreatmentArtifact> getArtifacts() {
+	public List<Artifact> getArtifacts() {
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		MinimizationTechniquesFactory minimizationFactory = new MinimizationTechniquesFactory();
 		RequirementBuilderFactory reqBuilderFactory = new RequirementBuilderFactory();
 		
-		List<TreatmentArtifact> artifacts = new ArrayList<TreatmentArtifact>();
+		List<Artifact> artifacts = new ArrayList<Artifact>();
 		
 		for (int j = 0; j < testSuites.size(); j++) {
 			for (int i = 0; i < enumMinimizationTechniques.size(); i++) {
@@ -61,7 +61,7 @@ public class MyMinimizationSetup implements InterfaceSetup {
 					dvcs.add(new TimeBenchmark());
 					dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
 						
-					artifacts.add(new TreatmentArtifact(treatment, dvcs));
+					artifacts.add(new Artifact(treatment, dvcs));
 				}
 			}
 		}

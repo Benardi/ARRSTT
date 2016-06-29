@@ -2,7 +2,7 @@ package br.edu.ufcg.splab.experiment_hierarchy.core.api;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
 /*
  * Change														Author				Date
  * -------------------------------------------------------------------------------------------
@@ -30,5 +30,5 @@ public interface InterfaceSetup {
 	 * @return The list of ExecutableTreatment's tuple, that
 	 * represents independent variables combinations.
 	 */
-	public List<TreatmentArtifact> getArtifacts();
+	public List<Artifact> getArtifacts();
 }

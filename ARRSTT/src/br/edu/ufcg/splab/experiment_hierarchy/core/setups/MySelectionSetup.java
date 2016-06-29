@@ -7,7 +7,7 @@ import java.util.List;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
-import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresByFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSuiteCollector;
@@ -34,9 +34,9 @@ public class MySelectionSetup implements InterfaceSetup{
 	}
 	
 	@Override
-	public List<TreatmentArtifact> getArtifacts() {		
+	public List<Artifact> getArtifacts() {		
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
-		List<TreatmentArtifact> artifacts = new ArrayList<TreatmentArtifact>();
+		List<Artifact> artifacts = new ArrayList<Artifact>();
 		
 		for (int j = 0; j < testSuites.size(); j++) {
 			for (int i = 0; i < selectionTechniques.size(); i++) {
@@ -52,7 +52,7 @@ public class MySelectionSetup implements InterfaceSetup{
 					dvcs.add(new TimeBenchmark());
 					dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
 					
-					artifacts.add(new TreatmentArtifact(treatment, dvcs));
+					artifacts.add(new Artifact(treatment, dvcs));
 				}
 			}
 		}

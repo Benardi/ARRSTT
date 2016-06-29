@@ -16,9 +16,4 @@ public class NoneTreatment implements ExecutableTreatment{
 		return ts;
 	}
 
-	@Override
-	public String getTitle() {
-		return "None";
-	}
-
 }

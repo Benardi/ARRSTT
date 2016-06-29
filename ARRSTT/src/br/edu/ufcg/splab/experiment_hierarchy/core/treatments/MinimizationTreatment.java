@@ -15,12 +15,6 @@ public class MinimizationTreatment implements ExecutableTreatment {
 	public TestSuite execute() {
 		return technique.minimize();
 	}
-
-	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
 	public String toString() {

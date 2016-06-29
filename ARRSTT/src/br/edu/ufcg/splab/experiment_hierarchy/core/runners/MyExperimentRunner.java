@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceRunner;
-import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.TreatmentArtifact;
+import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ArresttConstants;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentDataGroup;
 
@@ -18,10 +18,10 @@ public class MyExperimentRunner implements InterfaceRunner{
 	}
 	
 	@Override
-	public List<ExperimentDataGroup> runExperiment(List<TreatmentArtifact> artifacts) {
+	public List<ExperimentDataGroup> runExperiment(List<Artifact> artifacts) {
 		List<StringBuffer> results = new ArrayList<>();
 		
-		for(TreatmentArtifact art : artifacts){
+		for(Artifact art : artifacts){
 			results.add(art.getDVCResults());
 		}
 		
