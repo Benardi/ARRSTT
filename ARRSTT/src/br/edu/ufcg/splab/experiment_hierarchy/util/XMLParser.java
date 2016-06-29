@@ -10,6 +10,8 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.XMLOutputter;
+import org.jsoup.Jsoup;
 
 import br.edu.ufcg.splab.exceptions.ParseException;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestCase;
@@ -181,26 +183,7 @@ public class XMLParser {
 	 * @return The corrected label.
 	 */
 	private String correctTestLinkLabel(String label){
-		String correctedLabel = StringEscapeUtils.unescapeHtml4(label);
-		int beginIndex = correctedLabel.indexOf("<p>");
-		int lastIndex = correctedLabel.indexOf("</p>");
-		
-		if(beginIndex >= 0){
-			beginIndex = beginIndex + 3;
-			correctedLabel = correctedLabel.substring(beginIndex);
-		}
-		
-		if(lastIndex >= 0){
-			lastIndex = lastIndex - 3;
-			correctedLabel = correctedLabel.substring(0, lastIndex);
-		}
-		
-		lastIndex = correctedLabel.indexOf("<p>");
-		if(lastIndex >= 0){
-			correctedLabel = correctedLabel.substring(0, lastIndex);
-		}
-		
-		correctedLabel = correctedLabel.trim();
-		return correctedLabel;
+		System.out.println(Jsoup.parse(StringEscapeUtils.unescapeHtml4(label)).text());
+		return Jsoup.parse(StringEscapeUtils.unescapeHtml4(label)).text();
 	}
 }

@@ -6,5 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/Wesley/git/application-of-reproducibility-research-with-software-testing/ARRSTT/lib/commons-lang3-3.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Wesley/git/application-of-reproducibility-research-with-software-testing/ARRSTT/lib/jdom-2.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Wesley/git/application-of-reproducibility-research-with-software-testing/ARRSTT/lib/jsoup-1.9.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
