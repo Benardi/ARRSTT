@@ -130,5 +130,15 @@ public abstract class AbstractEdge implements InterfaceEdge {
 		//return label;
 	}
 	
-	public abstract boolean equals(Object o);
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((label == null) ? 0 : label.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public abstract boolean equals(Object obj);
 }

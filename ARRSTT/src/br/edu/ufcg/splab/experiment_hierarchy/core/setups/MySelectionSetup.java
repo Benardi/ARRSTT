@@ -8,6 +8,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.experiment_hierarchy.core.api.InterfaceSetup;
 import br.edu.ufcg.splab.experiment_hierarchy.core.artifacts.Artifact;
+import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.CoverageCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FailuresByFileCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSizeCollector;
 import br.edu.ufcg.splab.experiment_hierarchy.core.dvcs.FinalSuiteCollector;
@@ -38,19 +39,23 @@ public class MySelectionSetup implements InterfaceSetup{
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		List<Artifact> artifacts = new ArrayList<Artifact>();
 		
-		for (int j = 0; j < testSuites.size(); j++) {
-			for (int i = 0; i < selectionTechniques.size(); i++) {
+
+			for (int j = 0; j < testSuites.size(); j++) {
 				for (int k = 0; k <= replications; k++) {
+					for (int i = 0; i < selectionTechniques.size(); i++) {
+
 					ExecutableTreatment treatment = treatmentFactory.createSelection(selectionTechniques.get(i), testSuites.get(j), selectionPercentage);
 					
 					List<InterfaceDvc> dvcs = new ArrayList<InterfaceDvc>();
 					
-					dvcs.add(new FailuresByFileCollector(findRightFile(testSuites.get(j))));
+					//dvcs.add(new FailuresByFileCollector(findRightFile(testSuites.get(j))));
+					dvcs.add(new FailuresByFileCollector(failureFiles[j]));
 					dvcs.add(new ReductionCollector(new TestSuite(testSuites.get(j))));
 					dvcs.add(new FinalSizeCollector());
 					dvcs.add(new FinalSuiteCollector());
 					dvcs.add(new TimeBenchmark());
 					dvcs.add(new MediaMaxMinCollector(testSuites.get(j)));
+					dvcs.add(new CoverageCollector(new TestSuite(testSuites.get(j))));
 					
 					artifacts.add(new Artifact(treatment, dvcs));
 				}
@@ -62,17 +67,17 @@ public class MySelectionSetup implements InterfaceSetup{
 	
 	private File findRightFile(TestSuite testSuite) {
 		File rightFile = null;
-		
+		/*
 		if (testSuite.getID().equals("noid")) {
 			return null;
 		}
-		
+
 		for (int i = 0; i < failureFiles.length; i++) {
 			if ((testSuite.getID() + "_failures.txt").equalsIgnoreCase(failureFiles[i].getName())) {
 				rightFile = failureFiles[i];
 			}
-		}
+		}*/
 		
-		return rightFile;
+		return failureFiles[0];
 	}
 }

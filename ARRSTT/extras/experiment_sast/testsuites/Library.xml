@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="2299" name="Library" >
+<node_order><![CDATA[2]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="2300" name="Upload image file">
+	<node_order><![CDATA[0]]></node_order>
+	<externalid><![CDATA[550]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the system correctly loads images files</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<div>
+	The Library screen is displayed</div>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Click at Upload Image Files button</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The &quot;Open&quot; window is opened</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Choose an image file with the following extensions, one at a time and click &quot;Open&quot; button:</p>
+<p>
+	1. bmp;<br />
+	2. jpeg;<br />
+	3. png;<br />
+	4. gif<br />
+	&nbsp;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	A file with each one of the extensions listed are uploaded, one at a time</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the image uploaded is correctly displayed at the image list</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The image is correctly displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2306" name="Check image file name at Image Name column">
+	<node_order><![CDATA[1]]></node_order>
+	<externalid><![CDATA[551]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the image files&#39;s name is correctly displayed at images list of Library</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Upload Image Files button</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The button is clicked</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<div>
+	Check if &quot;Open&quot; window is opened</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The &quot;Open&quot; window is opened</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Choose an image file and click at &quot;Open&quot; button</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The chosen image is uploaded</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	In the Image Name colunm, check if the name of uploaded image file is correct</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The image file&#39;s name is correct</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2313" name="Upload non image file">
+	<node_order><![CDATA[2]]></node_order>
+	<externalid><![CDATA[552]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if system prevents a non image file to be loaded at Library</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and word, excel, pdf files, among others types</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Upload Image Files button</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The &quot;Open&quot; window is opened</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<div>
+	Choose non image file with the following extensions, one at a time and click &quot;Open&quot; button:</div>
+<div>
+	&nbsp;</div>
+<div>
+	1. xls;</div>
+<div>
+	2. pdf;</div>
+<div>
+	3. html;</div>
+<div>
+	4. docx;</div>
+<div>
+	5. mp3;</div>
+<div>
+	6. exe;</div>
+<div>
+	7. zip;</div>
+<div>
+	8. bat</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The &quot;Open&quot; button is desabled</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<div>
+	Check if none of the files above can be uploaded</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	None of the files above can be uploaded</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2319" name="Check if is possible to upload more than one image file at a time">
+	<node_order><![CDATA[3]]></node_order>
+	<externalid><![CDATA[553]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if system prevents to uploaded more than one image file&nbsp;at once on Library</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Upload Image Files button</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The &quot;Open&quot; window is opened</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<div>
+	Check if more than one image file can be selected using &quot;ctrl&quot; button pressed</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	It&#39;s not possible to select more than one image file to upload</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2324" name="Check sort of Image Name column">
+	<node_order><![CDATA[4]]></node_order>
+	<externalid><![CDATA[554]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the Image Name column correctly&nbsp;sorts the&nbsp;image files uploaded at Library, by&nbsp;ascending and descending&nbsp;alphabetical order</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files uploaded at Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Rest the cursor over &quot;Image Name&quot; label, the first column</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor changes from an arrow icon to a hand icon</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Click over it</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The image list is sorted</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the image list is correctly sorted:<br />
+	<br />
+	1. If the list were previously sorted by&nbsp;ascending alphabetical order, it must now appears at&nbsp;descending alphabetical order with descending bars icon at the left side of label &quot;Image name&quot;;</p>
+<p>
+	2. If the list were previously sorted by descending alphabetical order, it must now appears at ascending alphabetical order with ascending bars icon at the left side of label &quot;Image name&quot;;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	1. The image list is correctly sorted and the correct icon appears (descending with&nbsp;descending bars icon)</p>
+<p>
+	2. The image list is correctly sorted and the correct icon appears (ascending with ascending bars icon)</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2330" name="Check that only sortable column is Image Name">
+	<node_order><![CDATA[5]]></node_order>
+	<externalid><![CDATA[555]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if only column Image Name is sortable</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Rest the cursor over &quot;Image Name&quot; label, the first column</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor changes from an arrow icon to a hand icon</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<div>
+	Click over it</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The image list is sorted</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<div>
+	Rest the cursor over &quot;Thumbnail&quot; label, the second column</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor icon does not change</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<div>
+	Click over it</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The image list is not sorted</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<div>
+	Rest the cursor over &quot;Action&quot; label, the third column</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor does not change</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<div>
+	Click over it</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The image list is not sorted</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2339" name="Validate Upload Image Files button">
+	<node_order><![CDATA[6]]></node_order>
+	<externalid><![CDATA[556]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the button correctly opens the &quot;Open&quot; window to select an image file when it is clicked</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Upload Image Files button</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The button is clicked</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the &quot;Open&quot; window is opened</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The &quot;Open&quot; window is successfully opened</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2344" name="Verify Search field results">
+	<node_order><![CDATA[7]]></node_order>
+	<externalid><![CDATA[557]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the search field correctly brings the search&#39;s results</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files uploaded at Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Check if system correctly shows the result to the possibilities of search below:<br />
+	<br />
+	1. Only with lowercase letter;<br />
+	2. Only with uppercase letter;<br />
+	3. Only with number;<br />
+	4. Only with special character;<br />
+	5. A part from the beggining of the img name;<br />
+	6. A part from the ending of the img name;<br />
+	7. A part from the middle of the img name.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The system correctly shows the result&nbsp;to all the listed possibilities of search</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2348" name="Check the layout of screen">
+	<node_order><![CDATA[8]]></node_order>
+	<externalid><![CDATA[558]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test shall verify if the layout of Library is according to the UI specification document</p>
+]]></summary>
+	<preconditions><![CDATA[<div>
+	To be logged in system and have images files uploaded</div>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Check is the layout is fully according to the requeriments of document &quot;EM - Visual Guidelines&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The layout is fully according to the requeriments of document &quot;EM - Visual Guidelines&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2352" name="Check search results when fields content is erased">
+	<node_order><![CDATA[9]]></node_order>
+	<externalid><![CDATA[563]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the image list is correctly shown again when the search field has its content erased</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files uploaded at Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	<div>
+		Click at Library on main menu</div>
+</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Type a text that returns a positive search in the Search field</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The system correctly shows the result for the search</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Erase half of the text typed in the Search field</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Half of the text typed in the Search field is erased</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the result still appears in the screen</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The result successfully&nbsp;still appears in the screen</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	Erase all the text typed in the Search field</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Search field is empty</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the search result desappears and system successfully shows the Image List</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The search result desappears and the system successfully shows&nbsp;Image List</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2360" name="Check placeholder of Search field">
+	<node_order><![CDATA[10]]></node_order>
+	<externalid><![CDATA[564]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test shall verify if the&nbsp;placeholder of Search field&nbsp;is correctly displayed</p>
+]]></summary>
+	<preconditions><![CDATA[<div>
+	To be logged in system</div>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	At Search field, check if the placehold is according with the Specification document</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The placehold for Search field is according to the&nbsp;Specification document</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2364" name="Check search result for &quot;@&quot; character">
+	<node_order><![CDATA[11]]></node_order>
+	<externalid><![CDATA[565]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the system correctly respondes to the search &quot;@&quot;</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	At Search field, type the character &quot;@&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The character &quot;@&quot; is typed at search field</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the system shows &quot;No records found&quot; as result</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The message &quot;No records found&quot; is successfully showed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2369" name="Check if all thumbnails are clickable">
+	<node_order><![CDATA[12]]></node_order>
+	<externalid><![CDATA[566]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the thumbnails at the Library&#39;s list are clickable</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Rest the cursor over the first thumbnail of the list</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor icon changes from an arrow to a hand</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Check if the cursor changes for all the thumbnails in the list</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor correctly changes for all the thumbnails in the list</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2374" name="Check if all the thumbnails opens bigger image when clicked">
+	<node_order><![CDATA[13]]></node_order>
+	<externalid><![CDATA[567]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the thumbnails open its image bigger&nbsp;when clicked</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have images files uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Rest the cursor over the first thumbnail of the list</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor icon changes from an arrow to a hand</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<div>
+	Click over it</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The thumbnail&#39;s image opens bigger</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Check if all the others thumbnails in the list open bigger as well</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	All the other thumbsnails in the list correctly open bigger</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2380" name="Check if bigger image from thumbnails closes">
+	<node_order><![CDATA[14]]></node_order>
+	<externalid><![CDATA[571]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the bigger image from thumbnails closes when user clicks outsite of it</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have at least one image file uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Rest the cursor over the first thumbnail of the list</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The cursor icon changes from an arrow to a hand</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<div>
+	Click over it</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The thumbnail&#39;s image opens bigger</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Click in an area out the bigger opened image</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The bigger image successfully closes</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	Check it for the others thumbnails image in the list&nbsp;as well</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The bigger image successfully closes&nbsp;for the others thumbnails image in the list&nbsp;as well</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2387" name="Check if page navigation bar becomes visible">
+	<node_order><![CDATA[15]]></node_order>
+	<externalid><![CDATA[568]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the navigation bar appears when there is more than five (5) image uploaded</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have six or more images files uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Check at the end of the images list, if a navigation bar is showed</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	A navigation bar is successfully showed at the end of the images list</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2391" name="Check navigation bar functionality">
+	<node_order><![CDATA[16]]></node_order>
+	<externalid><![CDATA[569]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the buttons of navigation bar properly works</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have six or more images files uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+
+</testcase>
+
+<testcase internalid="2393" name="Check if page navigation bar becomes invisible">
+	<node_order><![CDATA[17]]></node_order>
+	<externalid><![CDATA[570]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test shall verify if&nbsp;page navigation bar becomes invisible when five (5) or less image files are uploaded in the Library&#39;s list</p>
+]]></summary>
+	<preconditions><![CDATA[<div>
+	To be logged in system and have five or less image files uploaded in the Library</div>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Check at the end of the images list, if a navigation bar is showed</p>
+<body id="cke_pastebin" style="position: absolute; top: 16px; width: 1px; height: 1px; overflow: hidden; left: -1000px;">
+	<div>
+		Check at the end of the images list, if a navigation bar is showed</div>
+	<div>
+		A navigation bar is successfully showed at the end of the images list</div>
+</body>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	No navigation bar is showed at the end of the images list</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2397" name="Verify if page navigation bar becomes invisible">
+	<node_order><![CDATA[18]]></node_order>
+	<externalid><![CDATA[579]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<div>
+	This test shall verify if the navigation bar desappears when there is five (5) or less images uploaded</div>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	To be logged in system and have five or less images files uploaded in the Library</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>2</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div>
+	Click at Library on main menu</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	The Library screen is displayed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<div>
+	Check at the end of the images list, if a navigation bar is showed</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	No navigation bar is showed at the end of the images list</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite>

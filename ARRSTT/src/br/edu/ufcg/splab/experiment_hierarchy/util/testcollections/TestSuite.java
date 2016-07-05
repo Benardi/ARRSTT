@@ -223,14 +223,13 @@ public class TestSuite implements Iterable<TestCase> {
 	@Override
 	public String toString() {
 		String output = "";
-
 		for (TestCase tCase : tSuite) {
-			output += tCase.toString();
+			output += tCase.toString();			
 		}
 
 		return output;
 	}
-
+	
 	public TestCase nulify(int index) {
 		return tSuite.set(index, null);
 	}
