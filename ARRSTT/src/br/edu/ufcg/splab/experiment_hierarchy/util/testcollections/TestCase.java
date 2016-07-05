@@ -247,7 +247,12 @@ public class TestCase implements Iterable<InterfaceEdge> {
 
 	@Override
 	public String toString() {
-		return "{ID: " + this.id + " NAME: " + this.name + "}" + tCase.toString();
+		String eol = System.lineSeparator();
+		String result = "{ID: " + this.id + " NAME: " + this.name + "}";
+		for(InterfaceEdge transition : tCase){
+			result += "\t"+transition.getLabel()+eol;
+		}
+		return result;
 	}
 	
 	public String getID(){

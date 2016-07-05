@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="2505" name="Internationalization" >
+<node_order><![CDATA[6]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="2506" name="Validate the initial language">
+	<node_order><![CDATA[0]]></node_order>
+	<externalid><![CDATA[354]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the language is detected from User OS when the user access system&#39;s URL.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	This first page is all write in same User OS Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Log in System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	After login, the language is still the same.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2510" name="Validate the icons to change the language">
+	<node_order><![CDATA[1]]></node_order>
+	<externalid><![CDATA[356]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if there are names representing the languages that system supports.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	There are names representing the languages</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2513" name="Change the language to Portuguese">
+	<node_order><![CDATA[2]]></node_order>
+	<externalid><![CDATA[360]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system changes the language when the user clicks in Portuguese language.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Page.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Choose Portuguese language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System is now in Portuguese.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2517" name="Change the language to Spanish">
+	<node_order><![CDATA[3]]></node_order>
+	<externalid><![CDATA[361]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system changes the language when the user clicks in Spanish language.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Page.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Choose Spanish language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System is now in Spanish.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2521" name="Change the language to English">
+	<node_order><![CDATA[4]]></node_order>
+	<externalid><![CDATA[362]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system changes the language when the user clicks in English language.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Page.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Choose Spanish language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System is now in English.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2525" name="Verify if the Portuguese language remains the same even after login">
+	<node_order><![CDATA[5]]></node_order>
+	<externalid><![CDATA[363]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system does not change Previous to English after login.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User Choose Portuguese language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in Portuguese.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Log in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System is still in Portuguese.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2530" name="Verify if the English language remains the same even after login">
+	<node_order><![CDATA[6]]></node_order>
+	<externalid><![CDATA[364]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system does not change Previous to before language after login.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User Choose English language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in English.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Log in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System is still in English.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2535" name="Verify if the Spanish language remains the same even after login">
+	<node_order><![CDATA[7]]></node_order>
+	<externalid><![CDATA[366]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system does not change Previous to Spanish after login.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User Choose Spanish language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in Spanish.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Log in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System is still in Spanish.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2540" name="Verify if the Portuguese language remains the same in all pages in the system">
+	<node_order><![CDATA[8]]></node_order>
+	<externalid><![CDATA[368]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system&#39;s language is the same in all pages after changing it.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User chooses Portuguese language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in Portuguese Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Log in System as Admin.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System logged.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User navigates in all the Pages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the pages displayed in Portuguese.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2546" name="Verify if the English language remains the same in all pages in the system">
+	<node_order><![CDATA[9]]></node_order>
+	<externalid><![CDATA[369]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system&#39;s language is the same in all pages after changing it.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User chooses English language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in English Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Log in System as Admin.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System logged.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User navigates in all the Pages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the pages displayed in English.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2552" name="Verify if the Spanish language remains the same in all pages in the system">
+	<node_order><![CDATA[10]]></node_order>
+	<externalid><![CDATA[370]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the system&#39;s language is the same in all pages after changing it.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User chooses Spanish language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in Spanish Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Log in System as Admin.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System logged.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User navigates in all the Pages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the pages displayed in Spanish.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2558" name="Popup screen messages in Portuguese">
+	<node_order><![CDATA[11]]></node_order>
+	<externalid><![CDATA[371]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the Popup screen messages are also translated in Portuguese.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Logs in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Check all Popup screens</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	All Popup screens are translated in Portuguese.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2563" name="Popup screen messages in English">
+	<node_order><![CDATA[12]]></node_order>
+	<externalid><![CDATA[373]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the Popup screen messages are also translated in English.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Logs in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Check all Popup screens</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	All Popup screens are translated in English.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2568" name="Popup screen messages in Spanish">
+	<node_order><![CDATA[13]]></node_order>
+	<externalid><![CDATA[374]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the Popup screen messages are also translated in Spanish.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Logs in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Check all Popup screens</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	All Popup screens are translated in Spanish.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2573" name="Error messages in Portuguese">
+	<node_order><![CDATA[14]]></node_order>
+	<externalid><![CDATA[372]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the error messages are also translated in Portuguese.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User checks all messages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the error messages translated in Portuguese.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2577" name="Error messages in English">
+	<node_order><![CDATA[15]]></node_order>
+	<externalid><![CDATA[375]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the error messages are also translated in English.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User checks all messages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the error messages translated in English.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2581" name="Error messages in Spanish">
+	<node_order><![CDATA[16]]></node_order>
+	<externalid><![CDATA[376]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if the error messages are also translated in Spanish.</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User checks all messages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the error messages translated in Spanish.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2585" name="Verify Portuguese correct translation in all pages of the system">
+	<node_order><![CDATA[17]]></node_order>
+	<externalid><![CDATA[381]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if translation is correct in all pages</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User chooses Portuguese Language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in Portuguese Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Logs in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows Admin logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User navigates all the functions of all the Pages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the Texts correctly translated.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2591" name="Verify English correct translation in all pages of the system">
+	<node_order><![CDATA[18]]></node_order>
+	<externalid><![CDATA[382]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if translation is correct in all pages</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User chooses English Language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in English Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Logs in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows Admin logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User navigates all the functions of all the Pages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the Texts correctly translated.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2597" name="Verify Spanish correct translation in all pages of the system">
+	<node_order><![CDATA[19]]></node_order>
+	<externalid><![CDATA[383]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if translation is correct in all pages</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	User chooses Spanish Language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System in Spanish Language.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Logs in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows Admin logged in.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User navigates all the functions of all the Pages.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows all the Texts correctly translated.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="2603" name="Verify if system keeps all information even changing the language">
+	<node_order><![CDATA[20]]></node_order>
+	<externalid><![CDATA[387]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	This test case shall verify if system keeps all information of a new campaign even when user logout and then login again changing the language</p>
+]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Open Valid System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Log in as Admin User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System Logged.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	User creates a new campaign</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the new Campaign Created.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	User logout System.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Initial Screen.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	User changes the Language.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the Language changed.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>
+	Log in with Same User.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the System Logged with same User.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[7]]></step_number>
+	<actions><![CDATA[<p>
+	User goes to Calendar Page.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	System shows the same Created Campaign with same inserted Data.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite>

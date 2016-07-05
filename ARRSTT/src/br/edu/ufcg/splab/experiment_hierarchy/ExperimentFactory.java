@@ -20,19 +20,21 @@ import br.edu.ufcg.splab.experiment_hierarchy.util.enums.RequirementBuilders;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 
 public class ExperimentFactory {
-	public final static double MASK_PERCENTAGE = 0.4;
+	
 	public static final String LINE_END = System.getProperty("line.separator");
 	
 	public Experiment buildNeoSelection(List<TestSuite> testSuites, File[] files, int replications){
+				
 		List<InterfaceSelectionTechnique> selectionTechniques = new ArrayList<>();
-		selectionTechniques.add(new BiggestTechnique());
-		selectionTechniques.add(new SmallestTechnique());
+//		selectionTechniques.add(new BiggestTechnique());
+//		selectionTechniques.add(new SmallestTechnique());
 		selectionTechniques.add(new RandomTechnique());
 		selectionTechniques.add(new SimilarityTechnique());
 		
-		String headerRow = "BIGGEST\tSMALLEST\tRANDOM\tSIMILARITY";
+		//String headerRow = "BIGGEST\tSMALLEST\tRANDOM\tSIMILARITY";
+		String headerRow = "RANDOM\tSIMILARITY";
 		
-		double selectionPercentage = 0.4;		
+		double selectionPercentage = 0.5;		
 		InterfaceSetup setup = new MySelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
 		InterfaceRunner runner = new MyExperimentRunner(headerRow, selectionTechniques.size());
 		

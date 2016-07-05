@@ -50,7 +50,7 @@ public class Transition extends AbstractEdge {
 					&& edge.getTo().equals(this.getTo())) {
 				retorno = true;
 			}*/
-			if (edge.getLabel().equals(this.getLabel())){
+			if (edge.getLabel().trim().equals(this.getLabel().trim())){
 				retorno = true;
 			}
 		}

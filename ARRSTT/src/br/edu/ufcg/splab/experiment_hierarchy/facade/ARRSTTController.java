@@ -51,7 +51,10 @@ public class ARRSTTController {
 	
 	public void runNeoSelectionExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
-			Experiment experiment = experimentFactory.buildNeoSelection(getInput(input), io.getFiles(dvcFiles), replications);
+			//Used in SAST Experiment
+			List<TestSuite> testSuites = getInput(input);
+			File[] failureFiles = io.getFiles(dvcFiles);
+			Experiment experiment = experimentFactory.buildNeoSelection(testSuites, failureFiles, replications);
 			List<ExperimentDataGroup> outputData = experiment.execute();
 			io.saveData(outputData, outputFolder);
 		} catch(Exception e) {

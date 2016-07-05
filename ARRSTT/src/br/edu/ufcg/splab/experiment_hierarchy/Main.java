@@ -14,7 +14,7 @@ public class Main {
 		facade = new ARRSTTFacade();
 		
 		//experiment1();
-		experiment2();
+		experimentSAST();
 		//experiment2();
 		//experiment3();
 		//experiment4();
@@ -34,6 +34,27 @@ public class Main {
 		String outputFolder = "experiment_results";
 		
 		facade.runNeoMinimizationExperiment(input, files, outputFolder, 1);
+	}
+	
+	public static void experimentSAST() {
+		String folder = "extras/experiment_sast/";
+		String testSuiteFolder = "testsuites/";
+		String failuresFolder = "failures/";
+		String[] objects = {"Campaign","Library","InitialScreen","Settings"};
+		
+		File[] xmlFiles = new File[objects.length];
+		String[] failuresFilePath = new String[objects.length];
+		
+		for (int i = 0; i < failuresFilePath.length; i++) {
+			failuresFilePath[i] = folder+failuresFolder+objects[i]+"_failures.txt";
+		}
+		for (int i = 0; i < xmlFiles.length; i++) {
+			xmlFiles[i] = new File(folder+testSuiteFolder+objects[i]+".xml");
+		}
+		
+		String outputFolder = "experiment_sast_results";
+		
+		facade.runNeoSelectionExperiment(xmlFiles, failuresFilePath, outputFolder, 99);
 	}
 	
 	private static File[] directoryToPath(String pathToFolder) {

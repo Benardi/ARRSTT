@@ -14,6 +14,7 @@ import br.edu.ufcg.splab.experiment_hierarchy.techniques.generation.InterfaceGen
 import br.edu.ufcg.splab.experiment_hierarchy.util.ArresttConstants;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentDataGroup;
 import br.edu.ufcg.splab.experiment_hierarchy.util.ExperimentFile;
+import br.edu.ufcg.splab.experiment_hierarchy.util.TestSuiteMerger;
 import br.edu.ufcg.splab.experiment_hierarchy.util.XMLParser;
 import br.edu.ufcg.splab.experiment_hierarchy.util.testcollections.TestSuite;
 import br.edu.ufcg.splab.graph_hierarchy.core.graph.Graph;
@@ -50,11 +51,12 @@ public class IOClass {
 	
 	public List<TestSuite> getTestSuites(File[] files) throws ParseException, IOException, Exception {
 		List<TestSuite> testSuites = new ArrayList<TestSuite>();
-		
-		for (File file : files) { 
-			testSuites.addAll(parseFile(file));
-		}
-		
+		TestSuiteMerger merger = new TestSuiteMerger();
+		for (File file : files) {			
+			List<TestSuite> fileTestSuites = parseFile(file);
+			TestSuite singleTestSuite = merger.merge(fileTestSuites);
+			testSuites.add(singleTestSuite);
+		}		
 		return testSuites;
 	}
 	

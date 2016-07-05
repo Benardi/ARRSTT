@@ -183,7 +183,7 @@ public class XMLParser {
 	 * @return The corrected label.
 	 */
 	private String correctTestLinkLabel(String label){
-		System.out.println(Jsoup.parse(StringEscapeUtils.unescapeHtml4(label)).text());
+		//System.out.println(Jsoup.parse(StringEscapeUtils.unescapeHtml4(label)).text());
 		return Jsoup.parse(StringEscapeUtils.unescapeHtml4(label)).text();
 	}
 }
