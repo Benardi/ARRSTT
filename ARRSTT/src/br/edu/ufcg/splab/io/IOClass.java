@@ -122,6 +122,7 @@ public class IOClass {
 	private String getFileExtension(File file) {
 		String fileName = file.getName();
 		int lastIndex = fileName.lastIndexOf(ArresttConstants.EXTENSION_SEPARATOR);
+		System.out.println(lastIndex + " " + fileName.length());
 		return fileName.substring(lastIndex, fileName.length());
 	}
 

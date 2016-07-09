@@ -7,29 +7,26 @@ import br.edu.ufcg.splab.facade.ARRSTTFacade;
 public class Main {
 	private static ARRSTTFacade facade;
 	
-	private static File[] xmlFiles = directoryToPath("extras/xmls");
 	
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
-		
-		//experiment1();
-		experimentSAST();
-		//experiment2();
-		//experiment3();
-		//experiment4();
+		experiment1();
 	}
 	
 	public static void experiment1() {
-		File[] input = xmlFiles;
-		String[] files = {"extras/failure_files/easytoy4_failures.txt"};
+		File[] input = new File[1];
+		input[0] = new File("extras/xmls/EasyToy4.testsuite-deep.xml");
+		String[] files = {"extras/failure_files/EasyToy4.testsuite-deep_failures.txt"};
 		String outputFolder = "experiment_results";
 		
 		facade.runNeoSelectionExperiment(input, files, outputFolder, 2);
 	}
 	
+	// This method is still a work in progress
 	public static void experiment2() {
-		File[] input = xmlFiles;
-		String[] files = {"extras/failure_files/easytoy4_failures.txt"};
+		File[] input = new File[1];
+		input[0] = new File("extras/xmls/EasyToy4.testsuite-deep.xml");
+		String[] files = {"extras/failure_files/EasyToy4.testsuite-deep_failures.txt"};
 		String outputFolder = "experiment_results";
 		
 		facade.runNeoMinimizationExperiment(input, files, outputFolder, 1);
@@ -56,6 +53,11 @@ public class Main {
 		facade.runNeoSelectionExperiment(xmlFiles, failuresFilePath, outputFolder, 99);
 	}
 	
+	/**
+	 * This method receives a directory's path and return it as an array of Files
+	 * @param pathToFolder The directory's path
+	 * @return The directory as an array of Files
+	 */
 	private static File[] directoryToPath(String pathToFolder) {
 		File file = new File(pathToFolder);
 		
