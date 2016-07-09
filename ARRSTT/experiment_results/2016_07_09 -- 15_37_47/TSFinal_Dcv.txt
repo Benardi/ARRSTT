@@ -1,0 +1,100 @@
+RANDOM	SIMILARITY
+----- NEW TEST SUITE -----{ID: 7 NAME: TC4}	Chooses female char
+	Female char creation screen
+	Chooses female name
+	Female name chosen
+	Chooses golem as pet
+	Golem appears at screen
+	Customize golem
+	Golem ready
+{ID: 4 NAME: TC1}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses phoenix as pet
+	Phoenix appears at screen
+	Customize phoenix
+	Phoenix ready
+	----- NEW TEST SUITE -----{ID: 4 NAME: TC1}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses phoenix as pet
+	Phoenix appears at screen
+	Customize phoenix
+	Phoenix ready
+{ID: 5 NAME: TC2}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses golem as pet
+	Golem appears at screen
+	Customize golem
+	Golem ready
+	
+----- NEW TEST SUITE -----{ID: 7 NAME: TC4}	Chooses female char
+	Female char creation screen
+	Chooses female name
+	Female name chosen
+	Chooses golem as pet
+	Golem appears at screen
+	Customize golem
+	Golem ready
+{ID: 4 NAME: TC1}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses phoenix as pet
+	Phoenix appears at screen
+	Customize phoenix
+	Phoenix ready
+	----- NEW TEST SUITE -----{ID: 4 NAME: TC1}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses phoenix as pet
+	Phoenix appears at screen
+	Customize phoenix
+	Phoenix ready
+{ID: 7 NAME: TC4}	Chooses female char
+	Female char creation screen
+	Chooses female name
+	Female name chosen
+	Chooses golem as pet
+	Golem appears at screen
+	Customize golem
+	Golem ready
+	
+----- NEW TEST SUITE -----{ID: 7 NAME: TC4}	Chooses female char
+	Female char creation screen
+	Chooses female name
+	Female name chosen
+	Chooses golem as pet
+	Golem appears at screen
+	Customize golem
+	Golem ready
+{ID: 6 NAME: TC3}	Chooses female char
+	Female char creation screen
+	Chooses female name
+	Female name chosen
+	Chooses phoenix as pet
+	Phoenix appears at screen
+	Customize phoenix
+	Phoenix ready
+	----- NEW TEST SUITE -----{ID: 4 NAME: TC1}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses phoenix as pet
+	Phoenix appears at screen
+	Customize phoenix
+	Phoenix ready
+{ID: 5 NAME: TC2}	Chooses male char
+	Male char creation screen
+	Chooses male name
+	Male name chosen
+	Chooses golem as pet
+	Golem appears at screen
+	Customize golem
+	Golem ready
+	
