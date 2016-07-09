@@ -24,7 +24,6 @@ public class MyExperimentRunner implements InterfaceRunner{
 		for(Artifact art : artifacts){
 			results.add(art.getDVCResults());
 		}
-		
 		StringBuffer fileResult = new StringBuffer();
 		StringBuffer reductionResult = new StringBuffer();
 		StringBuffer sizeResult = new StringBuffer();

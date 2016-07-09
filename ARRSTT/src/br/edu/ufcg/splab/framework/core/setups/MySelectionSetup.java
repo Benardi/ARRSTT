@@ -36,6 +36,7 @@ public class MySelectionSetup implements InterfaceSetup{
 	
 	@Override
 	public List<Artifact> getArtifacts() {		
+		
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		List<Artifact> artifacts = new ArrayList<Artifact>();
 		

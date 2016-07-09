@@ -30,19 +30,10 @@ public class CoverageCollector implements InterfaceDvc{
 	@Override
 	public StringBuffer collect(TestSuite t) {
 		Set<InterfaceEdge> changedTestSuite = transformToSet(t);
-		printSet(changedTestSuite);	
-		printSet(originalTransitionSet);
 		double result = 1.0* changedTestSuite.size() / originalTransitionSet.size();
 		return new StringBuffer(String.format("%.2f", result));
 	}
 
 
-	private void printSet(Set<InterfaceEdge> originalTransitionSet2) {
-		// TODO Auto-generated method stub
-		for(InterfaceEdge transition : originalTransitionSet2){
-			System.out.print("("+transition.getLabel()+")\t");
-		}
-		System.out.println();
-	}
 
 }

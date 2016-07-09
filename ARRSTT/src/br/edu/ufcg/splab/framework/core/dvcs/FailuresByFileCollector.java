@@ -24,15 +24,12 @@ public class FailuresByFileCollector implements InterfaceDvc {
 		if (f != null) {
 			List<String> ids = getIDs();
 			int defectiveTCamount = 0;
-			System.out.println(ids);
 			
 			for (TestCase testCase : testSuite) {
-				System.out.print(testCase.getID()+" ");
 				if (ids.contains(testCase.getID())) {
 					defectiveTCamount++;
 				}
 			}
-			System.out.println();
 			double percentageFailure = 100*((double)defectiveTCamount/(double)ids.size());
 			percentageFailure = (double)((int)percentageFailure/100.0);
 			return new StringBuffer(percentageFailure + "");
