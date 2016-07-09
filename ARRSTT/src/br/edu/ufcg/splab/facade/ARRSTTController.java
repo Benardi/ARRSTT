@@ -11,28 +11,16 @@ import br.edu.ufcg.splab.util.ExperimentDataGroup;
 import br.edu.ufcg.splab.util.factories.ExperimentFactory;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
-/*
- * Change														Author				Date
- * -------------------------------------------------------------------------------------------
- * Creation														Wesley Silva		2015-09-30
- * 
- */
-
 /**
- * <b>Objective:</b> This class is used by the facade to create and run ARRSTT's experiments,
- * such as selection experiment and generation experiment.
- * <br>
- * <b>Description of use:<b> It's only public method is execute() that is responsible for the
- * creation and execution of ARRSTT's experiments.
- *
+ * A controller created by the ARRSTT team to improve the experiment's executions and design
+ * New users can use and extend this class to create/reproduce experiments, but the usage
+ * of this class is not obligatory.
  */
 public class ARRSTTController {	
-	private IOClass io;
+	private IOClass io;// This object handles the experiments' Input and Output
 	private ExperimentFactory experimentFactory;
 	
-	/**
-	 * The controller's constructor. Initializes the needed lists and factories.
-	 */
+
 	public ARRSTTController() {
 		this.experimentFactory = new ExperimentFactory();
 		this.io = new IOClass();
@@ -51,7 +39,6 @@ public class ARRSTTController {
 	
 	public void runNeoSelectionExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
-			//Used in SAST Experiment
 			List<TestSuite> testSuites = getInput(input);
 			File[] failureFiles = io.getFiles(dvcFiles);
 			Experiment experiment = experimentFactory.buildNeoSelection(testSuites, failureFiles, replications);
@@ -73,7 +60,7 @@ public class ARRSTTController {
 			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
 		}
 	}
-	
+	//Work in progress
 	public void runNeoMinimizationExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), io.getFiles(dvcFiles), replications);
@@ -84,7 +71,7 @@ public class ARRSTTController {
 			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
 		}
 	}
-	
+	//Work in progress
 	public void runNeoMinimizationExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), io.getFiles(dvcFiles), replications);
@@ -95,7 +82,7 @@ public class ARRSTTController {
 			throw new ARRSTTException("Error while trying to run Neo Selection Experiment. " + e.getMessage());
 		}
 	}
-	
+	//Work in progress
 	public void runNeoMinimizationExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications) {
 		try {
 			Experiment experiment = experimentFactory.buildNeoMinimization(getInput(input), dvcFiles, replications);

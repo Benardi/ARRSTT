@@ -35,7 +35,6 @@ public class Artifact {
 		for(InterfaceDvc dvc : dvcs){
 			result.append(dvc.collect(resultTestSuite).toString().replaceAll(",", ".") + "meu_divisor");
 		}
-		
 		return result;
 	}
 	

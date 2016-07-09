@@ -2,13 +2,12 @@ package br.edu.ufcg.splab.facade;
 
 import java.io.File;
 
-/*
- * Change														Author				Date
- * -------------------------------------------------------------------------------------------
- * Creation														Wesley Silva		2015-09-30
- * Transfered it's logic to the controller						Iaron Araújo		2015-10-20
- */
 
+/**
+ * A facade created by the ARRSTT team to improve the experiment's executions and design
+ * New users can use and extend this class to create/reproduce experiments, but the usage
+ * of this class is not obligatory.
+ */
 public class ARRSTTFacade {
 	private ARRSTTController controller;
 	
@@ -28,14 +27,15 @@ public class ARRSTTFacade {
 		controller.runNeoSelectionExperiment(input, dvcFiles, outputFolder, replications);
 	}
 	
+	//Work in progress
 	public void runNeoMinimizationExperiment(String[] input, String[] dvcFiles, String outputFolder, int replications){
 		controller.runNeoMinimizationExperiment(input, dvcFiles, outputFolder, replications);
 	}
-	
+	//Work in progress
 	public void runNeoMinimizationExperiment(File[] input, String[] dvcFiles, String outputFolder, int replications){
 		controller.runNeoMinimizationExperiment(input, dvcFiles, outputFolder, replications);
 	}
-	
+	//Work in progress
 	public void runNeoMinimizationExperiment(File[] input, File[] dvcFiles, String outputFolder, int replications){
 		controller.runNeoMinimizationExperiment(input, dvcFiles, outputFolder, replications);
 	}

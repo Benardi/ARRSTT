@@ -17,6 +17,9 @@ import br.edu.ufcg.splab.framework.techniques.selection.SimilarityTechnique;
 import br.edu.ufcg.splab.util.enums.RequirementBuilders;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+/**
+ * This class is responsible for creating a Experiment with it's Setup and Runner
+ */
 public class ExperimentFactory {
 	
 	public static final String LINE_END = System.getProperty("line.separator");
@@ -24,12 +27,9 @@ public class ExperimentFactory {
 	public Experiment buildNeoSelection(List<TestSuite> testSuites, File[] files, int replications){
 				
 		List<InterfaceSelectionTechnique> selectionTechniques = new ArrayList<>();
-//		selectionTechniques.add(new BiggestTechnique());
-//		selectionTechniques.add(new SmallestTechnique());
 		selectionTechniques.add(new RandomTechnique());
 		selectionTechniques.add(new SimilarityTechnique());
 		
-		//String headerRow = "BIGGEST\tSMALLEST\tRANDOM\tSIMILARITY";
 		String headerRow = "RANDOM\tSIMILARITY";
 		
 		double selectionPercentage = 0.5;		
@@ -39,6 +39,7 @@ public class ExperimentFactory {
 		return new Experiment(setup, runner);
 	}
 	
+	//Work in progress
 	public Experiment buildNeoMinimization(List<TestSuite> testSuites, File[] files, int replications) {
 		List<MinimizationTechniques> enumMinimizationTechniques = new ArrayList<MinimizationTechniques>();
 		enumMinimizationTechniques.add(MinimizationTechniques.G);

@@ -40,6 +40,7 @@ public class MyMinimizationSetup implements InterfaceSetup {
 
 	@Override
 	public List<Artifact> getArtifacts() {
+		
 		TreatmentFactory treatmentFactory = new TreatmentFactory();
 		MinimizationTechniquesFactory minimizationFactory = new MinimizationTechniquesFactory();
 		RequirementBuilderFactory reqBuilderFactory = new RequirementBuilderFactory();
@@ -65,7 +66,6 @@ public class MyMinimizationSetup implements InterfaceSetup {
 				}
 			}
 		}
-		
 		return artifacts;
 	}
 	
