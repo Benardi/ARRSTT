@@ -9,6 +9,12 @@ import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.util.testcollections.TestCase;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+/**
+ * This class receives a TestSuite by constructor and then, on the collect
+ * method, it receives the result of a selection technique on this suite.
+ * Then, it returns how many unique transitions the changed TestSuite still
+ * covers, comparing with the original one. This data is saved as a percentage.
+ */
 public class CoverageCollector implements InterfaceDvc{
 	Set<InterfaceEdge> originalTransitionSet;
 	

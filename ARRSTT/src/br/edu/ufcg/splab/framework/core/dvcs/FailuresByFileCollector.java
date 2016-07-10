@@ -12,6 +12,12 @@ import br.edu.ufcg.splab.framework.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.util.testcollections.TestCase;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+/**
+ * This DVC collects how many failures a reduced TestSuite covers.
+ * This collect is done with the aid of a txt file that contains
+ * all failures the TestSuite had before it was reduced by selection
+ * algorithms.
+ */
 public class FailuresByFileCollector implements InterfaceDvc {
 	
 	private File f;
