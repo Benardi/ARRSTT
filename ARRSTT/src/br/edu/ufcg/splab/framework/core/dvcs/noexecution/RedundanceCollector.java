@@ -7,7 +7,7 @@ import br.edu.ufcg.splab.framework.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.util.testcollections.TestCase;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
-
+//WORK IN PROGRESS
 public class RedundanceCollector implements InterfaceDvc {
 	private TestSuite originalSuite;
 	

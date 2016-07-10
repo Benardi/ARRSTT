@@ -11,6 +11,7 @@ import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.util.testcollections.TestCase;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+//WORK IN PROGRESS
 public class MostRepeatedTransitionCollector implements InterfaceDvc {
 	private TestSuite originalSuite;
 	

@@ -3,6 +3,12 @@ package br.edu.ufcg.splab.framework.core.dvcs;
 import br.edu.ufcg.splab.framework.core.api.InterfaceDvc;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+/**
+ * This class receives a TestSuite by constructor and then, on the collect
+ * method, it receives the result of a selection technique on this suite.
+ * The collect method returns in percentage how much of the original suite
+ * remained.
+ */
 public class ReductionCollector implements InterfaceDvc {
 	private TestSuite originalTestSuite;
 	

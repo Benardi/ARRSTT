@@ -2,11 +2,9 @@ package br.edu.ufcg.splab.framework.core.dvcs.benchmarks;
 
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
-/*
- * Change														Author				Date
- * -------------------------------------------------------------------------------------------
- * Creation														Wesley Silva		2015-09-13
- * 
+/**
+ * This DVC is responsible for getting the execution time of
+ * an algorithm's execution.
  */
 public class TimeBenchmark implements InterfaceBenchmark {
 	private long time;

@@ -5,6 +5,10 @@ import br.edu.ufcg.splab.util.MediaMaxMin;
 import br.edu.ufcg.splab.util.testcollections.TestCase;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+/**
+ * This DVC is responsible to get the size of a TestSuite's smallest
+ * TestCase, biggest TestCase and the media size of TestCases.
+ */
 public class MediaMaxMinCollector implements InterfaceDvc {
 	private TestSuite originalSuite;
 	
