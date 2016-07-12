@@ -20,8 +20,19 @@ import br.edu.ufcg.splab.util.TestSuiteMerger;
 import br.edu.ufcg.splab.util.XMLParser;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
+/**
+ * This class holds the input and output operations necessary to convert 
+ * files into TestSuite objects and save the output of an experiment to files.
+ *
+ */
 public class IOClass {
+	/**
+	 * Object used when handling with .xml files as input.
+	 */
 	private XMLParser xmlParser;
+	/**
+	 * Object used when handling with .tgf files as input.
+	 */
 	private ReadTGF tgfParser;
 	
 	public IOClass() {
@@ -29,7 +40,12 @@ public class IOClass {
 		this.tgfParser = new ReadTGF();
 	}
 	
-	
+	/**
+	 * Used to obtain an array of files from an array of paths.
+	 *
+	 * @param paths The paths of the files.
+	 * @return A array of files.
+	 */
 	public File[] getFiles(String[] paths){
 		File[] files = new File[paths.length];
 		for(int i = 0; i < paths.length; i++){
@@ -38,6 +54,16 @@ public class IOClass {
 		return files;
 	}
 	
+	/**
+	 * Given .xml or .tgf file paths this method will parse their content
+	 * to TestSuite objects and return them as a List. 
+	 * 
+	 * @param paths The paths of the files to be parsed.
+	 * @return A list with the test suites that the files describe. 
+	 * @throws ParseException If the parsing does not work.
+	 * @throws IOException If the file cannot be read.
+	 * @throws Exception If the format is not a .tgf or a .xml.
+	 */
 	public List<TestSuite> getTestSuites(String[] paths) throws ParseException, IOException, Exception {
 		List<TestSuite> testSuites = new ArrayList<TestSuite>();
 		
@@ -49,6 +75,16 @@ public class IOClass {
 		return testSuites;
 	}
 	
+	/**
+	 * Given .xml or .tgf files this method will parse their content
+	 * to TestSuite objects and return them as a List. 
+	 * 
+	 * @param paths The files to be parsed.
+	 * @return A list with the test suites that the files describe. 
+	 * @throws ParseException If the parsing does not work.
+	 * @throws IOException If the file cannot be read.
+	 * @throws Exception If the format is not a .tgf or a .xml.
+	 */
 	public List<TestSuite> getTestSuites(File[] files) throws ParseException, IOException, Exception {
 		List<TestSuite> testSuites = new ArrayList<TestSuite>();
 		TestSuiteMerger merger = new TestSuiteMerger();
@@ -56,10 +92,20 @@ public class IOClass {
 			List<TestSuite> fileTestSuites = parseFile(file);
 			TestSuite singleTestSuite = merger.merge(fileTestSuites);
 			testSuites.add(singleTestSuite);
-		}		
+		}
+		
 		return testSuites;
 	}
 	
+	/**
+	 * This method can be used to save the results of an experiment to files. 
+	 * 
+	 * The folder in which the files are going to be saved is given by:
+	 * 'outputFolderPath/yyyy-MM-dd -- HH_mm_ss'.
+	 * 
+	 * @param datas A List of ExperimentDataGroup to be saved.
+	 * @param outputFolderPath The folder in which they will be saved.
+	 */
 	public void saveData(List<ExperimentDataGroup> datas, String outputFolderPath) {
 		File outputFolder = new File(outputFolderPath);
 		if (!outputFolder.isDirectory()) throw new ARRSTTException("The given path is not a valid directory.");
