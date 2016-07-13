@@ -3,6 +3,7 @@ package br.edu.ufcg.splab.framework.core.treatments;
 import br.edu.ufcg.splab.framework.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.framework.techniques.selection.InterfaceSelectionTechnique;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
+
 /*
  * Change														Author				Date
  * -------------------------------------------------------------------------------------------
@@ -11,13 +12,10 @@ import br.edu.ufcg.splab.util.testcollections.TestSuite;
  */
 /**
  * <b>Objective:</b> This class represents an ARRSTT experiment's executable
- * treatment that is capable of selecting an amount of test cases in
- * a test suite, hence creating a new TestSuite with the selected test
- * cases.
- * <br>
+ * treatment that is capable of selecting an amount of test cases in a test
+ * suite, hence creating a new TestSuite with the selected test cases. <br>
  * <b>Description of use:</b> Receives a percentage, a test suite and a
- * selection algorithm to return a new test suite with the selected
- * test cases.
+ * selection algorithm to return a new test suite with the selected test cases.
  *
  */
 public class SelectionTreatment implements ExecutableTreatment {
@@ -33,8 +31,8 @@ public class SelectionTreatment implements ExecutableTreatment {
 	 *            The original test suite from which the percentage will be
 	 *            chosen.
 	 * @param percentage
-	 *            The percentage that represents the section of the test
-	 *            suite that will be chosen.
+	 *            The percentage that represents the section of the test suite
+	 *            that will be chosen.
 	 */
 	public SelectionTreatment(InterfaceSelectionTechnique selectionObject, TestSuite testSuite, Double percentage) {
 		this.selectionObject = selectionObject;
@@ -45,13 +43,12 @@ public class SelectionTreatment implements ExecutableTreatment {
 	@Override
 	/**
 	 * <b>Objective:</b> This method is responsible for using the selection
-	 * algorithm, TestSuite and percentage to create a new TestSuite
-	 * with the selected testCases.
-	 * <br>
-	 * <b>Exemple of use:</b> In a experiment that aims analyze TestSuite
-	 * selection algorithms with the purpose of compairing them
-	 * with respect of amount of defects found, this can be used
-	 * to generate both algorithms' TestSuites to compare them.
+	 * algorithm, TestSuite and percentage to create a new TestSuite with the
+	 * selected testCases. <br>
+	 * <b>Example of use:</b> In a experiment that aims analyze TestSuite
+	 * selection algorithms with the purpose of comparing them with respect of
+	 * amount of defects found, this can be used to generate both algorithms'
+	 * TestSuites to compare them.
 	 * 
 	 * @return The new TestSuite with the selected TestCases.
 	 */
@@ -66,7 +63,7 @@ public class SelectionTreatment implements ExecutableTreatment {
 	public InterfaceSelectionTechnique getSelector() {
 		return selectionObject;
 	}
-	
+
 	@Override
 	public String toString() {
 		return testSuite.toString();

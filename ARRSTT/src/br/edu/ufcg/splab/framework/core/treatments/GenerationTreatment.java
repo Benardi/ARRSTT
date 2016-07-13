@@ -4,44 +4,44 @@ import br.edu.ufcg.splab.framework.core.api.ExecutableTreatment;
 import br.edu.ufcg.splab.framework.techniques.generation.InterfaceGenerationTechnique;
 import br.edu.ufcg.splab.graph.core.InterfaceVertex;
 import br.edu.ufcg.splab.util.testcollections.TestSuite;
+
 /*
  * Change														Author				Date
  * -------------------------------------------------------------------------------------------
- * Creation														Bernardi Nunes		2015-05-24
+ * Documentation												Benardi Nunes		2015-05-24
  * 
  */
 /**
- * <b>Objective:</b> Objects of this class are executable treatments that
- * use an object capable of generating a test suite of a
- * given graph's root.
- * <br>
- * <b>Description of use:</b> This class can be used in any experiment that 
+ * <b>Objective:</b> Objects of this class represent executable treatments and
+ * are therefore capable of generating a test suite through the use of a given
+ * graph's root. <br>
+ * <b>Description of use:</b> This class can be used in any experiment that
  * needs graph generation since the execute() method creates a TestSuite.
  */
 public class GenerationTreatment implements ExecutableTreatment {
-	//TODO The rest of the Javadoc.
-	  
+	// TODO The rest of the Javadoc.
+
 	private InterfaceGenerationTechnique searchObject;
 	private InterfaceVertex root;
 	private TestSuite testSuite;
 	private int loopCoverage;
-	
+
 	/**
-	 * Creates a GenerationTreatment Object with the generation algorithm,
-	 * a graph's root and the loop coverage number
+	 * Creates a GenerationTreatment Object with the generation algorithm, a
+	 * graph's root and the loop coverage number
 	 * 
 	 * @param generationObject
-	 * 			The generation algorithm
+	 *            The generation algorithm
 	 * @param root
-	 * 			The root of the graph that represents an execution
+	 *            The root of the graph that represents an execution
 	 * @param loopCoverage
-	 * 			The number of times a trasition can appear in the TestSuite.
+	 *            The number of times a trasition can appear in the TestSuite.
 	 */
 	public GenerationTreatment(InterfaceGenerationTechnique generationObject, InterfaceVertex root, int loopCoverage) {
 		this.searchObject = generationObject;
 		this.loopCoverage = loopCoverage;
 		this.root = root;
-		
+
 		testSuite = new TestSuite();
 	}
 
@@ -91,15 +91,14 @@ public class GenerationTreatment implements ExecutableTreatment {
 	public TestSuite getTestSuite() {
 		return testSuite;
 	}
-	
+
 	@Override
 	/**
 	 * <b>Objective:</b> This class generates a TestSuite based on the graph
-	 * received by construction, the generation algorithm and the loop
-	 * coverage.
+	 * received by construction, the generation algorithm and the loop coverage.
 	 * <br>
-	 * <b>Exemple of use:</b> When the data of a certain generation algorithm, loop
-	 * coverage and graph needs to be saved for an experiment, this class
+	 * <b>Exemple of use:</b> When the data of a certain generation algorithm,
+	 * loop coverage and graph needs to be saved for an experiment, this class
 	 * is used and the generation happens through this method.
 	 * 
 	 * @return the generated TestSuite
