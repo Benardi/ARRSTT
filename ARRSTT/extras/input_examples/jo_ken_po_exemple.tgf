@@ -1,0 +1,38 @@
+0 0
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+8 8
+9 9
+10 10
+11 11
+12 12
+13 13
+14 14
+15 15
+#
+0 1 Player 1 chooses rock
+0 2 Player 1 chooses paper
+0 3 Player 1 chooses scissor
+1 4 Rock vs Rock
+1 5 Rock vs Paper
+1 6 Rock vs Scissor
+2 7 Paper vs Rock
+2 8 Paper vs Paper
+2 9 Paper vs Scissor
+3 10 Scissor vs Rock
+3 11 Scissor vs Paper
+3 12 Scissor vs Scissor
+4 14 Draw game
+5 15 You lose
+6 13 You win
+7 13 You win
+8 14 Draw game
+9 15 You lose
+10 15 You lose
+11 13 You win
+12 14 Draw game
