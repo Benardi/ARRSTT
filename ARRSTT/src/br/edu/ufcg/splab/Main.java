@@ -16,6 +16,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		experiment1();
+		System.out.println("OK");
 	}
 	
 	/**
