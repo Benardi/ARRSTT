@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.arrsttFramework.util.ExperimentDataGroup;
+import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
 import br.edu.ufcg.splab.exceptions.ARRSTTException;
-import br.edu.ufcg.splab.framework.core.experiments.Experiment;
+import br.edu.ufcg.splab.experimentsExamples.core.experiments.Experiment;
+import br.edu.ufcg.splab.experimentsExamples.util.factories.ExperimentFactory;
 import br.edu.ufcg.splab.io.IOClass;
-import br.edu.ufcg.splab.util.ExperimentDataGroup;
-import br.edu.ufcg.splab.util.factories.ExperimentFactory;
-import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
 /**
  * A controller created by the ARRSTT team to improve the experiment's executions and design

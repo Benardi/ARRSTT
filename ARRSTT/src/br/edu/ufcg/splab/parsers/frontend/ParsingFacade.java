@@ -1,9 +1,9 @@
 package br.edu.ufcg.splab.parsers.frontend;
 
+import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestCase;
+import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.parsers.EvosuiteParser;
-import br.edu.ufcg.splab.util.testcollections.TestCase;
-import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
 public class ParsingFacade {
 	private ParseController controller;

@@ -7,18 +7,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.arrsttFramework.util.ExperimentDataGroup;
+import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
 import br.edu.ufcg.splab.exceptions.ARRSTTException;
 import br.edu.ufcg.splab.exceptions.ParseException;
-import br.edu.ufcg.splab.framework.techniques.generation.DFSTechnique;
-import br.edu.ufcg.splab.framework.techniques.generation.InterfaceGenerationTechnique;
+import br.edu.ufcg.splab.experimentsExamples.techniques.generation.DFSTechnique;
+import br.edu.ufcg.splab.experimentsExamples.techniques.generation.InterfaceGenerationTechnique;
+import br.edu.ufcg.splab.experimentsExamples.util.ArresttConstants;
+import br.edu.ufcg.splab.experimentsExamples.util.ExperimentFile;
+import br.edu.ufcg.splab.experimentsExamples.util.TestSuiteMerger;
+import br.edu.ufcg.splab.experimentsExamples.util.XMLParser;
 import br.edu.ufcg.splab.graph.core.graph.Graph;
 import br.edu.ufcg.splab.graph.parser.ReadTGF;
-import br.edu.ufcg.splab.util.ArresttConstants;
-import br.edu.ufcg.splab.util.ExperimentDataGroup;
-import br.edu.ufcg.splab.util.ExperimentFile;
-import br.edu.ufcg.splab.util.TestSuiteMerger;
-import br.edu.ufcg.splab.util.XMLParser;
-import br.edu.ufcg.splab.util.testcollections.TestSuite;
+
 
 /**
  * This class holds the input and output operations necessary to convert 

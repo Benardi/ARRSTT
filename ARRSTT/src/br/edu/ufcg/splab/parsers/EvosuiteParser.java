@@ -3,14 +3,14 @@ package br.edu.ufcg.splab.parsers;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestCase;
+import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
 import br.edu.ufcg.splab.graph.core.InterfaceEdge;
 import br.edu.ufcg.splab.graph.core.InterfaceVertex;
 import br.edu.ufcg.splab.graph.core.edges.Transition;
 import br.edu.ufcg.splab.graph.core.edges.TransitionType;
 import br.edu.ufcg.splab.graph.core.vertex.Vertex;
 import br.edu.ufcg.splab.parsers.frontend.Parser;
-import br.edu.ufcg.splab.util.testcollections.TestCase;
-import br.edu.ufcg.splab.util.testcollections.TestSuite;
 
 public class EvosuiteParser implements Parser {
 	private int count;
