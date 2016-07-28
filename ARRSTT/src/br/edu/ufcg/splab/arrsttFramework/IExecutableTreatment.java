@@ -29,4 +29,6 @@ public interface IExecutableTreatment {
 	 */
 	public TestSuite execute();
 	
+	public String getName();
+	
 }

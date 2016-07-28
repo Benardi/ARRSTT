@@ -30,4 +30,8 @@ public class DefectsCollector implements IDvc {
 	public String toString() {
 		return "DV Defects";
 	}
+	@Override
+	public String getName(){
+		return "Defects";
+	}
 }

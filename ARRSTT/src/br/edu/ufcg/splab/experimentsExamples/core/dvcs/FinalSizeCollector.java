@@ -17,4 +17,9 @@ public class FinalSizeCollector implements IDvc {
 	public String toString() {
 		return "DV Size";
 	}
+	
+	@Override
+	public String getName(){
+		return "Final Size";
+	}
 }

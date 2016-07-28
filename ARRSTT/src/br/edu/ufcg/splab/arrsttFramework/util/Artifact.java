@@ -7,6 +7,8 @@ import br.edu.ufcg.splab.arrsttFramework.IDvc;
 import br.edu.ufcg.splab.arrsttFramework.IExecutableTreatment;
 import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
 import br.edu.ufcg.splab.experimentsExamples.core.dvcs.benchmarks.InterfaceBenchmark;
+import br.edu.ufcg.splab.experimentsExamples.util.ArresttConstants;
+import br.edu.ufcg.splab.experimentsExamples.util.ResultData;
 
 public class Artifact {
 	private IExecutableTreatment target;
@@ -19,8 +21,8 @@ public class Artifact {
 		this.benchmarks = createBenchmarkList(dvcs);
 	}
 	
-	public StringBuffer getDVCResults(){
-		StringBuffer result = new StringBuffer();
+	public List<ResultData> getDVCResults(){
+		List<ResultData> resultPairs = new ArrayList<>();
 		
 		for (InterfaceBenchmark benchmark : benchmarks) {
 			benchmark.startBenchmark();
@@ -33,9 +35,9 @@ public class Artifact {
 		}
 		
 		for(IDvc dvc : dvcs){
-			result.append(dvc.collect(resultTestSuite).toString().replaceAll(",", ".") + "meu_divisor");
+			resultPairs.add(new ResultData(target.getName() ,dvc.collect(resultTestSuite).toString().replaceAll(",", "."), dvc.getName()));
 		}
-		return result;
+		return resultPairs;
 	}
 	
 	public IExecutableTreatment getTarget() {

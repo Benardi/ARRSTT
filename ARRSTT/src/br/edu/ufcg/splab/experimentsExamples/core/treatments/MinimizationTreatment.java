@@ -44,4 +44,9 @@ public class MinimizationTreatment implements IExecutableTreatment {
 	public String toString() {
 		return technique.toString();
 	}
+	
+	@Override
+	public String getName() {
+		return "Minimization";
+	}
 }

@@ -1,9 +1,7 @@
-package br.edu.ufcg.splab.experimentsExamples.core.experiments;
+package br.edu.ufcg.splab.arrsttFramework;
 
 import java.util.List;
 
-import br.edu.ufcg.splab.arrsttFramework.IRunner;
-import br.edu.ufcg.splab.arrsttFramework.ISetup;
 import br.edu.ufcg.splab.arrsttFramework.util.ExperimentDataGroup;
 /*
  * Change														Author				Date

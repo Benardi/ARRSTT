@@ -33,4 +33,6 @@ public interface InterfaceSelectionTechnique {
 	 * @return the sub test suite desired.
 	 */
 	public TestSuite select(TestSuite testSuite, Double percentage);
+	
+	public String getName();
 }

@@ -3,10 +3,11 @@ package br.edu.ufcg.splab.experimentsExamples.core.runners;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.arrsttFramework.DataFormater;
 import br.edu.ufcg.splab.arrsttFramework.IRunner;
 import br.edu.ufcg.splab.arrsttFramework.util.Artifact;
 import br.edu.ufcg.splab.arrsttFramework.util.ExperimentDataGroup;
-import br.edu.ufcg.splab.experimentsExamples.util.ArresttConstants;
+import br.edu.ufcg.splab.experimentsExamples.util.ResultData;
 
 /*
  * Change														Author				Date
@@ -23,8 +24,7 @@ import br.edu.ufcg.splab.experimentsExamples.util.ArresttConstants;
  *
  */
 public class MyExperimentRunner implements IRunner {
-	private int lineSize;
-	private String headerRowText;
+	private DataFormater formater;
 	
 	/**
 	 * MyExperimentRunner's constructor.
@@ -33,9 +33,8 @@ public class MyExperimentRunner implements IRunner {
 	 * @param lineSize
 	 * 			How long a line will go.
 	 */
-	public MyExperimentRunner(String headerRowText, int lineSize) {
-		this.lineSize = lineSize;
-		this.headerRowText = headerRowText;
+	public MyExperimentRunner(DataFormater formater) {
+		this.formater = formater;
 	}
 
 	/**
@@ -49,68 +48,52 @@ public class MyExperimentRunner implements IRunner {
 	 */
 	@Override
 	public List<ExperimentDataGroup> runExperiment(List<Artifact> artifacts) {
-		List<StringBuffer> results = new ArrayList<>();
+		List<ResultData> results = new ArrayList<>();
 
 		for (Artifact art : artifacts) {
-			results.add(art.getDVCResults());
+			results.addAll(art.getDVCResults());
 		}
-		StringBuffer fileResult = new StringBuffer();
-		StringBuffer reductionResult = new StringBuffer();
-		StringBuffer sizeResult = new StringBuffer();
-		StringBuffer testSuiteResult = new StringBuffer();
-		StringBuffer timeResult = new StringBuffer();
-		StringBuffer mmmResult = new StringBuffer();
-		StringBuffer coverageResult = new StringBuffer();
-
-		writeHeaderRow(fileResult, reductionResult, sizeResult, testSuiteResult, timeResult, mmmResult, coverageResult);
-
-		for (int i = 0; i < results.size(); i++) {
-
-			StringBuffer partialResult = results.get(i);
-			String aux = partialResult.toString();
-			String[] split = aux.split("meu_divisor");
-
-			fileResult.append(split[0] + "\t");
-			reductionResult.append(split[1] + "\t");
-			sizeResult.append(split[2] + "\t");
-			testSuiteResult.append(split[3] + "\t");
-			timeResult.append(split[4] + "\t");
-			mmmResult.append(split[5] + "\t");
-			coverageResult.append(split[6] + "\t");
-
-			if ((i + 1) % lineSize == 0) {
-				fileResult.append(ArresttConstants.LINE_SEPARATOR);
-				reductionResult.append(ArresttConstants.LINE_SEPARATOR);
-				sizeResult.append(ArresttConstants.LINE_SEPARATOR);
-				testSuiteResult.append(ArresttConstants.LINE_SEPARATOR);
-				timeResult.append(ArresttConstants.LINE_SEPARATOR);
-				mmmResult.append(ArresttConstants.LINE_SEPARATOR);
-				coverageResult.append(ArresttConstants.LINE_SEPARATOR);
+		List<ResultData> fileResult = new ArrayList<>();
+		List<ResultData> reductionResult = new ArrayList<>();
+		List<ResultData> sizeResult = new ArrayList<>();
+		List<ResultData> testSuiteResult = new ArrayList<>();
+		List<ResultData> timeResult = new ArrayList<>();
+		List<ResultData> mmmResult = new ArrayList<>();
+		List<ResultData> coverageResult = new ArrayList<>();
+		
+		for(ResultData data : results){
+			if(data.getDvcString().equals("Failures by file")){
+				fileResult.add(data);
+			} else if(data.getDvcString().equals("Reduction")){
+				reductionResult.add(data);
+			} else if(data.getDvcString().equals("Final Size")){
+				sizeResult.add(data);
+			} else if(data.getDvcString().equals("Final Suite")){
+				testSuiteResult.add(data);
+			} else if(data.getDvcString().equals("Time")){
+				timeResult.add(data);
+			} else if(data.getDvcString().equals("MediaMaxMin")){
+				mmmResult.add(data);
+			} else if(data.getDvcString().equals("Coverage")){
+				coverageResult.add(data);
 			}
 		}
-
+		
+		
 		List<ExperimentDataGroup> finalResults = new ArrayList<>();
-		finalResults.add(new ExperimentDataGroup("FailuresByFile_Dvc", fileResult.toString()));
-		finalResults.add(new ExperimentDataGroup("TSReduction_Dvc", reductionResult.toString()));
-		finalResults.add(new ExperimentDataGroup("TSFinalSize_Dvc", sizeResult.toString()));
-		finalResults.add(new ExperimentDataGroup("TSFinal_Dcv", testSuiteResult.toString()));
-		finalResults.add(new ExperimentDataGroup("Time_Dvc", timeResult.toString()));
-		finalResults.add(new ExperimentDataGroup("MediaMaxMin_Dvc", mmmResult.toString()));
-		finalResults.add(new ExperimentDataGroup("Coverage_Dvc", coverageResult.toString()));
-
+		finalResults.add(new ExperimentDataGroup("FailuresByFile_Dvc", formater.format(fileResult).toString()));
+		finalResults.add(new ExperimentDataGroup("TSReduction_Dvc", formater.format(reductionResult).toString()));
+		finalResults.add(new ExperimentDataGroup("TSFinalSize_Dvc", formater.format(sizeResult).toString()));
+		finalResults.add(new ExperimentDataGroup("TSFinal_Dcv", formater.format(testSuiteResult).toString()));
+		finalResults.add(new ExperimentDataGroup("Time_Dvc", formater.format(timeResult).toString()));
+		finalResults.add(new ExperimentDataGroup("MediaMaxMin_Dvc", formater.format(mmmResult).toString()));
+		finalResults.add(new ExperimentDataGroup("Coverage_Dvc", formater.format(coverageResult).toString()));
+		
 		return finalResults;
 	}
 	
-	/**
-	 * <b>Objective:</b> Create a new line with its header. <br>
-	 * <b>Example of use:</b> In this class this method is used to separate lines
-	 * 
-	 * @param stringBuffers
-	 * 				The string buffer used to construct the result.
-	 */
-	private void writeHeaderRow(StringBuffer... stringBuffers) {
-		for (int i = 0; i < stringBuffers.length; i++) {
-			stringBuffers[i].append(headerRowText + ArresttConstants.LINE_SEPARATOR);
-		}
+	public void setFormater(DataFormater formater){
+		this.formater = formater;
 	}
+	
 }

@@ -34,5 +34,10 @@ public class RedundanceCollector implements IDvc {
 		return redundance;
 		
 	}
+	
+	@Override
+	public String getName(){
+		return "Redundance";
+	}
 
 }

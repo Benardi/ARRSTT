@@ -36,5 +36,10 @@ public class NoneTreatment implements IExecutableTreatment {
 	public TestSuite execute() {
 		return ts;
 	}
+	
+	@Override
+	public String getName() {
+		return "None";
+	}
 
 }

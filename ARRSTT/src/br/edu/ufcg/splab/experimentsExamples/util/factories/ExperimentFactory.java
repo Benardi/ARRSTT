@@ -4,10 +4,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.arrsttFramework.Experiment;
 import br.edu.ufcg.splab.arrsttFramework.IRunner;
 import br.edu.ufcg.splab.arrsttFramework.ISetup;
 import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
-import br.edu.ufcg.splab.experimentsExamples.core.experiments.Experiment;
+import br.edu.ufcg.splab.experimentsExamples.core.formaters.DefaultFormater;
+import br.edu.ufcg.splab.experimentsExamples.core.formaters.TableFormater;
 import br.edu.ufcg.splab.experimentsExamples.core.runners.MyExperimentRunner;
 import br.edu.ufcg.splab.experimentsExamples.core.setups.MyMinimizationSetup;
 import br.edu.ufcg.splab.experimentsExamples.core.setups.MySelectionSetup;
@@ -34,7 +36,7 @@ public class ExperimentFactory {
 		
 		double selectionPercentage = 0.5;		
 		ISetup setup = new MySelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
-		IRunner runner = new MyExperimentRunner(headerRow, selectionTechniques.size());
+		IRunner runner = new MyExperimentRunner(new DefaultFormater());
 		
 		return new Experiment(setup, runner);
 	}
@@ -50,7 +52,7 @@ public class ExperimentFactory {
 		String headerRow = "G\tGE\tGRE\tH";
 		
 		ISetup setup = new MyMinimizationSetup(testSuites, enumMinimizationTechniques, RequirementBuilders.ATCoverage, files, replications);
-		IRunner runner = new MyExperimentRunner(headerRow, enumMinimizationTechniques.size());
+		IRunner runner = new MyExperimentRunner(new DefaultFormater());
 		
 		return new Experiment(setup, runner);
 	}

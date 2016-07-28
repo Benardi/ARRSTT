@@ -1,0 +1,6 @@
+Random 0.75
+Similarity 0.75
+Random 0.75
+Similarity 0.75
+Random 1.00
+Similarity 1.00
