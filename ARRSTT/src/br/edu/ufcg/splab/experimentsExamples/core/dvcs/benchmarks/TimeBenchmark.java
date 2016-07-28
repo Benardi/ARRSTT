@@ -27,4 +27,9 @@ public class TimeBenchmark implements InterfaceBenchmark {
 	public StringBuffer collect(TestSuite testSuite) {
 		return new StringBuffer(time + "");
 	}
+	
+	@Override
+	public String getName(){
+		return "Time";
+	}
 }

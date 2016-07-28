@@ -75,4 +75,8 @@ public class SmallestTechnique implements InterfaceSelectionTechnique {
 		result.add(new TestCase(testSuite.get(minIndex)));
 
 	}
+	
+	public String getName(){
+		return "Smallest";
+	}
 }

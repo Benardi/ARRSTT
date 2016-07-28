@@ -1,4 +1,4 @@
-package br.edu.ufcg.splab;
+package br.edu.ufcg.splab.experimentsExamples;
 
 import java.io.File;
 
@@ -16,7 +16,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		facade = new ARRSTTFacade();
 		experiment1();
-		System.out.println("OK");
+		System.out.println("Experiment's execution finished");
 	}
 	
 	/**

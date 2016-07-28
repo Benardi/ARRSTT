@@ -13,5 +13,10 @@ public class FinalSuiteCollector implements IDvc {
 	public StringBuffer collect(TestSuite t) {
 		return new StringBuffer("----- " + "NEW TEST SUITE" + " -----" + t.toString());
 	}
+	
+	@Override
+	public String getName(){
+		return "Final Suite";
+	}
 
 }

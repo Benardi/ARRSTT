@@ -68,4 +68,8 @@ public class SelectionTreatment implements IExecutableTreatment {
 	public String toString() {
 		return testSuite.toString();
 	}
+	@Override
+	public String getName() {
+		return selectionObject.getName();
+	}
 }

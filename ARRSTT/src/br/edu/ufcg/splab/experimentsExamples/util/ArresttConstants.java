@@ -9,5 +9,6 @@ public class ArresttConstants {
 	
 	public static final String TGF = ".tgf";
 	public static final String XML = ".xml";
+	public static final String MY_DIVISOR = "My_divisor";
 	public static final String[] extensions = {TGF, XML};
 }

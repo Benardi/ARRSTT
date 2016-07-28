@@ -30,5 +30,10 @@ public class DefectiveEdgesCollector implements IDvc {
 	public String toString() {
 		return "DV DefectiveEdges";
 	}
+	
+	@Override
+	public String getName(){
+		return "Defective Edge";
+	}
 
 }

@@ -4,10 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ufcg.splab.arrsttFramework.Experiment;
 import br.edu.ufcg.splab.arrsttFramework.util.ExperimentDataGroup;
 import br.edu.ufcg.splab.arrsttFramework.util.testCollections.TestSuite;
 import br.edu.ufcg.splab.exceptions.ARRSTTException;
-import br.edu.ufcg.splab.experimentsExamples.core.experiments.Experiment;
 import br.edu.ufcg.splab.experimentsExamples.util.factories.ExperimentFactory;
 import br.edu.ufcg.splab.io.IOClass;
 

@@ -40,5 +40,10 @@ public class MediaMaxMinCollector implements IDvc {
 		
 		return new MediaMaxMin(media, max, min);
 	}
+	
+	@Override
+	public String getName(){
+		return "MediaMaxMin";
+	}
 
 }

@@ -76,5 +76,9 @@ public class BiggestTechnique implements InterfaceSelectionTechnique {
 		result.add(new TestCase(testSuite.get(maxIndex)));
 
 	}
+	
+	public String getName(){
+		return "Biggest";
+	}
 
 }

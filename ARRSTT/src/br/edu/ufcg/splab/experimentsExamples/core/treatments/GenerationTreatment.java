@@ -107,4 +107,9 @@ public class GenerationTreatment implements IExecutableTreatment {
 		testSuite = searchObject.getTestSuite(root, loopCoverage);
 		return testSuite;
 	}
+
+	@Override
+	public String getName() {
+		return "Generation";
+	}
 }

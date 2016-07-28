@@ -98,4 +98,8 @@ public class SimilarityTechnique implements InterfaceSelectionTechnique {
 			if (selectedTS.get(i) == null)
 				selectedTS.remove(i);
 	}
+	
+	public String getName(){
+		return "Similarity";
+	}
 }

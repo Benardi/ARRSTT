@@ -39,6 +39,11 @@ public class CoverageCollector implements IDvc{
 		double result = 1.0* changedTestSuite.size() / originalTransitionSet.size();
 		return new StringBuffer(String.format("%.2f", result));
 	}
+	
+	@Override
+	public String getName(){
+		return "Coverage";
+	}
 
 
 

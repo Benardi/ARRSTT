@@ -61,4 +61,8 @@ public class RandomTechnique implements InterfaceSelectionTechnique {
 	private int getAmountOfTestCases(TestSuite ts, Double percentage) {
 		return (int) Math.ceil(ts.size() * percentage);
 	}
+	
+	public String getName(){
+		return "Random";
+	}
 }

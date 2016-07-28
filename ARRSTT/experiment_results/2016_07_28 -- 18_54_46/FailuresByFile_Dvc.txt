@@ -1,0 +1,6 @@
+Random 1.0
+Similarity 1.0
+Random 1.0
+Similarity 1.0
+Random 0.0
+Similarity 0.0

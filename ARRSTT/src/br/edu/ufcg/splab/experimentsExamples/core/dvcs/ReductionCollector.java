@@ -23,4 +23,9 @@ public class ReductionCollector implements IDvc {
 		return new StringBuffer(String.format("%.2f", reductionPercentage).replaceFirst(",", "."));
 	}
 	
+	@Override
+	public String getName(){
+		return "Reduction";
+	}
+	
 }

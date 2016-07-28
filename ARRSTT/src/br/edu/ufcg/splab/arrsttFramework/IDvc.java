@@ -36,4 +36,6 @@ public interface IDvc {
 	 * @return The StringBuffer containing the dependent variable's data
 	 */
 	public StringBuffer collect(TestSuite t);
+	
+	public String getName();
 }

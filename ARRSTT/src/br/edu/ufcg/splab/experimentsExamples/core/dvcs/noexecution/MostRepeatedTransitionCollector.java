@@ -68,5 +68,10 @@ public class MostRepeatedTransitionCollector implements IDvc {
 		}
 		return map;
 	}
+	
+	@Override
+	public String getName(){
+		return "Most Repeated Transition";
+	}
 
 }

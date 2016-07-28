@@ -73,5 +73,9 @@ public class FailuresByFileCollector implements IDvc {
 			}
 		}
 	}
-
+	
+	@Override
+	public String getName(){
+		return "Failures by file";
+	}
 }

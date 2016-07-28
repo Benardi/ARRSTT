@@ -30,5 +30,10 @@ public class FailuresCollector implements IDvc {
 	public String toString() {
 		return "DV Failures";
 	}
+	
+	@Override
+	public String getName(){
+		return "Failures";
+	}
 
 }
