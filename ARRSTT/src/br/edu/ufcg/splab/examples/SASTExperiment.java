@@ -16,22 +16,26 @@ import br.edu.ufcg.splab.experimentsExamples.techniques.selection.RandomTechniqu
 import br.edu.ufcg.splab.experimentsExamples.techniques.selection.SimilarityTechnique;
 
 public class SASTExperiment {
-	public Experiment setup(List<TestSuite> testSuites, File[] files, int replications) {
+	public Experiment createExperiment() {
+		List<TestSuite> testSuites = new ArrayList<TestSuite>();
+		File[] defectFiles = new File[1];
+		int replications = 10;
 		
+		ISetup sastSetup = createSetup(testSuites, defectFiles, replications);
+		IRunner sastRunner = createRunner();
+		return new Experiment(sastSetup, sastRunner);
+	}
+	
+	public ISetup createSetup(List<TestSuite> testSuites, File[] files, int replications) {
 		List<InterfaceSelectionTechnique> selectionTechniques = new ArrayList<>();
 		selectionTechniques.add(new RandomTechnique());
 		selectionTechniques.add(new SimilarityTechnique());
 		
-		String headerRow = "RANDOM\tSIMILARITY";
-		
 		double selectionPercentage = 0.5;		
-		ISetup setup = new MySelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
-		IRunner runner = new MyExperimentRunner(new DefaultFormater());
-		
-		return new Experiment(setup, runner);
+		return new MySelectionSetup(testSuites, selectionTechniques, selectionPercentage, files, replications);
 	}
 	
-	public void run() {
-		
+	public IRunner createRunner() {
+		return new MyExperimentRunner(new DefaultFormater());
 	}
 }
